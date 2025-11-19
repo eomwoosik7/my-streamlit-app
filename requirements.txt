@@ -1,0 +1,12 @@
+streamlit==1.38.0
+duckdb==1.1.0
+pandas==2.3.2
+plotly==5.22.0
+pandas_ta==0.4.71b0
+pykrx==1.0.51
+yfinance==0.2.40
+numpy==2.2.6  # 업그레이드!
+requests==2.32.3
+beautifulsoup4==4.12.3
+schedule==1.2.2
+setuptools>=65.0.0
