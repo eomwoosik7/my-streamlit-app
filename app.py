@@ -24,6 +24,9 @@ warnings.filterwarnings("ignore", category=UserWarning, module="pykrx")
 @st.cache_data
 def load_data():
     DB_PATH = "data/meta/universe.db"
+    if not os.path.exists(DB_PATH):
+        st.warning("데이터 없음 – 배치 실행하세요.")
+        return pd.DataFrame()  # 빈 데이터 반환
     con = duckdb.connect(DB_PATH, read_only=True)
     df_ind = con.execute("SELECT * FROM indicators").fetchdf()
     con.close()
