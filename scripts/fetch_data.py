@@ -44,13 +44,18 @@ def get_kr_tickers():
 def get_us_symbols():
     url = 'https://en.wikipedia.org/wiki/List_of_S%26P_500_companies'
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
-    response = requests.get(url, headers=headers)
-    soup = BeautifulSoup(response.text, 'html.parser')
-    table = soup.find('table', {'id': 'constituents'})
-    df_us = pd.read_html(str(table))[0]
-    us_symbols = df_us['Symbol'].str.replace('.', '-', regex=False).tolist()
-    print(f"US 상위 {len(us_symbols)}개 로드")
-    return us_symbols
+    try:
+        response = requests.get(url, headers=headers)
+        response.raise_for_status()
+        soup = BeautifulSoup(response.text, 'html.parser')
+        table = soup.find('table', {'id': 'constituents'})
+        df_us = pd.read_html(str(table))[0]
+        us_symbols = df_us['Symbol'].str.replace('.', '-', regex=False).tolist()
+        print(f"US 상위 {len(us_symbols)}개 로드")
+        return us_symbols
+    except Exception as e:
+        print(f"US 심볼 로드 실패: {e}")
+        return []
 
 def fetch_us_single(symbol, start_date):
     try:
@@ -104,13 +109,27 @@ def get_us_meta_single(symbol):
     return symbol, float(cap), name, per, eps
 
 if __name__ == '__main__':
-    for folder in ['kr_daily', 'us_daily', 'meta']:
+    for folder in ['kr_daily', 'us_daily']:
         path = os.path.join(DATA_DIR, folder)
         if os.path.exists(path):
             shutil.rmtree(path)
             print(f"{folder} 폴더 완전 삭제 완료!")
         os.makedirs(path, exist_ok=True)
-
+    
+    # meta 폴더는 삭제하지 않고 유지
+    meta_dir = os.path.join(DATA_DIR, 'meta')
+    os.makedirs(meta_dir, exist_ok=True)
+    meta_file = os.path.join(meta_dir, 'tickers_meta.json')
+    
+    # 기존 meta.json 로드 (없으면 빈 dict)
+    if os.path.exists(meta_file):
+        with open(meta_file, 'r', encoding='utf-8') as f:
+            old_meta = json.load(f)
+        print("기존 meta.json 로드 완료")
+    else:
+        old_meta = {'KR': {}, 'US': {}}
+        print("기존 meta.json 없음 – 새로 생성")
+    
     start_date = (datetime.now() - timedelta(days=730)).strftime('%Y-%m-%d')
     kr_tickers, df_kr, kr_date_str = get_kr_tickers()
     us_symbols = get_us_symbols()
@@ -125,27 +144,52 @@ if __name__ == '__main__':
         with Pool(4) as pool:
             pool.starmap(fetch_kr_single, [(t, start_date) for t in batch])
         time.sleep(2)
+    
+    # KR 메타 업데이트
+    kr_meta = old_meta.get('KR', {})
+    if kr_tickers and not df_kr.empty:
+        try:
+            fundamental = stock.get_market_fundamental_by_ticker(kr_date_str)
+        except:
+            fundamental = pd.DataFrame()
+            print("KR fundamental 로드 실패 – 기존 데이터 유지")
+        for ticker in kr_tickers:
+            try:
+                cap = float(df_kr.loc[ticker, '시가총액']) if ticker in df_kr.index else kr_meta.get(ticker, {}).get('cap', 0.0)
+                name = stock.get_market_ticker_name(ticker) or kr_meta.get(ticker, {}).get('name', "N/A")
+                per = round(fundamental.loc[ticker, 'PER'], 2) if ticker in fundamental.index and not pd.isna(fundamental.loc[ticker, 'PER']) else kr_meta.get(ticker, {}).get('per', 0.0)
+                eps = round(fundamental.loc[ticker, 'EPS'], 2) if ticker in fundamental.index and not pd.isna(fundamental.loc[ticker, 'EPS']) else kr_meta.get(ticker, {}).get('eps', 0.0)
+                kr_meta[ticker] = {'name': name, 'cap': cap, 'per': per, 'eps': eps}
+            except Exception as e:
+                print(f"KR {ticker} 업데이트 실패: {e} – 기존 유지")
+                if ticker in old_meta.get('KR', {}):
+                    kr_meta[ticker] = old_meta['KR'][ticker]
+    else:
+        print("KR 티커 로드 실패 – 기존 KR meta 유지")
 
-    # KR 메타
-    kr_meta = {}
-    try:
-        fundamental = stock.get_market_fundamental_by_ticker(kr_date_str)
-    except:
-        fundamental = pd.DataFrame()
-    for ticker in kr_tickers:
-        cap = float(df_kr.loc[ticker, '시가총액']) if ticker in df_kr.index else 0.0
-        name = stock.get_market_ticker_name(ticker)
-        per = round(fundamental.loc[ticker, 'PER'], 2) if ticker in fundamental.index and not pd.isna(fundamental.loc[ticker, 'PER']) else 0.0
-        eps = round(fundamental.loc[ticker, 'EPS'], 2) if ticker in fundamental.index and not pd.isna(fundamental.loc[ticker, 'EPS']) else 0.0
-        kr_meta[ticker] = {'name': name, 'cap': cap, 'per': per, 'eps': eps}
-
-    # US 메타
-    us_meta = {}
-    print("US 메타 수집 시작 (shares×close + PER + EPS)")
-    with ThreadPoolExecutor(max_workers=10) as executor:
-        results = executor.map(get_us_meta_single, us_symbols)
-    for symbol, cap, name, per, eps in results:
-        us_meta[symbol] = {'name': name if name != "N/A" else "Unknown", 'cap': cap, 'per': per, 'eps': eps}
+    # US 메타 업데이트
+    us_meta = old_meta.get('US', {})
+    if us_symbols:
+        print("US 메타 수집 시작 (shares×close + PER + EPS)")
+        with ThreadPoolExecutor(max_workers=10) as executor:
+            results = executor.map(get_us_meta_single, us_symbols)
+        for symbol, cap, name, per, eps in results:
+            try:
+                if cap == 0.0:
+                    cap = us_meta.get(symbol, {}).get('cap', 0.0)
+                if name == "N/A":
+                    name = us_meta.get(symbol, {}).get('name', "N/A")
+                if per == 0.0:
+                    per = us_meta.get(symbol, {}).get('per', 0.0)
+                if eps == 0.0:
+                    eps = us_meta.get(symbol, {}).get('eps', 0.0)
+                us_meta[symbol] = {'name': name, 'cap': cap, 'per': per, 'eps': eps}
+            except Exception as e:
+                print(f"US {symbol} 업데이트 실패: {e} – 기존 유지")
+                if symbol in old_meta.get('US', {}):
+                    us_meta[symbol] = old_meta['US'][symbol]
+    else:
+        print("US 심볼 로드 실패 – 기존 US meta 유지")
 
     # json 저장 전 numpy int → float 변환 (에러 해결)
     def convert_np(obj):
@@ -160,9 +204,8 @@ if __name__ == '__main__':
     kr_meta = convert_np(kr_meta)
     us_meta = convert_np(us_meta)
 
-    meta_file = os.path.join(DATA_DIR, 'meta', 'tickers_meta.json')
     with open(meta_file, 'w', encoding='utf-8') as f:
         json.dump({'KR': kr_meta, 'US': us_meta}, f, ensure_ascii=False, indent=2)
 
-    print("모든 작업 완료! daily + meta 모두 오늘 최신 데이터로 생성됨")
+    print("모든 작업 완료! daily 새로 생성, meta 업데이트됨")
     print(f"저장 위치: {meta_file}")
