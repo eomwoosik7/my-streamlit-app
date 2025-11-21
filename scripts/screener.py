@@ -104,7 +104,7 @@ def run_screener(top_n=50, use_us=True, use_kr=True):
         )
         df_filtered = df[market_filter].copy()
 
-        # 핵심 조건 3개만 적용
+        # 핵심 조건 3개 적용
         obv_bullish = (df_filtered['obv_latest'] > df_filtered['signal_obv_latest']) & \
                       (df_filtered['obv_1ago'] <= df_filtered['signal_obv_1ago'])
 
@@ -114,8 +114,14 @@ def run_screener(top_n=50, use_us=True, use_kr=True):
 
         per_filter = (df_filtered['per'] >= 3) & (df_filtered['per'] <= 30) & (df_filtered['eps'] > 0)
 
-        # 최종 필터링 (유동성 조건 완전 제거!)
-        results = df_filtered[obv_bullish & rsi_3up & per_filter].copy()
+        # 유동성(시총) 필터 추가
+        liquidity_filter = (
+            ((df_filtered['market'] == 'US') & (df_filtered['market_cap'] >= 2000000000.0)) |
+            ((df_filtered['market'] == 'KR') & (df_filtered['market_cap'] >= 200000000000.0))
+        )
+
+        # 최종 필터링 (모든 조건 적용)
+        results = df_filtered[obv_bullish & rsi_3up & per_filter & liquidity_filter].copy()
 
         # RSI 낮은 순 정렬 → 상위 top_n개
         results = results.sort_values('rsi_d_latest').head(top_n)
