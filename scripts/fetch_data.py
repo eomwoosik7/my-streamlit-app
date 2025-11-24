@@ -15,6 +15,19 @@ import numpy as np  # json 저장용 추가
 DATA_DIR = os.getenv('DATA_DIR', './data')
 os.makedirs(DATA_DIR, exist_ok=True)
 
+# 추가: 시작 시 DB와 스크리너 결과 파일 삭제
+META_DIR = os.path.join(DATA_DIR, 'meta')
+DB_PATH = os.path.join(META_DIR, 'universe.db')
+RESULTS_PATH = os.path.join(META_DIR, 'screener_results.parquet')
+
+if os.path.exists(DB_PATH):
+    os.remove(DB_PATH)
+    print("universe.db 삭제 완료!")
+
+if os.path.exists(RESULTS_PATH):
+    os.remove(RESULTS_PATH)
+    print("screener_results.parquet 삭제 완료!")
+
 def get_kr_tickers():
     today = datetime.now()
     df_kr = None
@@ -116,12 +129,10 @@ if __name__ == '__main__':
             print(f"{folder} 폴더 완전 삭제 완료!")
         os.makedirs(path, exist_ok=True)
     
-    # meta 폴더는 삭제하지 않고 유지
     meta_dir = os.path.join(DATA_DIR, 'meta')
     os.makedirs(meta_dir, exist_ok=True)
     meta_file = os.path.join(meta_dir, 'tickers_meta.json')
     
-    # 기존 meta.json 로드 (없으면 빈 dict)
     if os.path.exists(meta_file):
         with open(meta_file, 'r', encoding='utf-8') as f:
             old_meta = json.load(f)
@@ -155,11 +166,18 @@ if __name__ == '__main__':
             print("KR fundamental 로드 실패 – 기존 데이터 유지")
         for ticker in kr_tickers:
             try:
-                cap = float(df_kr.loc[ticker, '시가총액']) if ticker in df_kr.index else kr_meta.get(ticker, {}).get('cap', 0.0)
+                new_cap = float(df_kr.loc[ticker, '시가총액']) if ticker in df_kr.index else 0.0
+                old_cap = kr_meta.get(ticker, {}).get('cap', 0.0)
+                if new_cap > 0:
+                    cap = new_cap
+                    cap_status = "최신"
+                else:
+                    cap = old_cap
+                    cap_status = "기존"
                 name = stock.get_market_ticker_name(ticker) or kr_meta.get(ticker, {}).get('name', "N/A")
                 per = round(fundamental.loc[ticker, 'PER'], 2) if ticker in fundamental.index and not pd.isna(fundamental.loc[ticker, 'PER']) else kr_meta.get(ticker, {}).get('per', 0.0)
                 eps = round(fundamental.loc[ticker, 'EPS'], 2) if ticker in fundamental.index and not pd.isna(fundamental.loc[ticker, 'EPS']) else kr_meta.get(ticker, {}).get('eps', 0.0)
-                kr_meta[ticker] = {'name': name, 'cap': cap, 'per': per, 'eps': eps}
+                kr_meta[ticker] = {'name': name, 'cap': cap, 'cap_status': cap_status, 'per': per, 'eps': eps}
             except Exception as e:
                 print(f"KR {ticker} 업데이트 실패: {e} – 기존 유지")
                 if ticker in old_meta.get('KR', {}):
@@ -173,17 +191,22 @@ if __name__ == '__main__':
         print("US 메타 수집 시작 (shares×close + PER + EPS)")
         with ThreadPoolExecutor(max_workers=10) as executor:
             results = executor.map(get_us_meta_single, us_symbols)
-        for symbol, cap, name, per, eps in results:
+        for symbol, new_cap, name, per, eps in results:
             try:
-                if cap == 0.0:
-                    cap = us_meta.get(symbol, {}).get('cap', 0.0)
+                old_cap = us_meta.get(symbol, {}).get('cap', 0.0)
+                if new_cap > 0:
+                    cap = new_cap
+                    cap_status = "최신"
+                else:
+                    cap = old_cap
+                    cap_status = "기존"
                 if name == "N/A":
                     name = us_meta.get(symbol, {}).get('name', "N/A")
                 if per == 0.0:
                     per = us_meta.get(symbol, {}).get('per', 0.0)
                 if eps == 0.0:
                     eps = us_meta.get(symbol, {}).get('eps', 0.0)
-                us_meta[symbol] = {'name': name, 'cap': cap, 'per': per, 'eps': eps}
+                us_meta[symbol] = {'name': name, 'cap': cap, 'cap_status': cap_status, 'per': per, 'eps': eps}
             except Exception as e:
                 print(f"US {symbol} 업데이트 실패: {e} – 기존 유지")
                 if symbol in old_meta.get('US', {}):

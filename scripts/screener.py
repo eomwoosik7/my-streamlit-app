@@ -36,7 +36,8 @@ def ensure_db_exists():
                 today_trading_value DOUBLE,
                 turnover DOUBLE,
                 per DOUBLE,
-                eps DOUBLE
+                eps DOUBLE,
+                cap_status VARCHAR  # 추가
             )
         """)
         con_temp.close()
@@ -61,7 +62,6 @@ def run_screener(top_n=50, use_us=True, use_kr=True):
         df = con.execute("SELECT * FROM indicators").fetchdf()
         print(f"전체 데이터 로드: {len(df)}행")
 
-        # JSON 안전 파싱 함수
         def parse_json_array(col, num_vals=3):
             def safe_parse(x):
                 if pd.isna(x) or not isinstance(x, str) or len(x) <= 2:
@@ -74,29 +74,24 @@ def run_screener(top_n=50, use_us=True, use_kr=True):
             parsed = df[col].apply(safe_parse).apply(pd.Series)
             return parsed.iloc[:, :num_vals]
 
-        # RSI 파싱 (3일)
         rsi_parsed = parse_json_array('rsi_d', 3)
         df['rsi_d_2ago'] = rsi_parsed[0]
         df['rsi_d_1ago'] = rsi_parsed[1]
         df['rsi_d_latest'] = rsi_parsed[2]
 
-        # OBV 파싱
         obv_parsed = parse_json_array('obv_d', 3)
-        df['obv_latest'] = obv_parsed[0]   # 최신값 (compute에서 reverse 했음)
+        df['obv_latest'] = obv_parsed[0]   
         df['obv_1ago'] = obv_parsed[1]
 
         signal_obv_parsed = parse_json_array('signal_obv_d', 3)
         df['signal_obv_latest'] = signal_obv_parsed[0]
         df['signal_obv_1ago'] = signal_obv_parsed[1]
 
-        # PER/EPS는 DB에 이미 있음 (compute_indicators.py에서 추가됨)
-        # 만약 없으면 0으로 처리
         if 'per' not in df.columns:
             df['per'] = 0.0
         if 'eps' not in df.columns:
             df['eps'] = 0.0
 
-        # 시장 필터링
         market_filter = df['market'].isin(
             ['US'] if use_us and not use_kr else
             ['KR'] if use_kr and not use_us else
@@ -104,7 +99,6 @@ def run_screener(top_n=50, use_us=True, use_kr=True):
         )
         df_filtered = df[market_filter].copy()
 
-        # 핵심 조건 3개 적용
         obv_bullish = (df_filtered['obv_latest'] > df_filtered['signal_obv_latest']) & \
                       (df_filtered['obv_1ago'] <= df_filtered['signal_obv_1ago'])
 
@@ -114,30 +108,25 @@ def run_screener(top_n=50, use_us=True, use_kr=True):
 
         per_filter = (df_filtered['per'] >= 3) & (df_filtered['per'] <= 30) & (df_filtered['eps'] > 0)
 
-        # 유동성(시총) 필터 추가
         liquidity_filter = (
             ((df_filtered['market'] == 'US') & (df_filtered['market_cap'] >= 2000000000.0)) |
             ((df_filtered['market'] == 'KR') & (df_filtered['market_cap'] >= 200000000000.0))
         )
 
-        # 최종 필터링 (모든 조건 적용)
         results = df_filtered[obv_bullish & rsi_3up & per_filter & liquidity_filter].copy()
 
-        # RSI 낮은 순 정렬 → 상위 top_n개
         results = results.sort_values('rsi_d_latest').head(top_n)
 
-        # 소수점 정리
         numeric_cols = results.select_dtypes(include=['float64']).columns
         for col in numeric_cols:
             results[col] = results[col].round(2)
 
-        # 결과 저장 및 출력
         results_path = os.path.join(META_DIR, 'screener_results.parquet')
         results.to_parquet(results_path)
 
         print(f"\n스크리너 완료! 총 {len(results)}개 종목 선정")
         if not results.empty:
-            print(results[['symbol', 'name', 'rsi_d_latest', 'per', 'eps', 'market']].to_string(index=False))
+            print(results[['symbol', 'name', 'rsi_d_latest', 'per', 'eps', 'market', 'cap_status']].to_string(index=False))  # cap_status 추가
         else:
             print("조건에 맞는 종목이 없습니다.")
 

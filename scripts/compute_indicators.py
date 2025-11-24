@@ -83,26 +83,27 @@ def compute_indicators(symbol, market='US'):
         recent_obv = df_daily['OBV'].tail(3).round(0).tolist()[::-1]
         recent_obv_signal = df_daily['OBV_SIGNAL'].tail(3).round(0).tolist()[::-1]
         
-        # 메타에서 이름, 시총, PER, EPS 가져오기
+        # 메타에서 이름, 시총, PER, EPS, cap_status 가져오기
         meta = load_meta()
         meta_dict = meta.get(market, {})
         name_val = meta_dict.get(symbol, {}).get('name', 'N/A')
         market_cap = meta_dict.get(symbol, {}).get('cap', 0.0)
-        per_val = meta_dict.get(symbol, {}).get('per', 0.0)      # ← 추가
-        eps_val = meta_dict.get(symbol, {}).get('eps', 0.0)      # ← 추가
+        cap_status = meta_dict.get(symbol, {}).get('cap_status', "기존")
+        per_val = meta_dict.get(symbol, {}).get('per', 0.0)
+        eps_val = meta_dict.get(symbol, {}).get('eps', 0.0)
         
         df_daily['TradingValue'] = df_daily[close_col] * df_daily[vol_col]
         avg_20d = df_daily['TradingValue'].tail(20).mean()
         today_trading = df_daily['TradingValue'].iloc[-1]
         turnover = today_trading / market_cap if market_cap > 0 else 0
         
-        # PER, EPS 추가해서 반환 (총 14개 값)
+        # PER, EPS, cap_status 추가해서 반환 (총 15개 값)
         return (symbol, market, name_val,
                 json.dumps(recent_d_rsi),
                 json.dumps(recent_macd), json.dumps(recent_signal),
                 json.dumps(recent_obv), json.dumps(recent_obv_signal),
                 float(market_cap), float(avg_20d), float(today_trading), float(turnover),
-                float(per_val), float(eps_val))   # ← 새로 추가
+                float(per_val), float(eps_val), cap_status)   # cap_status 추가
         
     except Exception as e:
         print(f"{symbol} 에러: {e} – 스킵")
@@ -126,8 +127,9 @@ if __name__ == '__main__':
                     avg_trading_value_20d DOUBLE,
                     today_trading_value DOUBLE,
                     turnover DOUBLE,
-                    per DOUBLE,     -- ← 추가
-                    eps DOUBLE      -- ← 추가
+                    per DOUBLE,
+                    eps DOUBLE,
+                    cap_status VARCHAR  -- 추가: "기존" 또는 "최신"
                 )
             """)
             con_temp.close()
@@ -158,8 +160,9 @@ if __name__ == '__main__':
             avg_trading_value_20d DOUBLE,
             today_trading_value DOUBLE,
             turnover DOUBLE,
-            per DOUBLE,     -- ← 추가
-            eps DOUBLE      -- ← 추가
+            per DOUBLE,
+            eps DOUBLE,
+            cap_status VARCHAR  -- 추가
         )
     """)
     
@@ -185,7 +188,7 @@ if __name__ == '__main__':
     
     for row in all_results:
         con.execute(
-            "INSERT OR REPLACE INTO indicators VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",  # 14개
+            "INSERT OR REPLACE INTO indicators VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",  # 15개
             row
         )
     
