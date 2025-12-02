@@ -106,6 +106,12 @@ def run_screener(top_n=50, use_us=True, use_kr=True):
                   (df_filtered['rsi_d_1ago'] < df_filtered['rsi_d_latest']) & \
                   (df_filtered['rsi_d_latest'] <= 50)
 
+        rsi_3down = (df_filtered['rsi_d_2ago'] > df_filtered['rsi_d_1ago']) & \
+                    (df_filtered['rsi_d_1ago'] > df_filtered['rsi_d_latest']) & \
+                    (df_filtered['rsi_d_latest'] <= 50)
+
+        trading_high = df_filtered['today_trading_value'] > 1.5 * df_filtered['avg_trading_value_20d']
+
         per_filter = (df_filtered['per'] >= 3) & (df_filtered['per'] <= 30) & (df_filtered['eps'] > 0)
 
         liquidity_filter = (
@@ -113,22 +119,36 @@ def run_screener(top_n=50, use_us=True, use_kr=True):
             ((df_filtered['market'] == 'KR') & (df_filtered['market_cap'] >= 200000000000.0))
         )
 
+        # 장타: OBV 상승 + RSI 하강 + EPS/PER + 유동성
+        long_results = df_filtered[obv_bullish & rsi_3down & per_filter & liquidity_filter].copy()
+        long_results = long_results.sort_values('rsi_d_latest').head(top_n)
+        long_results_path = os.path.join(META_DIR, 'long_term_results.parquet')
+        long_results.to_parquet(long_results_path)
+        print(f"\n장타 완료! 총 {len(long_results)}개 종목 선정")
+        if not long_results.empty:
+            print(long_results[['symbol', 'name', 'rsi_d_latest', 'per', 'eps', 'market', 'cap_status']].to_string(index=False))
+
+        # 단타: OBV 상승 + RSI 상승 + 거래대금 + 유동성
+        short_results = df_filtered[obv_bullish & rsi_3up & trading_high & liquidity_filter].copy()
+        short_results = short_results.sort_values('rsi_d_latest').head(top_n)
+        short_results_path = os.path.join(META_DIR, 'short_term_results.parquet')
+        short_results.to_parquet(short_results_path)
+        print(f"\n단타 완료! 총 {len(short_results)}개 종목 선정")
+        if not short_results.empty:
+            print(short_results[['symbol', 'name', 'rsi_d_latest', 'today_trading_value', 'market', 'cap_status']].to_string(index=False))
+
+        # 기존 screener_results도 유지 (필요시)
         results = df_filtered[obv_bullish & rsi_3up & per_filter & liquidity_filter].copy()
-
         results = results.sort_values('rsi_d_latest').head(top_n)
-
         numeric_cols = results.select_dtypes(include=['float64']).columns
         for col in numeric_cols:
             results[col] = results[col].round(2)
-
         results_path = os.path.join(META_DIR, 'screener_results.parquet')
         results.to_parquet(results_path)
 
-        print(f"\n스크리너 완료! 총 {len(results)}개 종목 선정")
+        print(f"\n기존 스크리너 완료! 총 {len(results)}개 종목 선정")
         if not results.empty:
             print(results[['symbol', 'name', 'rsi_d_latest', 'per', 'eps', 'market', 'cap_status']].to_string(index=False))  # cap_status 추가
-        else:
-            print("조건에 맞는 종목이 없습니다.")
 
         return results
 
