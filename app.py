@@ -299,7 +299,7 @@ if 'selected_symbol' not in st.session_state:
 if 'con' not in st.session_state:
     st.session_state.con = None
 if 'current_tab' not in st.session_state:
-    st.session_state.current_tab = "장타"
+    st.session_state.current_tab = "장기"
 
 st.sidebar.title("설정")
 use_us = st.sidebar.checkbox("US 시장", value=True)
@@ -312,11 +312,11 @@ if st.sidebar.button("배치 실행"):
 df_ind = load_data()
 con = get_db_connection()
 
-tab1, tab8, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs(["장타", "단타", "OBV 상승 크로스", "RSI 상승 지속 (50 이하)", "RSI 하강 지속 (50 이하)", "EPS & PER", "거래대금", "Total"])
+tab1, tab8, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs(["장기", "단기", "OBV 상승 크로스", "RSI 상승 지속 (50 이하)", "RSI 하강 지속 (50 이하)", "EPS & PER", "거래대금", "Total"])
 
 with tab1:
-    st.session_state.current_tab = "장타"
-    st.header("장타 (OBV 상승크로스 + RSI 하강 지속 (50이하) + EPS & PER)")
+    st.session_state.current_tab = "장기"
+    st.header("장기 (OBV 상승크로스 + RSI 하강 지속 (50이하) + EPS & PER)")
     df_long_full = run_screener_query(con, "long_term", use_us, use_kr, top_n=None, additional_filter="eps_per")
     df_long = df_long_full
     df_long = add_names(df_long)
@@ -355,21 +355,21 @@ with tab1:
             st.subheader("해외 (US)")
             st.dataframe(df_us_results)
         
-        search_term = st.text_input("종목 검색 (장타)", placeholder="코드/회사명 입력", key="search_long")
+        search_term = st.text_input("종목 검색 (장기)", placeholder="코드/회사명 입력", key="search_long")
         filtered_symbols = get_filtered_symbols(df_long, search_term)
         if filtered_symbols:
-            selected_symbol = st.selectbox("종목 선택 (장타)", filtered_symbols, key="select_long")
+            selected_symbol = st.selectbox("종목 선택 (장기)", filtered_symbols, key="select_long")
             if selected_symbol != st.session_state.selected_symbol:
                 st.session_state.selected_symbol = selected_symbol
             if st.session_state.selected_symbol:
                 market = df_long[df_long['종목코드'] == st.session_state.selected_symbol]['시장'].iloc[0] if '시장' in df_long.columns else 'US'
                 show_graphs(st.session_state.selected_symbol, market)
     else:
-        st.info("장타 후보 없음")
+        st.info("장기 후보 없음")
 
 with tab8:
-    st.session_state.current_tab = "단타"
-    st.header("단타 (OBV 상승크로스 + RSI 상승 지속 (50이하) + 거래대금)")
+    st.session_state.current_tab = "단기"
+    st.header("단기 (OBV 상승크로스 + RSI 상승 지속 (50이하) + 거래대금)")
     df_short_full = run_screener_query(con, "short_term", use_us, use_kr, top_n=None)
     df_short = df_short_full
     df_short = add_names(df_short)
@@ -408,17 +408,17 @@ with tab8:
             st.subheader("해외 (US)")
             st.dataframe(df_us_results)
         
-        search_term = st.text_input("종목 검색 (단타)", placeholder="코드/회사명 입력", key="search_short")
+        search_term = st.text_input("종목 검색 (단기)", placeholder="코드/회사명 입력", key="search_short")
         filtered_symbols = get_filtered_symbols(df_short, search_term)
         if filtered_symbols:
-            selected_symbol = st.selectbox("종목 선택 (단타)", filtered_symbols, key="select_short")
+            selected_symbol = st.selectbox("종목 선택 (단기)", filtered_symbols, key="select_short")
             if selected_symbol != st.session_state.selected_symbol:
                 st.session_state.selected_symbol = selected_symbol
             if st.session_state.selected_symbol:
                 market = df_short[df_short['종목코드'] == st.session_state.selected_symbol]['시장'].iloc[0] if '시장' in df_short.columns else 'US'
                 show_graphs(st.session_state.selected_symbol, market)
     else:
-        st.info("단타 후보 없음")
+        st.info("단기 후보 없음")
 
 with tab2:
     st.session_state.current_tab = "OBV 상승 크로스"
