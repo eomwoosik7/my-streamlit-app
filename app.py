@@ -84,6 +84,8 @@ def run_screener_query(con, filter_condition="all", use_us=True, use_kr=True, to
         condition = "1=1"  # No OBV or RSI condition
     elif filter_condition == "short_term":
         condition = "(obv_latest > signal_obv_latest AND obv_1ago <= signal_obv_1ago) AND (rsi_d_2ago < rsi_d_1ago AND rsi_d_1ago < rsi_d_latest AND rsi_d_latest <= 50) AND (today_trading_value > 1.5 * avg_trading_value_20d)"
+    elif filter_condition == "mid_term":
+        condition = "(obv_latest > signal_obv_latest AND obv_1ago <= signal_obv_1ago) AND (rsi_d_2ago < rsi_d_1ago AND rsi_d_1ago < rsi_d_latest AND rsi_d_latest <= 50)"
     elif filter_condition == "long_term":
         condition = "(obv_latest > signal_obv_latest AND obv_1ago <= signal_obv_1ago) AND (rsi_d_2ago > rsi_d_1ago AND rsi_d_1ago > rsi_d_latest AND rsi_d_latest <= 50)"
     
@@ -312,7 +314,7 @@ if st.sidebar.button("배치 실행"):
 df_ind = load_data()
 con = get_db_connection()
 
-tab1, tab8, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs(["장기", "단기", "OBV 상승 크로스", "RSI 상승 지속 (50 이하)", "RSI 하강 지속 (50 이하)", "EPS & PER", "거래대금", "Total"])
+tab1, tab8, tab9, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs(["장기", "단기", "중기", "OBV 상승 크로스", "RSI 상승 지속 (50 이하)", "RSI 하강 지속 (50 이하)", "EPS & PER", "거래대금", "Total"])
 
 with tab1:
     st.session_state.current_tab = "장기"
@@ -419,6 +421,59 @@ with tab8:
                 show_graphs(st.session_state.selected_symbol, market)
     else:
         st.info("단기 후보 없음")
+
+with tab9:
+    st.session_state.current_tab = "중기"
+    st.header("중기 (OBV 상승크로스 + RSI 상승 지속 (50이하) + EPS & PER)")
+    df_mid_full = run_screener_query(con, "mid_term", use_us, use_kr, top_n=None, additional_filter="eps_per")
+    df_mid = df_mid_full
+    df_mid = add_names(df_mid)
+    df_mid = prepare_tab_df(df_mid)
+    
+    if not df_mid_full.empty:
+        df_kr_temp = df_mid_full[df_mid_full['market'] == 'KR']
+        df_us_temp = df_mid_full[df_mid_full['market'] == 'US']
+        total_candidates = len(df_kr_temp) + len(df_us_temp)
+        st.metric("후보 수", total_candidates)
+        
+        df_mid['eps_positive'] = df_mid['eps'] > 0
+        df_mid['per_range'] = (df_mid['per'] >= 3) & (df_mid['per'] <= 30)
+        
+        df_mid = df_mid.rename(columns={k: v for k, v in {'symbol': '종목코드', 'market': '시장', 'name': '회사명', 
+                   'rsi_d_2ago': 'RSI_3일_2ago', 'rsi_d_1ago': 'RSI_3일_1ago', 'rsi_d_latest': 'RSI_3일_latest', 
+                   'market_cap': '시가총액', 'avg_trading_value_20d': '20일평균거래대금', 'today_trading_value': '오늘거래대금', 'turnover': '회전율',
+                   'per': 'PER_TTM', 'eps': 'EPS_TTM', 'obv_bullish_cross': 'OBV_상승', 'rsi_3up': 'RSI_3상승', 'rsi_3down': 'RSI_3하강', 'trading_high': '거래대금_상승',
+                   'eps_positive': 'EPS > 0', 'per_range': '3<=PER<=30', 'cap_status': '시가총액_상태'}.items() if k in df_mid.columns})
+        
+        df_kr_results = df_mid[df_mid['시장'] == 'KR'] if '시장' in df_mid.columns else pd.DataFrame()
+        df_us_results = df_mid[df_mid['시장'] == 'US'] if '시장' in df_mid.columns else pd.DataFrame()
+        
+        if not df_kr_results.empty:
+            cols_kr = ['종목코드', '회사명', '시장', 'RSI_3일_2ago', 'RSI_3일_1ago', 'RSI_3일_latest', '시가총액', '시가총액_상태', '20일평균거래대금', '오늘거래대금', '회전율', 'PER_TTM', 'EPS_TTM', 'OBV_상승', 'RSI_3상승', 'RSI_3하강', '거래대금_상승', 'EPS > 0', '3<=PER<=30']
+            df_kr_results = df_kr_results[[col for col in cols_kr if col in df_kr_results.columns]]
+            df_kr_results = df_kr_results.sort_values('시가총액', ascending=False)
+            df_kr_results = format_dataframe(df_kr_results, 'KR')
+            st.subheader("국내 (KR)")
+            st.dataframe(df_kr_results)
+        if not df_us_results.empty:
+            cols_us = ['종목코드', '회사명', '시장', 'RSI_3일_2ago', 'RSI_3일_1ago', 'RSI_3일_latest', '시가총액', '시가총액_상태', '20일평균거래대금', '오늘거래대금', '회전율', 'PER_TTM', 'EPS_TTM', 'OBV_상승', 'RSI_3상승', 'RSI_3하강', '거래대금_상승', 'EPS > 0', '3<=PER<=30']
+            df_us_results = df_us_results[[col for col in cols_us if col in df_us_results.columns]]
+            df_us_results = df_us_results.sort_values('시가총액', ascending=False)
+            df_us_results = format_dataframe(df_us_results, 'US')
+            st.subheader("해외 (US)")
+            st.dataframe(df_us_results)
+        
+        search_term = st.text_input("종목 검색 (중기)", placeholder="코드/회사명 입력", key="search_mid")
+        filtered_symbols = get_filtered_symbols(df_mid, search_term)
+        if filtered_symbols:
+            selected_symbol = st.selectbox("종목 선택 (중기)", filtered_symbols, key="select_mid")
+            if selected_symbol != st.session_state.selected_symbol:
+                st.session_state.selected_symbol = selected_symbol
+            if st.session_state.selected_symbol:
+                market = df_mid[df_mid['종목코드'] == st.session_state.selected_symbol]['시장'].iloc[0] if '시장' in df_mid.columns else 'US'
+                show_graphs(st.session_state.selected_symbol, market)
+    else:
+        st.info("중기 후보 없음")
 
 with tab2:
     st.session_state.current_tab = "OBV 상승 크로스"
