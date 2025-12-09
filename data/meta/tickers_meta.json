@@ -11488,1764 +11488,1764 @@
         "MMM": {
             "name": "3M Company",
             "cap": 87099662436.65442,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 26.19,
             "eps": 6.26
         },
         "AOS": {
             "name": "A. O. Smith Corporation",
             "cap": 7612938098.142128,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 18.1,
             "eps": 3.71
         },
         "ABT": {
             "name": "Abbott Laboratories",
             "cap": 212298869641.29074,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 15.34,
             "eps": 7.96
         },
         "ABBV": {
             "name": "AbbVie Inc.",
             "cap": 394338850462.0322,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 170.32,
             "eps": 1.31
         },
         "ACN": {
             "name": "Accenture plc",
             "cap": 165267014718.0,
-            "cap_status": "기존",
-            "per": 21.92,
-            "eps": 12.16
+            "cap_status": "최신",
+            "per": 21.93,
+            "eps": 12.15
         },
         "ADBE": {
             "name": "Adobe Inc.",
             "cap": 141955629956.0547,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 21.14,
             "eps": 16.04
         },
         "AMD": {
             "name": "Advanced Micro Devices, Inc.",
             "cap": 359976265903.0777,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 115.16,
             "eps": 1.92
         },
         "AES": {
             "name": "The AES Corporation",
             "cap": 9869996039.352676,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 9.12,
             "eps": 1.52
         },
         "AFL": {
             "name": "Aflac Incorporated",
             "cap": 56635748591.44501,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 14.2,
             "eps": 7.61
         },
         "A": {
             "name": "Agilent Technologies, Inc.",
             "cap": 40318266150.930725,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 31.17,
             "eps": 4.57
         },
         "APD": {
             "name": "Air Products and Chemicals, Inc.",
             "cap": 52542427067.34151,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 16.66,
             "eps": -1.75
         },
         "ABNB": {
             "name": "Airbnb, Inc.",
             "cap": 51890136489.72626,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 29.05,
             "eps": 4.2
         },
         "AKAM": {
             "name": "Akamai Technologies, Inc.",
             "cap": 12274581976.935814,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 25.02,
             "eps": 3.41
         },
         "ALB": {
             "name": "Albemarle Corporation",
             "cap": 14971126728.815613,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 69.13,
             "eps": -1.59
         },
         "ARE": {
             "name": "Alexandria Real Estate Equities, Inc.",
             "cap": 7771943114.19809,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 13.07,
             "eps": -2.47
         },
         "ALGN": {
             "name": "Align Technology, Inc.",
             "cap": 11313538686.087341,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 30.56,
             "eps": 5.16
         },
         "ALLE": {
             "name": "Allegion plc",
             "cap": 13667036106.089737,
-            "cap_status": "기존",
-            "per": 21.47,
-            "eps": 7.4
+            "cap_status": "최신",
+            "per": 21.5,
+            "eps": 7.39
         },
         "LNT": {
             "name": "Alliant Energy Corporation",
             "cap": 16651937659.633759,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 20.37,
             "eps": 3.18
         },
         "ALL": {
             "name": "The Allstate Corporation",
             "cap": 52564003408.217285,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 6.52,
             "eps": 30.83
         },
         "GOOGL": {
             "name": "Alphabet Inc.",
             "cap": 1825222967102.0508,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 30.97,
             "eps": 10.13
         },
         "GOOG": {
             "name": "Alphabet Inc.",
             "cap": 1700231216003.418,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 31.04,
             "eps": 10.13
         },
         "MO": {
             "name": "Altria Group, Inc.",
             "cap": 97547604911.2998,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 11.09,
             "eps": 5.24
         },
         "AMZN": {
             "name": "Amazon.com, Inc.",
             "cap": 2425503104211.0,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 32.05,
             "eps": 7.08
         },
         "AMCR": {
             "name": "Amcor plc",
             "cap": 19043969513.25,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 27.5,
             "eps": 0.3
         },
         "AEE": {
             "name": "Ameren Corporation",
             "cap": 26865554974.571503,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 19.1,
             "eps": 5.2
         },
         "AEP": {
             "name": "American Electric Power Company, Inc.",
             "cap": 61810761749.81987,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 16.94,
             "eps": 6.83
         },
         "AXP": {
             "name": "American Express Company",
             "cap": 249557176007.95663,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 24.33,
             "eps": 14.89
         },
         "AIG": {
             "name": "American International Group, Inc.",
             "cap": 41175047363.41565,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 13.72,
             "eps": 5.56
         },
         "AMT": {
             "name": "American Tower Corporation",
             "cap": 85764459904.92989,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 29.22,
             "eps": 6.27
         },
         "AWK": {
             "name": "American Water Works Company, Inc.",
             "cap": 25065574469.9337,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 22.58,
             "eps": 5.69
         },
         "AMP": {
             "name": "Ameriprise Financial, Inc.",
             "cap": 44290941579.18265,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 13.12,
             "eps": 36.33
         },
         "AME": {
             "name": "AMETEK, Inc.",
             "cap": 45870422469.43236,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 31.43,
             "eps": 6.34
         },
         "AMGN": {
             "name": "Amgen Inc.",
             "cap": 172976151861.25534,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 24.81,
             "eps": 12.95
         },
         "APH": {
             "name": "Amphenol Corporation",
             "cap": 171441211462.06323,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 46.69,
             "eps": 3.0
         },
         "ADI": {
             "name": "Analog Devices, Inc.",
             "cap": 136677150486.49915,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 61.35,
             "eps": 4.55
         },
         "AON": {
             "name": "Aon plc",
             "cap": 73806623796.8158,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 27.47,
             "eps": 12.5
         },
         "APA": {
             "name": "APA Corporation",
             "cap": 9271054004.667068,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 6.25,
             "eps": 4.18
         },
         "APO": {
             "name": "Apollo Global Management, Inc.",
             "cap": 79738455912.8346,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 20.0,
             "eps": 6.87
         },
         "AAPL": {
             "name": "Apple Inc.",
             "cap": 4106200951620.4834,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 37.3,
             "eps": 7.45
         },
         "AMAT": {
             "name": "Applied Materials, Inc.",
             "cap": 213627636141.7117,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 30.97,
             "eps": 8.66
         },
         "APP": {
             "name": "AppLovin Corporation",
             "cap": 212168109723.87695,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 81.05,
             "eps": 8.51
         },
         "APTV": {
             "name": "Aptiv PLC",
             "cap": 16655401395.533218,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 58.39,
             "eps": 1.32
         },
         "ACGL": {
             "name": "Arch Capital Group Ltd.",
             "cap": 32977203687.03723,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 8.52,
             "eps": 10.67
         },
         "ADM": {
             "name": "Archer-Daniels-Midland Company",
             "cap": 27844209785.9379,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 23.55,
             "eps": 2.46
         },
         "ANET": {
             "name": "Arista Networks, Inc.",
             "cap": 162586296156.3066,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 49.09,
             "eps": 2.63
         },
         "AJG": {
             "name": "Arthur J. Gallagher & Co.",
             "cap": 61081070817.41333,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 38.0,
             "eps": 6.26
         },
         "AIZ": {
             "name": "Assurant, Inc.",
             "cap": 11105986678.496246,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 13.51,
             "eps": 16.41
         },
         "T": {
             "name": "AT&T Inc.",
             "cap": 176101926537.56415,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 8.09,
             "eps": 3.07
         },
         "ATO": {
             "name": "Atmos Energy Corporation",
             "cap": 27014106829.797363,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 22.37,
             "eps": 7.47
         },
         "ADSK": {
             "name": "Autodesk, Inc.",
             "cap": 63894683105.46875,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 58.52,
             "eps": 5.15
         },
         "ADP": {
             "name": "Automatic Data Processing, Inc.",
             "cap": 104626846572.78369,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 25.51,
             "eps": 10.14
         },
         "AZO": {
             "name": "AutoZone, Inc.",
             "cap": 62654575564.7666,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 25.97,
             "eps": 145.03
         },
         "AVB": {
             "name": "AvalonBay Communities, Inc.",
             "cap": 25148678267.872696,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 21.63,
             "eps": 8.21
         },
         "AVY": {
             "name": "Avery Dennison Corporation",
             "cap": 13550655333.430542,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 19.88,
             "eps": 8.82
         },
         "AXON": {
             "name": "Axon Enterprise, Inc.",
             "cap": 43646956568.61499,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 175.59,
             "eps": 3.15
         },
         "BKR": {
             "name": "Baker Hughes Company",
             "cap": 46763213665.70102,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 16.34,
             "eps": 2.9
         },
         "BALL": {
             "name": "Ball Corporation",
             "cap": 12785669639.17038,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 18.56,
             "eps": 2.57
         },
         "BAC": {
             "name": "Bank of America Corporation",
             "cap": 393604521287.72394,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 14.73,
             "eps": 3.66
         },
         "BAX": {
             "name": "Baxter International Inc.",
             "cap": 9335253340.36131,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 6.31,
             "eps": -0.7
         },
         "BDX": {
             "name": "Becton, Dickinson and Company",
             "cap": 54086815414.5,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 32.56,
             "eps": 5.82
         },
         "BRK-B": {
             "name": "Berkshire Hathaway Inc.",
             "cap": 682607372797.2225,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 15.9,
             "eps": 31.27
         },
         "BBY": {
             "name": "Best Buy Co., Inc.",
             "cap": 15244947275.457458,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 23.95,
             "eps": 3.03
         },
         "TECH": {
             "name": "Bio-Techne Corporation",
             "cap": 9393947885.940788,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 123.04,
             "eps": 0.49
         },
         "BIIB": {
             "name": "Biogen Inc.",
             "cap": 26470958317.839844,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 16.45,
             "eps": 10.97
         },
         "BLK": {
             "name": "BlackRock, Inc.",
             "cap": 164773371406.4712,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 27.32,
             "eps": 38.87
         },
         "BX": {
             "name": "Blackstone Inc.",
             "cap": 111779304737.55286,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 43.5,
             "eps": 3.48
         },
         "XYZ": {
             "name": "Block, Inc.",
             "cap": 33429594181.404114,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 12.28,
             "eps": 4.97
         },
         "BK": {
             "name": "The Bank of New York Mellon Corporation",
             "cap": 79804635453.07251,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 16.49,
             "eps": 6.94
         },
         "BA": {
             "name": "The Boeing Company",
             "cap": 156784895431.8382,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 438.87,
             "eps": -13.7
         },
         "BKNG": {
             "name": "Booking Holdings Inc.",
             "cap": 166887035849.8169,
-            "cap_status": "기존",
-            "per": 33.66,
-            "eps": 153.83
+            "cap_status": "최신",
+            "per": 33.67,
+            "eps": 153.77
         },
         "BSX": {
             "name": "Boston Scientific Corporation",
             "cap": 139112355510.8951,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 50.18,
             "eps": 1.87
         },
         "BMY": {
             "name": "Bristol-Myers Squibb Company",
             "cap": 105187355177.51488,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 17.4,
             "eps": 2.97
         },
         "AVGO": {
             "name": "Broadcom Inc.",
             "cap": 1894140639147.2288,
-            "cap_status": "기존",
-            "per": 102.85,
-            "eps": 3.9
+            "cap_status": "최신",
+            "per": 103.11,
+            "eps": 3.89
         },
         "BR": {
             "name": "Broadridge Financial Solutions, Inc.",
             "cap": 26560187991.16667,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 29.06,
             "eps": 7.83
         },
         "BRO": {
             "name": "Brown & Brown, Inc.",
             "cap": 26507909927.213287,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 23.53,
             "eps": 3.3
         },
         "BF-B": {
             "name": "Brown-Forman Corporation",
             "cap": 8882029369.02105,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 17.63,
             "eps": 1.71
         },
         "BLDR": {
             "name": "Builders FirstSource, Inc.",
             "cap": 11882989133.020454,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 20.39,
             "eps": 5.27
         },
         "BG": {
             "name": "Bunge Global SA",
             "cap": 17771814537.879303,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 10.35,
             "eps": 8.88
         },
         "BXP": {
             "name": "BXP, Inc.",
             "cap": 10859858789.606781,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 36.65,
             "eps": -1.28
         },
         "CHRW": {
             "name": "C.H. Robinson Worldwide, Inc.",
             "cap": 18123424909.611267,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 31.05,
             "eps": 4.94
         },
         "CDNS": {
             "name": "Cadence Design Systems, Inc.",
             "cap": 91810677615.93628,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 86.93,
             "eps": 3.88
         },
         "CPT": {
             "name": "Camden Property Trust",
             "cap": 10925736697.454224,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 41.57,
             "eps": 2.47
         },
         "CPB": {
             "name": "The Campbell's Company",
             "cap": 8942999984.675285,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 14.95,
             "eps": 2.01
         },
         "COF": {
             "name": "Capital One Financial Corporation",
             "cap": 146593809648.824,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 78.7,
             "eps": 2.93
         },
         "CAH": {
             "name": "Cardinal Health, Inc.",
             "cap": 47252903113.09204,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 30.04,
             "eps": 6.62
         },
         "CCL": {
             "name": "Carnival Corporation & plc",
             "cap": 30367742951.71894,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 13.41,
             "eps": 1.94
         },
         "CARR": {
             "name": "Carrier Global Corporation",
             "cap": 44662383658.34189,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 33.14,
             "eps": 1.6
         },
         "CAT": {
             "name": "Caterpillar Inc.",
             "cap": 279149829014.0,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 30.62,
             "eps": 19.48
         },
         "CBOE": {
             "name": "Cboe Global Markets, Inc.",
             "cap": 26498083962.819885,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 27.26,
             "eps": 9.29
         },
         "CBRE": {
             "name": "CBRE Group, Inc.",
             "cap": 46242975622.19365,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 38.46,
             "eps": 4.04
         },
         "CDW": {
             "name": "CDW Corporation",
             "cap": 19000463058.255615,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 18.45,
             "eps": 7.91
         },
         "COR": {
             "name": "Cencora, Inc.",
             "cap": 65534866672.93042,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 42.39,
             "eps": 7.97
         },
         "CNC": {
             "name": "Centene Corporation",
             "cap": 18618702364.997864,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 5.38,
             "eps": -10.67
         },
         "CNP": {
             "name": "CenterPoint Energy, Inc.",
             "cap": 24880810282.50917,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 24.12,
             "eps": 1.58
         },
         "CF": {
             "name": "CF Industries Holdings, Inc.",
             "cap": 12050601328.637787,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 9.34,
             "eps": 8.27
         },
         "CRL": {
             "name": "Charles River Laboratories International, Inc.",
             "cap": 9209198693.210083,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 18.2,
             "eps": -1.53
         },
         "SCHW": {
             "name": "The Charles Schwab Corporation",
             "cap": 167529596506.48773,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 22.08,
             "eps": 4.27
         },
         "CHTR": {
             "name": "Charter Communications, Inc.",
             "cap": 26483625962.047913,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 5.68,
             "eps": 36.06
         },
         "CVX": {
             "name": "Chevron Corporation",
             "cap": 297323886833.2645,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 20.92,
             "eps": 7.11
         },
         "CMG": {
             "name": "Chipotle Mexican Grill, Inc.",
             "cap": 44441764387.05444,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 29.74,
             "eps": 1.13
         },
         "CB": {
             "name": "Chubb Limited",
             "cap": 116975126144.24887,
-            "cap_status": "기존",
-            "per": 12.43,
-            "eps": 23.92
+            "cap_status": "최신",
+            "per": 12.42,
+            "eps": 23.93
         },
         "CHD": {
             "name": "Church & Dwight Co., Inc.",
             "cap": 19594613427.19059,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 25.74,
             "eps": 3.17
         },
         "CI": {
             "name": "The Cigna Group",
             "cap": 70398339831.20923,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 11.67,
             "eps": 22.59
         },
         "CINF": {
             "name": "Cincinnati Financial Corporation",
             "cap": 25165786623.030716,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 12.0,
             "eps": 13.44
         },
         "CTAS": {
             "name": "Cintas Corporation",
             "cap": 73533563023.48032,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 40.66,
             "eps": 4.5
         },
         "CSCO": {
             "name": "Cisco Systems, Inc.",
             "cap": 311583319649.73676,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 30.45,
             "eps": 2.59
         },
         "C": {
             "name": "Citigroup Inc.",
             "cap": 194886866762.03583,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 15.3,
             "eps": 7.12
         },
         "CFG": {
             "name": "Citizens Financial Group, Inc.",
             "cap": 23948149289.28169,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 15.62,
             "eps": 3.57
         },
         "CLX": {
             "name": "The Clorox Company",
             "cap": 12311479689.695457,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 15.84,
             "eps": 6.37
         },
         "CME": {
             "name": "CME Group Inc.",
             "cap": 97512550123.736,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 26.18,
             "eps": 10.33
         },
         "CMS": {
             "name": "CMS Energy Corporation",
             "cap": 21460628806.218758,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 20.32,
             "eps": 3.47
         },
         "KO": {
             "name": "The Coca-Cola Company",
             "cap": 302188021361.25,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 23.26,
             "eps": 3.02
         },
         "CTSH": {
             "name": "Cognizant Technology Solutions Corporation",
             "cap": 38954396393.95396,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 18.68,
             "eps": 4.32
         },
         "COIN": {
             "name": "Coinbase Global, Inc.",
             "cap": 62562151236.586365,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 23.7,
             "eps": 11.57
         },
         "CL": {
             "name": "Colgate-Palmolive Company",
             "cap": 61349603227.603,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 21.32,
             "eps": 3.57
         },
         "CMCSA": {
             "name": "Comcast Corporation",
             "cap": 96858094578.0673,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 4.43,
             "eps": 6.02
         },
         "CAG": {
             "name": "Conagra Brands, Inc.",
             "cap": 8184596869.4726715,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 9.67,
             "eps": 1.77
         },
         "COP": {
             "name": "ConocoPhillips",
             "cap": 114773507665.99846,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 13.12,
             "eps": 7.08
         },
         "ED": {
             "name": "Consolidated Edison, Inc.",
             "cap": 34451302682.11194,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 16.69,
             "eps": 5.72
         },
         "STZ": {
             "name": "Constellation Brands, Inc.",
             "cap": 24711874530.67772,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 20.64,
             "eps": 6.88
         },
         "CEG": {
             "name": "Constellation Energy Corporation",
             "cap": 111696797106.94824,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 40.92,
             "eps": 8.74
         },
         "COO": {
             "name": "The Cooper Companies, Inc.",
             "cap": 15515048376.855003,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 41.73,
             "eps": 1.87
         },
         "CPRT": {
             "name": "Copart, Inc.",
             "cap": 37181559094.73222,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 23.56,
             "eps": 1.63
         },
         "GLW": {
             "name": "Corning Incorporated",
             "cap": 75679199276.81808,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 56.58,
             "eps": 1.56
         },
         "CPAY": {
             "name": "Corpay, Inc.",
             "cap": 21246262461.180176,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 20.63,
             "eps": 14.72
         },
         "CTVA": {
             "name": "Corteva, Inc.",
             "cap": 43983393405.39551,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 26.35,
             "eps": 2.47
         },
         "CSGP": {
             "name": "CoStar Group, Inc.",
             "cap": 28112166503.07271,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 1105.5,
             "eps": 0.06
         },
         "COST": {
             "name": "Costco Wholesale Corporation",
             "cap": 394021330599.6885,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 48.79,
             "eps": 18.19
         },
         "CTRA": {
             "name": "Coterra Energy Inc.",
             "cap": 20229801324.28601,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 12.3,
             "eps": 2.16
         },
         "CRWD": {
             "name": "CrowdStrike Holdings, Inc.",
             "cap": 129878595919.0747,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 120.65,
             "eps": -1.29
         },
         "CCI": {
             "name": "Crown Castle Inc.",
             "cap": 39550203555.30235,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 33.89,
             "eps": -9.05
         },
         "CSX": {
             "name": "CSX Corporation",
             "cap": 67688675509.2045,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 23.6,
             "eps": 1.54
         },
         "CMI": {
             "name": "Cummins Inc.",
             "cap": 70081007333.11285,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 26.32,
             "eps": 19.29
         },
         "CVS": {
             "name": "CVS Health Corporation",
             "cap": 97149666527.4498,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 201.39,
             "eps": 0.38
         },
         "DHR": {
             "name": "Danaher Corporation",
             "cap": 158561346884.3891,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 46.09,
             "eps": 4.87
         },
         "DRI": {
             "name": "Darden Restaurants, Inc.",
             "cap": 20923682575.187714,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 19.26,
             "eps": 9.34
         },
         "DDOG": {
             "name": "Datadog, Inc.",
             "cap": 50209403189.17026,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 497.68,
             "eps": 0.31
         },
         "DVA": {
             "name": "DaVita Inc.",
             "cap": 8263730215.454102,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 12.08,
             "eps": 9.69
         },
         "DAY": {
             "name": "Dayforce, Inc.",
             "cap": 11047213300.53482,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 31.24,
             "eps": -0.95
         },
         "DECK": {
             "name": "Deckers Outdoor Corporation",
             "cap": 14750834414.49662,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 15.04,
             "eps": 6.73
         },
         "DE": {
             "name": "Deere & Company",
             "cap": 126068113609.15967,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 25.19,
             "eps": 18.51
         },
         "DELL": {
             "name": "Dell Technologies Inc.",
             "cap": 47549418787.61215,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 18.14,
             "eps": 7.74
         },
         "DAL": {
             "name": "Delta Air Lines, Inc.",
             "cap": 43892158062.03369,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 9.48,
             "eps": 7.09
         },
         "DVN": {
             "name": "Devon Energy Corporation",
             "cap": 23567660808.563232,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 8.86,
             "eps": 4.24
         },
         "DXCM": {
             "name": "DexCom, Inc.",
             "cap": 25592868839.851685,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 36.46,
             "eps": 1.8
         },
         "FANG": {
             "name": "Diamondback Energy, Inc.",
             "cap": 45133515941.44949,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 11.06,
             "eps": 14.24
         },
         "DLR": {
             "name": "Digital Realty Trust, Inc.",
             "cap": 56258683767.24658,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 42.32,
             "eps": 3.87
         },
         "DG": {
             "name": "Dollar General Corporation",
             "cap": 27354171360.245567,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 21.46,
             "eps": 5.79
         },
         "DLTR": {
             "name": "Dollar Tree, Inc.",
             "cap": 23928004355.82106,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 22.79,
             "eps": 5.28
         },
         "D": {
             "name": "Dominion Energy, Inc.",
             "cap": 49902690735.20857,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 19.1,
             "eps": 3.06
         },
         "DPZ": {
             "name": "Domino's Pizza, Inc.",
             "cap": 14138518687.702942,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 24.44,
             "eps": 17.12
         },
         "DASH": {
             "name": "DoorDash, Inc.",
             "cap": 91600009734.22638,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 113.85,
             "eps": 1.98
         },
         "DOV": {
             "name": "Dover Corporation",
             "cap": 26234668328.016632,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 24.87,
             "eps": 7.69
         },
         "DOW": {
             "name": "Dow Inc.",
             "cap": 16248143014.937988,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 7.35,
             "eps": -1.61
         },
         "DHI": {
             "name": "D.R. Horton, Inc.",
             "cap": 44518785668.22473,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 13.17,
             "eps": 11.57
         },
         "DTE": {
             "name": "DTE Energy Company",
             "cap": 26998791560.0,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 19.49,
             "eps": 6.67
         },
         "DUK": {
             "name": "Duke Energy Corporation",
             "cap": 89602127178.57349,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 18.14,
             "eps": 6.35
         },
         "DD": {
             "name": "DuPont de Nemours, Inc.",
             "cap": 17002019415.086731,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 23.46,
             "eps": 1.73
         },
         "ETN": {
             "name": "Eaton Corporation plc",
             "cap": 133372681689.45312,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 34.37,
             "eps": 9.99
         },
         "EBAY": {
             "name": "eBay Inc.",
             "cap": 37900199310.302734,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 18.59,
             "eps": 4.51
         },
         "ECL": {
             "name": "Ecolab Inc.",
             "cap": 72834046440.21677,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 37.05,
             "eps": 6.94
         },
         "EIX": {
             "name": "Edison International",
             "cap": 21559618277.96924,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 7.34,
             "eps": 7.63
         },
         "EW": {
             "name": "Edwards Lifesciences Corporation",
             "cap": 48930895822.906494,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 36.98,
             "eps": 2.28
         },
         "EA": {
             "name": "Electronic Arts Inc.",
             "cap": 50904100130.06467,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 59.17,
             "eps": 3.44
         },
         "ELV": {
             "name": "Elevance Health, Inc.",
             "cap": 73474354179.97937,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 13.48,
             "eps": 24.53
         },
         "EME": {
             "name": "EMCOR Group, Inc.",
             "cap": 28167575634.58008,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 25.35,
             "eps": 24.82
         },
         "EMR": {
             "name": "Emerson Electric Co.",
             "cap": 76365469885.2539,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 33.81,
             "eps": 4.02
         },
         "ETR": {
             "name": "Entergy Corporation",
             "cap": 41488853063.052795,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 22.88,
             "eps": 4.06
         },
         "EOG": {
             "name": "EOG Resources, Inc.",
             "cap": 60022242803.63117,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 10.99,
             "eps": 10.07
         },
         "EPAM": {
             "name": "EPAM Systems, Inc.",
             "cap": 11249606695.802582,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 31.04,
             "eps": 6.56
         },
         "EQT": {
             "name": "EQT Corporation",
             "cap": 36607770124.77493,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 19.11,
             "eps": 3.07
         },
         "EFX": {
             "name": "Equifax Inc.",
             "cap": 25738241218.99269,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 39.68,
             "eps": 5.3
         },
         "EQIX": {
             "name": "Equinix, Inc.",
             "cap": 72650823975.40369,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 68.01,
             "eps": 10.88
         },
         "EQR": {
             "name": "Equity Residential",
             "cap": 23056767512.04165,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 19.93,
             "eps": 3.04
         },
         "ERIE": {
             "name": "Erie Indemnity Company",
             "cap": 12970352072.31372,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 22.66,
             "eps": 12.39
         },
         "ESS": {
             "name": "Essex Property Trust, Inc.",
             "cap": 16243982507.45819,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 19.19,
             "eps": 13.14
         },
         "EL": {
             "name": "The Estée Lauder Companies Inc.",
             "cap": 25268760350.7666,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 38.07,
             "eps": -2.59
         },
         "EG": {
             "name": "Everest Group, Ltd.",
             "cap": 12946032830.986267,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 22.93,
             "eps": 13.45
         },
         "EVRG": {
             "name": "Evergy, Inc.",
             "cap": 16883904477.890625,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 20.09,
             "eps": 3.65
         },
         "ES": {
             "name": "Eversource Energy",
             "cap": 25025114826.513596,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 18.43,
             "eps": 3.62
         },
         "EXC": {
             "name": "Exelon Corporation",
             "cap": 43689221238.51471,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 15.53,
             "eps": 2.79
         },
         "EXE": {
             "name": "Expand Energy Corporation",
             "cap": 28358865749.106377,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 38.29,
             "eps": 3.11
         },
         "EXPE": {
             "name": "Expedia Group, Inc.",
             "cap": 30938366776.329987,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 25.45,
             "eps": 10.39
         },
         "EXPD": {
             "name": "Expeditors International of Washington, Inc.",
             "cap": 19841799243.549423,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 24.11,
             "eps": 6.14
         },
         "EXR": {
             "name": "Extra Space Storage Inc.",
             "cap": 27282302508.197937,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 28.76,
             "eps": 4.47
         },
         "XOM": {
             "name": "Exxon Mobil Corporation",
             "cap": 489106882068.4649,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 16.86,
             "eps": 6.88
         },
         "FFIV": {
             "name": "F5, Inc.",
             "cap": 14418423480.945953,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 21.05,
             "eps": 11.79
         },
         "FDS": {
             "name": "FactSet Research Systems Inc.",
             "cap": 10735405987.183594,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 18.45,
             "eps": 15.55
         },
         "FICO": {
             "name": "Fair Isaac Corporation",
             "cap": 41738590633.48169,
-            "cap_status": "기존",
-            "per": 66.13,
-            "eps": 26.62
+            "cap_status": "최신",
+            "per": 66.23,
+            "eps": 26.58
         },
         "FAST": {
             "name": "Fastenal Company",
             "cap": 46839856540.91826,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 38.49,
             "eps": 1.06
         },
         "FRT": {
             "name": "Federal Realty Investment Trust",
             "cap": 8240513071.517235,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 24.24,
             "eps": 3.94
         },
         "FDX": {
             "name": "FedEx Corporation",
             "cap": 65274722187.41882,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 16.21,
             "eps": 17.07
         },
         "FIS": {
             "name": "Fidelity National Information Services, Inc.",
             "cap": 34116006910.000397,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 205.88,
             "eps": 0.32
         },
         "FITB": {
             "name": "Fifth Third Bancorp",
             "cap": 29892445351.559418,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 13.5,
             "eps": 3.35
         },
         "FSLR": {
             "name": "First Solar, Inc.",
             "cap": 27458007643.045532,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 19.65,
             "eps": 13.02
         },
         "FE": {
             "name": "FirstEnergy Corp.",
             "cap": 25850533586.25,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 19.46,
             "eps": 2.3
         },
         "FISV": {
             "name": "Fiserv, Inc.",
             "cap": 35353006338.04307,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 10.16,
             "eps": 0.0
         },
         "F": {
             "name": "Ford Motor Company",
             "cap": 51425316222.24389,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 11.23,
             "eps": 1.17
         },
         "FTNT": {
             "name": "Fortinet, Inc.",
             "cap": 62116925052.28644,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 34.37,
             "eps": 2.43
         },
         "FTV": {
             "name": "Fortive Corporation",
             "cap": 17192318195.925827,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 21.31,
             "eps": 2.54
         },
         "FOXA": {
             "name": "Fox Corporation",
             "cap": 14420712789.39917,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 15.55,
             "eps": 4.45
         },
         "FOX": {
             "name": "Fox Corporation",
             "cap": 14431693196.085072,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 13.77,
             "eps": 4.45
         },
         "BEN": {
             "name": "Franklin Resources, Inc.",
             "cap": 12044840246.81591,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 25.41,
             "eps": 0.91
         },
         "FCX": {
             "name": "Freeport-McMoRan Inc.",
             "cap": 64616879700.0,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 31.47,
             "eps": 1.43
         },
         "GRMN": {
             "name": "Garmin Ltd.",
             "cap": 38711227225.362946,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 24.85,
             "eps": 8.1
         },
         "IT": {
             "name": "Gartner, Inc.",
             "cap": 16381693427.615204,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 19.85,
             "eps": 11.45
         },
         "GE": {
             "name": "GE Aerospace",
             "cap": 302932009675.3193,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 38.45,
             "eps": 7.47
         },
         "GEHC": {
             "name": "GE HealthCare Technologies Inc.",
             "cap": 37849287411.11011,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 17.2,
             "eps": 4.83
         },
         "GEV": {
             "name": "GE Vernova Inc.",
             "cap": 168734200076.13464,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 101.62,
             "eps": 6.12
         },
         "GEN": {
             "name": "Gen Digital Inc.",
             "cap": 16552660405.98341,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 29.49,
             "eps": 0.91
         },
         "GNRC": {
             "name": "Generac Holdings Inc.",
             "cap": 9626533792.642975,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 31.31,
             "eps": 5.24
         },
         "GD": {
             "name": "General Dynamics Corporation",
             "cap": 90763172354.31494,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 21.79,
             "eps": 15.42
         },
         "GIS": {
             "name": "General Mills, Inc.",
             "cap": 24515818266.76268,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 8.69,
             "eps": 5.29
         },
         "GM": {
             "name": "General Motors Company",
             "cap": 70626928396.06998,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 14.45,
             "eps": 5.24
         },
         "GPC": {
             "name": "Genuine Parts Company",
             "cap": 17857614205.74951,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 22.06,
             "eps": 5.82
         },
         "GILD": {
             "name": "Gilead Sciences, Inc.",
             "cap": 150357966540.373,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 18.76,
             "eps": 6.46
         },
         "GPN": {
             "name": "Global Payments Inc.",
             "cap": 18444703780.54138,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 11.82,
             "eps": 6.59
         },
         "GL": {
             "name": "Globe Life Inc.",
             "cap": 10589163856.11267,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 9.65,
             "eps": 13.78
         },
         "GDDY": {
             "name": "GoDaddy Inc.",
             "cap": 17203525328.619415,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 21.95,
             "eps": 5.8
         },
         "GS": {
             "name": "The Goldman Sachs Group, Inc.",
             "cap": 259945041930.83734,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 17.6,
             "eps": 49.23
         },
         "HAL": {
             "name": "Halliburton Company",
             "cap": 23632875144.588985,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 18.6,
             "eps": 1.51
         },
         "HIG": {
             "name": "The Hartford Insurance Group, Inc.",
             "cap": 36149301190.63751,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 10.62,
             "eps": 12.22
         },
         "HAS": {
             "name": "Hasbro, Inc.",
             "cap": 11385542290.542854,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 18.31,
             "eps": -3.99
         },
         "HCA": {
             "name": "HCA Healthcare, Inc.",
             "cap": 110708269192.21497,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 18.76,
             "eps": 25.86
         },
         "DOC": {
             "name": "Healthpeak Properties, Inc.",
             "cap": 11633459877.958609,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 66.96,
             "eps": -0.06
         },
         "HSIC": {
             "name": "Henry Schein, Inc.",
             "cap": 8577429509.87352,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 22.98,
             "eps": 3.17
         },
         "HSY": {
             "name": "The Hershey Company",
             "cap": 26786463113.366455,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 27.02,
             "eps": 6.69
         },
         "HPE": {
             "name": "Hewlett Packard Enterprise Company",
             "cap": 31482079284.648407,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 11.36,
             "eps": -0.04
         },
         "HLT": {
             "name": "Hilton Worldwide Holdings Inc.",
             "cap": 62715658192.526,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 39.22,
             "eps": 6.88
         },
         "HOLX": {
             "name": "Hologic, Inc.",
             "cap": 16684455975.673615,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 30.06,
             "eps": 2.49
         },
         "HD": {
             "name": "The Home Depot, Inc.",
             "cap": 348339427362.022,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 23.87,
             "eps": 14.66
         },
         "HON": {
             "name": "Honeywell International Inc.",
             "cap": 121891998551.4596,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 20.27,
             "eps": 9.47
         },
         "HRL": {
             "name": "Hormel Foods Corporation",
             "cap": 13117462836.857752,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 27.41,
             "eps": 0.87
         },
         "HST": {
             "name": "Host Hotels & Resorts, Inc.",
             "cap": 11759490387.432718,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 16.13,
             "eps": 1.06
         },
         "HWM": {
             "name": "Howmet Aerospace Inc.",
             "cap": 77940099754.3335,
-            "cap_status": "기존",
-            "per": 54.55,
-            "eps": 3.55
+            "cap_status": "최신",
+            "per": 54.39,
+            "eps": 3.56
         },
         "HPQ": {
             "name": "HP Inc.",
             "cap": 23432975119.321632,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 9.46,
             "eps": 2.65
         },
         "HUBB": {
             "name": "Hubbell Incorporated",
             "cap": 23463939974.51172,
-            "cap_status": "기존",
-            "per": 27.61,
-            "eps": 15.99
+            "cap_status": "최신",
+            "per": 27.63,
+            "eps": 15.98
         },
         "HUM": {
             "name": "Humana Inc.",
             "cap": 30836813666.33252,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 23.98,
             "eps": 10.69
         },
         "HBAN": {
             "name": "Huntington Bancshares Incorporated",
             "cap": 26677166235.91562,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 11.85,
             "eps": 1.43
         },
         "HII": {
             "name": "Huntington Ingalls Industries, Inc.",
             "cap": 12395584363.528564,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 21.78,
             "eps": 14.5
         },
         "IBM": {
             "name": "International Business Machines Corporation",
             "cap": 289001424144.8749,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 36.89,
             "eps": 8.38
         },
         "IEX": {
             "name": "IDEX Corporation",
             "cap": 13169758035.777649,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 27.84,
             "eps": 6.32
         },
         "IDXX": {
             "name": "IDEXX Laboratories, Inc.",
             "cap": 56426944293.99536,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 56.17,
             "eps": 12.58
         },
         "ITW": {
             "name": "Illinois Tool Works Inc.",
             "cap": 71982514416.5039,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 24.04,
             "eps": 10.32
         },
         "INCY": {
             "name": "Incyte Corporation",
             "cap": 18984404780.970657,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 16.39,
             "eps": 5.9
         },
         "IR": {
             "name": "Ingersoll Rand Inc.",
             "cap": 31336204462.825012,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 58.75,
             "eps": 1.35
         },
         "PODD": {
             "name": "Insulet Corporation",
             "cap": 20836047890.365356,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 86.1,
             "eps": 3.44
         },
         "INTC": {
             "name": "Intel Corporation",
             "cap": 192230996360.7788,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 671.67,
             "eps": 0.06
         },
         "IBKR": {
             "name": "Interactive Brokers Group, Inc.",
             "cap": 29309385128.456238,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 31.79,
             "eps": 2.07
         },
         "ICE": {
             "name": "Intercontinental Exchange, Inc.",
             "cap": 89535142506.53122,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 28.55,
             "eps": 5.5
         },
         "IFF": {
             "name": "International Flavors & Fragrances Inc.",
             "cap": 16738459487.748825,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 14.18,
             "eps": -1.85
         },
         "IP": {
             "name": "International Paper Company",
             "cap": 20334754701.375217,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 12.84,
             "eps": -1.18
         },
@@ -13259,1757 +13259,1757 @@
         "INTU": {
             "name": "Intuit Inc.",
             "cap": 182614577572.95972,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 45.04,
             "eps": 14.57
         },
         "ISRG": {
             "name": "Intuitive Surgical, Inc.",
             "cap": 200960284015.78357,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 75.18,
             "eps": 7.54
         },
         "IVZ": {
             "name": "Invesco Ltd.",
             "cap": 11487847511.294746,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 17.56,
             "eps": 1.47
         },
         "INVH": {
             "name": "Invitation Homes Inc.",
             "cap": 16343128809.200481,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 28.06,
             "eps": 0.95
         },
         "IQV": {
             "name": "IQVIA Holdings Inc.",
             "cap": 38073972247.31445,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 30.75,
             "eps": 7.27
         },
         "IRM": {
             "name": "Iron Mountain Incorporated",
             "cap": 24956620815.336754,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 156.35,
             "eps": 0.54
         },
         "JBHT": {
             "name": "J.B. Hunt Transport Services, Inc.",
             "cap": 18081011663.823334,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 32.91,
             "eps": 5.77
         },
         "JBL": {
             "name": "Jabil Inc.",
             "cap": 24083272310.914993,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 38.08,
             "eps": 5.92
         },
         "JKHY": {
             "name": "Jack Henry & Associates, Inc.",
             "cap": 13099537518.25946,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 27.46,
             "eps": 6.59
         },
         "J": {
             "name": "Jacobs Solutions Inc.",
             "cap": 16632007339.805054,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 54.29,
             "eps": 2.58
         },
         "JNJ": {
             "name": "Johnson & Johnson",
             "cap": 485762066701.10376,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 19.5,
             "eps": 10.34
         },
         "JCI": {
             "name": "Johnson Controls International plc",
             "cap": 70268379663.4418,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 43.72,
             "eps": 2.63
         },
         "JPM": {
             "name": "JPMorgan Chase & Co.",
             "cap": 858084274745.4314,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 15.6,
             "eps": 20.2
         },
         "K": {
             "name": "Kellanova",
             "cap": 29031499413.204895,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 22.8,
             "eps": 3.66
         },
         "KVUE": {
             "name": "Kenvue Inc.",
             "cap": 32108844807.692318,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 22.35,
             "eps": 0.75
         },
         "KDP": {
             "name": "Keurig Dr Pepper Inc.",
             "cap": 39398910625.0,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 25.0,
             "eps": 1.16
         },
         "KEY": {
             "name": "KeyCorp",
             "cap": 21191710163.64482,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 23.94,
             "eps": 0.81
         },
         "KEYS": {
             "name": "Keysight Technologies, Inc.",
             "cap": 35898734079.16785,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 41.84,
             "eps": 5.01
         },
         "KMB": {
             "name": "Kimberly-Clark Corporation",
             "cap": 33799779672.474236,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 17.23,
             "eps": 5.91
         },
         "KIM": {
             "name": "Kimco Realty Corporation",
             "cap": 13394898813.552254,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 23.83,
             "eps": 0.83
         },
         "KMI": {
             "name": "Kinder Morgan, Inc.",
             "cap": 60713713079.92897,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 22.37,
             "eps": 1.22
         },
         "KKR": {
             "name": "KKR & Co. Inc.",
             "cap": 116089873014.75052,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 54.72,
             "eps": 2.38
         },
         "KLAC": {
             "name": "KLA Corporation",
             "cap": 160901738700.47095,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 38.46,
             "eps": 31.84
         },
         "KHC": {
             "name": "The Kraft Heinz Company",
             "cap": 29011398512.20726,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 7.98,
             "eps": -3.71
         },
         "KR": {
             "name": "The Kroger Co.",
             "cap": 40689960685.72998,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 56.09,
             "eps": 1.13
         },
         "LHX": {
             "name": "L3Harris Technologies, Inc.",
             "cap": 52683433215.870026,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 30.32,
             "eps": 9.29
         },
         "LH": {
             "name": "Labcorp Holdings Inc.",
             "cap": 21549026202.39258,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 25.51,
             "eps": 10.19
         },
         "LRCX": {
             "name": "Lam Research Corporation",
             "cap": 204406329099.57886,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 36.0,
             "eps": 4.52
         },
         "LW": {
             "name": "Lamb Weston Holdings, Inc.",
             "cap": 8295652964.291992,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 28.62,
             "eps": 2.08
         },
         "LVS": {
             "name": "Las Vegas Sands Corp.",
             "cap": 45355102625.99922,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 30.22,
             "eps": 2.22
         },
         "LDOS": {
             "name": "Leidos Holdings, Inc.",
             "cap": 23732476402.347168,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 17.35,
             "eps": 10.7
         },
         "LEN": {
             "name": "Lennar Corporation",
             "cap": 26043657417.031372,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 11.93,
             "eps": 10.12
         },
         "LII": {
             "name": "Lennox International Inc.",
             "cap": 17656690385.379272,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 21.25,
             "eps": 23.69
         },
         "LLY": {
             "name": "Eli Lilly and Company",
             "cap": 892861785831.7783,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 48.88,
             "eps": 20.41
         },
         "LIN": {
             "name": "Linde plc",
             "cap": 181820576643.42407,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 26.06,
             "eps": 14.94
         },
         "LYV": {
             "name": "Live Nation Entertainment, Inc.",
             "cap": 32063453250.94783,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 100.06,
             "eps": 1.38
         },
         "LKQ": {
             "name": "LKQ Corporation",
             "cap": 7389738808.035221,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 10.69,
             "eps": 2.7
         },
         "LMT": {
             "name": "Lockheed Martin Corporation",
             "cap": 107687907432.35205,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 25.91,
             "eps": 17.96
         },
         "L": {
             "name": "Loews Corporation",
             "cap": 20957347446.279938,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 14.7,
             "eps": 6.9
         },
         "LOW": {
             "name": "Lowe's Companies, Inc.",
             "cap": 137332139811.27118,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 20.28,
             "eps": 12.07
         },
         "LULU": {
             "name": "lululemon athletica inc.",
             "cap": 20769196967.470367,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 12.5,
             "eps": 14.64
         },
         "LYB": {
             "name": "LyondellBasell Industries N.V.",
             "cap": 13608788525.008667,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 4.91,
             "eps": -4.03
         },
         "MTB": {
             "name": "M&T Bank Corporation",
             "cap": 30108023059.845917,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 12.09,
             "eps": 16.2
         },
         "MPC": {
             "name": "Marathon Petroleum Corporation",
             "cap": 57012267267.97916,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 20.16,
             "eps": 9.41
         },
         "MAR": {
             "name": "Marriott International, Inc.",
             "cap": 77237015602.36725,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 30.39,
             "eps": 9.47
         },
         "MMC": {
             "name": "Marsh & McLennan Companies, Inc.",
             "cap": 88967601422.9714,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 21.75,
             "eps": 8.35
         },
         "MLM": {
             "name": "Martin Marietta Materials, Inc.",
             "cap": 37523105110.77118,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 31.96,
             "eps": 19.47
         },
         "MAS": {
             "name": "Masco Corporation",
             "cap": 12972668297.50898,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 15.97,
             "eps": 3.91
         },
         "MA": {
             "name": "Mastercard Incorporated",
             "cap": 481671574596.4433,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 34.6,
             "eps": 15.62
         },
         "MTCH": {
             "name": "Match Group, Inc.",
             "cap": 8057075802.720165,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 15.95,
             "eps": 2.14
         },
         "MKC": {
             "name": "McCormick & Company, Incorporated",
             "cap": 16106057380.786575,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 22.08,
             "eps": 2.88
         },
         "MCD": {
             "name": "McDonald's Corporation",
             "cap": 220618302171.80328,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 26.46,
             "eps": 11.71
         },
         "MCK": {
             "name": "McKesson Corporation",
             "cap": 98485825930.49622,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 24.94,
             "eps": 32.0
         },
         "MDT": {
             "name": "Medtronic plc",
             "cap": 129816761440.75781,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 27.44,
             "eps": 3.69
         },
         "MRK": {
             "name": "Merck & Co., Inc.",
             "cap": 245546490243.93317,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 13.09,
             "eps": 7.56
         },
         "META": {
             "name": "Meta Platforms, Inc.",
             "cap": 1452216537983.6377,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 29.5,
             "eps": 22.6
         },
         "MET": {
             "name": "MetLife, Inc.",
             "cap": 51446261706.946655,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 14.7,
             "eps": 5.31
         },
         "MTD": {
             "name": "Mettler-Toledo International Inc.",
             "cap": 28219240969.901733,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 34.48,
             "eps": 40.06
         },
         "MGM": {
             "name": "MGM Resorts International",
             "cap": 9660247377.332458,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 176.6,
             "eps": 0.2
         },
         "MCHP": {
             "name": "Microchip Technology Incorporated",
             "cap": 36399093445.243576,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 25.9,
             "eps": -0.46
         },
         "MU": {
             "name": "Micron Technology, Inc.",
             "cap": 277871359197.103,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 32.53,
             "eps": 7.59
         },
         "MSFT": {
             "name": "Microsoft Corporation",
             "cap": 3649445994503.5605,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 34.92,
             "eps": 14.06
         },
         "MAA": {
             "name": "Mid-America Apartment Communities, Inc.",
             "cap": 15337708202.0,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 27.75,
             "eps": 4.72
         },
         "MRNA": {
             "name": "Moderna, Inc.",
             "cap": 10928819530.624504,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": -3.21,
             "eps": -8.06
         },
         "MHK": {
             "name": "Mohawk Industries, Inc.",
             "cap": 6719981860.736176,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 16.18,
             "eps": 6.72
         },
         "MOH": {
             "name": "Molina Healthcare, Inc.",
             "cap": 7993213717.651367,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 9.58,
             "eps": 16.23
         },
         "TAP": {
             "name": "Molson Coors Beverage Company",
             "cap": 8638586734.580517,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 7.86,
             "eps": -10.48
         },
         "MDLZ": {
             "name": "Mondelez International, Inc.",
             "cap": 70660028856.09612,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 20.51,
             "eps": 2.67
         },
         "MPWR": {
             "name": "Monolithic Power Systems, Inc.",
             "cap": 47120367878.723145,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 25.21,
             "eps": 39.01
         },
         "MNST": {
             "name": "Monster Beverage Corporation",
             "cap": 72240951096.3457,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 42.01,
             "eps": 1.76
         },
         "MCO": {
             "name": "Moody's Corporation",
             "cap": 86903992871.09375,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 39.22,
             "eps": 12.42
         },
         "MS": {
             "name": "Morgan Stanley",
             "cap": 281037568374.24225,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 18.16,
             "eps": 9.74
         },
         "MOS": {
             "name": "The Mosaic Company",
             "cap": 7503522018.549606,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 6.12,
             "eps": 3.86
         },
         "MSI": {
             "name": "Motorola Solutions, Inc.",
             "cap": 61860192417.12262,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 29.86,
             "eps": 12.44
         },
         "MSCI": {
             "name": "MSCI Inc.",
             "cap": 40342420323.5614,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 34.02,
             "eps": 15.78
         },
         "NDAQ": {
             "name": "Nasdaq, Inc.",
             "cap": 51275391625.93977,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 32.07,
             "eps": 2.8
         },
         "NTAP": {
             "name": "NetApp, Inc.",
             "cap": 23278032458.667114,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 20.48,
             "eps": 5.74
         },
         "NFLX": {
             "name": "Netflix, Inc.",
             "cap": 410130529957.98535,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 40.5,
             "eps": 2.39
         },
         "NEM": {
             "name": "Newmont Corporation",
             "cap": 97122405309.0,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 13.84,
             "eps": 6.43
         },
         "NWSA": {
             "name": "News Corporation",
             "cap": 9557070006.199703,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 31.0,
             "eps": 0.83
         },
         "NWS": {
             "name": "News Corporation",
             "cap": 5463653990.651825,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 35.33,
             "eps": 0.83
         },
         "NEE": {
             "name": "NextEra Energy, Inc.",
             "cap": 167754216401.82037,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 25.57,
             "eps": 3.15
         },
         "NKE": {
             "name": "NIKE, Inc.",
             "cap": 75568987931.78912,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 32.58,
             "eps": 1.95
         },
         "NI": {
             "name": "NiSource Inc.",
             "cap": 19553967953.860893,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 21.75,
             "eps": 1.9
         },
         "NDSN": {
             "name": "Nordson Corporation",
             "cap": 13172878566.88301,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 29.45,
             "eps": 7.96
         },
         "NSC": {
             "name": "Norfolk Southern Corporation",
             "cap": 65745278781.0,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 22.37,
             "eps": 13.1
         },
         "NTRS": {
             "name": "Northern Trust Corporation",
             "cap": 25245278626.662735,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 15.56,
             "eps": 8.58
         },
         "NOC": {
             "name": "Northrop Grumman Corporation",
             "cap": 79004119940.08234,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 19.92,
             "eps": 27.79
         },
         "NCLH": {
             "name": "Norwegian Cruise Line Holdings Ltd.",
             "cap": 8699970892.65712,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 13.75,
             "eps": 1.39
         },
         "NRG": {
             "name": "NRG Energy, Inc.",
             "cap": 31449943363.847412,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 24.49,
             "eps": 6.7
         },
         "NUE": {
             "name": "Nucor Corporation",
             "cap": 36457185077.1212,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 22.37,
             "eps": 7.12
         },
         "NVDA": {
             "name": "NVIDIA Corporation",
             "cap": 4509792824172.974,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 46.04,
             "eps": 4.03
         },
         "NVR": {
             "name": "NVR, Inc.",
             "cap": 20327066340.983887,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 16.37,
             "eps": 454.48
         },
         "NXPI": {
             "name": "NXP Semiconductors N.V.",
             "cap": 57635969221.22084,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 28.34,
             "eps": 8.08
         },
         "ORLY": {
             "name": "O'Reilly Automotive, Inc.",
             "cap": 82815052981.32025,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 34.07,
             "eps": 2.88
         },
         "OXY": {
             "name": "Occidental Petroleum Corporation",
             "cap": 40748304151.56473,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 30.41,
             "eps": 1.36
         },
         "ODFL": {
             "name": "Old Dominion Freight Line, Inc.",
             "cap": 31716049696.037292,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 30.58,
             "eps": 4.96
         },
         "OMC": {
             "name": "Omnicom Group Inc.",
             "cap": 23213361940.12117,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 10.79,
             "eps": 6.78
         },
         "ON": {
             "name": "ON Semiconductor Corporation",
             "cap": 22686095298.34651,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 77.23,
             "eps": 0.73
         },
         "OKE": {
             "name": "ONEOK, Inc.",
             "cap": 47148320758.03623,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 13.77,
             "eps": 5.44
         },
         "ORCL": {
             "name": "Oracle Corporation",
             "cap": 628713781966.857,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 50.93,
             "eps": 4.33
         },
         "OTIS": {
             "name": "Otis Worldwide Corporation",
             "cap": 33562330158.506554,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 25.4,
             "eps": 3.39
         },
         "PCAR": {
             "name": "PACCAR Inc",
             "cap": 57625422910.5986,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 21.51,
             "eps": 5.1
         },
         "PKG": {
             "name": "Packaging Corporation of America",
             "cap": 17706586410.835922,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 19.88,
             "eps": 9.9
         },
         "PLTR": {
             "name": "Palantir Technologies Inc.",
             "cap": 414583792386.1015,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 412.48,
             "eps": 0.44
         },
         "PANW": {
             "name": "Palo Alto Networks, Inc.",
             "cap": 136158954254.15039,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 123.64,
             "eps": 1.58
         },
         "PSKY": {
             "name": "Paramount Skydance Corporation",
             "cap": 15614187527.843193,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 485.67,
             "eps": 0.03
         },
         "PH": {
             "name": "Parker-Hannifin Corporation",
             "cap": 111002651352.81903,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 31.35,
             "eps": 28.06
         },
         "PAYX": {
             "name": "Paychex, Inc.",
             "cap": 40470095282.04024,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 25.21,
             "eps": 4.46
         },
         "PAYC": {
             "name": "Paycom Software, Inc.",
             "cap": 9002956071.514069,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 20.37,
             "eps": 8.05
         },
         "PYPL": {
             "name": "PayPal Holdings, Inc.",
             "cap": 57187046367.97589,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 12.27,
             "eps": 4.98
         },
         "PNR": {
             "name": "Pentair plc",
             "cap": 17059665990.0,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 26.53,
             "eps": 3.93
         },
         "PEP": {
             "name": "PepsiCo, Inc.",
             "cap": 199125748643.32544,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 27.69,
             "eps": 5.26
         },
         "PFE": {
             "name": "Pfizer Inc.",
             "cap": 146520686217.75037,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 14.98,
             "eps": 1.72
         },
         "PCG": {
             "name": "PG&E Corporation",
             "cap": 32836780827.22008,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 12.55,
             "eps": 1.19
         },
         "PM": {
             "name": "Philip Morris International Inc.",
             "cap": 230833949638.14417,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 21.15,
             "eps": 7.01
         },
         "PSX": {
             "name": "Phillips 66",
             "cap": 56030212049.40582,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 37.48,
             "eps": 3.71
         },
         "PNW": {
             "name": "Pinnacle West Capital Corporation",
             "cap": 10451365604.153389,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 18.0,
             "eps": 4.85
         },
         "PNC": {
             "name": "The PNC Financial Services Group, Inc.",
             "cap": 77510115446.60477,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 12.77,
             "eps": 15.48
         },
         "POOL": {
             "name": "Pool Corporation",
             "cap": 8825147681.074158,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 21.6,
             "eps": 10.97
         },
         "PPG": {
             "name": "PPG Industries, Inc.",
             "cap": 22523028616.333008,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 17.96,
             "eps": 5.59
         },
         "PPL": {
             "name": "PPL Corporation",
             "cap": 25099350501.36048,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 23.08,
             "eps": 1.47
         },
         "PFG": {
             "name": "Principal Financial Group, Inc.",
             "cap": 19087000476.43284,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 12.74,
             "eps": 6.82
         },
         "PG": {
             "name": "The Procter & Gamble Company",
             "cap": 323263710611.28613,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 20.2,
             "eps": 6.85
         },
         "PGR": {
             "name": "The Progressive Corporation",
             "cap": 130838710147.09473,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 12.25,
             "eps": 18.21
         },
         "PLD": {
             "name": "Prologis, Inc.",
             "cap": 117659581189.19373,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 36.72,
             "eps": 3.45
         },
         "PRU": {
             "name": "Prudential Financial, Inc.",
             "cap": 38956769919.465546,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 15.25,
             "eps": 7.3
         },
         "PEG": {
             "name": "Public Service Enterprise Group Incorporated",
             "cap": 39308375610.0,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 18.93,
             "eps": 4.16
         },
         "PTC": {
             "name": "PTC Inc.",
             "cap": 20832971638.442596,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 28.64,
             "eps": 6.09
         },
         "PSA": {
             "name": "Public Storage",
             "cap": 47296053281.817505,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 28.02,
             "eps": 9.62
         },
         "PHM": {
             "name": "PulteGroup, Inc.",
             "cap": 24341219064.404808,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 9.64,
             "eps": 12.96
         },
         "PWR": {
             "name": "Quanta Services, Inc.",
             "cap": 69054075564.75131,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 68.5,
             "eps": 6.76
         },
         "QCOM": {
             "name": "QUALCOMM Incorporated",
             "cap": 187757007385.2539,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 34.92,
             "eps": 5.02
         },
         "DGX": {
             "name": "Quest Diagnostics Incorporated",
             "cap": 20226087073.603394,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 21.32,
             "eps": 8.53
         },
         "Q": {
             "name": "Qnity Electronics, Inc.",
             "cap": 17657747893.43094,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 32.3,
             "eps": 2.61
         },
         "RL": {
             "name": "Ralph Lauren Corporation",
             "cap": 13815394214.707397,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 26.32,
             "eps": 13.54
         },
         "RJF": {
             "name": "Raymond James Financial, Inc.",
             "cap": 32291893539.43097,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 15.96,
             "eps": 10.29
         },
         "RTX": {
             "name": "RTX Corporation",
             "cap": 229969209220.23575,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 35.15,
             "eps": 4.88
         },
         "O": {
             "name": "Realty Income Corporation",
             "cap": 52728998169.06704,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 53.57,
             "eps": 1.07
         },
         "REG": {
             "name": "Regency Centers Corporation",
             "cap": 12413489879.21254,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 31.13,
             "eps": 2.18
         },
         "REGN": {
             "name": "Regeneron Pharmaceuticals, Inc.",
             "cap": 72634323965.29639,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 16.86,
             "eps": 41.7
         },
         "RF": {
             "name": "Regions Financial Corporation",
             "cap": 23096927038.440735,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 11.6,
             "eps": 2.27
         },
         "RSG": {
             "name": "Republic Services, Inc.",
             "cap": 65454128128.330505,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 31.46,
             "eps": 6.72
         },
         "RMD": {
             "name": "ResMed Inc.",
             "cap": 36497411171.76169,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 25.57,
             "eps": 9.78
         },
         "RVTY": {
             "name": "Revvity, Inc.",
             "cap": 11313753323.388481,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 51.44,
             "eps": 1.94
         },
         "HOOD": {
             "name": "Robinhood Markets, Inc.",
             "cap": 107282546731.30646,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 56.85,
             "eps": 2.4
         },
         "ROK": {
             "name": "Rockwell Automation, Inc.",
             "cap": 45158674255.792694,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 52.37,
             "eps": 7.68
         },
         "ROL": {
             "name": "Rollins, Inc.",
             "cap": 29128854979.66649,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 56.58,
             "eps": 1.07
         },
         "ROP": {
             "name": "Roper Technologies, Inc.",
             "cap": 48082715435.54657,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 30.77,
             "eps": 14.52
         },
         "ROST": {
             "name": "Ross Stores, Inc.",
             "cap": 57952069132.54944,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 27.84,
             "eps": 6.4
         },
         "RCL": {
             "name": "Royal Caribbean Cruises Ltd.",
             "cap": 68835482261.22473,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 16.97,
             "eps": 14.87
         },
         "SPGI": {
             "name": "S&P Global Inc.",
             "cap": 149007881848.14453,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 35.84,
             "eps": 13.73
         },
         "CRM": {
             "name": "Salesforce, Inc.",
             "cap": 243179608856.20117,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 34.6,
             "eps": 7.5
         },
         "SBAC": {
             "name": "SBA Communications Corporation",
             "cap": 20351401284.713745,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 24.02,
             "eps": 7.95
         },
         "SLB": {
             "name": "SLB N.V.",
             "cap": 57127642309.901215,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 14.88,
             "eps": 2.57
         },
         "STX": {
             "name": "Seagate Technology Holdings plc",
             "cap": 62182863730.01129,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 36.64,
             "eps": 7.79
         },
         "SRE": {
             "name": "Sempra",
             "cap": 57540405281.55112,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 27.13,
             "eps": 3.25
         },
         "NOW": {
             "name": "ServiceNow, Inc.",
             "cap": 177089619907.01318,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 103.08,
             "eps": 8.28
         },
         "SHW": {
             "name": "The Sherwin-Williams Company",
             "cap": 81093406118.10754,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 31.95,
             "eps": 10.24
         },
         "SPG": {
             "name": "Simon Property Group, Inc.",
             "cap": 58786025535.27954,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 26.17,
             "eps": 6.88
         },
         "SWKS": {
             "name": "Skyworks Solutions, Inc.",
             "cap": 10376671565.504768,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 22.47,
             "eps": 3.08
         },
         "SJM": {
             "name": "The J. M. Smucker Company",
             "cap": 10741984874.920525,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 9.56,
             "eps": -11.23
         },
         "SW": {
             "name": "Smurfit Westrock Plc",
             "cap": 18830039668.73379,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 24.7,
             "eps": 1.46
         },
         "SNA": {
             "name": "Snap-on Incorporated",
             "cap": 18070026314.507874,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 18.21,
             "eps": 19.08
         },
         "SOLS": {
             "name": "Solstice Advanced Materials, Inc.",
             "cap": 7410984702.661011,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 47.16,
             "eps": 0.99
         },
         "SOLV": {
             "name": "Solventum Corporation",
             "cap": 14326767943.540031,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 9.48,
             "eps": 8.71
         },
         "SO": {
             "name": "The Southern Company",
             "cap": 94210527678.83575,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 21.28,
             "eps": 4.02
         },
         "LUV": {
             "name": "Southwest Airlines Co.",
             "cap": 19626035680.558014,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 60.24,
             "eps": 0.63
         },
         "SWK": {
             "name": "Stanley Black & Decker, Inc.",
             "cap": 11207476089.57428,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 24.95,
             "eps": 2.9
         },
         "SBUX": {
             "name": "Starbucks Corporation",
             "cap": 94845515164.18457,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 51.17,
             "eps": 1.63
         },
         "STT": {
             "name": "State Street Corporation",
             "cap": 34654293849.28061,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 13.17,
             "eps": 9.42
         },
         "STLD": {
             "name": "Steel Dynamics, Inc.",
             "cap": 24262231385.127396,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 22.01,
             "eps": 7.55
         },
         "STE": {
             "name": "STERIS plc",
             "cap": 25656609982.11508,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 37.45,
             "eps": 6.98
         },
         "SYK": {
             "name": "Stryker Corporation",
             "cap": 135225004266.92871,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 46.53,
             "eps": 7.6
         },
         "SMCI": {
             "name": "Super Micro Computer, Inc.",
             "cap": 21114868336.57604,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 27.85,
             "eps": 1.27
         },
         "SYF": {
             "name": "Synchrony Financial",
             "cap": 28734449758.778015,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 8.75,
             "eps": 9.12
         },
         "SNPS": {
             "name": "Synopsys, Inc.",
             "cap": 88758159142.5,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 62.85,
             "eps": 7.41
         },
         "SYY": {
             "name": "Sysco Corporation",
             "cap": 34817986943.34961,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 19.49,
             "eps": 3.73
         },
         "TMUS": {
             "name": "T-Mobile US, Inc.",
             "cap": 228667497350.16907,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 19.68,
             "eps": 10.39
         },
         "TROW": {
             "name": "T. Rowe Price Group, Inc.",
             "cap": 22810130507.392883,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 11.4,
             "eps": 9.17
         },
         "TTWO": {
             "name": "Take-Two Interactive Software, Inc.",
             "cap": 45692109351.3999,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 31.54,
             "eps": -22.77
         },
         "TPR": {
             "name": "Tapestry, Inc.",
             "cap": 23999275730.044373,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 89.52,
             "eps": 1.31
         },
         "TRGP": {
             "name": "Targa Resources Corp.",
             "cap": 38445350122.5719,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 24.17,
             "eps": 7.41
         },
         "TGT": {
             "name": "Target Corporation",
             "cap": 42138164153.59558,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 11.28,
             "eps": 8.25
         },
         "TEL": {
             "name": "TE Connectivity plc",
             "cap": 68834398522.16794,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 37.98,
             "eps": 6.16
         },
         "TDY": {
             "name": "Teledyne Technologies Incorporated",
             "cap": 24120129634.498535,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 29.8,
             "eps": 17.24
         },
         "TER": {
             "name": "Teradyne, Inc.",
             "cap": 31789920286.245102,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 74.08,
             "eps": 2.74
         },
         "TSLA": {
             "name": "Tesla, Inc.",
             "cap": 1461963544771.6436,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 303.16,
             "eps": 1.45
         },
         "TXN": {
             "name": "Texas Instruments Incorporated",
             "cap": 164406251457.11792,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 33.02,
             "eps": 5.48
         },
         "TPL": {
             "name": "Texas Pacific Land Corporation",
             "cap": 20776834112.520752,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 43.64,
             "eps": 20.72
         },
         "TXT": {
             "name": "Textron Inc.",
             "cap": 14875073887.591797,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 18.47,
             "eps": 4.57
         },
         "TMO": {
             "name": "Thermo Fisher Scientific Inc.",
             "cap": 213481084459.69403,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 32.79,
             "eps": 17.33
         },
         "TJX": {
             "name": "The TJX Companies, Inc.",
             "cap": 170701003198.95065,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 33.93,
             "eps": 4.53
         },
         "TKO": {
             "name": "TKO Group Holdings, Inc.",
             "cap": 16085956400.884644,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 77.5,
             "eps": 2.63
         },
         "TTD": {
             "name": "The Trade Desk, Inc.",
             "cap": 17326549262.97663,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 44.72,
             "eps": 0.88
         },
         "TSCO": {
             "name": "Tractor Supply Company",
             "cap": 28185047837.92799,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 25.77,
             "eps": 2.07
         },
         "TT": {
             "name": "Trane Technologies plc",
             "cap": 88090251682.98254,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 30.35,
             "eps": 13.09
         },
         "TDG": {
             "name": "TransDigm Group Incorporated",
             "cap": 75870709282.21777,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 42.02,
             "eps": 32.06
         },
         "TRV": {
             "name": "The Travelers Companies, Inc.",
             "cap": 62428757426.61316,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 11.01,
             "eps": 25.41
         },
         "TRMB": {
             "name": "Trimble Inc.",
             "cap": 19454796264.05513,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 56.01,
             "eps": 1.46
         },
         "TFC": {
             "name": "Truist Financial Corporation",
             "cap": 61020050010.687485,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 12.79,
             "eps": 3.73
         },
         "TYL": {
             "name": "Tyler Technologies, Inc.",
             "cap": 19801360950.84082,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 64.09,
             "eps": 7.18
         },
         "TSN": {
             "name": "Tyson Foods, Inc.",
             "cap": 15912795024.21402,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 42.27,
             "eps": 1.33
         },
         "USB": {
             "name": "U.S. Bancorp",
             "cap": 79913455147.28218,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 11.76,
             "eps": 4.37
         },
         "UBER": {
             "name": "Uber Technologies, Inc.",
             "cap": 192344757735.0665,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 11.75,
             "eps": 7.88
         },
         "UDR": {
             "name": "UDR, Inc.",
             "cap": 11530763276.135483,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 79.3,
             "eps": 0.44
         },
         "ULTA": {
             "name": "Ulta Beauty, Inc.",
             "cap": 26142627418.06958,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 22.62,
             "eps": 26.05
         },
         "UNP": {
             "name": "Union Pacific Corporation",
             "cap": 139653801154.3067,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 20.0,
             "eps": 11.77
         },
         "UAL": {
             "name": "United Airlines Holdings, Inc.",
             "cap": 33830619850.5,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 10.47,
             "eps": 9.98
         },
         "UPS": {
             "name": "United Parcel Service, Inc.",
             "cap": 70610501914.91867,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 14.77,
             "eps": 6.47
         },
         "URI": {
             "name": "United Rentals, Inc.",
             "cap": 49952209202.75665,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 20.24,
             "eps": 38.78
         },
         "UNH": {
             "name": "UnitedHealth Group Incorporated",
             "cap": 293147489781.35986,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 16.86,
             "eps": 19.19
         },
         "UHS": {
             "name": "Universal Health Services, Inc.",
             "cap": 12489997076.825806,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 10.76,
             "eps": 21.01
         },
         "VLO": {
             "name": "Valero Energy Corporation",
             "cap": 52937454844.187805,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 36.08,
             "eps": 4.81
         },
         "VTR": {
             "name": "Ventas, Inc.",
             "cap": 38048358744.0,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 152.83,
             "eps": 0.53
         },
         "VLTO": {
             "name": "Veralto Corporation",
             "cap": 24735382190.869026,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 27.29,
             "eps": 3.65
         },
         "VRSN": {
             "name": "VeriSign, Inc.",
             "cap": 23263064717.10205,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 29.25,
             "eps": 8.58
         },
         "VRSK": {
             "name": "Verisk Analytics, Inc.",
             "cap": 30517018862.928925,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 33.69,
             "eps": 6.5
         },
         "VZ": {
             "name": "Verizon Communications Inc.",
             "cap": 174138369478.82263,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 8.81,
             "eps": 4.69
         },
         "VRTX": {
             "name": "Vertex Pharmaceuticals Incorporated",
             "cap": 112153874223.24759,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 31.15,
             "eps": 14.19
         },
         "VTRS": {
             "name": "Viatris Inc.",
             "cap": 12773128056.226135,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 4.15,
             "eps": -3.13
         },
         "VICI": {
             "name": "VICI Properties Inc.",
             "cap": 29841213559.86384,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 10.62,
             "eps": 2.63
         },
         "V": {
             "name": "Visa Inc.",
             "cap": 551584907846.5151,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 32.04,
             "eps": 10.2
         },
         "VST": {
             "name": "Vistra Corp.",
             "cap": 56285688744.37866,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 59.97,
             "eps": 2.77
         },
         "VMC": {
             "name": "Vulcan Materials Company",
             "cap": 39081678919.60739,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 34.96,
             "eps": 8.46
         },
         "WRB": {
             "name": "W. R. Berkley Corporation",
             "cap": 25313210632.086517,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 13.99,
             "eps": 4.76
         },
         "GWW": {
             "name": "W.W. Grainger, Inc.",
             "cap": 45603142984.851746,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 26.88,
             "eps": 35.68
         },
         "WAB": {
             "name": "Westinghouse Air Brake Technologies Corporation",
             "cap": 36277114347.48007,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 30.84,
             "eps": 6.88
         },
         "WMT": {
             "name": "Walmart Inc. Common Stock",
             "cap": 905092140973.4246,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 39.71,
             "eps": 2.86
         },
         "DIS": {
             "name": "The Walt Disney Company",
             "cap": 192150633591.53772,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 15.71,
             "eps": 6.85
         },
         "WBD": {
             "name": "Warner Bros. Discovery, Inc.",
             "cap": 67475244745.743286,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 143.32,
             "eps": 0.19
         },
         "WM": {
             "name": "Waste Management, Inc.",
             "cap": 84694738410.49626,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 33.11,
             "eps": 6.35
         },
         "WAT": {
             "name": "Waters Corporation",
             "cap": 23382269135.0,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 36.1,
             "eps": 10.88
         },
         "WEC": {
             "name": "WEC Energy Group, Inc.",
             "cap": 34077826534.423492,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 19.84,
             "eps": 5.28
         },
         "WFC": {
             "name": "Wells Fargo & Company",
             "cap": 282705946188.7394,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 14.84,
             "eps": 6.07
         },
         "WELL": {
             "name": "Welltower Inc.",
             "cap": 137869580629.05115,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 138.54,
             "eps": 1.45
         },
         "WST": {
             "name": "West Pharmaceutical Services, Inc.",
             "cap": 19358532334.922974,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 39.86,
             "eps": 6.75
         },
         "WDC": {
             "name": "Western Digital Corporation",
             "cap": 58047659510.82248,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 23.91,
             "eps": 7.1
         },
         "WY": {
             "name": "Weyerhaeuser Company",
             "cap": 16060783574.975967,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 48.43,
             "eps": 0.46
         },
         "WSM": {
             "name": "Williams-Sonoma, Inc.",
             "cap": 21422868224.628983,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 19.81,
             "eps": 9.06
         },
         "WMB": {
             "name": "The Williams Companies, Inc.",
             "cap": 75654509742.36606,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 32.1,
             "eps": 1.93
         },
         "WTW": {
             "name": "Willis Towers Watson Public Limited Company",
             "cap": 30674982679.287476,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 15.34,
-            "eps": 20.88
+            "eps": 20.89
         },
         "WDAY": {
             "name": "Workday, Inc.",
             "cap": 47073000000.0,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 93.64,
             "eps": 2.36
         },
         "WYNN": {
             "name": "Wynn Resorts, Limited",
             "cap": 13218275229.695564,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 28.19,
             "eps": 4.51
         },
         "XEL": {
             "name": "Xcel Energy Inc.",
             "cap": 44797308995.049736,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 23.09,
             "eps": 3.28
         },
         "XYL": {
             "name": "Xylem Inc.",
             "cap": 33676642577.380676,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 35.56,
             "eps": 3.89
         },
         "YUM": {
             "name": "Yum! Brands, Inc.",
             "cap": 39573857378.438324,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 27.78,
             "eps": 5.13
         },
         "ZBRA": {
             "name": "Zebra Technologies Corporation",
             "cap": 13395074772.743347,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 26.63,
             "eps": 9.93
         },
         "ZBH": {
             "name": "Zimmer Biomet Holdings, Inc.",
             "cap": 18381339226.25,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 23.01,
             "eps": 4.03
         },
         "ZTS": {
             "name": "Zoetis Inc.",
             "cap": 52072311780.10675,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 19.89,
             "eps": 5.94
         },
         "SNDK": {
             "name": "Sandisk Corporation",
             "cap": 33043345448.027924,
-            "cap_status": "기존",
+            "cap_status": "최신",
             "per": 11.09,
             "eps": -12.04
         }
