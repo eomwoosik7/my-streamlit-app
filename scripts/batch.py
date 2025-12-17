@@ -13,7 +13,9 @@ def run_batch(use_kr=True, use_us=True, top_n=20):
     SCRIPT_DIR = os.getenv('SCRIPT_DIR', os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'scripts'))
     
     subprocess.run(["python", os.path.join(SCRIPT_DIR, "fetch_data.py")])
-    subprocess.run(["python", os.path.join(SCRIPT_DIR, "download.py")])  # ← 추가: download.py 실행
+    subprocess.run(["python", os.path.join(SCRIPT_DIR, "foreign_net_buy.py")])
+    subprocess.run(["python", os.path.join(SCRIPT_DIR, "per_eps.py")])
+    subprocess.run(["python", os.path.join(SCRIPT_DIR, "download.py")])
     subprocess.run(["python", os.path.join(SCRIPT_DIR, "compute_indicators.py")])
     time.sleep(1)
     
