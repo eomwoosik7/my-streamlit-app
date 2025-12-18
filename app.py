@@ -287,9 +287,11 @@ def format_dataframe(df, market_type):
         if col in df.columns:
             df[col] = df[col].apply(bool_fmt)  # 문자열로 변환 (TextColumn)
 
-    styled_df = df.style.set_properties(**{'text-align': 'center'})
+    # 숫자 컬럼 강제 반올림 (서버 이슈 해결)
+    numeric_cols = df.select_dtypes(include='float').columns
+    df[numeric_cols] = df[numeric_cols].round(2)
 
-    return styled_df
+    return df  # styled_df 대신 기본 df 반환
 
 def show_graphs(symbol, market):
     base_dir = "data"
