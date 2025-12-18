@@ -94,25 +94,26 @@ def add_close_price(df):
         return df
     df = df.copy()
     df['close'] = np.nan
-    today = datetime.now().strftime('%Y%m%d')
-    fromdate = (datetime.now() - timedelta(days=5)).strftime('%Y%m%d')
+    base_dir = "data"  # 기존 DATA_DIR와 맞춤
     for idx, row in df.iterrows():
         symbol = row['symbol']
         market = row['market']
         if market == 'US':
-            try:
-                hist = yf.download(symbol, period='2d', auto_adjust=True, progress=False)
-                if not hist.empty:
-                    df.at[idx, 'close'] = hist['Close'].values[-1]
-            except:
-                pass
+            daily_path = os.path.join(base_dir, 'us_daily', f"{symbol}.parquet")
+            close_col = 'Close'
         elif market == 'KR':
+            daily_path = os.path.join(base_dir, 'kr_daily', f"{symbol}.parquet")
+            close_col = 'Close'  # KR 컬럼명 맞춤
+        else:
+            continue
+        
+        if os.path.exists(daily_path):
             try:
-                ohlcv = stock.get_market_ohlcv_by_date(fromdate, today, symbol)
-                if not ohlcv.empty:
-                    df.at[idx, 'close'] = ohlcv['종가'].values[-1]
-            except:
-                pass
+                df_daily = pd.read_parquet(daily_path)
+                if not df_daily.empty and close_col in df_daily.columns:
+                    df.at[idx, 'close'] = df_daily[close_col].iloc[-1]  # 마지막 행 종가
+            except Exception as e:
+                pass  # 에러 스킵 (로그 추가 가능)
     return df
 
 def run_screener_query(con, filter_condition="all", use_us=True, use_kr=True, top_n=None, additional_filter=None):
@@ -197,7 +198,7 @@ def run_screener_query(con, filter_condition="all", use_us=True, use_kr=True, to
     return df
 
 def format_dataframe(df, market_type):
-    # 컬럼 이름에 단위 추가
+    # 컬럼 이름에 단위 추가 (기존과 동일)
     if market_type == 'KR':
         df = df.rename(columns={
             '시가총액': '시가총액 (KRW 억원)',
@@ -223,76 +224,69 @@ def format_dataframe(df, market_type):
             '외국인순매수_1일전': '외국인순매수_1일전 (N/A)',
         })
 
-    def market_cap_fmt(x):
-        if pd.isna(x) or x == 0: return 0
-        x = float(x)
-        if market_type == 'KR': return f"{x / 1e8:,.0f}"
-        else: return f"{x / 1e9:,.1f}"
-    
-    def trading_value_fmt(x):
-        if pd.isna(x) or x == 0: return 0
-        x = float(x)
-        if market_type == 'KR': return f"{x / 1e8:,.0f}"
-        else: return f"{x / 1e6:,.0f}"
-    
-    def turnover_fmt(x):
-        if pd.isna(x) or x == 0: return 0
-        x = float(x) * 100
-        return f"{x:.2f}"
-    
-    def per_fmt(x):
-        if pd.isna(x) or x <= 0: return 0
-        return f"{float(x):.2f}"
-    
-    def eps_fmt(x):
-        if pd.isna(x) or x == 0: return 0
-        return f"{float(x):,.2f}"
-    
-    def rsi_fmt(x):
-        if pd.isna(x): return 0
-        return f"{float(x):.2f}"
-    
+    # 숫자 컬럼: 단위 변환만 적용 (숫자 타입 유지)
+    def safe_float(x):
+        return float(x) if pd.notna(x) else 0.0
+
+    if '시가총액 (KRW 억원)' in df.columns or '시가총액 (USD B)' in df.columns:
+        col_name = df.columns[df.columns.str.startswith('시가총액 (')][0]
+        df[col_name] = df[col_name].apply(safe_float)
+        if market_type == 'KR':
+            df[col_name] = df[col_name] / 1e8  # 억원 단위 (숫자 유지)
+        else:
+            df[col_name] = df[col_name] / 1e9  # Billion USD (숫자 유지)
+
+    if '20일평균거래대금 (KRW 억원)' in df.columns or '20일평균거래대금 (USD M)' in df.columns:
+        col_name = df.columns[df.columns.str.startswith('20일평균거래대금 (')][0]
+        df[col_name] = df[col_name].apply(safe_float)
+        if market_type == 'KR':
+            df[col_name] = df[col_name] / 1e8  # 억원 (숫자)
+        else:
+            df[col_name] = df[col_name] / 1e6  # Million USD (숫자)
+
+    if '오늘거래대금 (KRW 억원)' in df.columns or '오늘거래대금 (USD M)' in df.columns:
+        col_name = df.columns[df.columns.str.startswith('오늘거래대금 (')][0]
+        df[col_name] = df[col_name].apply(safe_float)
+        if market_type == 'KR':
+            df[col_name] = df[col_name] / 1e8  # 억원 (숫자)
+        else:
+            df[col_name] = df[col_name] / 1e6  # Million USD (숫자)
+
+    if '회전율 (%)' in df.columns:
+        df['회전율 (%)'] = df['회전율 (%)'].apply(safe_float) * 100  # % 단위 (숫자)
+
+    if 'PER_TTM (x)' in df.columns:
+        df['PER_TTM (x)'] = df['PER_TTM (x)'].apply(safe_float)
+
+    if 'EPS_TTM' in df.columns:
+        df['EPS_TTM'] = df['EPS_TTM'].apply(safe_float)
+
+    if 'RSI_3일_2ago' in df.columns:
+        df['RSI_3일_2ago'] = df['RSI_3일_2ago'].apply(safe_float)
+
+    if 'RSI_3일_1ago' in df.columns:
+        df['RSI_3일_1ago'] = df['RSI_3일_1ago'].apply(safe_float)
+
+    if 'RSI_3일_latest' in df.columns:
+        df['RSI_3일_latest'] = df['RSI_3일_latest'].apply(safe_float)
+
+    if '종가 (KRW)' in df.columns or '종가 (USD)' in df.columns:
+        col_name = df.columns[df.columns.str.startswith('종가 (')][0]
+        df[col_name] = df[col_name].apply(safe_float)
+
+    foreign_cols = [col for col in df.columns if col.startswith('외국인순매수_')]
+    for col in foreign_cols:
+        df[col] = df[col].apply(lambda x: int(x) if pd.notna(x) else 0)  # int로 유지 (US는 0)
+
+    # bool 컬럼: 문자열로 변환 (기존과 동일, TextColumn으로 렌더링)
     def bool_fmt(x):
         return '✅' if x else '❌'
-    
-    def close_fmt(x):
-        if pd.isna(x) or x == 0: return 0
-        x = float(x)
-        if market_type == 'KR': return f"{x:,.0f}"
-        else: return f"{x:.2f}"
-    
-    def foreign_fmt(x):
-        if pd.isna(x) or x == 0: return 0 if market_type == 'US' else f"{int(x):,}"
-        return f"{int(x):,}"
-    
-    if '시가총액 (KRW 억원)' in df.columns or '시가총액 (USD B)' in df.columns:
-        df[df.columns[df.columns.str.startswith('시가총액 (')][0]] = df[df.columns[df.columns.str.startswith('시가총액 (')][0]].apply(market_cap_fmt)
-    if '20일평균거래대금 (KRW 억원)' in df.columns or '20일평균거래대금 (USD M)' in df.columns:
-        df[df.columns[df.columns.str.startswith('20일평균거래대금 (')][0]] = df[df.columns[df.columns.str.startswith('20일평균거래대금 (')][0]].apply(trading_value_fmt)
-    if '오늘거래대금 (KRW 억원)' in df.columns or '오늘거래대금 (USD M)' in df.columns:
-        df[df.columns[df.columns.str.startswith('오늘거래대금 (')][0]] = df[df.columns[df.columns.str.startswith('오늘거래대금 (')][0]].apply(trading_value_fmt)
-    if '회전율 (%)' in df.columns:
-        df['회전율 (%)'] = df['회전율 (%)'].apply(turnover_fmt)
-    if 'PER_TTM (x)' in df.columns:
-        df['PER_TTM (x)'] = df['PER_TTM (x)'].apply(per_fmt)
-    if 'EPS_TTM' in df.columns:
-        df['EPS_TTM'] = df['EPS_TTM'].apply(eps_fmt)
-    if 'RSI_3일_2ago' in df.columns:
-        df['RSI_3일_2ago'] = df['RSI_3일_2ago'].apply(rsi_fmt)
-    if 'RSI_3일_1ago' in df.columns:
-        df['RSI_3일_1ago'] = df['RSI_3일_1ago'].apply(rsi_fmt)
-    if 'RSI_3일_latest' in df.columns:
-        df['RSI_3일_latest'] = df['RSI_3일_latest'].apply(rsi_fmt)
+
     bool_cols = ['OBV_상승', 'RSI_3상승', 'RSI_3하강', '거래대금_상승', 'EPS > 0', '3<=PER<=30']
     for col in bool_cols:
         if col in df.columns:
-            df[col] = df[col].apply(bool_fmt)
-    if '종가 (KRW)' in df.columns or '종가 (USD)' in df.columns:
-        df[df.columns[df.columns.str.startswith('종가 (')][0]] = df[df.columns[df.columns.str.startswith('종가 (')][0]].apply(close_fmt)
-    foreign_cols = [col for col in df.columns if col.startswith('외국인순매수_')]
-    for col in foreign_cols:
-        df[col] = df[col].apply(foreign_fmt)
-    
+            df[col] = df[col].apply(bool_fmt)  # 문자열로 변환 (TextColumn)
+
     styled_df = df.style.set_properties(**{'text-align': 'center'})
 
     return styled_df
@@ -395,20 +389,20 @@ column_config_kr = {
     "종목코드": st.column_config.TextColumn(width="small"),
     "회사명": st.column_config.TextColumn(width="small"),
     "시장": st.column_config.TextColumn(width="small"),
-    "RSI_3일_2ago": st.column_config.NumberColumn(width=80),
-    "RSI_3일_1ago": st.column_config.NumberColumn(width=80),
-    "RSI_3일_latest": st.column_config.NumberColumn(width=80),
-    "종가 (KRW)": st.column_config.NumberColumn(width=80),
-    "시가총액 (KRW 억원)": st.column_config.NumberColumn(width=80),
+    "RSI_3일_2ago": st.column_config.NumberColumn(width=80, format="%.2f"),
+    "RSI_3일_1ago": st.column_config.NumberColumn(width=80, format="%.2f"),
+    "RSI_3일_latest": st.column_config.NumberColumn(width=80, format="%.2f"),
+    "종가 (KRW)": st.column_config.NumberColumn(width=80, format="%.0f"),
+    "시가총액 (KRW 억원)": st.column_config.NumberColumn(width=80, format="%.0f"),
     "시가총액_상태": st.column_config.TextColumn(width="small"),
-    "20일평균거래대금 (KRW 억원)": st.column_config.NumberColumn(width=80),
-    "오늘거래대금 (KRW 억원)": st.column_config.NumberColumn(width=80),
-    "회전율 (%)": st.column_config.NumberColumn(width=80),
-    "외국인순매수_3일전 (주)": st.column_config.NumberColumn(width=80),
-    "외국인순매수_2일전 (주)": st.column_config.NumberColumn(width=80),
-    "외국인순매수_1일전 (주)": st.column_config.NumberColumn(width=80),
-    "PER_TTM (x)": st.column_config.NumberColumn(width=80),
-    "EPS_TTM": st.column_config.NumberColumn(width=80),
+    "20일평균거래대금 (KRW 억원)": st.column_config.NumberColumn(width=80, format="%.0f"),
+    "오늘거래대금 (KRW 억원)": st.column_config.NumberColumn(width=80, format="%.0f"),
+    "회전율 (%)": st.column_config.NumberColumn(width=80, format="%.2f"),
+    "외국인순매수_3일전 (주)": st.column_config.NumberColumn(width=80, format="%d"),
+    "외국인순매수_2일전 (주)": st.column_config.NumberColumn(width=80, format="%d"),
+    "외국인순매수_1일전 (주)": st.column_config.NumberColumn(width=80, format="%d"),
+    "PER_TTM (x)": st.column_config.NumberColumn(width=80, format="%.2f"),
+    "EPS_TTM": st.column_config.NumberColumn(width=80, format="%.2f"),
     "OBV_상승": st.column_config.TextColumn(width="small"),
     "RSI_3상승": st.column_config.TextColumn(width="small"),
     "RSI_3하강": st.column_config.TextColumn(width="small"),
@@ -421,20 +415,20 @@ column_config_us = {
     "종목코드": st.column_config.TextColumn(width="small"),
     "회사명": st.column_config.TextColumn(width="small"),
     "시장": st.column_config.TextColumn(width="small"),
-    "RSI_3일_2ago": st.column_config.NumberColumn(width=80),
-    "RSI_3일_1ago": st.column_config.NumberColumn(width=80),
-    "RSI_3일_latest": st.column_config.NumberColumn(width=80),
-    "종가 (USD)": st.column_config.NumberColumn(width=80),
-    "시가총액 (USD B)": st.column_config.NumberColumn(width=80),
+    "RSI_3일_2ago": st.column_config.NumberColumn(width=80, format="%.2f"),
+    "RSI_3일_1ago": st.column_config.NumberColumn(width=80, format="%.2f"),
+    "RSI_3일_latest": st.column_config.NumberColumn(width=80, format="%.2f"),
+    "종가 (USD)": st.column_config.NumberColumn(width=80, format="%.2f"),
+    "시가총액 (USD B)": st.column_config.NumberColumn(width=80, format="%.1f"),
     "시가총액_상태": st.column_config.TextColumn(width="small"),
-    "20일평균거래대금 (USD M)": st.column_config.NumberColumn(width=80),
-    "오늘거래대금 (USD M)": st.column_config.NumberColumn(width=80),
-    "회전율 (%)": st.column_config.NumberColumn(width=80),
-    "외국인순매수_3일전 (N/A)": st.column_config.NumberColumn(width=80),
-    "외국인순매수_2일전 (N/A)": st.column_config.NumberColumn(width=80),
-    "외국인순매수_1일전 (N/A)": st.column_config.NumberColumn(width=80),
-    "PER_TTM (x)": st.column_config.NumberColumn(width=80),
-    "EPS_TTM": st.column_config.NumberColumn(width=80),
+    "20일평균거래대금 (USD M)": st.column_config.NumberColumn(width=80, format="%.2f"),
+    "오늘거래대금 (USD M)": st.column_config.NumberColumn(width=80, format="%.2f"),
+    "회전율 (%)": st.column_config.NumberColumn(width=80, format="%.2f"),
+    "외국인순매수_3일전 (N/A)": st.column_config.NumberColumn(width=80, format="%d"),
+    "외국인순매수_2일전 (N/A)": st.column_config.NumberColumn(width=80, format="%d"),
+    "외국인순매수_1일전 (N/A)": st.column_config.NumberColumn(width=80, format="%d"),
+    "PER_TTM (x)": st.column_config.NumberColumn(width=80, format="%.2f"),
+    "EPS_TTM": st.column_config.NumberColumn(width=80, format="%.2f"),
     "OBV_상승": st.column_config.TextColumn(width="small"),
     "RSI_3상승": st.column_config.TextColumn(width="small"),
     "RSI_3하강": st.column_config.TextColumn(width="small"),
