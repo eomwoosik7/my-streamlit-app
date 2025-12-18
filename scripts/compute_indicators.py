@@ -49,10 +49,14 @@ def compute_indicators(symbol, market='US'):
             daily_path = os.path.join(base_dir, 'us_daily', f"{symbol}.parquet")
             close_col = 'Close'
             vol_col = 'Volume'
+            high_col = 'High'
+            low_col = 'Low'
         else:
             daily_path = os.path.join(base_dir, 'kr_daily', f"{symbol}.parquet")
             close_col = '종가'
             vol_col = '거래량'
+            high_col = '고가'
+            low_col = '저가'
         
         if not os.path.exists(daily_path):
             print(f"{symbol} 데이터 없음 – 스킵")
@@ -68,6 +72,8 @@ def compute_indicators(symbol, market='US'):
             })
             close_col = 'Close'
             vol_col = 'Volume'
+            high_col = 'High'
+            low_col = 'Low'
         
         # 지표 계산
         df_daily['RSI_D'] = ta.rsi(close=df_daily[close_col], length=14)
@@ -97,13 +103,20 @@ def compute_indicators(symbol, market='US'):
         today_trading = df_daily['TradingValue'].iloc[-1]
         turnover = today_trading / market_cap if market_cap > 0 else 0
         
-        # PER, EPS, cap_status 추가해서 반환 (총 15개 값)
+        # 캔들 위치 계산 (최근 5일 상단/하단 마감 반복)
+        n = 5
+        df_daily['candle_pos'] = (df_daily[close_col] - df_daily[low_col]) / (df_daily[high_col] - df_daily[low_col]).replace(0, float('nan'))  # 0 나누기 방지
+        upper_closes = (df_daily['candle_pos'].tail(n) > 0.7).sum()  # 상단 마감 횟수
+        lower_closes = (df_daily['candle_pos'].tail(n) < 0.3).sum()  # 하단 마감 횟수
+        
+        # PER, EPS, cap_status 추가해서 반환 (총 17개 값: 기존 15 + upper/lower_closes)
         return (symbol, market, name_val,
                 json.dumps(recent_d_rsi),
                 json.dumps(recent_macd), json.dumps(recent_signal),
                 json.dumps(recent_obv), json.dumps(recent_obv_signal),
                 float(market_cap), float(avg_20d), float(today_trading), float(turnover),
-                float(per_val), float(eps_val), cap_status)   # cap_status 추가
+                float(per_val), float(eps_val), cap_status,
+                int(upper_closes), int(lower_closes))  # 추가
         
     except Exception as e:
         print(f"{symbol} 에러: {e} – 스킵")
@@ -129,7 +142,9 @@ if __name__ == '__main__':
                     turnover DOUBLE,
                     per DOUBLE,
                     eps DOUBLE,
-                    cap_status VARCHAR  -- 추가: "기존" 또는 "최신"
+                    cap_status VARCHAR,  -- 추가: "기존" 또는 "최신"
+                    upper_closes INTEGER,  -- 추가: 상단 마감 횟수
+                    lower_closes INTEGER   -- 추가: 하단 마감 횟수
                 )
             """)
             con_temp.close()
@@ -162,7 +177,9 @@ if __name__ == '__main__':
             turnover DOUBLE,
             per DOUBLE,
             eps DOUBLE,
-            cap_status VARCHAR  -- 추가
+            cap_status VARCHAR,  -- 추가
+            upper_closes INTEGER,  -- 추가
+            lower_closes INTEGER   -- 추가
         )
     """)
     
@@ -188,9 +205,16 @@ if __name__ == '__main__':
     
     for row in all_results:
         con.execute(
-            "INSERT OR REPLACE INTO indicators VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",  # 15개
+            "INSERT OR REPLACE INTO indicators VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",  # 17개
             row
         )
     
     print("전체 완료! DB 확인: ", con.execute("SELECT COUNT(*) FROM indicators").fetchone()[0])
+    
+    # CSV 내보내기 (확인용)
+    df = con.execute("SELECT * FROM indicators").fetchdf()
+    csv_path = r"C:\Users\ws\Desktop\Python\Project_Hermes5\data\indicators.csv"
+    df.to_csv(csv_path, encoding='utf-8-sig', index=False)
+    print(f"CSV 저장 완료: {csv_path}")
+    
     con.close()
