@@ -72,7 +72,8 @@ def ensure_db_exists():
                 turnover DOUBLE,
                 per DOUBLE,
                 eps DOUBLE,
-                cap_status VARCHAR  # 추가
+                cap_status VARCHAR,  # 추가
+                sector VARCHAR  # 추가
             )
         """)
         con_temp.close()
@@ -126,6 +127,8 @@ def run_screener(top_n=50, use_us=True, use_kr=True):
             df['per'] = 0.0
         if 'eps' not in df.columns:
             df['eps'] = 0.0
+        if 'sector' not in df.columns:  # sector 없으면 N/A 추가
+            df['sector'] = 'N/A'
 
         market_filter = df['market'].isin(
             ['US'] if use_us and not use_kr else
@@ -171,7 +174,7 @@ def run_screener(top_n=50, use_us=True, use_kr=True):
         long_results.to_csv(long_csv_path, index=False, encoding='utf-8-sig')
         print(f"\n장타 완료! 총 {len(long_results)}개 종목 선정 (CSV: {long_csv_path})")
         if not long_results.empty:
-            print(long_results[['symbol', 'name', 'rsi_d_latest', 'per', 'eps', 'market', 'cap_status']].to_string(index=False))
+            print(long_results[['symbol', 'name', 'rsi_d_latest', 'per', 'eps', 'market', 'cap_status', 'sector']].to_string(index=False))  # sector 추가
 
         # 단타: OBV 상승 + RSI 상승 + 거래대금 + 유동성
         short_results = df_filtered[obv_bullish & rsi_3up & trading_high & liquidity_filter].copy()
@@ -183,7 +186,7 @@ def run_screener(top_n=50, use_us=True, use_kr=True):
         short_results.to_csv(short_csv_path, index=False, encoding='utf-8-sig')
         print(f"\n단타 완료! 총 {len(short_results)}개 종목 선정 (CSV: {short_csv_path})")
         if not short_results.empty:
-            print(short_results[['symbol', 'name', 'rsi_d_latest', 'today_trading_value', 'market', 'cap_status']].to_string(index=False))
+            print(short_results[['symbol', 'name', 'rsi_d_latest', 'today_trading_value', 'market', 'cap_status', 'sector']].to_string(index=False))  # sector 추가
 
         # 중기: OBV 상승 + RSI 상승 + EPS/PER + 유동성 (기존 results)
         mid_results = df_filtered[obv_bullish & rsi_3up & per_filter & liquidity_filter].copy()
@@ -197,7 +200,7 @@ def run_screener(top_n=50, use_us=True, use_kr=True):
 
         print(f"\n중기 스크리너 완료! 총 {len(mid_results)}개 종목 선정 (CSV: {mid_csv_path})")
         if not mid_results.empty:
-            print(mid_results[['symbol', 'name', 'rsi_d_latest', 'per', 'eps', 'market', 'cap_status']].to_string(index=False))  # cap_status 추가
+            print(mid_results[['symbol', 'name', 'rsi_d_latest', 'per', 'eps', 'market', 'cap_status', 'sector']].to_string(index=False))  # cap_status, sector 추가
 
         # 백테스팅 DB 생성
         create_backtest_db()
@@ -237,6 +240,7 @@ def create_backtest_db():
     backtest_df['latest_close'] = 0.0
     backtest_df['latest_update'] = 'N/A'
     backtest_df['change_rate'] = 0.0
+    backtest_df['sector'] = 'N/A'  # sector 추가
 
     for idx, row in backtest_df.iterrows():
         symbol = row['symbol']
@@ -246,6 +250,7 @@ def create_backtest_db():
         meta_dict = meta.get(market, {}).get(symbol, {})
         latest_close = meta_dict.get('close', 0.0)
         latest_update = meta_dict.get('cap_status', 'N/A')
+        sector_val = meta_dict.get('sector', 'N/A')  # sector 불러오기
 
         # 과거 close (CSV에 저장된 close 사용)
         past_close = row.get('close', 0.0)
@@ -255,6 +260,7 @@ def create_backtest_db():
         backtest_df.at[idx, 'latest_close'] = latest_close
         backtest_df.at[idx, 'latest_update'] = latest_update
         backtest_df.at[idx, 'change_rate'] = change_rate
+        backtest_df.at[idx, 'sector'] = sector_val  # sector 저장
 
     # DB 저장 (기존 테이블 drop 후 생성)
     con_back = duckdb.connect(BACKTEST_DB_PATH)

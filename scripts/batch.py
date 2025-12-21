@@ -13,6 +13,7 @@ def run_batch(use_kr=True, use_us=True):  # top_n 제거
     subprocess.run(["python", os.path.join(SCRIPT_DIR, "fetch_data.py")])
     subprocess.run(["python", os.path.join(SCRIPT_DIR, "foreign_net_buy.py")])
     subprocess.run(["python", os.path.join(SCRIPT_DIR, "per_eps.py")])
+    subprocess.run(["python", os.path.join(SCRIPT_DIR, "kr_stock_sectors.py")])
     subprocess.run(["python", os.path.join(SCRIPT_DIR, "download.py")])
     subprocess.run(["python", os.path.join(SCRIPT_DIR, "compute_indicators.py")])
     time.sleep(1)

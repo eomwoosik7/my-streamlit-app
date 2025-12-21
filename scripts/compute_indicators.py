@@ -101,7 +101,7 @@ def compute_indicators(symbol, market='US'):
         recent_obv = df_daily['OBV'].tail(3).round(0).tolist()[::-1]
         recent_obv_signal = df_daily['OBV_SIGNAL'].tail(3).round(0).tolist()[::-1]
         
-        # 메타에서 이름, 시총, PER, EPS, cap_status 가져오기
+        # 메타에서 이름, 시총, PER, EPS, cap_status, sector 가져오기
         meta = load_meta()
         meta_dict = meta.get(market, {})
         name_val = meta_dict.get(symbol, {}).get('name', 'N/A')
@@ -109,6 +109,7 @@ def compute_indicators(symbol, market='US'):
         cap_status = meta_dict.get(symbol, {}).get('cap_status', "기존")
         per_val = meta_dict.get(symbol, {}).get('per', 0.0)
         eps_val = meta_dict.get(symbol, {}).get('eps', 0.0)
+        sector_val = meta_dict.get(symbol, {}).get('sector', 'N/A')  # sector 추가
         
         df_daily['TradingValue'] = df_daily[close_col] * df_daily[vol_col]
         avg_20d = df_daily['TradingValue'].tail(20).mean()
@@ -121,14 +122,14 @@ def compute_indicators(symbol, market='US'):
         upper_closes = (df_daily['candle_pos'].tail(n) > 0.7).sum()  # 상단 마감 횟수
         lower_closes = (df_daily['candle_pos'].tail(n) < 0.3).sum()  # 하단 마감 횟수
         
-        # PER, EPS, cap_status 추가해서 반환 (총 17개 값: 기존 15 + upper/lower_closes)
+        # PER, EPS, cap_status, sector 추가해서 반환 (총 18개 값: 기존 17 + sector)
         return (symbol, market, name_val,
                 json.dumps(recent_d_rsi),
                 json.dumps(recent_macd), json.dumps(recent_signal),
                 json.dumps(recent_obv), json.dumps(recent_obv_signal),
                 float(market_cap), float(avg_20d), float(today_trading), float(turnover),
                 float(per_val), float(eps_val), cap_status,
-                int(upper_closes), int(lower_closes))  # 추가
+                int(upper_closes), int(lower_closes), sector_val)  # sector 추가
         
     except Exception as e:
         print(f"{symbol} 에러: {e} – 스킵")
@@ -156,7 +157,8 @@ if __name__ == '__main__':
                     eps DOUBLE,
                     cap_status VARCHAR,  -- 추가: "기존" 또는 "최신"
                     upper_closes INTEGER,  -- 추가: 상단 마감 횟수
-                    lower_closes INTEGER   -- 추가: 하단 마감 횟수
+                    lower_closes INTEGER,   -- 추가: 하단 마감 횟수
+                    sector VARCHAR  -- 추가: 섹터
                 )
             """)
             con_temp.close()
@@ -191,7 +193,8 @@ if __name__ == '__main__':
             eps DOUBLE,
             cap_status VARCHAR,  -- 추가
             upper_closes INTEGER,  -- 추가
-            lower_closes INTEGER   -- 추가
+            lower_closes INTEGER,   -- 추가
+            sector VARCHAR  -- 추가
         )
     """)
     
@@ -217,7 +220,7 @@ if __name__ == '__main__':
     
     for row in all_results:
         con.execute(
-            "INSERT OR REPLACE INTO indicators VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",  # 17개
+            "INSERT OR REPLACE INTO indicators VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",  # 18개
             row
         )
     
