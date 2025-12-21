@@ -21,13 +21,25 @@ DB_PATH = os.path.join(META_DIR, 'universe.db')
 META_FILE = os.path.join(META_DIR, 'tickers_meta.json')  # 메타 파일
 
 def get_us_symbols():
-    url = 'https://en.wikipedia.org/wiki/List_of_S%26P_500_companies'
+    url = 'https://en.wikipedia.org/wiki/Russell_1000_Index'
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'}
-    response = requests.get(url, headers=headers)
-    soup = BeautifulSoup(response.text, 'html.parser')
-    table = soup.find('table', {'id': 'constituents'})
-    df_us = pd.read_html(StringIO(str(table)))[0]
-    return df_us['Symbol'].tolist()[:1000]
+    try:
+        response = requests.get(url, headers=headers)
+        response.raise_for_status()
+        soup = BeautifulSoup(response.text, 'html.parser')
+        tables = soup.find_all('table')
+        # "Components" 테이블 찾기 (컬럼에 'Symbol' 포함)
+        for table in tables:
+            if 'Symbol' in str(table):  # 'Ticker symbol' → 'Symbol'로 되돌림
+                df_us = pd.read_html(str(table))[0]
+                us_symbols = df_us['Symbol'].str.replace('.', '-', regex=False).tolist()  # 컬럼 'Symbol'로 접근
+                print(f"US 상위 {len(us_symbols)}개 로드 (Russell 1000)")
+                return us_symbols
+        print("US 테이블 찾기 실패 – 빈 리스트 반환")
+        return []
+    except Exception as e:
+        print(f"US 심볼 로드 실패: {e}")
+        return []
 
 def load_meta():
     """메타 데이터 로드"""
@@ -46,13 +58,13 @@ def compute_indicators(symbol, market='US'):
     try:
         base_dir = DATA_DIR
         if market == 'US':
-            daily_path = os.path.join(base_dir, 'us_daily', f"{symbol}.parquet")
+            daily_path = os.path.join(base_dir, 'us_daily', f"{symbol}.csv")
             close_col = 'Close'
             vol_col = 'Volume'
             high_col = 'High'
             low_col = 'Low'
         else:
-            daily_path = os.path.join(base_dir, 'kr_daily', f"{symbol}.parquet")
+            daily_path = os.path.join(base_dir, 'kr_daily', f"{symbol}.csv")
             close_col = '종가'
             vol_col = '거래량'
             high_col = '고가'
@@ -62,7 +74,7 @@ def compute_indicators(symbol, market='US'):
             print(f"{symbol} 데이터 없음 – 스킵")
             return None
         
-        df_daily = pd.read_parquet(daily_path)
+        df_daily = pd.read_csv(daily_path, index_col=0)  # Date를 인덱스로 읽음
         
         # KR 한글 컬럼 영어로 변경
         if market == 'KR':

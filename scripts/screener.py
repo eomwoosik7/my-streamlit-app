@@ -6,7 +6,7 @@ import numpy as np
 from pykrx import stock
 import yfinance as yf
 import sys
-from datetime import datetime
+from datetime import datetime, timedelta
 import time
 import traceback
 
@@ -15,6 +15,41 @@ os.makedirs(DATA_DIR, exist_ok=True)
 META_DIR = os.path.join(DATA_DIR, 'meta')
 os.makedirs(META_DIR, exist_ok=True)
 DB_PATH = os.path.join(META_DIR, 'universe.db')
+BACKTEST_DB_PATH = os.path.join(META_DIR, 'backtest.db')  # 새 백테스팅 DB
+BACKTEST_CSV_PATH = os.path.join(DATA_DIR, 'backtest_results.csv')  # 백테스팅 CSV
+
+# 폴더 생성 (CSV 저장용)
+LONG_FOLDER = os.path.join(DATA_DIR, 'long_term_results')
+SHORT_FOLDER = os.path.join(DATA_DIR, 'short_term_results')
+MID_FOLDER = os.path.join(DATA_DIR, 'screener_results')  # 중기
+os.makedirs(LONG_FOLDER, exist_ok=True)
+os.makedirs(SHORT_FOLDER, exist_ok=True)
+os.makedirs(MID_FOLDER, exist_ok=True)
+
+# meta.json 로드
+META_FILE = os.path.join(META_DIR, 'tickers_meta.json')
+
+def load_meta():
+    if os.path.exists(META_FILE):
+        with open(META_FILE, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    else:
+        print("메타 파일 없음 – 빈 딕트 반환")
+        return {'KR': {}, 'US': {}}
+
+def add_close_price(df):
+    if df.empty or 'symbol' not in df.columns or 'market' not in df.columns:
+        return df
+    meta = load_meta()
+    df = df.copy()
+    df['close'] = np.nan
+    for idx, row in df.iterrows():
+        symbol = row['symbol']
+        market = row['market']
+        meta_dict = meta.get(market, {}).get(symbol, {})
+        close_price = meta_dict.get('close', 0.0)
+        df.at[idx, 'close'] = close_price
+    return df
 
 con = None
 
@@ -119,43 +154,119 @@ def run_screener(top_n=50, use_us=True, use_kr=True):
             ((df_filtered['market'] == 'KR') & (df_filtered['market_cap'] >= 200000000000.0))
         )
 
+        # 영업일 조정 (주말 → 금요일)
+        today = datetime.now()
+        if today.weekday() >= 5:  # 5: 토요일, 6: 일요일
+            days_back = today.weekday() - 4  # 토요일:1, 일요일:2만큼 이전 (금요일)
+            today -= timedelta(days=days_back)
+        today_str = today.strftime('%Y-%m-%d')
+
         # 장타: OBV 상승 + RSI 하강 + EPS/PER + 유동성
         long_results = df_filtered[obv_bullish & rsi_3down & per_filter & liquidity_filter].copy()
-        long_results = long_results.sort_values('rsi_d_latest').head(top_n)
-        long_results_path = os.path.join(META_DIR, 'long_term_results.parquet')
-        long_results.to_parquet(long_results_path)
-        print(f"\n장타 완료! 총 {len(long_results)}개 종목 선정")
+        long_results = long_results.sort_values('rsi_d_latest')
+        long_results = add_close_price(long_results)  # close 추가
+        # symbol 형식 보장 (CSV 저장 전)
+        long_results['symbol'] = long_results.apply(lambda row: str(row['symbol']).zfill(6) if row['market'] == 'KR' else str(row['symbol']), axis=1)
+        long_csv_path = os.path.join(LONG_FOLDER, f"{today_str}_long.csv")
+        long_results.to_csv(long_csv_path, index=False, encoding='utf-8-sig')
+        print(f"\n장타 완료! 총 {len(long_results)}개 종목 선정 (CSV: {long_csv_path})")
         if not long_results.empty:
             print(long_results[['symbol', 'name', 'rsi_d_latest', 'per', 'eps', 'market', 'cap_status']].to_string(index=False))
 
         # 단타: OBV 상승 + RSI 상승 + 거래대금 + 유동성
         short_results = df_filtered[obv_bullish & rsi_3up & trading_high & liquidity_filter].copy()
-        short_results = short_results.sort_values('rsi_d_latest').head(top_n)
-        short_results_path = os.path.join(META_DIR, 'short_term_results.parquet')
-        short_results.to_parquet(short_results_path)
-        print(f"\n단타 완료! 총 {len(short_results)}개 종목 선정")
+        short_results = short_results.sort_values('rsi_d_latest')
+        short_results = add_close_price(short_results)  # close 추가
+        # symbol 형식 보장 (CSV 저장 전)
+        short_results['symbol'] = short_results.apply(lambda row: str(row['symbol']).zfill(6) if row['market'] == 'KR' else str(row['symbol']), axis=1)
+        short_csv_path = os.path.join(SHORT_FOLDER, f"{today_str}_short.csv")
+        short_results.to_csv(short_csv_path, index=False, encoding='utf-8-sig')
+        print(f"\n단타 완료! 총 {len(short_results)}개 종목 선정 (CSV: {short_csv_path})")
         if not short_results.empty:
             print(short_results[['symbol', 'name', 'rsi_d_latest', 'today_trading_value', 'market', 'cap_status']].to_string(index=False))
 
-        # 기존 screener_results도 유지 (필요시)
-        results = df_filtered[obv_bullish & rsi_3up & per_filter & liquidity_filter].copy()
-        results = results.sort_values('rsi_d_latest').head(top_n)
-        numeric_cols = results.select_dtypes(include=['float64']).columns
-        for col in numeric_cols:
-            results[col] = results[col].round(2)
-        results_path = os.path.join(META_DIR, 'screener_results.parquet')
-        results.to_parquet(results_path)
+        # 중기: OBV 상승 + RSI 상승 + EPS/PER + 유동성 (기존 results)
+        mid_results = df_filtered[obv_bullish & rsi_3up & per_filter & liquidity_filter].copy()
+        mid_results = mid_results.sort_values('rsi_d_latest')
+        mid_results = add_close_price(mid_results)  # close 추가
+        # round(2) 루프 제거: 반올림 방지
+        # symbol 형식 보장 (CSV 저장 전)
+        mid_results['symbol'] = mid_results.apply(lambda row: str(row['symbol']).zfill(6) if row['market'] == 'KR' else str(row['symbol']), axis=1)
+        mid_csv_path = os.path.join(MID_FOLDER, f"{today_str}_mid.csv")
+        mid_results.to_csv(mid_csv_path, index=False, encoding='utf-8-sig')
 
-        print(f"\n기존 스크리너 완료! 총 {len(results)}개 종목 선정")
-        if not results.empty:
-            print(results[['symbol', 'name', 'rsi_d_latest', 'per', 'eps', 'market', 'cap_status']].to_string(index=False))  # cap_status 추가
+        print(f"\n중기 스크리너 완료! 총 {len(mid_results)}개 종목 선정 (CSV: {mid_csv_path})")
+        if not mid_results.empty:
+            print(mid_results[['symbol', 'name', 'rsi_d_latest', 'per', 'eps', 'market', 'cap_status']].to_string(index=False))  # cap_status 추가
 
-        return results
+        # 백테스팅 DB 생성
+        create_backtest_db()
+
+        return mid_results  # 기존 반환 유지
 
     except Exception as e:
         print(f"스크리너 에러: {e}")
         traceback.print_exc()
         return pd.DataFrame()
+
+# 폴더 내 모든 CSV 로드 및 종합
+def load_all_csv_from_folder(folder_path, result_type):
+    all_df = pd.DataFrame()
+    for file in os.listdir(folder_path):
+        if file.endswith('.csv'):
+            file_path = os.path.join(folder_path, file)
+            df = pd.read_csv(file_path, dtype={'symbol': str})  # symbol을 str로 유지
+            # date 컬럼 추가 안 함 (제거)
+            df['type'] = result_type
+            all_df = pd.concat([all_df, df], ignore_index=True)
+    return all_df
+
+# 백테스팅 DB 생성
+def create_backtest_db():
+    # 각 폴더 CSV 종합
+    long_df = load_all_csv_from_folder(LONG_FOLDER, 'long')
+    short_df = load_all_csv_from_folder(SHORT_FOLDER, 'short')
+    mid_df = load_all_csv_from_folder(MID_FOLDER, 'mid')
+
+    backtest_df = pd.concat([long_df, short_df, mid_df], ignore_index=True)
+
+    # meta 로드
+    meta = load_meta()
+
+    # 추가 컬럼
+    backtest_df['latest_close'] = 0.0
+    backtest_df['latest_update'] = 'N/A'
+    backtest_df['change_rate'] = 0.0
+
+    for idx, row in backtest_df.iterrows():
+        symbol = row['symbol']
+        market = row['market']
+        if market == 'KR':
+            symbol = str(symbol).zfill(6)  # KR 티커 6자리 leading zero 보장
+        meta_dict = meta.get(market, {}).get(symbol, {})
+        latest_close = meta_dict.get('close', 0.0)
+        latest_update = meta_dict.get('cap_status', 'N/A')
+
+        # 과거 close (CSV에 저장된 close 사용)
+        past_close = row.get('close', 0.0)
+        change_rate = ((latest_close - past_close) / past_close * 100) if past_close != 0 else 0.0
+        change_rate = round(change_rate, 2)  # 소숫점 둘째 자리
+
+        backtest_df.at[idx, 'latest_close'] = latest_close
+        backtest_df.at[idx, 'latest_update'] = latest_update
+        backtest_df.at[idx, 'change_rate'] = change_rate
+
+    # DB 저장 (기존 테이블 drop 후 생성)
+    con_back = duckdb.connect(BACKTEST_DB_PATH)
+    con_back.execute("DROP TABLE IF EXISTS backtest")
+    con_back.execute("CREATE TABLE backtest AS SELECT * FROM backtest_df")
+    con_back.close()
+
+    # CSV 저장
+    backtest_df.to_csv(BACKTEST_CSV_PATH, index=False, encoding='utf-8-sig')
+
+    print(f"백테스팅 DB 생성 완료: {BACKTEST_DB_PATH}")
+    print(f"백테스팅 CSV 저장 완료: {BACKTEST_CSV_PATH}")
 
 if __name__ == "__main__":
     use_us = sys.argv[1].lower() == 'true' if len(sys.argv) > 1 else True

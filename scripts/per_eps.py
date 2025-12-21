@@ -3,7 +3,12 @@ from pykrx import stock
 import pandas as pd
 import os
 
+# 오늘 날짜를 평일로 조정 (주말이면 금요일로 이동)
 today = datetime.date.today()
+if today.weekday() >= 5:  # 5: 토요일, 6: 일요일
+    days_back = today.weekday() - 4  # 토요일:1, 일요일:2만큼 이전 (금요일)
+    today -= datetime.timedelta(days=days_back)
+
 dfs = []
 collected_days = 0
 days_back = 0

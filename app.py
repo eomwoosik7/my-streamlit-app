@@ -19,7 +19,16 @@ import warnings
 st.cache_data.clear()
 st.cache_resource.clear()
 
-st.set_page_config(page_title="Trading Copilot", layout="wide")
+st.set_page_config(page_title="Smart Stock Screener 📈", layout="wide")
+st.header("Trading Copilot 🚀")
+st.markdown("""
+<style>
+    /* 전체 앱 기본 폰트 크기 */
+    html, body, [class*="css"] {
+        font-size: 14px !important;
+    }
+</style>
+""", unsafe_allow_html=True)
 
 warnings.filterwarnings("ignore", message=".*keyword arguments.*deprecated.*config.*")
 warnings.filterwarnings("ignore", category=FutureWarning, message=".*to_pydatetime.*")
@@ -69,20 +78,23 @@ def load_meta():
             return json.load(f)
     return {'KR': {}, 'US': {}}
 
+@st.cache_data(ttl=3600)
 def add_foreign_net_buy(df):
-    if df.empty or 'symbol' not in df.columns or 'market' not in df.columns:
+    if 'symbol' not in df.columns or 'market' not in df.columns:
         return df
     meta = load_meta()
     df = df.copy()
+    # 항상 컬럼 초기화 (빈 df라도 컬럼 생성)
     df['foreign_net_buy_3ago'] = np.nan
     df['foreign_net_buy_2ago'] = np.nan
     df['foreign_net_buy_1ago'] = np.nan
+    if df.empty:
+        return df  # 빈 df 반환 but 컬럼 있음
     for idx, row in df.iterrows():
         symbol = row['symbol']
         market = row['market']
         meta_dict = meta.get(market, {}).get(symbol, {})
         fnb = meta_dict.get('foreign_net_buy', [0, 0, 0])
-        # fnb[0] = recent (1ago), fnb[1] = 2ago, fnb[2] = 3ago
         df.at[idx, 'foreign_net_buy_3ago'] = fnb[2] if len(fnb) > 2 else 0
         df.at[idx, 'foreign_net_buy_2ago'] = fnb[1] if len(fnb) > 1 else 0
         df.at[idx, 'foreign_net_buy_1ago'] = fnb[0] if len(fnb) > 0 else 0
@@ -92,28 +104,15 @@ def add_foreign_net_buy(df):
 def add_close_price(df):
     if df.empty or 'symbol' not in df.columns or 'market' not in df.columns:
         return df
+    meta = load_meta()
     df = df.copy()
     df['close'] = np.nan
-    base_dir = "data"  # 기존 DATA_DIR와 맞춤
     for idx, row in df.iterrows():
         symbol = row['symbol']
         market = row['market']
-        if market == 'US':
-            daily_path = os.path.join(base_dir, 'us_daily', f"{symbol}.parquet")
-            close_col = 'Close'
-        elif market == 'KR':
-            daily_path = os.path.join(base_dir, 'kr_daily', f"{symbol}.parquet")
-            close_col = 'Close'  # KR 컬럼명 맞춤
-        else:
-            continue
-        
-        if os.path.exists(daily_path):
-            try:
-                df_daily = pd.read_parquet(daily_path)
-                if not df_daily.empty and close_col in df_daily.columns:
-                    df.at[idx, 'close'] = df_daily[close_col].iloc[-1]  # 마지막 행 종가
-            except Exception as e:
-                pass  # 에러 스킵 (로그 추가 가능)
+        meta_dict = meta.get(market, {}).get(symbol, {})
+        close_price = meta_dict.get('close', 0.0)
+        df.at[idx, 'close'] = close_price
     return df
 
 def run_screener_query(con, filter_condition="all", use_us=True, use_kr=True, top_n=None, additional_filter=None):
@@ -213,7 +212,7 @@ def format_dataframe(df, market_type):
         })
     elif market_type == 'US':
         df = df.rename(columns={
-            '시가총액': '시가총액 (USD B)',
+            '시가총액': '시가총액 (USD M)',
             '20일평균거래대금': '20일평균거래대금 (USD M)',
             '오늘거래대금': '오늘거래대금 (USD M)',
             '회전율': '회전율 (%)',
@@ -228,13 +227,13 @@ def format_dataframe(df, market_type):
     def safe_float(x):
         return float(x) if pd.notna(x) else 0.0
 
-    if '시가총액 (KRW 억원)' in df.columns or '시가총액 (USD B)' in df.columns:
+    if '시가총액 (KRW 억원)' in df.columns or '시가총액 (USD M)' in df.columns:
         col_name = df.columns[df.columns.str.startswith('시가총액 (')][0]
         df[col_name] = df[col_name].apply(safe_float)
         if market_type == 'KR':
             df[col_name] = df[col_name] / 1e8  # 억원 단위 (숫자 유지)
         else:
-            df[col_name] = df[col_name] / 1e9  # Billion USD (숫자 유지)
+            df[col_name] = df[col_name] / 1e6  # Million USD (숫자 유지)
 
     if '20일평균거래대금 (KRW 억원)' in df.columns or '20일평균거래대금 (USD M)' in df.columns:
         col_name = df.columns[df.columns.str.startswith('20일평균거래대금 (')][0]
@@ -289,15 +288,16 @@ def format_dataframe(df, market_type):
 
     # 숫자 컬럼 강제 반올림 (서버 이슈 해결)
     numeric_cols = df.select_dtypes(include='float').columns
+    numeric_cols = numeric_cols.drop('회전율 (%)', errors='ignore')  # 이 줄 추가: 회전율 제외
     df[numeric_cols] = df[numeric_cols].round(2)
 
     return df  # styled_df 대신 기본 df 반환
 
 def show_graphs(symbol, market):
     base_dir = "data"
-    daily_path = os.path.join(base_dir, ('us_daily' if market == 'US' else 'kr_daily'), f"{symbol}.parquet")
+    daily_path = os.path.join(base_dir, ('us_daily' if market == 'US' else 'kr_daily'), f"{symbol}.csv")
     if os.path.exists(daily_path):
-        df_chart = pd.read_parquet(daily_path)
+        df_chart = pd.read_csv(daily_path, index_col=0)
         if market == 'KR':
             df_chart = df_chart.rename(columns={'시가': 'Open', '고가': 'High', '저가': 'Low', '종가': 'Close', '거래량': 'Volume'})
         close_col = 'Close'
@@ -367,6 +367,13 @@ def get_filtered_symbols(df, search_term):
         return df_filtered['종목코드'].tolist()
     return df['종목코드'].tolist() if '종목코드' in df.columns else []
 
+# 세션 상태 초기화 (앱 시작 시)
+if 'filter_results' not in st.session_state:
+    st.session_state.filter_results = pd.DataFrame()
+if 'filter_results_kr' not in st.session_state:
+    st.session_state.filter_results_kr = pd.DataFrame()
+if 'filter_results_us' not in st.session_state:
+    st.session_state.filter_results_us = pd.DataFrame()
 if 'selected_symbol' not in st.session_state:
     st.session_state.selected_symbol = None
 if 'con' not in st.session_state:
@@ -374,18 +381,10 @@ if 'con' not in st.session_state:
 if 'current_tab' not in st.session_state:
     st.session_state.current_tab = "장기"
 
-st.sidebar.title("설정")
-use_us = st.sidebar.checkbox("US 시장", value=True)
-use_kr = st.sidebar.checkbox("KR 시장", value=True)
-top_n = st.sidebar.number_input("Top N", min_value=10, max_value=100, value=20)
-
-if st.sidebar.button("배치 실행"):
-    subprocess.run(["python", "batch.py", str(use_us), str(use_kr), str(top_n)])
-
 df_ind = load_data()
 con = get_db_connection()
 
-tab1, tab8, tab9, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs(["장기", "단기", "중기", "OBV 상승 크로스", "RSI 상승 지속 (50 이하)", "RSI 하강 지속 (50 이하)", "EPS & PER", "거래대금", "Total"])
+main_tabs = st.tabs(["필터", "백테스팅", "KR", "US", "로그"])
 
 column_config_kr = {
     "종목코드": st.column_config.TextColumn(width="small"),
@@ -396,7 +395,7 @@ column_config_kr = {
     "RSI_3일_latest": st.column_config.NumberColumn(width=80, format="%.2f"),
     "종가 (KRW)": st.column_config.NumberColumn(width=80, format="%.0f"),
     "시가총액 (KRW 억원)": st.column_config.NumberColumn(width=80, format="%.0f"),
-    "시가총액_상태": st.column_config.TextColumn(width="small"),
+    "업데이트": st.column_config.TextColumn(width="small"),
     "20일평균거래대금 (KRW 억원)": st.column_config.NumberColumn(width=80, format="%.0f"),
     "오늘거래대금 (KRW 억원)": st.column_config.NumberColumn(width=80, format="%.0f"),
     "회전율 (%)": st.column_config.NumberColumn(width=80, format="%.2f"),
@@ -412,6 +411,8 @@ column_config_kr = {
     "거래대금_상승": st.column_config.TextColumn(width="small"),
     "EPS > 0": st.column_config.TextColumn(width="small"),
     "3<=PER<=30": st.column_config.TextColumn(width="small"),
+    "외국인 순매수": st.column_config.TextColumn(width="small"),
+    "캔들": st.column_config.TextColumn(width="small"),
 }
 
 column_config_us = {
@@ -422,8 +423,8 @@ column_config_us = {
     "RSI_3일_1ago": st.column_config.NumberColumn(width=80, format="%.2f"),
     "RSI_3일_latest": st.column_config.NumberColumn(width=80, format="%.2f"),
     "종가 (USD)": st.column_config.NumberColumn(width=80, format="%.2f"),
-    "시가총액 (USD B)": st.column_config.NumberColumn(width=80, format="%.1f"),
-    "시가총액_상태": st.column_config.TextColumn(width="small"),
+    "시가총액 (USD M)": st.column_config.NumberColumn(width=80, format="%.2f"),
+    "업데이트": st.column_config.TextColumn(width="small"),
     "20일평균거래대금 (USD M)": st.column_config.NumberColumn(width=80, format="%.2f"),
     "오늘거래대금 (USD M)": st.column_config.NumberColumn(width=80, format="%.2f"),
     "회전율 (%)": st.column_config.NumberColumn(width=80, format="%.2f"),
@@ -439,557 +440,732 @@ column_config_us = {
     "거래대금_상승": st.column_config.TextColumn(width="small"),
     "EPS > 0": st.column_config.TextColumn(width="small"),
     "3<=PER<=30": st.column_config.TextColumn(width="small"),
+    "외국인 순매수": st.column_config.TextColumn(width="small"),
+    "캔들": st.column_config.TextColumn(width="small"),
 }
 
-with tab1:
-    st.session_state.current_tab = "장기"
-    st.header("장기 (OBV 상승크로스 + RSI 하강 지속 (50이하) + EPS & PER)")
-    df_long_full = run_screener_query(con, "long_term", use_us, use_kr, top_n=None, additional_filter="eps_per")
-    df_long = df_long_full
-    df_long = add_names(df_long)
-    df_long = add_foreign_net_buy(df_long)
-    df_long = add_close_price(df_long)
-    df_long = prepare_tab_df(df_long)
-    
-    if not df_long_full.empty:
-        df_kr_temp = df_long_full[df_long_full['market'] == 'KR']
-        df_us_temp = df_long_full[df_long_full['market'] == 'US']
-        total_candidates = len(df_kr_temp) + len(df_us_temp)
-        st.metric("후보 수", total_candidates)
-        
-        df_long['eps_positive'] = df_long['eps'] > 0
-        df_long['per_range'] = (df_long['per'] >= 3) & (df_long['per'] <= 30)
-        
-        df_long['캔들(5일)'] = df_long['upper_closes'].astype(str) + ' (상단) / ' + df_long['lower_closes'].astype(str) + ' (하단)'  # 추가
-        
-        df_long = df_long.rename(columns={k: v for k, v in {'symbol': '종목코드', 'market': '시장', 'name': '회사명', 
-                   'rsi_d_2ago': 'RSI_3일_2ago', 'rsi_d_1ago': 'RSI_3일_1ago', 'rsi_d_latest': 'RSI_3일_latest', 
-                   'close': '종가',
-                   'market_cap': '시가총액', 'avg_trading_value_20d': '20일평균거래대금', 'today_trading_value': '오늘거래대금', 'turnover': '회전율',
-                   'foreign_net_buy_3ago': '외국인순매수_3일전', 'foreign_net_buy_2ago': '외국인순매수_2일전', 'foreign_net_buy_1ago': '외국인순매수_1일전',
-                   'per': 'PER_TTM', 'eps': 'EPS_TTM', 'obv_bullish_cross': 'OBV_상승', 'rsi_3up': 'RSI_3상승', 'rsi_3down': 'RSI_3하강', 'trading_high': '거래대금_상승',
-                   'eps_positive': 'EPS > 0', 'per_range': '3<=PER<=30', 'cap_status': '시가총액_상태'}.items() if k in df_long.columns})
-        
-        df_kr_results = df_long[df_long['시장'] == 'KR'] if '시장' in df_long.columns else pd.DataFrame()
-        df_us_results = df_long[df_long['시장'] == 'US'] if '시장' in df_long.columns else pd.DataFrame()
-        
-        if not df_kr_results.empty:
-            cols_kr = ['종목코드', '회사명', '시장', 'RSI_3일_2ago', 'RSI_3일_1ago', 'RSI_3일_latest', '종가', '시가총액', '시가총액_상태', '20일평균거래대금', '오늘거래대금', '회전율', '캔들(5일)', '외국인순매수_3일전', '외국인순매수_2일전', '외국인순매수_1일전', 'PER_TTM', 'EPS_TTM', 'OBV_상승', 'RSI_3상승', 'RSI_3하강', '거래대금_상승', 'EPS > 0', '3<=PER<=30']
-            df_kr_results = df_kr_results[[col for col in cols_kr if col in df_kr_results.columns]]
-            df_kr_results = df_kr_results.sort_values('시가총액', ascending=False)
-            df_kr_results = format_dataframe(df_kr_results, 'KR')
-            st.subheader("국내 (KR)")
-            st.dataframe(df_kr_results, column_config=column_config_kr)
-        if not df_us_results.empty:
-            cols_us = ['종목코드', '회사명', '시장', 'RSI_3일_2ago', 'RSI_3일_1ago', 'RSI_3일_latest', '종가', '시가총액', '시가총액_상태', '20일평균거래대금', '오늘거래대금', '회전율', '캔들(5일)', '외국인순매수_3일전', '외국인순매수_2일전', '외국인순매수_1일전', 'PER_TTM', 'EPS_TTM', 'OBV_상승', 'RSI_3상승', 'RSI_3하강', '거래대금_상승', 'EPS > 0', '3<=PER<=30']
-            df_us_results = df_us_results[[col for col in cols_us if col in df_us_results.columns]]
-            df_us_results = df_us_results.sort_values('시가총액', ascending=False)
-            df_us_results = format_dataframe(df_us_results, 'US')
-            st.subheader("해외 (US)")
-            st.dataframe(df_us_results, column_config=column_config_us)
-        
-        search_term = st.text_input("종목 검색 (장기)", placeholder="코드/회사명 입력", key="search_long")
-        filtered_symbols = get_filtered_symbols(df_long, search_term)
-        if filtered_symbols:
-            selected_symbol = st.selectbox("종목 선택 (장기)", filtered_symbols, key="select_long")
-            if selected_symbol != st.session_state.selected_symbol:
-                st.session_state.selected_symbol = selected_symbol
-            if st.session_state.selected_symbol:
-                market = df_long[df_long['종목코드'] == st.session_state.selected_symbol]['시장'].iloc[0] if '시장' in df_long.columns else 'US'
-                show_graphs(st.session_state.selected_symbol, market)
-    else:
-        st.info("장기 후보 없음")
+with main_tabs[0]:  # 필터 탭
+    st.header("Search")
 
-with tab8:
-    st.session_state.current_tab = "단기"
-    st.header("단기 (OBV 상승크로스 + RSI 상승 지속 (50이하) + 거래대금)")
-    df_short_full = run_screener_query(con, "short_term", use_us, use_kr, top_n=None)
-    df_short = df_short_full
-    df_short = add_names(df_short)
-    df_short = add_foreign_net_buy(df_short)
-    df_short = add_close_price(df_short)
-    df_short = prepare_tab_df(df_short)
-    
-    if not df_short_full.empty:
-        df_kr_temp = df_short_full[df_short_full['market'] == 'KR']
-        df_us_temp = df_short_full[df_short_full['market'] == 'US']
-        total_candidates = len(df_kr_temp) + len(df_us_temp)
-        st.metric("후보 수", total_candidates)
+    with st.form(key="filter_form"):
+        market = st.selectbox("시장", ["모두", "US", "KR"])
         
-        df_short['eps_positive'] = df_short['eps'] > 0
-        df_short['per_range'] = (df_short['per'] >= 3) & (df_short['per'] <= 30)
+        col1, col2, col3, col4 = st.columns(4)  
         
-        df_short['캔들(5일)'] = df_short['upper_closes'].astype(str) + ' (상단) / ' + df_short['lower_closes'].astype(str) + ' (하단)'  # 추가
-        
-        df_short = df_short.rename(columns={k: v for k, v in {'symbol': '종목코드', 'market': '시장', 'name': '회사명', 
-                   'rsi_d_2ago': 'RSI_3일_2ago', 'rsi_d_1ago': 'RSI_3일_1ago', 'rsi_d_latest': 'RSI_3일_latest', 
-                   'close': '종가',
-                   'market_cap': '시가총액', 'avg_trading_value_20d': '20일평균거래대금', 'today_trading_value': '오늘거래대금', 'turnover': '회전율',
-                   'foreign_net_buy_3ago': '외국인순매수_3일전', 'foreign_net_buy_2ago': '외국인순매수_2일전', 'foreign_net_buy_1ago': '외국인순매수_1일전',
-                   'per': 'PER_TTM', 'eps': 'EPS_TTM', 'obv_bullish_cross': 'OBV_상승', 'rsi_3up': 'RSI_3상승', 'rsi_3down': 'RSI_3하강', 'trading_high': '거래대금_상승',
-                   'eps_positive': 'EPS > 0', 'per_range': '3<=PER<=30', 'cap_status': '시가총액_상태'}.items() if k in df_short.columns})
-        
-        df_kr_results = df_short[df_short['시장'] == 'KR'] if '시장' in df_short.columns else pd.DataFrame()
-        df_us_results = df_short[df_short['시장'] == 'US'] if '시장' in df_short.columns else pd.DataFrame()
-        
-        if not df_kr_results.empty:
-            cols_kr = ['종목코드', '회사명', '시장', 'RSI_3일_2ago', 'RSI_3일_1ago', 'RSI_3일_latest', '종가', '시가총액', '시가총액_상태', '20일평균거래대금', '오늘거래대금', '회전율', '캔들(5일)', '외국인순매수_3일전', '외국인순매수_2일전', '외국인순매수_1일전', 'PER_TTM', 'EPS_TTM', 'OBV_상승', 'RSI_3상승', 'RSI_3하강', '거래대금_상승', 'EPS > 0', '3<=PER<=30']
-            df_kr_results = df_kr_results[[col for col in cols_kr if col in df_kr_results.columns]]
-            df_kr_results = df_kr_results.sort_values('시가총액', ascending=False)
-            df_kr_results = format_dataframe(df_kr_results, 'KR')
-            st.subheader("국내 (KR)")
-            st.dataframe(df_kr_results, column_config=column_config_kr)
-        if not df_us_results.empty:
-            cols_us = ['종목코드', '회사명', '시장', 'RSI_3일_2ago', 'RSI_3일_1ago', 'RSI_3일_latest', '종가', '시가총액', '시가총액_상태', '20일평균거래대금', '오늘거래대금', '회전율', '캔들(5일)', '외국인순매수_3일전', '외국인순매수_2일전', '외국인순매수_1일전', 'PER_TTM', 'EPS_TTM', 'OBV_상승', 'RSI_3상승', 'RSI_3하강', '거래대금_상승', 'EPS > 0', '3<=PER<=30']
-            df_us_results = df_us_results[[col for col in cols_us if col in df_us_results.columns]]
-            df_us_results = df_us_results.sort_values('시가총액', ascending=False)
-            df_us_results = format_dataframe(df_us_results, 'US')
-            st.subheader("해외 (US)")
-            st.dataframe(df_us_results, column_config=column_config_us)
-        
-        search_term = st.text_input("종목 검색 (단기)", placeholder="코드/회사명 입력", key="search_short")
-        filtered_symbols = get_filtered_symbols(df_short, search_term)
-        if filtered_symbols:
-            selected_symbol = st.selectbox("종목 선택 (단기)", filtered_symbols, key="select_short")
-            if selected_symbol != st.session_state.selected_symbol:
-                st.session_state.selected_symbol = selected_symbol
-            if st.session_state.selected_symbol:
-                market = df_short[df_short['종목코드'] == st.session_state.selected_symbol]['시장'].iloc[0] if '시장' in df_short.columns else 'US'
-                show_graphs(st.session_state.selected_symbol, market)
-    else:
-        st.info("단기 후보 없음")
+        with col1:
+            obv_apply = st.checkbox("OBV 상승 크로스")
+            rsi_up_apply = st.checkbox("RSI 상승 지속")
 
-with tab9:
-    st.session_state.current_tab = "중기"
-    st.header("중기 (OBV 상승크로스 + RSI 상승 지속 (50이하) + EPS & PER)")
-    df_mid_full = run_screener_query(con, "mid_term", use_us, use_kr, top_n=None, additional_filter="eps_per")
-    df_mid = df_mid_full
-    df_mid = add_names(df_mid)
-    df_mid = add_foreign_net_buy(df_mid)
-    df_mid = add_close_price(df_mid)
-    df_mid = prepare_tab_df(df_mid)
-    
-    if not df_mid_full.empty:
-        df_kr_temp = df_mid_full[df_mid_full['market'] == 'KR']
-        df_us_temp = df_mid_full[df_mid_full['market'] == 'US']
-        total_candidates = len(df_kr_temp) + len(df_us_temp)
-        st.metric("후보 수", total_candidates)
-        
-        df_mid['eps_positive'] = df_mid['eps'] > 0
-        df_mid['per_range'] = (df_mid['per'] >= 3) & (df_mid['per'] <= 30)
-        
-        df_mid['캔들(5일)'] = df_mid['upper_closes'].astype(str) + ' (상단) / ' + df_mid['lower_closes'].astype(str) + ' (하단)'  # 추가
-        
-        df_mid = df_mid.rename(columns={k: v for k, v in {'symbol': '종목코드', 'market': '시장', 'name': '회사명', 
-                   'rsi_d_2ago': 'RSI_3일_2ago', 'rsi_d_1ago': 'RSI_3일_1ago', 'rsi_d_latest': 'RSI_3일_latest', 
-                   'close': '종가',
-                   'market_cap': '시가총액', 'avg_trading_value_20d': '20일평균거래대금', 'today_trading_value': '오늘거래대금', 'turnover': '회전율',
-                   'foreign_net_buy_3ago': '외국인순매수_3일전', 'foreign_net_buy_2ago': '외국인순매수_2일전', 'foreign_net_buy_1ago': '외국인순매수_1일전',
-                   'per': 'PER_TTM', 'eps': 'EPS_TTM', 'obv_bullish_cross': 'OBV_상승', 'rsi_3up': 'RSI_3상승', 'rsi_3down': 'RSI_3하강', 'trading_high': '거래대금_상승',
-                   'eps_positive': 'EPS > 0', 'per_range': '3<=PER<=30', 'cap_status': '시가총액_상태'}.items() if k in df_mid.columns})
-        
-        df_kr_results = df_mid[df_mid['시장'] == 'KR'] if '시장' in df_mid.columns else pd.DataFrame()
-        df_us_results = df_mid[df_mid['시장'] == 'US'] if '시장' in df_mid.columns else pd.DataFrame()
-        
-        if not df_kr_results.empty:
-            cols_kr = ['종목코드', '회사명', '시장', 'RSI_3일_2ago', 'RSI_3일_1ago', 'RSI_3일_latest', '종가', '시가총액', '시가총액_상태', '20일평균거래대금', '오늘거래대금', '회전율', '캔들(5일)', '외국인순매수_3일전', '외국인순매수_2일전', '외국인순매수_1일전', 'PER_TTM', 'EPS_TTM', 'OBV_상승', 'RSI_3상승', 'RSI_3하강', '거래대금_상승', 'EPS > 0', '3<=PER<=30']
-            df_kr_results = df_kr_results[[col for col in cols_kr if col in df_kr_results.columns]]
-            df_kr_results = df_kr_results.sort_values('시가총액', ascending=False)
-            df_kr_results = format_dataframe(df_kr_results, 'KR')
-            st.subheader("국내 (KR)")
-            st.dataframe(df_kr_results, column_config=column_config_kr)
-        if not df_us_results.empty:
-            cols_us = ['종목코드', '회사명', '시장', 'RSI_3일_2ago', 'RSI_3일_1ago', 'RSI_3일_latest', '종가', '시가총액', '시가총액_상태', '20일평균거래대금', '오늘거래대금', '회전율', '캔들(5일)', '외국인순매수_3일전', '외국인순매수_2일전', '외국인순매수_1일전', 'PER_TTM', 'EPS_TTM', 'OBV_상승', 'RSI_3상승', 'RSI_3하강', '거래대금_상승', 'EPS > 0', '3<=PER<=30']
-            df_us_results = df_us_results[[col for col in cols_us if col in df_us_results.columns]]
-            df_us_results = df_us_results.sort_values('시가총액', ascending=False)
-            df_us_results = format_dataframe(df_us_results, 'US')
-            st.subheader("해외 (US)")
-            st.dataframe(df_us_results, column_config=column_config_us)
-        
-        search_term = st.text_input("종목 검색 (중기)", placeholder="코드/회사명 입력", key="search_mid")
-        filtered_symbols = get_filtered_symbols(df_mid, search_term)
-        if filtered_symbols:
-            selected_symbol = st.selectbox("종목 선택 (중기)", filtered_symbols, key="select_mid")
-            if selected_symbol != st.session_state.selected_symbol:
-                st.session_state.selected_symbol = selected_symbol
-            if st.session_state.selected_symbol:
-                market = df_mid[df_mid['종목코드'] == st.session_state.selected_symbol]['시장'].iloc[0] if '시장' in df_mid.columns else 'US'
-                show_graphs(st.session_state.selected_symbol, market)
-    else:
-        st.info("중기 후보 없음")
+        with col2:
+            rsi_down_apply = st.checkbox("RSI 하강 지속")
+            eps_per_apply = st.checkbox("EPS & PER")
 
-with tab2:
-    st.session_state.current_tab = "OBV 상승 크로스"
-    st.header("OBV 상승 크로스 (조건 1 + 유동성)")
-    df_obv_full = run_screener_query(con, "obv", use_us, use_kr, top_n=None)
-    df_obv = df_obv_full
-    df_obv = add_names(df_obv)
-    df_obv = add_foreign_net_buy(df_obv)
-    df_obv = add_close_price(df_obv)
-    df_obv = prepare_tab_df(df_obv)
-    
-    if not df_obv_full.empty:
-        df_kr_temp = df_obv_full[df_obv_full['market'] == 'KR']
-        df_us_temp = df_obv_full[df_obv_full['market'] == 'US']
-        total_candidates = len(df_kr_temp) + len(df_us_temp)
-        st.metric("후보 수", total_candidates)
-        
-        df_obv['eps_positive'] = df_obv['eps'] > 0
-        df_obv['per_range'] = (df_obv['per'] >= 3) & (df_obv['per'] <= 30)
-        
-        df_obv['캔들(5일)'] = df_obv['upper_closes'].astype(str) + ' (상단) / ' + df_obv['lower_closes'].astype(str) + ' (하단)'  # 추가
-        
-        df_obv = df_obv.rename(columns={k: v for k, v in {'symbol': '종목코드', 'market': '시장', 'name': '회사명', 
-                   'rsi_d_2ago': 'RSI_3일_2ago', 'rsi_d_1ago': 'RSI_3일_1ago', 'rsi_d_latest': 'RSI_3일_latest', 
-                   'close': '종가',
-                   'market_cap': '시가총액', 'avg_trading_value_20d': '20일평균거래대금', 'today_trading_value': '오늘거래대금', 'turnover': '회전율',
-                   'foreign_net_buy_3ago': '외국인순매수_3일전', 'foreign_net_buy_2ago': '외국인순매수_2일전', 'foreign_net_buy_1ago': '외국인순매수_1일전',
-                   'per': 'PER_TTM', 'eps': 'EPS_TTM', 'obv_bullish_cross': 'OBV_상승', 'rsi_3up': 'RSI_3상승', 'rsi_3down': 'RSI_3하강', 'trading_high': '거래대금_상승',
-                   'eps_positive': 'EPS > 0', 'per_range': '3<=PER<=30', 'cap_status': '시가총액_상태'}.items() if k in df_obv.columns})
-        
-        df_kr_results = df_obv[df_obv['시장'] == 'KR'] if '시장' in df_obv.columns else pd.DataFrame()
-        df_us_results = df_obv[df_obv['시장'] == 'US'] if '시장' in df_obv.columns else pd.DataFrame()
-        
-        if not df_kr_results.empty:
-            cols_kr = ['종목코드', '회사명', '시장', 'RSI_3일_2ago', 'RSI_3일_1ago', 'RSI_3일_latest', '종가', '시가총액', '시가총액_상태', '20일평균거래대금', '오늘거래대금', '회전율', '캔들(5일)', '외국인순매수_3일전', '외국인순매수_2일전', '외국인순매수_1일전', 'PER_TTM', 'EPS_TTM', 'OBV_상승', 'RSI_3상승', 'RSI_3하강', '거래대금_상승', 'EPS > 0', '3<=PER<=30']
-            df_kr_results = df_kr_results[[col for col in cols_kr if col in df_kr_results.columns]]
-            df_kr_results = df_kr_results.sort_values('시가총액', ascending=False)
-            df_kr_results = format_dataframe(df_kr_results, 'KR')
-            st.subheader("국내 (KR)")
-            st.dataframe(df_kr_results, column_config=column_config_kr)
-        if not df_us_results.empty:
-            cols_us = ['종목코드', '회사명', '시장', 'RSI_3일_2ago', 'RSI_3일_1ago', 'RSI_3일_latest', '종가', '시가총액', '시가총액_상태', '20일평균거래대금', '오늘거래대금', '회전율', '캔들(5일)', '외국인순매수_3일전', '외국인순매수_2일전', '외국인순매수_1일전', 'PER_TTM', 'EPS_TTM', 'OBV_상승', 'RSI_3상승', 'RSI_3하강', '거래대금_상승', 'EPS > 0', '3<=PER<=30']
-            df_us_results = df_us_results[[col for col in cols_us if col in df_us_results.columns]]
-            df_us_results = df_us_results.sort_values('시가총액', ascending=False)
-            df_us_results = format_dataframe(df_us_results, 'US')
-            st.subheader("해외 (US)")
-            st.dataframe(df_us_results, column_config=column_config_us)
-        
-        search_term = st.text_input("종목 검색 (OBV)", placeholder="코드/회사명 입력", key="search_obv")
-        filtered_symbols = get_filtered_symbols(df_obv, search_term)
-        if filtered_symbols:
-            selected_symbol = st.selectbox("종목 선택 (OBV)", filtered_symbols, key="select_obv")
-            if selected_symbol != st.session_state.selected_symbol:
-                st.session_state.selected_symbol = selected_symbol
-            if st.session_state.selected_symbol:
-                market = df_obv[df_obv['종목코드'] == st.session_state.selected_symbol]['시장'].iloc[0] if '시장' in df_obv.columns else 'US'
-                show_graphs(st.session_state.selected_symbol, market)
-    else:
-        st.info("OBV 후보 없음")
+        with col3:
+            trading_apply = st.checkbox("거래대금")
+            foreign_apply = st.checkbox("외국인 순매수")
 
-with tab3:
-    st.session_state.current_tab = "RSI 상승 지속"
-    st.header("RSI 상승 지속 (50 이하, 조건 2 + 유동성)")
-    df_rsi_up_full = run_screener_query(con, "rsi_up", use_us, use_kr, top_n=None)
-    df_rsi_up = df_rsi_up_full
-    df_rsi_up = add_names(df_rsi_up)
-    df_rsi_up = add_foreign_net_buy(df_rsi_up)
-    df_rsi_up = add_close_price(df_rsi_up)
-    df_rsi_up = prepare_tab_df(df_rsi_up)
-    
-    if not df_rsi_up_full.empty:
-        df_kr_temp = df_rsi_up_full[df_rsi_up_full['market'] == 'KR']
-        df_us_temp = df_rsi_up_full[df_rsi_up_full['market'] == 'US']
-        total_candidates = len(df_kr_temp) + len(df_us_temp)
-        st.metric("후보 수", total_candidates)
+        with col4:
+            candle_apply = st.checkbox("캔들")
         
-        df_rsi_up['eps_positive'] = df_rsi_up['eps'] > 0
-        df_rsi_up['per_range'] = (df_rsi_up['per'] >= 3) & (df_rsi_up['per'] <= 30)
+        submitted = st.form_submit_button("🔍필터 적용")
         
-        df_rsi_up['캔들(5일)'] = df_rsi_up['upper_closes'].astype(str) + ' (상단) / ' + df_rsi_up['lower_closes'].astype(str) + ' (하단)'  # 추가
-        
-        df_rsi_up = df_rsi_up.rename(columns={k: v for k, v in {'symbol': '종목코드', 'market': '시장', 'name': '회사명', 
-                   'rsi_d_2ago': 'RSI_3일_2ago', 'rsi_d_1ago': 'RSI_3일_1ago', 'rsi_d_latest': 'RSI_3일_latest', 
-                   'close': '종가',
-                   'market_cap': '시가총액', 'avg_trading_value_20d': '20일평균거래대금', 'today_trading_value': '오늘거래대금', 'turnover': '회전율',
-                   'foreign_net_buy_3ago': '외국인순매수_3일전', 'foreign_net_buy_2ago': '외국인순매수_2일전', 'foreign_net_buy_1ago': '외국인순매수_1일전',
-                   'per': 'PER_TTM', 'eps': 'EPS_TTM', 'obv_bullish_cross': 'OBV_상승', 'rsi_3up': 'RSI_3상승', 'rsi_3down': 'RSI_3하강', 'trading_high': '거래대금_상승',
-                   'eps_positive': 'EPS > 0', 'per_range': '3<=PER<=30', 'cap_status': '시가총액_상태'}.items() if k in df_rsi_up.columns})
-        
-        df_kr_results = df_rsi_up[df_rsi_up['시장'] == 'KR'] if '시장' in df_rsi_up.columns else pd.DataFrame()
-        df_us_results = df_rsi_up[df_rsi_up['시장'] == 'US'] if '시장' in df_rsi_up.columns else pd.DataFrame()
-        
-        if not df_kr_results.empty:
-            cols_kr = ['종목코드', '회사명', '시장', 'RSI_3일_2ago', 'RSI_3일_1ago', 'RSI_3일_latest', '종가', '시가총액', '시가총액_상태', '20일평균거래대금', '오늘거래대금', '회전율', '캔들(5일)', '외국인순매수_3일전', '외국인순매수_2일전', '외국인순매수_1일전', 'PER_TTM', 'EPS_TTM', 'OBV_상승', 'RSI_3상승', 'RSI_3하강', '거래대금_상승', 'EPS > 0', '3<=PER<=30']
-            df_kr_results = df_kr_results[[col for col in cols_kr if col in df_kr_results.columns]]
-            df_kr_results = df_kr_results.sort_values('시가총액', ascending=False)
-            df_kr_results = format_dataframe(df_kr_results, 'KR')
-            st.subheader("국내 (KR)")
-            st.dataframe(df_kr_results, column_config=column_config_kr)
-        if not df_us_results.empty:
-            cols_us = ['종목코드', '회사명', '시장', 'RSI_3일_2ago', 'RSI_3일_1ago', 'RSI_3일_latest', '종가', '시가총액', '시가총액_상태', '20일평균거래대금', '오늘거래대금', '회전율', '캔들(5일)', '외국인순매수_3일전', '외국인순매수_2일전', '외국인순매수_1일전', 'PER_TTM', 'EPS_TTM', 'OBV_상승', 'RSI_3상승', 'RSI_3하강', '거래대금_상승', 'EPS > 0', '3<=PER<=30']
-            df_us_results = df_us_results[[col for col in cols_us if col in df_us_results.columns]]
-            df_us_results = df_us_results.sort_values('시가총액', ascending=False)
-            df_us_results = format_dataframe(df_us_results, 'US')
-            st.subheader("해외 (US)")
-            st.dataframe(df_us_results, column_config=column_config_us)
-        
-        search_term = st.text_input("종목 검색 (RSI 상승)", placeholder="코드/회사명 입력", key="search_rsi_up")
-        filtered_symbols = get_filtered_symbols(df_rsi_up, search_term)
-        if filtered_symbols:
-            selected_symbol = st.selectbox("종목 선택 (RSI 상승)", filtered_symbols, key="select_rsi_up")
-            if selected_symbol != st.session_state.selected_symbol:
-                st.session_state.selected_symbol = selected_symbol
-            if st.session_state.selected_symbol:
-                market = df_rsi_up[df_rsi_up['종목코드'] == st.session_state.selected_symbol]['시장'].iloc[0] if '시장' in df_rsi_up.columns else 'US'
-                show_graphs(st.session_state.selected_symbol, market)
-    else:
-        st.info("RSI 상승 후보 없음")
+        if submitted:
+            use_us = market in ["모두", "US"]
+            use_kr = market in ["모두", "KR"]
+            
+            condition = "rsi_d_latest == rsi_d_latest"
+            if obv_apply:
+                condition += " and (obv_latest > signal_obv_latest and obv_1ago <= signal_obv_1ago)"
+            if rsi_up_apply:
+                condition += " and (rsi_d_2ago < rsi_d_1ago and rsi_d_1ago < rsi_d_latest and rsi_d_latest <= 50)"
+            if rsi_down_apply:
+                condition += " and (rsi_d_2ago > rsi_d_1ago and rsi_d_1ago > rsi_d_latest and rsi_d_latest <= 50)"
+            if eps_per_apply:
+                condition += " and eps > 0 and per >= 3 and per <= 30"
+            if trading_apply:
+                condition += " and today_trading_value > 1.5 * avg_trading_value_20d"
+            
+            df_filter = run_screener_query(con, filter_condition="eps_per_only", use_us=use_us, use_kr=use_kr)
+            df_filter = df_filter.query(condition)
+            
+            # foreign_net_buy 추가 (기존)
+            df_filter = add_foreign_net_buy(df_filter)
 
-with tab4:
-    st.session_state.current_tab = "RSI 하강 지속"
-    st.header("RSI 하강 지속 (50 이하, 조건 + 유동성)")
-    df_rsi_down_full = run_screener_query(con, "rsi_down", use_us, use_kr, top_n=None)
-    df_rsi_down = df_rsi_down_full
-    df_rsi_down = add_names(df_rsi_down)
-    df_rsi_down = add_foreign_net_buy(df_rsi_down)
-    df_rsi_down = add_close_price(df_rsi_down)
-    df_rsi_down = prepare_tab_df(df_rsi_down)
-    
-    if not df_rsi_down_full.empty:
-        df_kr_temp = df_rsi_down_full[df_rsi_down_full['market'] == 'KR']
-        df_us_temp = df_rsi_down_full[df_rsi_down_full['market'] == 'US']
-        total_candidates = len(df_kr_temp) + len(df_us_temp)
-        st.metric("후보 수", total_candidates)
-        
-        df_rsi_down['eps_positive'] = df_rsi_down['eps'] > 0
-        df_rsi_down['per_range'] = (df_rsi_down['per'] >= 3) & (df_rsi_down['per'] <= 30)
-        
-        df_rsi_down['캔들(5일)'] = df_rsi_down['upper_closes'].astype(str) + ' (상단) / ' + df_rsi_down['lower_closes'].astype(str) + ' (하단)'  # 추가
-        
-        df_rsi_down = df_rsi_down.rename(columns={k: v for k, v in {'symbol': '종목코드', 'market': '시장', 'name': '회사명', 
-                   'rsi_d_2ago': 'RSI_3일_2ago', 'rsi_d_1ago': 'RSI_3일_1ago', 'rsi_d_latest': 'RSI_3일_latest', 
-                   'close': '종가',
-                   'market_cap': '시가총액', 'avg_trading_value_20d': '20일평균거래대금', 'today_trading_value': '오늘거래대금', 'turnover': '회전율',
-                   'foreign_net_buy_3ago': '외국인순매수_3일전', 'foreign_net_buy_2ago': '외국인순매수_2일전', 'foreign_net_buy_1ago': '외국인순매수_1일전',
-                   'per': 'PER_TTM', 'eps': 'EPS_TTM', 'obv_bullish_cross': 'OBV_상승', 'rsi_3up': 'RSI_3상승', 'rsi_3down': 'RSI_3하강', 'trading_high': '거래대금_상승',
-                   'eps_positive': 'EPS > 0', 'per_range': '3<=PER<=30', 'cap_status': '시가총액_상태'}.items() if k in df_rsi_down.columns})
-        
-        df_kr_results = df_rsi_down[df_rsi_down['시장'] == 'KR'] if '시장' in df_rsi_down.columns else pd.DataFrame()
-        df_us_results = df_rsi_down[df_rsi_down['시장'] == 'US'] if '시장' in df_rsi_down.columns else pd.DataFrame()
-        
-        if not df_kr_results.empty:
-            cols_kr = ['종목코드', '회사명', '시장', 'RSI_3일_2ago', 'RSI_3일_1ago', 'RSI_3일_latest', '종가', '시가총액', '시가총액_상태', '20일평균거래대금', '오늘거래대금', '회전율', '캔들(5일)', '외국인순매수_3일전', '외국인순매수_2일전', '외국인순매수_1일전', 'PER_TTM', 'EPS_TTM', 'OBV_상승', 'RSI_3상승', 'RSI_3하강', '거래대금_상승', 'EPS > 0', '3<=PER<=30']
-            df_kr_results = df_kr_results[[col for col in cols_kr if col in df_kr_results.columns]]
-            df_kr_results = df_kr_results.sort_values('시가총액', ascending=False)
-            df_kr_results = format_dataframe(df_kr_results, 'KR')
-            st.subheader("국내 (KR)")
-            st.dataframe(df_kr_results, column_config=column_config_kr)
-        if not df_us_results.empty:
-            cols_us = ['종목코드', '회사명', '시장', 'RSI_3일_2ago', 'RSI_3일_1ago', 'RSI_3일_latest', '종가', '시가총액', '시가총액_상태', '20일평균거래대금', '오늘거래대금', '회전율', '캔들(5일)', '외국인순매수_3일전', '외국인순매수_2일전', '외국인순매수_1일전', 'PER_TTM', 'EPS_TTM', 'OBV_상승', 'RSI_3상승', 'RSI_3하강', '거래대금_상승', 'EPS > 0', '3<=PER<=30']
-            df_us_results = df_us_results[[col for col in cols_us if col in df_us_results.columns]]
-            df_us_results = df_us_results.sort_values('시가총액', ascending=False)
-            df_us_results = format_dataframe(df_us_results, 'US')
-            st.subheader("해외 (US)")
-            st.dataframe(df_us_results, column_config=column_config_us)
-        
-        search_term = st.text_input("종목 검색 (RSI 하강)", placeholder="코드/회사명 입력", key="search_rsi_down")
-        filtered_symbols = get_filtered_symbols(df_rsi_down, search_term)
-        if filtered_symbols:
-            selected_symbol = st.selectbox("종목 선택 (RSI 하강)", filtered_symbols, key="select_rsi_down")
-            if selected_symbol != st.session_state.selected_symbol:
-                st.session_state.selected_symbol = selected_symbol
-            if st.session_state.selected_symbol:
-                market = df_rsi_down[df_rsi_down['종목코드'] == st.session_state.selected_symbol]['시장'].iloc[0] if '시장' in df_rsi_down.columns else 'US'
-                show_graphs(st.session_state.selected_symbol, market)
-    else:
-        st.info("RSI 하강 후보 없음")
+            # foreign_apply 안전하게 적용
+            if foreign_apply and not df_filter.empty and 'foreign_net_buy_1ago' in df_filter.columns:
+                df_filter = df_filter[(df_filter['foreign_net_buy_1ago'] > 0) & (df_filter['foreign_net_buy_2ago'] > 0)]
 
-with tab5:
-    st.session_state.current_tab = "EPS & PER"
-    st.header("EPS & PER(EPS>0, 3<=PER<=30 조건3 + 유동성)")
-    df_rsi_eps_per_full = run_screener_query(con, "eps_per_only", use_us, use_kr, top_n=None, additional_filter="eps_per")
-    df_rsi_eps_per = df_rsi_eps_per_full
-    df_rsi_eps_per = add_names(df_rsi_eps_per)
-    df_rsi_eps_per = add_foreign_net_buy(df_rsi_eps_per)
-    df_rsi_eps_per = add_close_price(df_rsi_eps_per)
-    df_rsi_eps_per = prepare_tab_df(df_rsi_eps_per)
-    
-    if not df_rsi_eps_per_full.empty:
-        df_kr_temp = df_rsi_eps_per_full[df_rsi_eps_per_full['market'] == 'KR']
-        df_us_temp = df_rsi_eps_per_full[df_rsi_eps_per_full['market'] == 'US']
-        total_candidates = len(df_kr_temp) + len(df_us_temp)
-        st.metric("후보 수", total_candidates)
-        
-        df_rsi_eps_per['eps_positive'] = df_rsi_eps_per['eps'] > 0
-        df_rsi_eps_per['per_range'] = (df_rsi_eps_per['per'] >= 3) & (df_rsi_eps_per['per'] <= 30)
-        
-        df_rsi_eps_per['캔들(5일)'] = df_rsi_eps_per['upper_closes'].astype(str) + ' (상단) / ' + df_rsi_eps_per['lower_closes'].astype(str) + ' (하단)'  # 추가
-        
-        df_rsi_eps_per = df_rsi_eps_per.rename(columns={k: v for k, v in {'symbol': '종목코드', 'market': '시장', 'name': '회사명', 
-                   'rsi_d_2ago': 'RSI_3일_2ago', 'rsi_d_1ago': 'RSI_3일_1ago', 'rsi_d_latest': 'RSI_3일_latest', 
-                   'close': '종가',
-                   'market_cap': '시가총액', 'avg_trading_value_20d': '20일평균거래대금', 'today_trading_value': '오늘거래대금', 'turnover': '회전율',
-                   'foreign_net_buy_3ago': '외국인순매수_3일전', 'foreign_net_buy_2ago': '외국인순매수_2일전', 'foreign_net_buy_1ago': '외국인순매수_1일전',
-                   'per': 'PER_TTM', 'eps': 'EPS_TTM', 'obv_bullish_cross': 'OBV_상승', 'rsi_3up': 'RSI_3상승', 'rsi_3down': 'RSI_3하강', 'trading_high': '거래대금_상승',
-                   'eps_positive': 'EPS > 0', 'per_range': '3<=PER<=30', 'cap_status': '시가총액_상태'}.items() if k in df_rsi_eps_per.columns})
-        
-        df_kr_results = df_rsi_eps_per[df_rsi_eps_per['시장'] == 'KR'] if '시장' in df_rsi_eps_per.columns else pd.DataFrame()
-        df_us_results = df_rsi_eps_per[df_rsi_eps_per['시장'] == 'US'] if '시장' in df_rsi_eps_per.columns else pd.DataFrame()
-        
-        if not df_kr_results.empty:
-            cols_kr = ['종목코드', '회사명', '시장', 'RSI_3일_2ago', 'RSI_3일_1ago', 'RSI_3일_latest', '종가', '시가총액', '시가총액_상태', '20일평균거래대금', '오늘거래대금', '회전율', '캔들(5일)', '외국인순매수_3일전', '외국인순매수_2일전', '외국인순매수_1일전', 'PER_TTM', 'EPS_TTM', 'OBV_상승', 'RSI_3상승', 'RSI_3하강', '거래대금_상승', 'EPS > 0', '3<=PER<=30']
-            df_kr_results = df_kr_results[[col for col in cols_kr if col in df_kr_results.columns]]
-            df_kr_results = df_kr_results.sort_values('시가총액', ascending=False)
-            df_kr_results = format_dataframe(df_kr_results, 'KR')
-            st.subheader("국내 (KR)")
-            st.dataframe(df_kr_results, column_config=column_config_kr)
-        if not df_us_results.empty:
-            cols_us = ['종목코드', '회사명', '시장', 'RSI_3일_2ago', 'RSI_3일_1ago', 'RSI_3일_latest', '종가', '시가총액', '시가총액_상태', '20일평균거래대금', '오늘거래대금', '회전율', '캔들(5일)', '외국인순매수_3일전', '외국인순매수_2일전', '외국인순매수_1일전', 'PER_TTM', 'EPS_TTM', 'OBV_상승', 'RSI_3상승', 'RSI_3하강', '거래대금_상승', 'EPS > 0', '3<=PER<=30']
-            df_us_results = df_us_results[[col for col in cols_us if col in df_us_results.columns]]
-            df_us_results = df_us_results.sort_values('시가총액', ascending=False)
-            df_us_results = format_dataframe(df_us_results, 'US')
-            st.subheader("해외 (US)")
-            st.dataframe(df_us_results, column_config=column_config_us)
-        
-        search_term = st.text_input("종목 검색 (EPS & PER)", placeholder="코드/회사명 입력", key="search_eps_per")
-        filtered_symbols = get_filtered_symbols(df_rsi_eps_per, search_term)
-        if filtered_symbols:
-            selected_symbol = st.selectbox("종목 선택 (EPS & PER)", filtered_symbols, key="select_eps_per")
-            if selected_symbol != st.session_state.selected_symbol:
-                st.session_state.selected_symbol = selected_symbol
-            if st.session_state.selected_symbol:
-                market = df_rsi_eps_per[df_rsi_eps_per['종목코드'] == st.session_state.selected_symbol]['시장'].iloc[0] if '시장' in df_rsi_eps_per.columns else 'US'
-                show_graphs(st.session_state.selected_symbol, market)
-    else:
-        st.info("EPS & PER 후보 없음")
+            # candle_apply도 비슷하게 (안전 추가)
+            if candle_apply and not df_filter.empty and 'upper_closes' in df_filter.columns:
+                df_filter = df_filter[df_filter['upper_closes'] >= 3]
 
-with tab6:
-    st.session_state.current_tab = "거래대금"
-    st.header("거래대금 (오늘 거래대금 > 1.5 * 20일 평균 + 유동성)")
-    df_trading_full = run_screener_query(con, "trading_volume", use_us, use_kr, top_n=None)
-    df_trading = df_trading_full
-    df_trading = add_names(df_trading)
-    df_trading = add_foreign_net_buy(df_trading)
-    df_trading = add_close_price(df_trading)
-    df_trading = prepare_tab_df(df_trading)
-    
-    if not df_trading_full.empty:
-        df_kr_temp = df_trading_full[df_trading_full['market'] == 'KR']
-        df_us_temp = df_trading_full[df_trading_full['market'] == 'US']
-        total_candidates = len(df_kr_temp) + len(df_us_temp)
-        st.metric("후보 수", total_candidates)
-        
-        df_trading['eps_positive'] = df_trading['eps'] > 0
-        df_trading['per_range'] = (df_trading['per'] >= 3) & (df_trading['per'] <= 30)
-        
-        df_trading['캔들(5일)'] = df_trading['upper_closes'].astype(str) + ' (상단) / ' + df_trading['lower_closes'].astype(str) + ' (하단)'  # 추가
-        
-        df_trading = df_trading.rename(columns={k: v for k, v in {'symbol': '종목코드', 'market': '시장', 'name': '회사명', 
-                   'rsi_d_2ago': 'RSI_3일_2ago', 'rsi_d_1ago': 'RSI_3일_1ago', 'rsi_d_latest': 'RSI_3일_latest', 
-                   'close': '종가',
-                   'market_cap': '시가총액', 'avg_trading_value_20d': '20일평균거래대금', 'today_trading_value': '오늘거래대금', 'turnover': '회전율',
-                   'foreign_net_buy_3ago': '외국인순매수_3일전', 'foreign_net_buy_2ago': '외국인순매수_2일전', 'foreign_net_buy_1ago': '외국인순매수_1일전',
-                   'per': 'PER_TTM', 'eps': 'EPS_TTM', 'obv_bullish_cross': 'OBV_상승', 'rsi_3up': 'RSI_3상승', 'rsi_3down': 'RSI_3하강', 'trading_high': '거래대금_상승',
-                   'eps_positive': 'EPS > 0', 'per_range': '3<=PER<=30', 'cap_status': '시가총액_상태'}.items() if k in df_trading.columns})
-        
-        df_kr_results = df_trading[df_trading['시장'] == 'KR'] if '시장' in df_trading.columns else pd.DataFrame()
-        df_us_results = df_trading[df_trading['시장'] == 'US'] if '시장' in df_trading.columns else pd.DataFrame()
-        
-        if not df_kr_results.empty:
-            cols_kr = ['종목코드', '회사명', '시장', 'RSI_3일_2ago', 'RSI_3일_1ago', 'RSI_3일_latest', '종가', '시가총액', '시가총액_상태', '20일평균거래대금', '오늘거래대금', '회전율', '캔들(5일)', '외국인순매수_3일전', '외국인순매수_2일전', '외국인순매수_1일전', 'PER_TTM', 'EPS_TTM', 'OBV_상승', 'RSI_3상승', 'RSI_3하강', '거래대금_상승', 'EPS > 0', '3<=PER<=30']
-            df_kr_results = df_kr_results[[col for col in cols_kr if col in df_kr_results.columns]]
-            df_kr_results = df_kr_results.sort_values('시가총액', ascending=False)
-            df_kr_results = format_dataframe(df_kr_results, 'KR')
-            st.subheader("국내 (KR)")
-            st.dataframe(df_kr_results, column_config=column_config_kr)
-        if not df_us_results.empty:
-            cols_us = ['종목코드', '회사명', '시장', 'RSI_3일_2ago', 'RSI_3일_1ago', 'RSI_3일_latest', '종가', '시가총액', '시가총액_상태', '20일평균거래대금', '오늘거래대금', '회전율', '캔들(5일)', '외국인순매수_3일전', '외국인순매수_2일전', '외국인순매수_1일전', 'PER_TTM', 'EPS_TTM', 'OBV_상승', 'RSI_3상승', 'RSI_3하강', '거래대금_상승', 'EPS > 0', '3<=PER<=30']
-            df_us_results = df_us_results[[col for col in cols_us if col in df_us_results.columns]]
-            df_us_results = df_us_results.sort_values('시가총액', ascending=False)
-            df_us_results = format_dataframe(df_us_results, 'US')
-            st.subheader("해외 (US)")
-            st.dataframe(df_us_results, column_config=column_config_us)
-        
-        search_term = st.text_input("종목 검색 (거래대금)", placeholder="코드/회사명 입력", key="search_trading")
-        filtered_symbols = get_filtered_symbols(df_trading, search_term)
-        if filtered_symbols:
-            selected_symbol = st.selectbox("종목 선택 (거래대금)", filtered_symbols, key="select_trading")
-            if selected_symbol != st.session_state.selected_symbol:
-                st.session_state.selected_symbol = selected_symbol
-            if st.session_state.selected_symbol:
-                market = df_trading[df_trading['종목코드'] == st.session_state.selected_symbol]['시장'].iloc[0] if '시장' in df_trading.columns else 'US'
-                show_graphs(st.session_state.selected_symbol, market)
-    else:
-        st.info("거래대금 후보 없음")
+            df_filter = add_names(df_filter)
+            df_filter = add_close_price(df_filter)
 
-with tab7:
-    st.session_state.current_tab = "Total"
-    st.header("Total (전체 종목 목록)")
-    if not df_ind.empty:
-        df_ind = add_names(df_ind)
-        df_ind = add_foreign_net_buy(df_ind)
-        df_ind = add_close_price(df_ind)
-        # JSON 파싱 추가 (에러 해결)
-        df_ind['rsi_d_2ago'] = df_ind['rsi_d'].apply(lambda x: json.loads(x)[0] if x and isinstance(json.loads(x), list) and len(json.loads(x)) > 2 else np.nan)
-        df_ind['rsi_d_1ago'] = df_ind['rsi_d'].apply(lambda x: json.loads(x)[1] if x and isinstance(json.loads(x), list) and len(json.loads(x)) > 2 else np.nan)
-        df_ind['rsi_d_latest'] = df_ind['rsi_d'].apply(lambda x: json.loads(x)[2] if x and isinstance(json.loads(x), list) and len(json.loads(x)) > 2 else np.nan)
-        df_ind['obv_1ago'] = df_ind['obv_d'].apply(lambda x: json.loads(x)[1] if x and isinstance(json.loads(x), list) and len(json.loads(x)) > 1 else np.nan)
-        df_ind['obv_latest'] = df_ind['obv_d'].apply(lambda x: json.loads(x)[0] if x and isinstance(json.loads(x), list) and len(json.loads(x)) > 0 else np.nan)
-        df_ind['signal_obv_1ago'] = df_ind['signal_obv_d'].apply(lambda x: json.loads(x)[1] if x and isinstance(json.loads(x), list) and len(json.loads(x)) > 1 else np.nan)
-        df_ind['signal_obv_latest'] = df_ind['signal_obv_d'].apply(lambda x: json.loads(x)[0] if x and isinstance(json.loads(x), list) and len(json.loads(x)) > 0 else np.nan)
-        df_ind = prepare_tab_df(df_ind, is_total=True)
+            if not df_filter.empty:
+                df_filter['foreign_positive'] = ((df_filter['foreign_net_buy_1ago'] > 0) & (df_filter['foreign_net_buy_2ago'] > 0)).apply(lambda x: '✅' if x else '❌')
+                df_filter['candle_upper_3'] = (df_filter['upper_closes'] >= 3).apply(lambda x: '✅' if x else '❌')
+                
+                df_filter['eps_positive'] = df_filter['eps'] > 0
+                df_filter['per_range'] = (df_filter['per'] >= 3) & (df_filter['per'] <= 30)
+                
+                df_filter['캔들(5일)'] = df_filter['upper_closes'].astype(str) + ' (상단) / ' + df_filter['lower_closes'].astype(str) + ' (하단)'
+            else:
+                # 빈 결과 처리: 빈 DF로 세션 상태 업데이트
+                st.session_state.filter_results_kr = pd.DataFrame()
+                st.session_state.filter_results_us = pd.DataFrame()
+                st.session_state.filter_results = pd.DataFrame()
+                st.info("필터 결과가 없습니다.")
+                # 빈 테이블 표시를 위해 continue 하지 않고, 아래 테이블 표시 부분에서 빈 상태 반영
+            
+            df_filter = df_filter.rename(columns={k: v for k, v in {'symbol': '종목코드', 'market': '시장', 'name': '회사명', 
+                       'rsi_d_2ago': 'RSI_3일_2ago', 'rsi_d_1ago': 'RSI_3일_1ago', 'rsi_d_latest': 'RSI_3일_latest', 
+                       'close': '종가',
+                       'market_cap': '시가총액', 'avg_trading_value_20d': '20일평균거래대금', 'today_trading_value': '오늘거래대금', 'turnover': '회전율',
+                       'foreign_net_buy_3ago': '외국인순매수_3일전', 'foreign_net_buy_2ago': '외국인순매수_2일전', 'foreign_net_buy_1ago': '외국인순매수_1일전',
+                       'per': 'PER_TTM', 'eps': 'EPS_TTM', 'obv_bullish_cross': 'OBV_상승', 'rsi_3up': 'RSI_3상승', 'rsi_3down': 'RSI_3하강', 'trading_high': '거래대금_상승',
+                       'eps_positive': 'EPS > 0', 'per_range': '3<=PER<=30', 'cap_status': '업데이트', 'foreign_positive': '외국인 순매수', 'candle_upper_3': '캔들'}.items() if k in df_filter.columns})
+            
+            df_kr_results = df_filter[df_filter['시장'] == 'KR'] if '시장' in df_filter.columns else pd.DataFrame()
+            df_us_results = df_filter[df_filter['시장'] == 'US'] if '시장' in df_filter.columns else pd.DataFrame()
+            
+            if not df_kr_results.empty:
+                cols_kr = ['종목코드', '회사명', '시장', 'RSI_3일_2ago', 'RSI_3일_1ago', 'RSI_3일_latest', '종가', '시가총액', '업데이트', '20일평균거래대금', '오늘거래대금', '회전율', '캔들(5일)', '외국인순매수_3일전', '외국인순매수_2일전', '외국인순매수_1일전', 'PER_TTM', 'EPS_TTM', 'OBV_상승', 'RSI_3상승', 'RSI_3하강', '거래대금_상승', 'EPS > 0', '3<=PER<=30', '외국인 순매수', '캔들']
+                df_kr_results = df_kr_results[[col for col in cols_kr if col in df_kr_results.columns]]
+                df_kr_results = df_kr_results.sort_values('시가총액', ascending=False)
+                df_kr_results = format_dataframe(df_kr_results, 'KR')
+            st.session_state.filter_results_kr = df_kr_results  # 빈 경우도 저장
+            
+            if not df_us_results.empty:
+                cols_us = ['종목코드', '회사명', '시장', 'RSI_3일_2ago', 'RSI_3일_1ago', 'RSI_3일_latest', '종가', '시가총액', '업데이트', '20일평균거래대금', '오늘거래대금', '회전율', '캔들(5일)', '외국인순매수_3일전', '외국인순매수_2일전', '외국인순매수_1일전', 'PER_TTM', 'EPS_TTM', 'OBV_상승', 'RSI_3상승', 'RSI_3하강', '거래대금_상승', 'EPS > 0', '3<=PER<=30', '외국인 순매수', '캔들']
+                df_us_results = df_us_results[[col for col in cols_us if col in df_us_results.columns]]
+                df_us_results = df_us_results.sort_values('시가총액', ascending=False)
+                df_us_results = format_dataframe(df_us_results, 'US')
+            st.session_state.filter_results_us = df_us_results  # 빈 경우도 저장
+            
+            # 전체 필터 결과 저장 (검색/선택용)
+            st.session_state.filter_results = pd.concat([st.session_state.filter_results_kr, st.session_state.filter_results_us], ignore_index=True)
+    
+    # 테이블 표시 (폼 밖, 세션 상태 기반)
+    if not st.session_state.filter_results_kr.empty:
+        st.markdown(f"### 국내 (KR) - 후보 수: {len(st.session_state.filter_results_kr)}")  
+        st.dataframe(st.session_state.filter_results_kr, column_config=column_config_kr)
+    else:
+        st.markdown("### 국내 (KR) - 후보 수: 0")  
+        st.dataframe(pd.DataFrame(), column_config=column_config_kr)  # 빈 테이블 표시
+    
+    if not st.session_state.filter_results_us.empty:
+        st.markdown(f"### 해외 (US) - 후보 수: {len(st.session_state.filter_results_us)}")  
+        st.dataframe(st.session_state.filter_results_us, column_config=column_config_us)
+    else:
+        st.markdown("### 해외 (US) - 후보 수: 0")  
+        st.dataframe(pd.DataFrame(), column_config=column_config_us)  # 빈 테이블 표시
+    
+    # 검색 및 선택 (세션 상태 기반, 데이터 사라짐 방지)
+    search_term = st.text_input("종목 검색 (필터)", placeholder="코드/회사명 입력", key="search_filter")
+    
+    filtered_symbols = get_filtered_symbols(st.session_state.filter_results, search_term)
+    
+    if filtered_symbols:
+        selected_symbol = st.selectbox("종목 선택 (필터)", filtered_symbols, key="select_filter")
+        if selected_symbol != st.session_state.selected_symbol:
+            st.session_state.selected_symbol = selected_symbol
+        if st.session_state.selected_symbol:
+            market = st.session_state.filter_results[st.session_state.filter_results['종목코드'] == st.session_state.selected_symbol]['시장'].iloc[0] if not st.session_state.filter_results.empty else 'US'
+            show_graphs(st.session_state.selected_symbol, market)
+    else:
+        st.info("검색 결과 없음")
+
+with main_tabs[1]:  # 백테스팅 탭
+    st.header("Data Research")
+
+    BACKTEST_DB_PATH = "data/meta/backtest.db"
+    if not os.path.exists(BACKTEST_DB_PATH):
+        st.warning("백테스팅 DB 없음 – 배치 실행하세요.")
+    else:
+        con_back = duckdb.connect(BACKTEST_DB_PATH, read_only=True)
+        df_back = con_back.execute("SELECT * FROM backtest").fetchdf()
+        con_back.close()
         
-        df_ind['eps_positive'] = df_ind['eps'] > 0
-        df_ind['per_range'] = (df_ind['per'] >= 3) & (df_ind['per'] <= 30)
-        df_ind['obv_bullish_cross'] = (df_ind['obv_latest'] > df_ind['signal_obv_latest']) & (df_ind['obv_1ago'] <= df_ind['signal_obv_1ago'])
-        df_ind['rsi_3up'] = (df_ind['rsi_d_2ago'] < df_ind['rsi_d_1ago']) & (df_ind['rsi_d_1ago'] < df_ind['rsi_d_latest']) & (df_ind['rsi_d_latest'] <= 50)
-        df_ind['rsi_3down'] = (df_ind['rsi_d_2ago'] > df_ind['rsi_d_1ago']) & (df_ind['rsi_d_1ago'] > df_ind['rsi_d_latest']) & (df_ind['rsi_d_latest'] <= 50)
-        df_ind['trading_high'] = df_ind['today_trading_value'] > 1.5 * df_ind['avg_trading_value_20d']
+        if df_back.empty:
+            st.info("백테스팅 데이터 없음")
+        else:
+            # symbol zfill 적용 (leading zero 보장)
+            df_back['symbol'] = df_back.apply(lambda row: str(row['symbol']).zfill(6) if row['market'] == 'KR' else str(row['symbol']), axis=1)
+            
+            # 탭별 df 분리
+            df_long_back = df_back[df_back['type'] == 'long'].copy()
+            df_short_back = df_back[df_back['type'] == 'short'].copy()
+            df_mid_back = df_back[df_back['type'] == 'mid'].copy()
+            
+            # 컬럼 이름 한글화 및 선택 (type 제외)
+            rename_dict = {
+                'symbol': '종목코드',
+                'name': '회사명',
+                'market': '시장',
+                'rsi_d_2ago': 'RSI_3일_2ago',
+                'rsi_d_1ago': 'RSI_3일_1ago',
+                'rsi_d_latest': 'RSI_3일_latest',
+                'close': '종가',
+                'market_cap': '시가총액',
+                'avg_trading_value_20d': '20일평균거래대금',
+                'today_trading_value': '오늘거래대금',
+                'turnover': '회전율',
+                'per': 'PER_TTM',
+                'eps': 'EPS_TTM',
+                'cap_status': '업데이트',
+                'latest_close': '최신종가',
+                'latest_update': '최신업데이트',
+                'change_rate': '변동율 (%)'
+            }
+            
+            def apply_rename_format_and_unit(df, market_type):
+                if df.empty:
+                    return df
+                df = df.rename(columns=rename_dict)
+                # 캔들(5일) 생성
+                if 'upper_closes' in df.columns and 'lower_closes' in df.columns:
+                    df['캔들(5일)'] = df['upper_closes'].astype(str) + ' (상단) / ' + df['lower_closes'].astype(str) + ' (하단)'
+                
+                # ⭐ 회전율 먼저 백업 (반올림 방지)
+                turnover_backup = None
+                if '회전율' in df.columns:
+                    turnover_backup = df['회전율'].copy()
+                
+                # 숫자 컬럼 반올림 (회전율 제외)
+                numeric_cols = df.select_dtypes(include='float').columns
+                numeric_cols = numeric_cols.drop('회전율', errors='ignore')  # 회전율 제외
+                df[numeric_cols] = df[numeric_cols].round(2)
+                
+                # 단위 적용
+                df = format_dataframe(df, market_type)
+                
+                # ⭐ 회전율 복원 (반올림 방지)
+                if turnover_backup is not None and '회전율 (%)' in df.columns:
+                    df['회전율 (%)'] = turnover_backup * 100  # % 단위만 적용, 반올림 없음
+                
+                # 최신종가 단위 추가
+                if market_type == 'KR':
+                    if '최신종가' in df.columns:
+                        df = df.rename(columns={'최신종가': '최신종가 (KRW)'})
+                        df['최신종가 (KRW)'] = df['최신종가 (KRW)'].apply(lambda x: float(x) if pd.notna(x) else 0.0).round(0)
+                    # cols 재정의 (단위 반영)
+                    cols = [
+                        '종목코드', '회사명', '시장', 'RSI_3일_2ago', 'RSI_3일_1ago', 'RSI_3일_latest',
+                        '종가 (KRW)', '시가총액 (KRW 억원)', '업데이트', '20일평균거래대금 (KRW 억원)', '오늘거래대금 (KRW 억원)', '회전율 (%)',
+                        '캔들(5일)', 'PER_TTM (x)', 'EPS_TTM', '최신종가 (KRW)', '최신업데이트', '변동율 (%)'
+                    ]
+                elif market_type == 'US':
+                    if '최신종가' in df.columns:
+                        df = df.rename(columns={'최신종가': '최신종가 (USD)'})
+                        df['최신종가 (USD)'] = df['최신종가 (USD)'].apply(lambda x: float(x) if pd.notna(x) else 0.0).round(2)
+                    # cols 재정의 (단위 반영)
+                    cols = [
+                        '종목코드', '회사명', '시장', 'RSI_3일_2ago', 'RSI_3일_1ago', 'RSI_3일_latest',
+                        '종가 (USD)', '시가총액 (USD M)', '업데이트', '20일평균거래대금 (USD M)', '오늘거래대금 (USD M)', '회전율 (%)',
+                        '캔들(5일)', 'PER_TTM (x)', 'EPS_TTM', '최신종가 (USD)', '최신업데이트', '변동율 (%)'
+                    ]
+                df = df[[col for col in cols if col in df.columns]]
+                return df
+            
+            # column_config 업데이트 (최신종가 추가)
+            column_config_kr['최신종가 (KRW)'] = st.column_config.NumberColumn(format="%.0f")
+            column_config_us['최신종가 (USD)'] = st.column_config.NumberColumn(format="%.2f")
+            
+            back_sub_tabs = st.tabs(["장기", "단기", "중기"])
+            
+            with back_sub_tabs[0]:  # 장기
+                kr_long_back = apply_rename_format_and_unit(df_long_back[df_long_back['market'] == 'KR'], 'KR')
+                us_long_back = apply_rename_format_and_unit(df_long_back[df_long_back['market'] == 'US'], 'US')
+                if not kr_long_back.empty:
+                    kr_long_back = kr_long_back.sort_values(['변동율 (%)', '시가총액 (KRW 억원)'], ascending=[False, False])
+                    total_kr = len(kr_long_back)
+                    positive_kr = (kr_long_back['변동율 (%)'] > 0).sum()
+                    negative_kr = (kr_long_back['변동율 (%)'] < 0).sum()
+                    st.markdown(f"### 국내 (KR) (총: {total_kr} / 상승: {positive_kr} / 하락: {negative_kr})")
+                    st.dataframe(kr_long_back, column_config=column_config_kr)
+                else:
+                    st.info("KR 장기 데이터 없음")
+                if not us_long_back.empty:
+                    us_long_back = us_long_back.sort_values(['변동율 (%)', '시가총액 (USD M)'], ascending=[False, False])
+                    total_us = len(us_long_back)
+                    positive_us = (us_long_back['변동율 (%)'] > 0).sum()
+                    negative_us = (us_long_back['변동율 (%)'] < 0).sum()
+                    st.markdown(f"### 해외 (US) (총: {total_us} / 상승: {positive_us} / 하락: {negative_us})")
+                    st.dataframe(us_long_back, column_config=column_config_us)
+                else:
+                    st.info("US 장기 데이터 없음")
+            
+            with back_sub_tabs[1]:  # 단기
+                kr_short_back = apply_rename_format_and_unit(df_short_back[df_short_back['market'] == 'KR'], 'KR')
+                us_short_back = apply_rename_format_and_unit(df_short_back[df_short_back['market'] == 'US'], 'US')
+                if not kr_short_back.empty:
+                    kr_short_back = kr_short_back.sort_values(['변동율 (%)', '시가총액 (KRW 억원)'], ascending=[False, False])
+                    total_kr = len(kr_short_back)
+                    positive_kr = (kr_short_back['변동율 (%)'] > 0).sum()
+                    negative_kr = (kr_short_back['변동율 (%)'] < 0).sum()
+                    st.markdown(f"### KR (총 종목: {total_kr} / 상승: {positive_kr} / 하락: {negative_kr})")
+                    st.dataframe(kr_short_back, column_config=column_config_kr)
+                else:
+                    st.info("KR 단기 데이터 없음")
+                if not us_short_back.empty:
+                    us_short_back = us_short_back.sort_values(['변동율 (%)', '시가총액 (USD M)'], ascending=[False, False])
+                    total_us = len(us_short_back)
+                    positive_us = (us_short_back['변동율 (%)'] > 0).sum()
+                    negative_us = (us_short_back['변동율 (%)'] < 0).sum()
+                    st.markdown(f"### 해외 (US) (총 종목: {total_us} / 상승: {positive_us} / 하락: {negative_us})")
+                    st.dataframe(us_short_back, column_config=column_config_us)
+                else:
+                    st.info("US 단기 데이터 없음")
+            
+            with back_sub_tabs[2]:  # 중기
+                kr_mid_back = apply_rename_format_and_unit(df_mid_back[df_mid_back['market'] == 'KR'], 'KR')
+                us_mid_back = apply_rename_format_and_unit(df_mid_back[df_mid_back['market'] == 'US'], 'US')
+                if not kr_mid_back.empty:
+                    kr_mid_back = kr_mid_back.sort_values(['변동율 (%)', '시가총액 (KRW 억원)'], ascending=[False, False])
+                    total_kr = len(kr_mid_back)
+                    positive_kr = (kr_mid_back['변동율 (%)'] > 0).sum()
+                    negative_kr = (kr_mid_back['변동율 (%)'] < 0).sum()
+                    st.markdown(f"### 국내 (KR) (총 종목: {total_kr} / 상승: {positive_kr} / 하락: {negative_kr})")
+                    st.dataframe(kr_mid_back, column_config=column_config_kr)
+                else:
+                    st.info("KR 중기 데이터 없음")
+                if not us_mid_back.empty:
+                    us_mid_back = us_mid_back.sort_values(['변동율 (%)', '시가총액 (USD M)'], ascending=[False, False])
+                    total_us = len(us_mid_back)
+                    positive_us = (us_mid_back['변동율 (%)'] > 0).sum()
+                    negative_us = (us_mid_back['변동율 (%)'] < 0).sum()
+                    st.markdown(f"### 해외 (US) (총 종목: {total_us} / 상승: {positive_us} / 하락: {negative_us})")
+                    st.dataframe(us_mid_back, column_config=column_config_us)
+                else:
+                    st.info("US 중기 데이터 없음")
+
+with main_tabs[2]:  # KR 탭
+    kr_sub_tabs = st.tabs(["장기", "단기", "중기", "Total"])
+    
+    with kr_sub_tabs[0]:  # 장기
+        st.session_state.current_tab = "KR_장기"
+        st.header("장기 (OBV 상승크로스 + RSI 하강 지속 (50이하) + EPS & PER)")
+        df_long_full = run_screener_query(con, "long_term", use_us=False, use_kr=True, top_n=None, additional_filter="eps_per")
+        df_long = df_long_full
+        df_long = add_names(df_long)
+        df_long = add_foreign_net_buy(df_long)
+        df_long = add_close_price(df_long)
+        df_long = prepare_tab_df(df_long)
         
-        df_ind['캔들(5일)'] = df_ind['upper_closes'].astype(str) + ' (상단) / ' + df_ind['lower_closes'].astype(str) + ' (하단)'  # 추가
+        if not df_long_full.empty:
+            total_candidates = len(df_long)
+            st.metric("후보 수", total_candidates)
+            
+            df_long['eps_positive'] = df_long['eps'] > 0
+            df_long['per_range'] = (df_long['per'] >= 3) & (df_long['per'] <= 30)
+            
+            df_long['foreign_positive'] = ((df_long['foreign_net_buy_1ago'] > 0) & (df_long['foreign_net_buy_2ago'] > 0)).apply(lambda x: '✅' if x else '❌')
+            df_long['candle_upper_3'] = (df_long['upper_closes'] >= 3).apply(lambda x: '✅' if x else '❌')
+            
+            df_long['캔들(5일)'] = df_long['upper_closes'].astype(str) + ' (상단) / ' + df_long['lower_closes'].astype(str) + ' (하단)'  # 추가
+            
+            df_long = df_long.rename(columns={k: v for k, v in {'symbol': '종목코드', 'market': '시장', 'name': '회사명', 
+                       'rsi_d_2ago': 'RSI_3일_2ago', 'rsi_d_1ago': 'RSI_3일_1ago', 'rsi_d_latest': 'RSI_3일_latest', 
+                       'close': '종가',
+                       'market_cap': '시가총액', 'avg_trading_value_20d': '20일평균거래대금', 'today_trading_value': '오늘거래대금', 'turnover': '회전율',
+                       'foreign_net_buy_3ago': '외국인순매수_3일전', 'foreign_net_buy_2ago': '외국인순매수_2일전', 'foreign_net_buy_1ago': '외국인순매수_1일전',
+                       'per': 'PER_TTM', 'eps': 'EPS_TTM', 'obv_bullish_cross': 'OBV_상승', 'rsi_3up': 'RSI_3상승', 'rsi_3down': 'RSI_3하강', 'trading_high': '거래대금_상승',
+                       'eps_positive': 'EPS > 0', 'per_range': '3<=PER<=30', 'cap_status': '업데이트', 'foreign_positive': '외국인 순매수', 'candle_upper_3': '캔들'}.items() if k in df_long.columns})
+            
+            cols_kr = ['종목코드', '회사명', '시장', 'RSI_3일_2ago', 'RSI_3일_1ago', 'RSI_3일_latest', '종가', '시가총액', '업데이트', '20일평균거래대금', '오늘거래대금', '회전율', '캔들(5일)', '외국인순매수_3일전', '외국인순매수_2일전', '외국인순매수_1일전', 'PER_TTM', 'EPS_TTM', 'OBV_상승', 'RSI_3상승', 'RSI_3하강', '거래대금_상승', 'EPS > 0', '3<=PER<=30', '외국인 순매수', '캔들']
+            df_long = df_long[[col for col in cols_kr if col in df_long.columns]]
+            df_long = df_long.sort_values('시가총액', ascending=False)
+            df_long = format_dataframe(df_long, 'KR')
+            st.dataframe(df_long, column_config=column_config_kr)
+            
+            search_term = st.text_input("종목 검색 (KR 장기)", placeholder="코드/회사명 입력", key="search_kr_long")
+            filtered_symbols = get_filtered_symbols(df_long, search_term)
+            if filtered_symbols:
+                selected_symbol = st.selectbox("종목 선택 (KR 장기)", filtered_symbols, key="select_kr_long")
+                if selected_symbol != st.session_state.selected_symbol:
+                    st.session_state.selected_symbol = selected_symbol
+                if st.session_state.selected_symbol:
+                    market = 'KR'
+                    show_graphs(st.session_state.selected_symbol, market)
+        else:
+            st.info("장기 후보 없음")
+    
+    with kr_sub_tabs[1]:  # 단기
+        st.session_state.current_tab = "KR_단기"
+        st.header("단기 (OBV 상승크로스 + RSI 상승 지속 (50이하) + 거래대금)")
+        df_short_full = run_screener_query(con, "short_term", use_us=False, use_kr=True, top_n=None)
+        df_short = df_short_full
+        df_short = add_names(df_short)
+        df_short = add_foreign_net_buy(df_short)
+        df_short = add_close_price(df_short)
+        df_short = prepare_tab_df(df_short)
         
-        col_map_total = {'symbol': '종목코드', 'market': '시장',
-                         'rsi_d_2ago': 'RSI_3일_2ago', 'rsi_d_1ago': 'RSI_3일_1ago', 'rsi_d_latest': 'RSI_3일_latest', 
-                         'close': '종가',
-                         'market_cap': '시가총액', 'avg_trading_value_20d': '20일평균거래대금', 
-                         'today_trading_value': '오늘거래대금', 'turnover': '회전율',
-                         'foreign_net_buy_3ago': '외국인순매수_3일전', 'foreign_net_buy_2ago': '외국인순매수_2일전', 'foreign_net_buy_1ago': '외국인순매수_1일전',
-                         'per': 'PER_TTM', 'eps': 'EPS_TTM', 'obv_bullish_cross': 'OBV_상승', 'rsi_3up': 'RSI_3상승', 'rsi_3down': 'RSI_3하강', 'trading_high': '거래대금_상승',
-                         'eps_positive': 'EPS > 0', 'per_range': '3<=PER<=30', 'cap_status': '시가총액_상태'}
-        df_ind_renamed = df_ind.rename(columns={k: v for k, v in col_map_total.items() if k in df_ind.columns})
-        df_ind_renamed = df_ind_renamed.sort_values('시가총액', ascending=False).reset_index(drop=True)
+        if not df_short_full.empty:
+            total_candidates = len(df_short)
+            st.metric("후보 수", total_candidates)
+            
+            df_short['eps_positive'] = df_short['eps'] > 0
+            df_short['per_range'] = (df_short['per'] >= 3) & (df_short['per'] <= 30)
+            
+            df_short['foreign_positive'] = ((df_short['foreign_net_buy_1ago'] > 0) & (df_short['foreign_net_buy_2ago'] > 0)).apply(lambda x: '✅' if x else '❌')
+            df_short['candle_upper_3'] = (df_short['upper_closes'] >= 3).apply(lambda x: '✅' if x else '❌')
+            
+            df_short['캔들(5일)'] = df_short['upper_closes'].astype(str) + ' (상단) / ' + df_short['lower_closes'].astype(str) + ' (하단)'  # 추가
+            
+            df_short = df_short.rename(columns={k: v for k, v in {'symbol': '종목코드', 'market': '시장', 'name': '회사명', 
+                       'rsi_d_2ago': 'RSI_3일_2ago', 'rsi_d_1ago': 'RSI_3일_1ago', 'rsi_d_latest': 'RSI_3일_latest', 
+                       'close': '종가',
+                       'market_cap': '시가총액', 'avg_trading_value_20d': '20일평균거래대금', 'today_trading_value': '오늘거래대금', 'turnover': '회전율',
+                       'foreign_net_buy_3ago': '외국인순매수_3일전', 'foreign_net_buy_2ago': '외국인순매수_2일전', 'foreign_net_buy_1ago': '외국인순매수_1일전',
+                       'per': 'PER_TTM', 'eps': 'EPS_TTM', 'obv_bullish_cross': 'OBV_상승', 'rsi_3up': 'RSI_3상승', 'rsi_3down': 'RSI_3하강', 'trading_high': '거래대금_상승',
+                       'eps_positive': 'EPS > 0', 'per_range': '3<=PER<=30', 'cap_status': '업데이트', 'foreign_positive': '외국인 순매수', 'candle_upper_3': '캔들'}.items() if k in df_short.columns})
+            
+            cols_kr = ['종목코드', '회사명', '시장', 'RSI_3일_2ago', 'RSI_3일_1ago', 'RSI_3일_latest', '종가', '시가총액', '업데이트', '20일평균거래대금', '오늘거래대금', '회전율', '캔들(5일)', '외국인순매수_3일전', '외국인순매수_2일전', '외국인순매수_1일전', 'PER_TTM', 'EPS_TTM', 'OBV_상승', 'RSI_3상승', 'RSI_3하강', '거래대금_상승', 'EPS > 0', '3<=PER<=30', '외국인 순매수', '캔들']
+            df_short = df_short[[col for col in cols_kr if col in df_short.columns]]
+            df_short = df_short.sort_values('시가총액', ascending=False)
+            df_short = format_dataframe(df_short, 'KR')
+            st.dataframe(df_short, column_config=column_config_kr)
+            
+            search_term = st.text_input("종목 검색 (KR 단기)", placeholder="코드/회사명 입력", key="search_kr_short")
+            filtered_symbols = get_filtered_symbols(df_short, search_term)
+            if filtered_symbols:
+                selected_symbol = st.selectbox("종목 선택 (KR 단기)", filtered_symbols, key="select_kr_short")
+                if selected_symbol != st.session_state.selected_symbol:
+                    st.session_state.selected_symbol = selected_symbol
+                if st.session_state.selected_symbol:
+                    market = 'KR'
+                    show_graphs(st.session_state.selected_symbol, market)
+        else:
+            st.info("단기 후보 없음")
+    
+    with kr_sub_tabs[2]:  # 중기
+        st.session_state.current_tab = "KR_중기"
+        st.header("중기 (OBV 상승크로스 + RSI 상승 지속 (50이하) + EPS & PER)")
+        df_mid_full = run_screener_query(con, "mid_term", use_us=False, use_kr=True, top_n=None, additional_filter="eps_per")
+        df_mid = df_mid_full
+        df_mid = add_names(df_mid)
+        df_mid = add_foreign_net_buy(df_mid)
+        df_mid = add_close_price(df_mid)
+        df_mid = prepare_tab_df(df_mid)
         
-        df_kr_ind = df_ind_renamed[df_ind_renamed['시장'] == 'KR'] if '시장' in df_ind_renamed.columns else pd.DataFrame()
-        df_us_ind = df_ind_renamed[df_ind_renamed['시장'] == 'US'] if '시장' in df_ind_renamed.columns else pd.DataFrame()
-        
-        if not df_kr_ind.empty:
-            cols_kr_total = ['종목코드', '회사명', '시장', 'RSI_3일_2ago', 'RSI_3일_1ago', 'RSI_3일_latest', '종가', '시가총액', '시가총액_상태', '20일평균거래대금', '오늘거래대금', '회전율', '캔들(5일)', '외국인순매수_3일전', '외국인순매수_2일전', '외국인순매수_1일전', 'PER_TTM', 'EPS_TTM', 'OBV_상승', 'RSI_3상승', 'RSI_3하강', '거래대금_상승', 'EPS > 0', '3<=PER<=30']
+        if not df_mid_full.empty:
+            total_candidates = len(df_mid)
+            st.metric("후보 수", total_candidates)
+            
+            df_mid['eps_positive'] = df_mid['eps'] > 0
+            df_mid['per_range'] = (df_mid['per'] >= 3) & (df_mid['per'] <= 30)
+            
+            df_mid['foreign_positive'] = ((df_mid['foreign_net_buy_1ago'] > 0) & (df_mid['foreign_net_buy_2ago'] > 0)).apply(lambda x: '✅' if x else '❌')
+            df_mid['candle_upper_3'] = (df_mid['upper_closes'] >= 3).apply(lambda x: '✅' if x else '❌')
+            
+            df_mid['캔들(5일)'] = df_mid['upper_closes'].astype(str) + ' (상단) / ' + df_mid['lower_closes'].astype(str) + ' (하단)'  # 추가
+            
+            df_mid = df_mid.rename(columns={k: v for k, v in {'symbol': '종목코드', 'market': '시장', 'name': '회사명', 
+                       'rsi_d_2ago': 'RSI_3일_2ago', 'rsi_d_1ago': 'RSI_3일_1ago', 'rsi_d_latest': 'RSI_3일_latest', 
+                       'close': '종가',
+                       'market_cap': '시가총액', 'avg_trading_value_20d': '20일평균거래대금', 'today_trading_value': '오늘거래대금', 'turnover': '회전율',
+                       'foreign_net_buy_3ago': '외국인순매수_3일전', 'foreign_net_buy_2ago': '외국인순매수_2일전', 'foreign_net_buy_1ago': '외국인순매수_1일전',
+                       'per': 'PER_TTM', 'eps': 'EPS_TTM', 'obv_bullish_cross': 'OBV_상승', 'rsi_3up': 'RSI_3상승', 'rsi_3down': 'RSI_3하강', 'trading_high': '거래대금_상승',
+                       'eps_positive': 'EPS > 0', 'per_range': '3<=PER<=30', 'cap_status': '업데이트', 'foreign_positive': '외국인 순매수', 'candle_upper_3': '캔들'}.items() if k in df_mid.columns})
+            
+            cols_kr = ['종목코드', '회사명', '시장', 'RSI_3일_2ago', 'RSI_3일_1ago', 'RSI_3일_latest', '종가', '시가총액', '업데이트', '20일평균거래대금', '오늘거래대금', '회전율', '캔들(5일)', '외국인순매수_3일전', '외국인순매수_2일전', '외국인순매수_1일전', 'PER_TTM', 'EPS_TTM', 'OBV_상승', 'RSI_3상승', 'RSI_3하강', '거래대금_상승', 'EPS > 0', '3<=PER<=30', '외국인 순매수', '캔들']
+            df_mid = df_mid[[col for col in cols_kr if col in df_mid.columns]]
+            df_mid = df_mid.sort_values('시가총액', ascending=False)
+            df_mid = format_dataframe(df_mid, 'KR')
+            st.dataframe(df_mid, column_config=column_config_kr)
+            
+            search_term = st.text_input("종목 검색 (KR 중기)", placeholder="코드/회사명 입력", key="search_kr_mid")
+            filtered_symbols = get_filtered_symbols(df_mid, search_term)
+            if filtered_symbols:
+                selected_symbol = st.selectbox("종목 선택 (KR 중기)", filtered_symbols, key="select_kr_mid")
+                if selected_symbol != st.session_state.selected_symbol:
+                    st.session_state.selected_symbol = selected_symbol
+                if st.session_state.selected_symbol:
+                    market = 'KR'
+                    show_graphs(st.session_state.selected_symbol, market)
+        else:
+            st.info("중기 후보 없음")
+    
+    with kr_sub_tabs[3]:  # Total
+        st.session_state.current_tab = "KR_Total"
+        st.header("Total (전체 종목 목록)")
+        if not df_ind.empty:
+            df_kr_ind = df_ind[df_ind['market'] == 'KR']
+            df_kr_ind = add_names(df_kr_ind)
+            df_kr_ind = add_foreign_net_buy(df_kr_ind)
+            df_kr_ind = add_close_price(df_kr_ind)
+            # JSON 파싱 추가 (에러 해결)
+            df_kr_ind['rsi_d_2ago'] = df_kr_ind['rsi_d'].apply(lambda x: json.loads(x)[0] if x and isinstance(json.loads(x), list) and len(json.loads(x)) > 2 else np.nan)
+            df_kr_ind['rsi_d_1ago'] = df_kr_ind['rsi_d'].apply(lambda x: json.loads(x)[1] if x and isinstance(json.loads(x), list) and len(json.loads(x)) > 2 else np.nan)
+            df_kr_ind['rsi_d_latest'] = df_kr_ind['rsi_d'].apply(lambda x: json.loads(x)[2] if x and isinstance(json.loads(x), list) and len(json.loads(x)) > 2 else np.nan)
+            df_kr_ind['obv_1ago'] = df_kr_ind['obv_d'].apply(lambda x: json.loads(x)[1] if x and isinstance(json.loads(x), list) and len(json.loads(x)) > 1 else np.nan)
+            df_kr_ind['obv_latest'] = df_kr_ind['obv_d'].apply(lambda x: json.loads(x)[0] if x and isinstance(json.loads(x), list) and len(json.loads(x)) > 0 else np.nan)
+            df_kr_ind['signal_obv_1ago'] = df_kr_ind['signal_obv_d'].apply(lambda x: json.loads(x)[1] if x and isinstance(json.loads(x), list) and len(json.loads(x)) > 1 else np.nan)
+            df_kr_ind['signal_obv_latest'] = df_kr_ind['signal_obv_d'].apply(lambda x: json.loads(x)[0] if x and isinstance(json.loads(x), list) and len(json.loads(x)) > 0 else np.nan)
+            df_kr_ind = prepare_tab_df(df_kr_ind, is_total=True)
+            
+            df_kr_ind['eps_positive'] = df_kr_ind['eps'] > 0
+            df_kr_ind['per_range'] = (df_kr_ind['per'] >= 3) & (df_kr_ind['per'] <= 30)
+            df_kr_ind['obv_bullish_cross'] = (df_kr_ind['obv_latest'] > df_kr_ind['signal_obv_latest']) & (df_kr_ind['obv_1ago'] <= df_kr_ind['signal_obv_1ago'])
+            df_kr_ind['rsi_3up'] = (df_kr_ind['rsi_d_2ago'] < df_kr_ind['rsi_d_1ago']) & (df_kr_ind['rsi_d_1ago'] < df_kr_ind['rsi_d_latest']) & (df_kr_ind['rsi_d_latest'] <= 50)
+            df_kr_ind['rsi_3down'] = (df_kr_ind['rsi_d_2ago'] > df_kr_ind['rsi_d_1ago']) & (df_kr_ind['rsi_d_1ago'] > df_kr_ind['rsi_d_latest']) & (df_kr_ind['rsi_d_latest'] <= 50)
+            df_kr_ind['trading_high'] = df_kr_ind['today_trading_value'] > 1.5 * df_kr_ind['avg_trading_value_20d']
+            
+            df_kr_ind['foreign_positive'] = ((df_kr_ind['foreign_net_buy_1ago'] > 0) & (df_kr_ind['foreign_net_buy_2ago'] > 0)).apply(lambda x: '✅' if x else '❌')
+            df_kr_ind['candle_upper_3'] = (df_kr_ind['upper_closes'] >= 3).apply(lambda x: '✅' if x else '❌')
+            
+            df_kr_ind['캔들(5일)'] = df_kr_ind['upper_closes'].astype(str) + ' (상단) / ' + df_kr_ind['lower_closes'].astype(str) + ' (하단)'  # 추가
+            
+            col_map_total = {'symbol': '종목코드', 'market': '시장', 'name': '회사명',
+                             'rsi_d_2ago': 'RSI_3일_2ago', 'rsi_d_1ago': 'RSI_3일_1ago', 'rsi_d_latest': 'RSI_3일_latest', 
+                             'close': '종가',
+                             'market_cap': '시가총액', 'avg_trading_value_20d': '20일평균거래대금', 
+                             'today_trading_value': '오늘거래대금', 'turnover': '회전율',
+                             'foreign_net_buy_3ago': '외국인순매수_3일전', 'foreign_net_buy_2ago': '외국인순매수_2일전', 'foreign_net_buy_1ago': '외국인순매수_1일전',
+                             'per': 'PER_TTM', 'eps': 'EPS_TTM', 'obv_bullish_cross': 'OBV_상승', 'rsi_3up': 'RSI_3상승', 'rsi_3down': 'RSI_3하강', 'trading_high': '거래대금_상승',
+                             'eps_positive': 'EPS > 0', 'per_range': '3<=PER<=30', 'cap_status': '업데이트', 'foreign_positive': '외국인 순매수', 'candle_upper_3': '캔들'}
+            df_kr_ind = df_kr_ind.rename(columns={k: v for k, v in col_map_total.items() if k in df_kr_ind.columns})
+            df_kr_ind = df_kr_ind.sort_values('시가총액', ascending=False).reset_index(drop=True)
+            
+            cols_kr_total = ['종목코드', '회사명', '시장', 'RSI_3일_2ago', 'RSI_3일_1ago', 'RSI_3일_latest', '종가', '시가총액', '업데이트', '20일평균거래대금', '오늘거래대금', '회전율', '캔들(5일)', '외국인순매수_3일전', '외국인순매수_2일전', '외국인순매수_1일전', 'PER_TTM', 'EPS_TTM', 'OBV_상승', 'RSI_3상승', 'RSI_3하강', '거래대금_상승', 'EPS > 0', '3<=PER<=30', '외국인 순매수', '캔들']
             df_kr_ind = df_kr_ind[[col for col in cols_kr_total if col in df_kr_ind.columns]]
             df_kr_ind = format_dataframe(df_kr_ind, 'KR')
-            st.subheader("국내 (KR)")
             st.dataframe(df_kr_ind, column_config=column_config_kr)
-        if not df_us_ind.empty:
-            cols_us_total = ['종목코드', '회사명', '시장', 'RSI_3일_2ago', 'RSI_3일_1ago', 'RSI_3일_latest', '종가', '시가총액', '시가총액_상태', '20일평균거래대금', '오늘거래대금', '회전율', '캔들(5일)', '외국인순매수_3일전', '외국인순매수_2일전', '외국인순매수_1일전', 'PER_TTM', 'EPS_TTM', 'OBV_상승', 'RSI_3상승', 'RSI_3하강', '거래대금_상승', 'EPS > 0', '3<=PER<=30']
+            
+            search_term = st.text_input("종목 검색 (KR Total)", placeholder="코드 입력", key="search_kr_total")
+            filtered_symbols = get_filtered_symbols(df_kr_ind, search_term)
+            if filtered_symbols:
+                selected_symbol = st.selectbox("종목 선택 (KR Total)", filtered_symbols, key="select_kr_total")
+                if selected_symbol != st.session_state.selected_symbol:
+                    st.session_state.selected_symbol = selected_symbol
+                if st.session_state.selected_symbol:
+                    market = 'KR'
+                    show_graphs(st.session_state.selected_symbol, market)
+            else:
+                st.info("검색 결과 없음")
+        else:
+            st.info("데이터 없음 – 배치 실행하세요.")
+
+with main_tabs[3]:  # US 탭
+    us_sub_tabs = st.tabs(["장기", "단기", "중기", "Total"])
+    
+    with us_sub_tabs[0]:  # 장기
+        st.session_state.current_tab = "US_장기"
+        st.header("장기 (OBV 상승크로스 + RSI 하강 지속 (50이하) + EPS & PER)")
+        df_long_full = run_screener_query(con, "long_term", use_us=True, use_kr=False, top_n=None, additional_filter="eps_per")
+        df_long = df_long_full
+        df_long = add_names(df_long)
+        df_long = add_foreign_net_buy(df_long)
+        df_long = add_close_price(df_long)
+        df_long = prepare_tab_df(df_long)
+        
+        if not df_long_full.empty:
+            total_candidates = len(df_long)
+            st.metric("후보 수", total_candidates)
+            
+            df_long['eps_positive'] = df_long['eps'] > 0
+            df_long['per_range'] = (df_long['per'] >= 3) & (df_long['per'] <= 30)
+            
+            df_long['foreign_positive'] = ((df_long['foreign_net_buy_1ago'] > 0) & (df_long['foreign_net_buy_2ago'] > 0)).apply(lambda x: '✅' if x else '❌')
+            df_long['candle_upper_3'] = (df_long['upper_closes'] >= 3).apply(lambda x: '✅' if x else '❌')
+            
+            df_long['캔들(5일)'] = df_long['upper_closes'].astype(str) + ' (상단) / ' + df_long['lower_closes'].astype(str) + ' (하단)'  # 추가
+            
+            df_long = df_long.rename(columns={k: v for k, v in {'symbol': '종목코드', 'market': '시장', 'name': '회사명', 
+                       'rsi_d_2ago': 'RSI_3일_2ago', 'rsi_d_1ago': 'RSI_3일_1ago', 'rsi_d_latest': 'RSI_3일_latest', 
+                       'close': '종가',
+                       'market_cap': '시가총액', 'avg_trading_value_20d': '20일평균거래대금', 'today_trading_value': '오늘거래대금', 'turnover': '회전율',
+                       'foreign_net_buy_3ago': '외국인순매수_3일전', 'foreign_net_buy_2ago': '외국인순매수_2일전', 'foreign_net_buy_1ago': '외국인순매수_1일전',
+                       'per': 'PER_TTM', 'eps': 'EPS_TTM', 'obv_bullish_cross': 'OBV_상승', 'rsi_3up': 'RSI_3상승', 'rsi_3down': 'RSI_3하강', 'trading_high': '거래대금_상승',
+                       'eps_positive': 'EPS > 0', 'per_range': '3<=PER<=30', 'cap_status': '업데이트', 'foreign_positive': '외국인 순매수', 'candle_upper_3': '캔들'}.items() if k in df_long.columns})
+            
+            cols_us = ['종목코드', '회사명', '시장', 'RSI_3일_2ago', 'RSI_3일_1ago', 'RSI_3일_latest', '종가', '시가총액', '업데이트', '20일평균거래대금', '오늘거래대금', '회전율', '캔들(5일)', '외국인순매수_3일전', '외국인순매수_2일전', '외국인순매수_1일전', 'PER_TTM', 'EPS_TTM', 'OBV_상승', 'RSI_3상승', 'RSI_3하강', '거래대금_상승', 'EPS > 0', '3<=PER<=30', '외국인 순매수', '캔들']
+            df_long = df_long[[col for col in cols_us if col in df_long.columns]]
+            df_long = df_long.sort_values('시가총액', ascending=False)
+            df_long = format_dataframe(df_long, 'US')
+            st.dataframe(df_long, column_config=column_config_us)
+            
+            search_term = st.text_input("종목 검색 (US 장기)", placeholder="코드/회사명 입력", key="search_us_long")
+            filtered_symbols = get_filtered_symbols(df_long, search_term)
+            if filtered_symbols:
+                selected_symbol = st.selectbox("종목 선택 (US 장기)", filtered_symbols, key="select_us_long")
+                if selected_symbol != st.session_state.selected_symbol:
+                    st.session_state.selected_symbol = selected_symbol
+                if st.session_state.selected_symbol:
+                    market = 'US'
+                    show_graphs(st.session_state.selected_symbol, market)
+        else:
+            st.info("장기 후보 없음")
+    
+    with us_sub_tabs[1]:  # 단기
+        st.session_state.current_tab = "US_단기"
+        st.header("단기 (OBV 상승크로스 + RSI 상승 지속 (50이하) + 거래대금)")
+        df_short_full = run_screener_query(con, "short_term", use_us=True, use_kr=False, top_n=None)
+        df_short = df_short_full
+        df_short = add_names(df_short)
+        df_short = add_foreign_net_buy(df_short)
+        df_short = add_close_price(df_short)
+        df_short = prepare_tab_df(df_short)
+        
+        if not df_short_full.empty:
+            total_candidates = len(df_short)
+            st.metric("후보 수", total_candidates)
+            
+            df_short['eps_positive'] = df_short['eps'] > 0
+            df_short['per_range'] = (df_short['per'] >= 3) & (df_short['per'] <= 30)
+            
+            df_short['foreign_positive'] = ((df_short['foreign_net_buy_1ago'] > 0) & (df_short['foreign_net_buy_2ago'] > 0)).apply(lambda x: '✅' if x else '❌')
+            df_short['candle_upper_3'] = (df_short['upper_closes'] >= 3).apply(lambda x: '✅' if x else '❌')
+            
+            df_short['캔들(5일)'] = df_short['upper_closes'].astype(str) + ' (상단) / ' + df_short['lower_closes'].astype(str) + ' (하단)'  # 추가
+            
+            df_short = df_short.rename(columns={k: v for k, v in {'symbol': '종목코드', 'market': '시장', 'name': '회사명', 
+                       'rsi_d_2ago': 'RSI_3일_2ago', 'rsi_d_1ago': 'RSI_3일_1ago', 'rsi_d_latest': 'RSI_3일_latest', 
+                       'close': '종가',
+                       'market_cap': '시가총액', 'avg_trading_value_20d': '20일평균거래대금', 'today_trading_value': '오늘거래대금', 'turnover': '회전율',
+                       'foreign_net_buy_3ago': '외국인순매수_3일전', 'foreign_net_buy_2ago': '외국인순매수_2일전', 'foreign_net_buy_1ago': '외국인순매수_1일전',
+                       'per': 'PER_TTM', 'eps': 'EPS_TTM', 'obv_bullish_cross': 'OBV_상승', 'rsi_3up': 'RSI_3상승', 'rsi_3down': 'RSI_3하강', 'trading_high': '거래대금_상승',
+                       'eps_positive': 'EPS > 0', 'per_range': '3<=PER<=30', 'cap_status': '업데이트', 'foreign_positive': '외국인 순매수', 'candle_upper_3': '캔들'}.items() if k in df_short.columns})
+            
+            cols_us = ['종목코드', '회사명', '시장', 'RSI_3일_2ago', 'RSI_3일_1ago', 'RSI_3일_latest', '종가', '시가총액', '업데이트', '20일평균거래대금', '오늘거래대금', '회전율', '캔들(5일)', '외국인순매수_3일전', '외국인순매수_2일전', '외국인순매수_1일전', 'PER_TTM', 'EPS_TTM', 'OBV_상승', 'RSI_3상승', 'RSI_3하강', '거래대금_상승', 'EPS > 0', '3<=PER<=30', '외국인 순매수', '캔들']
+            df_short = df_short[[col for col in cols_us if col in df_short.columns]]
+            df_short = df_short.sort_values('시가총액', ascending=False)
+            df_short = format_dataframe(df_short, 'US')
+            st.dataframe(df_short, column_config=column_config_us)
+            
+            search_term = st.text_input("종목 검색 (US 단기)", placeholder="코드/회사명 입력", key="search_us_short")
+            filtered_symbols = get_filtered_symbols(df_short, search_term)
+            if filtered_symbols:
+                selected_symbol = st.selectbox("종목 선택 (US 단기)", filtered_symbols, key="select_us_short")
+                if selected_symbol != st.session_state.selected_symbol:
+                    st.session_state.selected_symbol = selected_symbol
+                if st.session_state.selected_symbol:
+                    market = 'US'
+                    show_graphs(st.session_state.selected_symbol, market)
+        else:
+            st.info("단기 후보 없음")
+    
+    with us_sub_tabs[2]:  # 중기
+        st.session_state.current_tab = "US_중기"
+        st.header("중기 (OBV 상승크로스 + RSI 상승 지속 (50이하) + EPS & PER)")
+        df_mid_full = run_screener_query(con, "mid_term", use_us=True, use_kr=False, top_n=None, additional_filter="eps_per")
+        df_mid = df_mid_full
+        df_mid = add_names(df_mid)
+        df_mid = add_foreign_net_buy(df_mid)
+        df_mid = add_close_price(df_mid)
+        df_mid = prepare_tab_df(df_mid)
+        
+        if not df_mid_full.empty:
+            total_candidates = len(df_mid)
+            st.metric("후보 수", total_candidates)
+            
+            df_mid['eps_positive'] = df_mid['eps'] > 0
+            df_mid['per_range'] = (df_mid['per'] >= 3) & (df_mid['per'] <= 30)
+            
+            df_mid['foreign_positive'] = ((df_mid['foreign_net_buy_1ago'] > 0) & (df_mid['foreign_net_buy_2ago'] > 0)).apply(lambda x: '✅' if x else '❌')
+            df_mid['candle_upper_3'] = (df_mid['upper_closes'] >= 3).apply(lambda x: '✅' if x else '❌')
+            
+            df_mid['캔들(5일)'] = df_mid['upper_closes'].astype(str) + ' (상단) / ' + df_mid['lower_closes'].astype(str) + ' (하단)'  # 추가
+            
+            df_mid = df_mid.rename(columns={k: v for k, v in {'symbol': '종목코드', 'market': '시장', 'name': '회사명', 
+                       'rsi_d_2ago': 'RSI_3일_2ago', 'rsi_d_1ago': 'RSI_3일_1ago', 'rsi_d_latest': 'RSI_3일_latest', 
+                       'close': '종가',
+                       'market_cap': '시가총액', 'avg_trading_value_20d': '20일평균거래대금', 'today_trading_value': '오늘거래대금', 'turnover': '회전율',
+                       'foreign_net_buy_3ago': '외국인순매수_3일전', 'foreign_net_buy_2ago': '외국인순매수_2일전', 'foreign_net_buy_1ago': '외국인순매수_1일전',
+                       'per': 'PER_TTM', 'eps': 'EPS_TTM', 'obv_bullish_cross': 'OBV_상승', 'rsi_3up': 'RSI_3상승', 'rsi_3down': 'RSI_3하강', 'trading_high': '거래대금_상승',
+                       'eps_positive': 'EPS > 0', 'per_range': '3<=PER<=30', 'cap_status': '업데이트', 'foreign_positive': '외국인 순매수', 'candle_upper_3': '캔들'}.items() if k in df_mid.columns})
+            
+            cols_us = ['종목코드', '회사명', '시장', 'RSI_3일_2ago', 'RSI_3일_1ago', 'RSI_3일_latest', '종가', '시가총액', '업데이트', '20일평균거래대금', '오늘거래대금', '회전율', '캔들(5일)', '외국인순매수_3일전', '외국인순매수_2일전', '외국인순매수_1일전', 'PER_TTM', 'EPS_TTM', 'OBV_상승', 'RSI_3상승', 'RSI_3하강', '거래대금_상승', 'EPS > 0', '3<=PER<=30', '외국인 순매수', '캔들']
+            df_mid = df_mid[[col for col in cols_us if col in df_mid.columns]]
+            df_mid = df_mid.sort_values('시가총액', ascending=False)
+            df_mid = format_dataframe(df_mid, 'US')
+            st.dataframe(df_mid, column_config=column_config_us)
+            
+            search_term = st.text_input("종목 검색 (US 중기)", placeholder="코드/회사명 입력", key="search_us_mid")
+            filtered_symbols = get_filtered_symbols(df_mid, search_term)
+            if filtered_symbols:
+                selected_symbol = st.selectbox("종목 선택 (US 중기)", filtered_symbols, key="select_us_mid")
+                if selected_symbol != st.session_state.selected_symbol:
+                    st.session_state.selected_symbol = selected_symbol
+                if st.session_state.selected_symbol:
+                    market = 'US'
+                    show_graphs(st.session_state.selected_symbol, market)
+        else:
+            st.info("중기 후보 없음")
+    
+    with us_sub_tabs[3]:  # Total
+        st.session_state.current_tab = "US_Total"
+        st.header("Total (전체 종목 목록)")
+        if not df_ind.empty:
+            df_us_ind = df_ind[df_ind['market'] == 'US']
+            df_us_ind = add_names(df_us_ind)
+            df_us_ind = add_foreign_net_buy(df_us_ind)
+            df_us_ind = add_close_price(df_us_ind)
+            # JSON 파싱 추가 (에러 해결)
+            df_us_ind['rsi_d_2ago'] = df_us_ind['rsi_d'].apply(lambda x: json.loads(x)[0] if x and isinstance(json.loads(x), list) and len(json.loads(x)) > 2 else np.nan)
+            df_us_ind['rsi_d_1ago'] = df_us_ind['rsi_d'].apply(lambda x: json.loads(x)[1] if x and isinstance(json.loads(x), list) and len(json.loads(x)) > 2 else np.nan)
+            df_us_ind['rsi_d_latest'] = df_us_ind['rsi_d'].apply(lambda x: json.loads(x)[2] if x and isinstance(json.loads(x), list) and len(json.loads(x)) > 2 else np.nan)
+            df_us_ind['obv_1ago'] = df_us_ind['obv_d'].apply(lambda x: json.loads(x)[1] if x and isinstance(json.loads(x), list) and len(json.loads(x)) > 1 else np.nan)
+            df_us_ind['obv_latest'] = df_us_ind['obv_d'].apply(lambda x: json.loads(x)[0] if x and isinstance(json.loads(x), list) and len(json.loads(x)) > 0 else np.nan)
+            df_us_ind['signal_obv_1ago'] = df_us_ind['signal_obv_d'].apply(lambda x: json.loads(x)[1] if x and isinstance(json.loads(x), list) and len(json.loads(x)) > 1 else np.nan)
+            df_us_ind['signal_obv_latest'] = df_us_ind['signal_obv_d'].apply(lambda x: json.loads(x)[0] if x and isinstance(json.loads(x), list) and len(json.loads(x)) > 0 else np.nan)
+            df_us_ind = prepare_tab_df(df_us_ind, is_total=True)
+            
+            df_us_ind['eps_positive'] = df_us_ind['eps'] > 0
+            df_us_ind['per_range'] = (df_us_ind['per'] >= 3) & (df_us_ind['per'] <= 30)
+            df_us_ind['obv_bullish_cross'] = (df_us_ind['obv_latest'] > df_us_ind['signal_obv_latest']) & (df_us_ind['obv_1ago'] <= df_us_ind['signal_obv_1ago'])
+            df_us_ind['rsi_3up'] = (df_us_ind['rsi_d_2ago'] < df_us_ind['rsi_d_1ago']) & (df_us_ind['rsi_d_1ago'] < df_us_ind['rsi_d_latest']) & (df_us_ind['rsi_d_latest'] <= 50)
+            df_us_ind['rsi_3down'] = (df_us_ind['rsi_d_2ago'] > df_us_ind['rsi_d_1ago']) & (df_us_ind['rsi_d_1ago'] > df_us_ind['rsi_d_latest']) & (df_us_ind['rsi_d_latest'] <= 50)
+            df_us_ind['trading_high'] = df_us_ind['today_trading_value'] > 1.5 * df_us_ind['avg_trading_value_20d']
+            
+            df_us_ind['foreign_positive'] = ((df_us_ind['foreign_net_buy_1ago'] > 0) & (df_us_ind['foreign_net_buy_2ago'] > 0)).apply(lambda x: '✅' if x else '❌')
+            df_us_ind['candle_upper_3'] = (df_us_ind['upper_closes'] >= 3).apply(lambda x: '✅' if x else '❌')
+            
+            df_us_ind['캔들(5일)'] = df_us_ind['upper_closes'].astype(str) + ' (상단) / ' + df_us_ind['lower_closes'].astype(str) + ' (하단)'  # 추가
+            
+            col_map_total = {'symbol': '종목코드', 'market': '시장', 'name': '회사명',
+                             'rsi_d_2ago': 'RSI_3일_2ago', 'rsi_d_1ago': 'RSI_3일_1ago', 'rsi_d_latest': 'RSI_3일_latest', 
+                             'close': '종가',
+                             'market_cap': '시가총액', 'avg_trading_value_20d': '20일평균거래대금', 
+                             'today_trading_value': '오늘거래대금', 'turnover': '회전율',
+                             'foreign_net_buy_3ago': '외국인순매수_3일전', 'foreign_net_buy_2ago': '외국인순매수_2일전', 'foreign_net_buy_1ago': '외국인순매수_1일전',
+                             'per': 'PER_TTM', 'eps': 'EPS_TTM', 'obv_bullish_cross': 'OBV_상승', 'rsi_3up': 'RSI_3상승', 'rsi_3down': 'RSI_3하강', 'trading_high': '거래대금_상승',
+                             'eps_positive': 'EPS > 0', 'per_range': '3<=PER<=30', 'cap_status': '업데이트', 'foreign_positive': '외국인 순매수', 'candle_upper_3': '캔들'}
+            df_us_ind = df_us_ind.rename(columns={k: v for k, v in col_map_total.items() if k in df_us_ind.columns})
+            df_us_ind = df_us_ind.sort_values('시가총액', ascending=False).reset_index(drop=True)
+            
+            cols_us_total = ['종목코드', '회사명', '시장', 'RSI_3일_2ago', 'RSI_3일_1ago', 'RSI_3일_latest', '종가', '시가총액', '업데이트', '20일평균거래대금', '오늘거래대금', '회전율', '캔들(5일)', '외국인순매수_3일전', '외국인순매수_2일전', '외국인순매수_1일전', 'PER_TTM', 'EPS_TTM', 'OBV_상승', 'RSI_3상승', 'RSI_3하강', '거래대금_상승', 'EPS > 0', '3<=PER<=30', '외국인 순매수', '캔들']
             df_us_ind = df_us_ind[[col for col in cols_us_total if col in df_us_ind.columns]]
             df_us_ind = format_dataframe(df_us_ind, 'US')
-            st.subheader("해외 (US)")
             st.dataframe(df_us_ind, column_config=column_config_us)
-        
-        search_term = st.text_input("종목 검색 (Total)", placeholder="코드 입력", key="search_total")
-        filtered_symbols = get_filtered_symbols(df_ind_renamed, search_term)
-        if filtered_symbols:
-            selected_symbol = st.selectbox("종목 선택 (Total)", filtered_symbols, key="select_total")
-            if selected_symbol != st.session_state.selected_symbol:
-                st.session_state.selected_symbol = selected_symbol
-            if st.session_state.selected_symbol:
-                market = df_ind[df_ind['symbol'] == st.session_state.selected_symbol]['market'].iloc[0] if 'market' in df_ind.columns else 'US'
-                show_graphs(st.session_state.selected_symbol, market)
+            
+            search_term = st.text_input("종목 검색 (US Total)", placeholder="코드 입력", key="search_us_total")
+            filtered_symbols = get_filtered_symbols(df_us_ind, search_term)
+            if filtered_symbols:
+                selected_symbol = st.selectbox("종목 선택 (US Total)", filtered_symbols, key="select_us_total")
+                if selected_symbol != st.session_state.selected_symbol:
+                    st.session_state.selected_symbol = selected_symbol
+                if st.session_state.selected_symbol:
+                    market = 'US'
+                    show_graphs(st.session_state.selected_symbol, market)
+            else:
+                st.info("검색 결과 없음")
         else:
-            st.info("검색 결과 없음")
+            st.info("데이터 없음 – 배치 실행하세요.")
+
+with main_tabs[4]:  # 로그 탭
+    st.header("로그")
+    log_time_file = "logs/batch_time.txt"
+    if os.path.exists(log_time_file):
+        with open(log_time_file, "r") as f:
+            last_time = f.read().strip()
+        st.info(f"마지막 갱신: {last_time}")
     else:
-        st.info("데이터 없음 – 배치 실행하세요.")
+        st.info("로그 없음 – 로그 실행하세요.")
 
 if hasattr(st.session_state, 'con') and st.session_state.con:
     try:
         st.session_state.con.close()
     except:
         pass
-
-log_time_file = "logs/batch_time.txt"
-if os.path.exists(log_time_file):
-    with open(log_time_file, "r") as f:
-        last_time = f.read().strip()
-    st.sidebar.info(f"마지막 갱신: {last_time}")
-else:
-    st.sidebar.info("로그 없음 – 배치 실행하세요.")
