@@ -465,7 +465,7 @@ with main_tabs[0]:  # 필터 탭
 
         with col3:
             trading_apply = st.checkbox("거래대금")
-            foreign_apply = st.checkbox("외국인 순매수")
+            foreign_apply = st.checkbox("외국인 순매수(국내전용)")
 
         with col4:
             candle_apply = st.checkbox("캔들")

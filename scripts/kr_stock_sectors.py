@@ -1,26 +1,42 @@
 import pandas as pd
 import os
+from pykrx import stock
 
 # 데이터 저장 디렉토리
 data_dir = r"C:\Users\ws\Desktop\Python\Project_Hermes5\data"
 os.makedirs(data_dir, exist_ok=True)
 
-# KRX 상장법인 목록 다운로드 URL (업종 포함)
+# pykrx로 전체 종목 티커와 이름 가져오기 (KOSPI + KOSDAQ + KONEX)
+tickers_kospi = stock.get_market_ticker_list(market="KOSPI")
+tickers_kosdaq = stock.get_market_ticker_list(market="KOSDAQ")
+tickers_konex = stock.get_market_ticker_list(market="KONEX")
+tickers = tickers_kospi + tickers_kosdaq + tickers_konex
+
+names = [stock.get_market_ticker_name(t) for t in tickers]
+df_pykrx = pd.DataFrame({'종목코드': tickers, '회사명': names})
+
+# KRX 상장법인 목록 다운로드 (업종 포함)
 url = 'http://kind.krx.co.kr/corpgeneral/corpList.do?method=download&searchType=13'
-
-# 데이터 불러오기
 stock_list = pd.read_html(url, header=0, encoding='cp949')[0]
-
-# 종목코드 포맷팅 (6자리)
 stock_list['종목코드'] = stock_list['종목코드'].astype(str).str.zfill(6)
+df_krx = stock_list[['회사명', '종목코드', '업종', '상장일']]
 
-# 필요한 컬럼만 선택 (회사명, 종목코드, 업종, 상장일 등)
-df = stock_list[['회사명', '종목코드', '업종', '상장일']]
+# 회사명 정규화 (우선주 suffix 제거)
+def normalize_name(name):
+    suffixes = ['우', '우B', '우C', '2우B', '3우B', '전환', '2우', '3우']
+    for suffix in suffixes:
+        if suffix in name:
+            name = name.replace(suffix, '').strip()
+    return name
 
-# 정렬 (회사명 기준)
-df = df.sort_values(by='회사명')
+df_pykrx['normalized_name'] = df_pykrx['회사명'].apply(normalize_name)
+df_krx['normalized_name'] = df_krx['회사명'].apply(normalize_name)
 
-# 11개 섹터 정의 및 매핑 함수
+# 매칭 (normalized_name 기준, 업종/상장일 가져옴)
+df_merged = pd.merge(df_pykrx, df_krx[['normalized_name', '업종', '상장일']], on='normalized_name', how='left')
+df_merged = df_merged[['회사명', '종목코드', '업종', '상장일']]
+
+# 11개 섹터 정의 및 매핑 함수 (원래 코드 그대로)
 sectors = {
     'Information Technology': '정보기술',
     'Consumer Discretionary': '임의소비재',
@@ -36,7 +52,7 @@ sectors = {
 }
 
 def map_to_sector(upjong):
-    upjong_lower = upjong.lower()
+    upjong_lower = upjong.lower() if isinstance(upjong, str) else ''
     if any(word in upjong_lower for word in ['소프트웨어', '컴퓨터', '반도체', '전자부품', '통신 및 방송 장비', '영상 및 음향기기', '사진장비 및 광학기기', '전자', '컴퓨터 프로그래밍', '시스템 통합', '자료처리', '호스팅', '포털', '인터넷', '기타 정보 서비스', '마그네틱', '광학 매체', '측정, 시험, 항해, 제어 및 기타 정밀기기', '컴퓨터 및 주변장치', '통신 및 방송 장비', '측정', '시험', '항해', '제어 및 기타 정밀기기 제조업; 광학기기 제외']):
         return 'Information Technology'
     elif any(word in upjong_lower for word in ['봉제의복', '의복', '신발', '가죽', '가구', '자동차용 엔진 및 자동차', '자동차 신품 부품', '자동차 차체나 트레일러', '자동차 부품 및 내장품', '스포츠 서비스', '유원지', '오락관련 서비스', '여행사', '창작 및 예술관련', '영화, 비디오물, 방송프로그램', '오디오물 출판', '영상·오디오물 제공', '가정용 기기', '의복 액세서리', '자동차 판매', '운동 및 경기용구', '섬유, 의복, 신발 및 가죽제품 소매', '악기', '귀금속 및 장신용품', '편조의복', '자동차 재제조 부품', '자동차 부품 및 내장품 판매', '신발 및 신발 부분품', '가죽, 가방 및 유사제품', '그외 기타 제품', '개인 및 가정용품', '무점포 소매', '기타 상품 전문 소매', '섬유제품', '그외 기타 개인 서비스', '기타 생활용품 소매', '음·식료품 및 담배 소매', '떡, 빵 및 과자류', '종합 소매업', '가전제품 및 정보통신장비 소매', '일반 및 생활 숙박시설 운영업', '음식점업', '기타 상품 전문 소매업', '섬유, 의복, 신발 및 가죽제품 소매업', '종합 소매업', '도매업', '상품']):
@@ -62,10 +78,13 @@ def map_to_sector(upjong):
     else:
         return 'Other'
 
-# 섹터 컬럼 추가
-df['Sector'] = df['업종'].apply(map_to_sector)
+# 섹터 추가
+df_merged['Sector'] = df_merged['업종'].apply(map_to_sector)
 
-# CSV 저장 (섹터 추가된 버전으로 기존 파일 덮어쓰기)
+# 정렬 (회사명 기준)
+df_merged = df_merged.sort_values(by='회사명')
+
+# CSV 저장
 file_path = os.path.join(data_dir, 'kr_stock_sectors.csv')
-df.to_csv(file_path, encoding='utf-8-sig', index=False)
+df_merged.to_csv(file_path, encoding='utf-8-sig', index=False)
 print(f"CSV 파일 저장 완료 (섹터 추가): {file_path}")

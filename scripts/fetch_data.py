@@ -118,7 +118,6 @@ def get_kr_meta_single(ticker, df_kr, fundamental, ohlcv, kr_date_str):
     per = 0.0
     eps = 0.0
     close_price = 0.0
-    sector = "N/A"
     cap_status = "N/A"
     try:
         new_cap = float(df_kr.loc[ticker, '시가총액']) if ticker in df_kr.index else 0.0
@@ -129,12 +128,10 @@ def get_kr_meta_single(ticker, df_kr, fundamental, ohlcv, kr_date_str):
         per = round(fundamental.loc[ticker, 'PER'], 2) if ticker in fundamental.index and not pd.isna(fundamental.loc[ticker, 'PER']) else 0.0
         eps = round(fundamental.loc[ticker, 'EPS'], 2) if ticker in fundamental.index and not pd.isna(fundamental.loc[ticker, 'EPS']) else 0.0
         close_price = float(ohlcv.loc[ticker, '종가']) if ticker in ohlcv.index else 0.0
-        # 섹터 추가
-        kr_ticker = f"{ticker}.KS"
-        sector = yf.Ticker(kr_ticker).info.get('sector', 'N/A')
+        # 섹터 불러오지 않음
     except:
         pass
-    return ticker, cap, name, per, eps, close_price, sector, cap_status
+    return ticker, cap, name, per, eps, close_price, cap_status
 
 def get_us_meta_single(symbol, df_us):
     cap = 0.0
@@ -219,14 +216,13 @@ if __name__ == '__main__':
             batch_tickers = kr_tickers[i:i+batch_size]
             with ThreadPoolExecutor(max_workers=5) as executor:
                 results = executor.map(lambda t: get_kr_meta_single(t, df_kr, fundamental, ohlcv, kr_date_str), batch_tickers)
-            for ticker, cap, name, per, eps, close_price, sector, cap_status in results:
+            for ticker, cap, name, per, eps, close_price, cap_status in results:
                 old_cap = kr_meta.get(ticker, {}).get('cap', 0.0)
                 old_cap_status = kr_meta.get(ticker, {}).get('cap_status', "N/A")
                 old_name = kr_meta.get(ticker, {}).get('name', "N/A")
                 old_per = kr_meta.get(ticker, {}).get('per', 0.0)
                 old_eps = kr_meta.get(ticker, {}).get('eps', 0.0)
                 old_close = kr_meta.get(ticker, {}).get('close', 0.0)
-                old_sector = kr_meta.get(ticker, {}).get('sector', "N/A")
                 
                 cap_val = cap if cap > 0 else old_cap
                 cap_status_val = cap_status if cap > 0 else old_cap_status
@@ -234,11 +230,10 @@ if __name__ == '__main__':
                 per_val = per if per != 0.0 else old_per
                 eps_val = eps if eps != 0.0 else old_eps
                 close_val = close_price if close_price > 0 else old_close
-                sector_val = sector if sector != "N/A" else old_sector
                 
                 kr_meta[ticker] = {
                     'name': name_val, 'cap': cap_val, 'cap_status': cap_status_val,
-                    'per': per_val, 'eps': eps_val, 'close': close_val, 'sector': sector_val
+                    'per': per_val, 'eps': eps_val, 'close': close_val
                 }
             time.sleep(30)  # yfinance rate limit 방지
     else:
@@ -270,7 +265,8 @@ if __name__ == '__main__':
                     eps = us_meta.get(symbol, {}).get('eps', 0.0)
                 close_val = close_price if close_price > 0 else us_meta.get(symbol, {}).get('close', 0.0)
                 old_sector = us_meta.get(symbol, {}).get('sector', "N/A")
-                sector_val = sector if sector != "N/A" else old_sector
+                # sector 중복 스킵: 기존 sector가 있으면 업데이트하지 않음
+                sector_val = old_sector if old_sector != "N/A" else sector
                 us_meta[symbol] = {'name': name, 'cap': cap, 'cap_status': cap_status, 'per': per, 'eps': eps, 'close': close_val, 'sector': sector_val}
             time.sleep(30)
     else:
