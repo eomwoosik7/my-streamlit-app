@@ -1143,13 +1143,58 @@ with us_sub_tabs[3]:  # Total
 
 with main_tabs[4]:  # 로그 탭
     st.header("로그")
+    
+    # 마지막 갱신 시간
     log_time_file = "logs/batch_time.txt"
     if os.path.exists(log_time_file):
         with open(log_time_file, "r") as f:
             last_time = f.read().strip()
-        st.info(f"마지막 갱신: {last_time}")
+        st.info(f"📅 마지막 데이터 갱신: {last_time}")
     else:
-        st.info("로그 없음 – 로그 실행하세요.")
+        st.warning("⚠️ 로그 없음 – 배치 실행하세요.")
+    
+    st.markdown("---")
+    
+    # 최근 업데이트 내역
+    st.subheader("🆕 최근 업데이트 내역")
+    
+    with st.expander("📋 2024-12-24 업데이트", expanded=True):
+        st.markdown("""
+        ### ✨ 주요 추가 기능
+        
+        **1. 섹터 트렌드 기능 추가**
+        - 모든 탭의 테이블에 **섹터트렌드** 컬럼 추가 (섹터 옆에 표시)
+        - 백테스팅 탭 제외한 모든 탭에 **섹터트렌드체크** 컬럼 추가
+          - ✅ : 상승 트렌드 (+)
+          - ❌ : 하락 트렌드 (-)
+        
+        **2. 필터 기능 강화**
+        - 필터 탭에 **"섹터트렌드(해외전용)"** 체크박스 추가
+        - 해외(US) 종목 중 섹터 상승 트렌드만 필터링 가능
+        
+        **3. 백테스팅 탭 정렬 개선**
+        - 백테스팅 데이터를 **업데이트 날짜 최신순**으로 정렬
+        - 최근 데이터를 먼저 확인 가능
+        
+        ### 📊 적용 범위
+        - ✅ 필터 탭 (KR/US)
+        - ✅ 백테스팅 탭 (장기/단기/중기)
+        - ✅ KR 탭 (장기/단기/중기/Total)
+        - ✅ US 탭 (장기/단기/중기/Total)
+        """)
+ 
+    st.markdown("---")
+    
+    # 시스템 정보
+    st.subheader("⚙️ 시스템 정보")
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+        st.metric("데이터베이스", "DuckDB")
+    with col2:
+        st.metric("필터 조건", "8개")
+    with col3:
+        st.metric("지원 시장", "KR + US")
 
 if hasattr(st.session_state, 'con') and st.session_state.con:
     try:

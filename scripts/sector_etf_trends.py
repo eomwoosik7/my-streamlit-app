@@ -8,20 +8,20 @@ os.makedirs(data_dir, exist_ok=True)
 
 # 섹터별 대표 ETF (한글 섹터명 → 영문 매칭용)
 sector_etfs = {
-    'Information Technology': {'US': 'XLK', 'KR': '381170.KS', 'name': '정보기술'},
-    'Consumer Discretionary': {'US': 'XLY', 'KR': '228810.KS', 'name': '임의소비재'},
-    'Communication Services': {'US': 'XLC', 'KR': '228810.KS', 'name': '통신서비스'},
-    'Health Care': {'US': 'XLV', 'KR': '143860.KS', 'name': '헬스케어'},
-    'Consumer Staples': {'US': 'XLP', 'KR': '139270.KS', 'name': '필수소비재'},
-    'Financials': {'US': 'XLF', 'KR': '157500.KS', 'name': '금융'},
-    'Energy': {'US': 'XLE', 'KR': '305080.KS', 'name': '에너지'},
-    'Industrials': {'US': 'XLI', 'KR': '117700.KS', 'name': '산업재'},
-    'Materials': {'US': 'XLB', 'KR': '117690.KS', 'name': '소재'},
-    'Utilities': {'US': 'XLU', 'KR': '404650.KS', 'name': '유틸리티'},
-    'Real Estate': {'US': 'XLRE', 'KR': '329200.KS', 'name': '부동산'}
+    'Information Technology': {'US': 'XLK', 'KR': '139260.KS', 'name': '정보기술', 'kr_etf_name': 'TIGER 200 IT'},
+    'Consumer Discretionary': {'US': 'XLY', 'KR': '139290.KS', 'name': '임의소비재', 'kr_etf_name': 'TIGER 200 경기소비재'},
+    'Communication Services': {'US': 'XLC', 'KR': '228810.KS', 'name': '통신서비스', 'kr_etf_name': 'TIGER 미디어컨텐츠'},
+    'Health Care': {'US': 'XLV', 'KR': '143860.KS', 'name': '헬스케어', 'kr_etf_name': 'TIGER 헬스케어'},
+    'Consumer Staples': {'US': 'XLP', 'KR': '266410.KS', 'name': '필수소비재', 'kr_etf_name': 'KODEX 필수소비재'},
+    'Financials': {'US': 'XLF', 'KR': '139270.KS', 'name': '금융', 'kr_etf_name': 'TIGER 200 금융'},
+    'Energy': {'US': 'XLE', 'KR': '117680.KS', 'name': '에너지', 'kr_etf_name': 'KODEX 에너지화학'},
+    'Industrials': {'US': 'XLI', 'KR': '117700.KS', 'name': '산업재', 'kr_etf_name': 'KODEX 산업재'},
+    'Materials': {'US': 'XLB', 'KR': '117690.KS', 'name': '소재', 'kr_etf_name': 'KODEX 소재산업'},
+    'Utilities': {'US': 'XLU', 'KR': '404650.KS', 'name': '유틸리티', 'kr_etf_name': 'TIGER KRX 기후변화솔루션'},
+    'Real Estate': {'US': 'XLRE', 'KR': '329200.KS', 'name': '부동산', 'kr_etf_name': 'TIGER 리츠부동산인프라'}
 }
 
-def get_etf_data(ticker, market='US'):
+def get_etf_data(ticker, market='US', kr_etf_name=None):
     try:
         end_date = datetime.now()
         start_date = end_date - timedelta(days=35)
@@ -39,16 +39,9 @@ def get_etf_data(ticker, market='US'):
         
         trend = '상승' if change_rate > 0 else '하락' if change_rate < 0 else '보합'
         
-        # ETF 이름 가져오기
-        info = etf.info
-        etf_name = info.get('shortName') or info.get('longName') or ticker
-        
-        # KR ETF 이름 간소화
-        if market == 'KR':
-            etf_name = etf_name.replace(' ETF', '').replace('ETF', '').strip()
-            words = etf_name.split()
-            if len(words) > 2:
-                etf_name = ' '.join(words[:2])
+        # ETF 이름 설정
+        if market == 'KR' and kr_etf_name:
+            etf_name = kr_etf_name
         else:
             # US는 티커만 사용
             etf_name = ticker
@@ -81,7 +74,7 @@ def main():
             print(f"  US ({etfs['US']}): {us_data['trend_display']}")
         
         # KR ETF
-        kr_data = get_etf_data(etfs['KR'], 'KR')
+        kr_data = get_etf_data(etfs['KR'], 'KR', kr_etf_name=etfs['kr_etf_name'])
         if kr_data:
             kr_data['sector'] = sector
             results.append(kr_data)
