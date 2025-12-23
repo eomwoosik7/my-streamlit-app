@@ -1,0 +1,23 @@
+﻿sector,market,trend_display
+Information Technology,US,상승(+4.05%) XLK
+Information Technology,KR,상승(+3.83%) TIGER US
+Consumer Discretionary,US,상승(+8.99%) XLY
+Consumer Discretionary,KR,상승(+8.30%) TIGER MEDIA
+Communication Services,US,상승(+4.34%) XLC
+Communication Services,KR,상승(+8.30%) TIGER MEDIA
+Health Care,US,상승(+1.78%) XLV
+Health Care,KR,하락(-2.89%) TIGER HEALTH
+Consumer Staples,US,상승(+1.01%) XLP
+Consumer Staples,KR,상승(+4.62%) TIGER 200
+Financials,US,상승(+7.69%) XLF
+Financials,KR,상승(+4.17%) TIGER SECURITIES
+Energy,US,하락(-2.90%) XLE
+Energy,KR,상승(+1.23%) TIGER 10Y
+Industrials,US,상승(+4.80%) XLI
+Industrials,KR,상승(+9.45%) KODEX Constructions
+Materials,US,상승(+6.81%) XLB
+Materials,KR,하락(-1.37%) TIGER China
+Utilities,US,하락(-4.80%) XLU
+Utilities,KR,상승(+4.27%) SOL KRX
+Real Estate,US,하락(-1.57%) XLRE
+Real Estate,KR,상승(+1.43%) TIGER REITS

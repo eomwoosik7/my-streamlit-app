@@ -15,13 +15,13 @@ os.makedirs(DATA_DIR, exist_ok=True)
 META_DIR = os.path.join(DATA_DIR, 'meta')
 os.makedirs(META_DIR, exist_ok=True)
 DB_PATH = os.path.join(META_DIR, 'universe.db')
-BACKTEST_DB_PATH = os.path.join(META_DIR, 'backtest.db')  # 새 백테스팅 DB
-BACKTEST_CSV_PATH = os.path.join(DATA_DIR, 'backtest_results.csv')  # 백테스팅 CSV
+BACKTEST_DB_PATH = os.path.join(META_DIR, 'backtest.db')
+BACKTEST_CSV_PATH = os.path.join(DATA_DIR, 'backtest_results.csv')
 
 # 폴더 생성 (CSV 저장용)
 LONG_FOLDER = os.path.join(DATA_DIR, 'long_term_results')
 SHORT_FOLDER = os.path.join(DATA_DIR, 'short_term_results')
-MID_FOLDER = os.path.join(DATA_DIR, 'screener_results')  # 중기
+MID_FOLDER = os.path.join(DATA_DIR, 'screener_results')
 os.makedirs(LONG_FOLDER, exist_ok=True)
 os.makedirs(SHORT_FOLDER, exist_ok=True)
 os.makedirs(MID_FOLDER, exist_ok=True)
@@ -72,8 +72,11 @@ def ensure_db_exists():
                 turnover DOUBLE,
                 per DOUBLE,
                 eps DOUBLE,
-                cap_status VARCHAR,  # 추가
-                sector VARCHAR  # 추가
+                cap_status VARCHAR,
+                upper_closes INTEGER,
+                lower_closes INTEGER,
+                sector VARCHAR,
+                sector_trend VARCHAR  -- ✅ 추가
             )
         """)
         con_temp.close()
@@ -127,8 +130,10 @@ def run_screener(top_n=50, use_us=True, use_kr=True):
             df['per'] = 0.0
         if 'eps' not in df.columns:
             df['eps'] = 0.0
-        if 'sector' not in df.columns:  # sector 없으면 N/A 추가
+        if 'sector' not in df.columns:
             df['sector'] = 'N/A'
+        if 'sector_trend' not in df.columns:  # ✅ sector_trend 없으면 N/A 추가
+            df['sector_trend'] = 'N/A'
 
         market_filter = df['market'].isin(
             ['US'] if use_us and not use_kr else
@@ -159,53 +164,49 @@ def run_screener(top_n=50, use_us=True, use_kr=True):
 
         # 영업일 조정 (주말 → 금요일)
         today = datetime.now()
-        if today.weekday() >= 5:  # 5: 토요일, 6: 일요일
-            days_back = today.weekday() - 4  # 토요일:1, 일요일:2만큼 이전 (금요일)
+        if today.weekday() >= 5:
+            days_back = today.weekday() - 4
             today -= timedelta(days=days_back)
         today_str = today.strftime('%Y-%m-%d')
 
         # 장타: OBV 상승 + RSI 하강 + EPS/PER + 유동성
         long_results = df_filtered[obv_bullish & rsi_3down & per_filter & liquidity_filter].copy()
         long_results = long_results.sort_values('rsi_d_latest')
-        long_results = add_close_price(long_results)  # close 추가
-        # symbol 형식 보장 (CSV 저장 전)
+        long_results = add_close_price(long_results)
         long_results['symbol'] = long_results.apply(lambda row: str(row['symbol']).zfill(6) if row['market'] == 'KR' else str(row['symbol']), axis=1)
         long_csv_path = os.path.join(LONG_FOLDER, f"{today_str}_long.csv")
         long_results.to_csv(long_csv_path, index=False, encoding='utf-8-sig')
         print(f"\n장타 완료! 총 {len(long_results)}개 종목 선정 (CSV: {long_csv_path})")
         if not long_results.empty:
-            print(long_results[['symbol', 'name', 'rsi_d_latest', 'per', 'eps', 'market', 'cap_status', 'sector']].to_string(index=False))  # sector 추가
+            print(long_results[['symbol', 'name', 'rsi_d_latest', 'per', 'eps', 'market', 'cap_status', 'sector', 'sector_trend']].to_string(index=False))  # ✅ sector_trend 추가
 
         # 단타: OBV 상승 + RSI 상승 + 거래대금 + 유동성
         short_results = df_filtered[obv_bullish & rsi_3up & trading_high & liquidity_filter].copy()
         short_results = short_results.sort_values('rsi_d_latest')
-        short_results = add_close_price(short_results)  # close 추가
-        # symbol 형식 보장 (CSV 저장 전)
+        short_results = add_close_price(short_results)
         short_results['symbol'] = short_results.apply(lambda row: str(row['symbol']).zfill(6) if row['market'] == 'KR' else str(row['symbol']), axis=1)
         short_csv_path = os.path.join(SHORT_FOLDER, f"{today_str}_short.csv")
         short_results.to_csv(short_csv_path, index=False, encoding='utf-8-sig')
         print(f"\n단타 완료! 총 {len(short_results)}개 종목 선정 (CSV: {short_csv_path})")
         if not short_results.empty:
-            print(short_results[['symbol', 'name', 'rsi_d_latest', 'today_trading_value', 'market', 'cap_status', 'sector']].to_string(index=False))  # sector 추가
+            print(short_results[['symbol', 'name', 'rsi_d_latest', 'today_trading_value', 'market', 'cap_status', 'sector', 'sector_trend']].to_string(index=False))  # ✅ sector_trend 추가
 
-        # 중기: OBV 상승 + RSI 상승 + EPS/PER + 유동성 (기존 results)
+        # 중기: OBV 상승 + RSI 상승 + EPS/PER + 유동성
         mid_results = df_filtered[obv_bullish & rsi_3up & per_filter & liquidity_filter].copy()
         mid_results = mid_results.sort_values('rsi_d_latest')
-        mid_results = add_close_price(mid_results)  # close 추가
-        # round(2) 루프 제거: 반올림 방지
-        # symbol 형식 보장 (CSV 저장 전)
+        mid_results = add_close_price(mid_results)
         mid_results['symbol'] = mid_results.apply(lambda row: str(row['symbol']).zfill(6) if row['market'] == 'KR' else str(row['symbol']), axis=1)
         mid_csv_path = os.path.join(MID_FOLDER, f"{today_str}_mid.csv")
         mid_results.to_csv(mid_csv_path, index=False, encoding='utf-8-sig')
 
         print(f"\n중기 스크리너 완료! 총 {len(mid_results)}개 종목 선정 (CSV: {mid_csv_path})")
         if not mid_results.empty:
-            print(mid_results[['symbol', 'name', 'rsi_d_latest', 'per', 'eps', 'market', 'cap_status', 'sector']].to_string(index=False))  # cap_status, sector 추가
+            print(mid_results[['symbol', 'name', 'rsi_d_latest', 'per', 'eps', 'market', 'cap_status', 'sector', 'sector_trend']].to_string(index=False))  # ✅ sector_trend 추가
 
         # 백테스팅 DB 생성
         create_backtest_db()
 
-        return mid_results  # 기존 반환 유지
+        return mid_results
 
     except Exception as e:
         print(f"스크리너 에러: {e}")
@@ -218,8 +219,7 @@ def load_all_csv_from_folder(folder_path, result_type):
     for file in os.listdir(folder_path):
         if file.endswith('.csv'):
             file_path = os.path.join(folder_path, file)
-            df = pd.read_csv(file_path, dtype={'symbol': str})  # symbol을 str로 유지
-            # date 컬럼 추가 안 함 (제거)
+            df = pd.read_csv(file_path, dtype={'symbol': str})
             df['type'] = result_type
             all_df = pd.concat([all_df, df], ignore_index=True)
     return all_df
@@ -240,27 +240,30 @@ def create_backtest_db():
     backtest_df['latest_close'] = 0.0
     backtest_df['latest_update'] = 'N/A'
     backtest_df['change_rate'] = 0.0
-    backtest_df['sector'] = 'N/A'  # sector 추가
+    backtest_df['sector'] = 'N/A'
+    backtest_df['sector_trend'] = 'N/A'  # ✅ sector_trend 추가
 
     for idx, row in backtest_df.iterrows():
         symbol = row['symbol']
         market = row['market']
         if market == 'KR':
-            symbol = str(symbol).zfill(6)  # KR 티커 6자리 leading zero 보장
+            symbol = str(symbol).zfill(6)
         meta_dict = meta.get(market, {}).get(symbol, {})
         latest_close = meta_dict.get('close', 0.0)
         latest_update = meta_dict.get('cap_status', 'N/A')
-        sector_val = meta_dict.get('sector', 'N/A')  # sector 불러오기
+        sector_val = meta_dict.get('sector', 'N/A')
+        sector_trend_val = meta_dict.get('sector_trend', 'N/A')  # ✅ sector_trend 불러오기
 
         # 과거 close (CSV에 저장된 close 사용)
         past_close = row.get('close', 0.0)
         change_rate = ((latest_close - past_close) / past_close * 100) if past_close != 0 else 0.0
-        change_rate = round(change_rate, 2)  # 소숫점 둘째 자리
+        change_rate = round(change_rate, 2)
 
         backtest_df.at[idx, 'latest_close'] = latest_close
         backtest_df.at[idx, 'latest_update'] = latest_update
         backtest_df.at[idx, 'change_rate'] = change_rate
-        backtest_df.at[idx, 'sector'] = sector_val  # sector 저장
+        backtest_df.at[idx, 'sector'] = sector_val
+        backtest_df.at[idx, 'sector_trend'] = sector_trend_val  # ✅ sector_trend 저장
 
     # DB 저장 (기존 테이블 drop 후 생성)
     con_back = duckdb.connect(BACKTEST_DB_PATH)

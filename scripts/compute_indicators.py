@@ -18,7 +18,7 @@ os.makedirs(DATA_DIR, exist_ok=True)
 META_DIR = os.path.join(DATA_DIR, 'meta')
 os.makedirs(META_DIR, exist_ok=True)
 DB_PATH = os.path.join(META_DIR, 'universe.db')
-META_FILE = os.path.join(META_DIR, 'tickers_meta.json')  # 메타 파일
+META_FILE = os.path.join(META_DIR, 'tickers_meta.json')
 
 def get_us_symbols():
     url = 'https://en.wikipedia.org/wiki/Russell_1000_Index'
@@ -28,11 +28,10 @@ def get_us_symbols():
         response.raise_for_status()
         soup = BeautifulSoup(response.text, 'html.parser')
         tables = soup.find_all('table')
-        # "Components" 테이블 찾기 (컬럼에 'Symbol' 포함)
         for table in tables:
-            if 'Symbol' in str(table):  # 'Ticker symbol' → 'Symbol'로 되돌림
+            if 'Symbol' in str(table):
                 df_us = pd.read_html(str(table))[0]
-                us_symbols = df_us['Symbol'].str.replace('.', '-', regex=False).tolist()  # 컬럼 'Symbol'로 접근
+                us_symbols = df_us['Symbol'].str.replace('.', '-', regex=False).tolist()
                 print(f"US 상위 {len(us_symbols)}개 로드 (Russell 1000)")
                 return us_symbols
         print("US 테이블 찾기 실패 – 빈 리스트 반환")
@@ -74,7 +73,7 @@ def compute_indicators(symbol, market='US'):
             print(f"{symbol} 데이터 없음 – 스킵")
             return None
         
-        df_daily = pd.read_csv(daily_path, index_col=0)  # Date를 인덱스로 읽음
+        df_daily = pd.read_csv(daily_path, index_col=0)
         
         # KR 한글 컬럼 영어로 변경
         if market == 'KR':
@@ -101,7 +100,7 @@ def compute_indicators(symbol, market='US'):
         recent_obv = df_daily['OBV'].tail(3).round(0).tolist()[::-1]
         recent_obv_signal = df_daily['OBV_SIGNAL'].tail(3).round(0).tolist()[::-1]
         
-        # 메타에서 이름, 시총, PER, EPS, cap_status, sector 가져오기
+        # 메타에서 정보 가져오기
         meta = load_meta()
         meta_dict = meta.get(market, {})
         name_val = meta_dict.get(symbol, {}).get('name', 'N/A')
@@ -109,7 +108,8 @@ def compute_indicators(symbol, market='US'):
         cap_status = meta_dict.get(symbol, {}).get('cap_status', "기존")
         per_val = meta_dict.get(symbol, {}).get('per', 0.0)
         eps_val = meta_dict.get(symbol, {}).get('eps', 0.0)
-        sector_val = meta_dict.get(symbol, {}).get('sector', 'N/A')  # sector 추가
+        sector_val = meta_dict.get(symbol, {}).get('sector', 'N/A')
+        sector_trend_val = meta_dict.get(symbol, {}).get('sector_trend', 'N/A')  # ✅ sector_trend 추가
         
         df_daily['TradingValue'] = df_daily[close_col] * df_daily[vol_col]
         avg_20d = df_daily['TradingValue'].tail(20).mean()
@@ -118,18 +118,19 @@ def compute_indicators(symbol, market='US'):
         
         # 캔들 위치 계산 (최근 5일 상단/하단 마감 반복)
         n = 5
-        df_daily['candle_pos'] = (df_daily[close_col] - df_daily[low_col]) / (df_daily[high_col] - df_daily[low_col]).replace(0, float('nan'))  # 0 나누기 방지
-        upper_closes = (df_daily['candle_pos'].tail(n) > 0.7).sum()  # 상단 마감 횟수
-        lower_closes = (df_daily['candle_pos'].tail(n) < 0.3).sum()  # 하단 마감 횟수
+        df_daily['candle_pos'] = (df_daily[close_col] - df_daily[low_col]) / (df_daily[high_col] - df_daily[low_col]).replace(0, float('nan'))
+        upper_closes = (df_daily['candle_pos'].tail(n) > 0.7).sum()
+        lower_closes = (df_daily['candle_pos'].tail(n) < 0.3).sum()
         
-        # PER, EPS, cap_status, sector 추가해서 반환 (총 18개 값: 기존 17 + sector)
+        # ✅ 19개 값 반환 (sector_trend 추가)
         return (symbol, market, name_val,
                 json.dumps(recent_d_rsi),
                 json.dumps(recent_macd), json.dumps(recent_signal),
                 json.dumps(recent_obv), json.dumps(recent_obv_signal),
                 float(market_cap), float(avg_20d), float(today_trading), float(turnover),
                 float(per_val), float(eps_val), cap_status,
-                int(upper_closes), int(lower_closes), sector_val)  # sector 추가
+                int(upper_closes), int(lower_closes), 
+                sector_val, sector_trend_val)  # ✅ sector_trend 추가
         
     except Exception as e:
         print(f"{symbol} 에러: {e} – 스킵")
@@ -155,10 +156,11 @@ if __name__ == '__main__':
                     turnover DOUBLE,
                     per DOUBLE,
                     eps DOUBLE,
-                    cap_status VARCHAR,  -- 추가: "기존" 또는 "최신"
-                    upper_closes INTEGER,  -- 추가: 상단 마감 횟수
-                    lower_closes INTEGER,   -- 추가: 하단 마감 횟수
-                    sector VARCHAR  -- 추가: 섹터
+                    cap_status VARCHAR,
+                    upper_closes INTEGER,
+                    lower_closes INTEGER,
+                    sector VARCHAR,
+                    sector_trend VARCHAR  -- ✅ 추가
                 )
             """)
             con_temp.close()
@@ -191,10 +193,11 @@ if __name__ == '__main__':
             turnover DOUBLE,
             per DOUBLE,
             eps DOUBLE,
-            cap_status VARCHAR,  -- 추가
-            upper_closes INTEGER,  -- 추가
-            lower_closes INTEGER,   -- 추가
-            sector VARCHAR  -- 추가
+            cap_status VARCHAR,
+            upper_closes INTEGER,
+            lower_closes INTEGER,
+            sector VARCHAR,
+            sector_trend VARCHAR  -- ✅ 추가
         )
     """)
     
@@ -220,7 +223,7 @@ if __name__ == '__main__':
     
     for row in all_results:
         con.execute(
-            "INSERT OR REPLACE INTO indicators VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",  # 18개
+            "INSERT OR REPLACE INTO indicators VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",  # ✅ 19개
             row
         )
     
@@ -228,7 +231,7 @@ if __name__ == '__main__':
     
     # CSV 내보내기 (확인용)
     df = con.execute("SELECT * FROM indicators").fetchdf()
-    csv_path = r"C:\Users\ws\Desktop\Python\Project_Hermes5\data\indicators.csv"
+    csv_path = os.path.join(DATA_DIR, "indicators.csv")
     df.to_csv(csv_path, encoding='utf-8-sig', index=False)
     print(f"CSV 저장 완료: {csv_path}")
     
