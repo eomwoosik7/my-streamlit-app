@@ -893,7 +893,7 @@ with st.sidebar:
     # 버튼
     col1, col2 = st.columns(2)
     with col1:
-        apply_btn = st.button("🔍 검색 적용", width='stretch', type="primary", disabled=filter_disabled)
+        apply_btn = st.button("🔍 검색 적용", use_container_width=True, type="primary", disabled=filter_disabled)
     with col2:
         reset_btn = st.button("초기화", width='stretch', disabled=filter_disabled)
 
