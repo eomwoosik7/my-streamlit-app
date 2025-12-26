@@ -711,7 +711,7 @@ def show_chart(symbol, market, chart_type):
             height=350,
             template="plotly"  # 자동 테마 적용
         )
-        st.plotly_chart(fig, width='stretch', config={'displayModeBar': False}, theme="streamlit")
+        st.plotly_chart(fig, use_container_width=True, config={'displayModeBar': False}, theme="streamlit")
         
     elif chart_type == "MACD":
         macd_df = ta.macd(df_chart[close_col], fast=12, slow=26)
@@ -729,7 +729,7 @@ def show_chart(symbol, market, chart_type):
             title="MACD",
             template="plotly"  # 자동 테마 적용
         )
-        st.plotly_chart(fig, width='stretch', config={'displayModeBar': False}, theme="streamlit")
+        st.plotly_chart(fig, use_container_width=True, config={'displayModeBar': False}, theme="streamlit")
         
     elif chart_type == "OBV":
         obv = ta.obv(df_chart[close_col], df_chart[vol_col])
@@ -744,7 +744,7 @@ def show_chart(symbol, market, chart_type):
             title="OBV",
             template="plotly"  # 자동 테마 적용
         )
-        st.plotly_chart(fig, width='stretch', config={'displayModeBar': False}, theme="streamlit")
+        st.plotly_chart(fig, use_container_width=True, config={'displayModeBar': False}, theme="streamlit")
         
     elif chart_type == "RSI":
         rsi = ta.rsi(df_chart[close_col], length=14)
@@ -758,7 +758,7 @@ def show_chart(symbol, market, chart_type):
             height=350,
             template="plotly"  # 자동 테마 적용
         )
-        st.plotly_chart(fig, width='stretch', config={'displayModeBar': False}, theme="streamlit")
+        st.plotly_chart(fig, use_container_width=True, config={'displayModeBar': False}, theme="streamlit")
 
 def get_indicator_data(symbol, market):
     con = get_db_connection()
@@ -895,7 +895,7 @@ with st.sidebar:
     with col1:
         apply_btn = st.button("🔍 검색 적용", use_container_width=True, type="primary", disabled=filter_disabled)
     with col2:
-        reset_btn = st.button("초기화", width='stretch', disabled=filter_disabled)
+        reset_btn = st.button("초기화", use_container_width=True, disabled=filter_disabled)
 
     st.markdown("---")
     
@@ -1438,7 +1438,7 @@ with col_left:
                 on_select="rerun",
                 selection_mode="single-row",
                 hide_index=True,
-                width='stretch',
+                use_container_width=True,
                 height=kr_height,
                 key=kr_key,  # ← 동적 key!
                 column_config={
@@ -1587,7 +1587,7 @@ with col_left:
                 on_select="rerun",
                 selection_mode="single-row",
                 hide_index=True,
-                width='stretch',
+                use_container_width=True,
                 height=us_height,
                 key=us_key,  # ← 동적 key!
                 column_config={
