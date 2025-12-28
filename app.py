@@ -995,7 +995,7 @@ def show_chart(symbol, market, chart_type):
             height=350,
             template="plotly"
         )
-        st.plotly_chart(fig, use_container_width=True, config={'displayModeBar': False}, theme="streamlit")
+        st.plotly_chart(fig, width='stretch', config={'displayModeBar': False}, theme="streamlit")
         
     elif chart_type == "MACD":
         macd_df = ta.macd(df_chart[close_col], fast=12, slow=26)
@@ -1013,7 +1013,7 @@ def show_chart(symbol, market, chart_type):
             title="MACD",
             template="plotly"
         )
-        st.plotly_chart(fig, use_container_width=True, config={'displayModeBar': False}, theme="streamlit")
+        st.plotly_chart(fig, width='stretch', config={'displayModeBar': False}, theme="streamlit")
         
     elif chart_type == "OBV":
         obv = ta.obv(df_chart[close_col], df_chart[vol_col])
@@ -1028,7 +1028,7 @@ def show_chart(symbol, market, chart_type):
             title="OBV",
             template="plotly"
         )
-        st.plotly_chart(fig, use_container_width=True, config={'displayModeBar': False}, theme="streamlit")
+        st.plotly_chart(fig, width='stretch', config={'displayModeBar': False}, theme="streamlit")
         
     elif chart_type == "RSI":
         rsi = ta.rsi(df_chart[close_col], length=14)
@@ -1042,7 +1042,7 @@ def show_chart(symbol, market, chart_type):
             height=350,
             template="plotly"
         )
-        st.plotly_chart(fig, use_container_width=True, config={'displayModeBar': False}, theme="streamlit")
+        st.plotly_chart(fig, width='stretch', config={'displayModeBar': False}, theme="streamlit")
 
 def get_indicator_data(symbol, market):
     con = get_db_connection()
@@ -1256,9 +1256,9 @@ with st.sidebar:
     # 버튼 (전체만 활성화)
     col1, col2 = st.columns(2)
     with col1:
-        apply_btn = st.button("🔍 검색 적용", use_container_width=True, type="primary", disabled=filter_disabled)
+        apply_btn = st.button("🔍 검색 적용", width='stretch', type="primary", disabled=filter_disabled)
     with col2:
-        reset_btn = st.button("초기화", use_container_width=True, disabled=filter_disabled)
+        reset_btn = st.button("초기화", width='stretch', disabled=filter_disabled)
     
     st.markdown("---")
     
@@ -2283,7 +2283,7 @@ with col_left:
             with col_kr_header4:
                 # 오름차순/내림차순 토글
                 sort_icon = "🔼" if st.session_state.kr_sort_ascending else "🔽"
-                if st.button(sort_icon, key=f"kr_sort_dir_{period}", use_container_width=True):
+                if st.button(sort_icon, key=f"kr_sort_dir_{period}", width='stretch'):
                     st.session_state.kr_sort_ascending = not st.session_state.kr_sort_ascending
                     st.session_state.kr_page = 0
                     st.rerun()
@@ -2296,7 +2296,7 @@ with col_left:
                     file_name=f'kr_stocks_{period}.csv',
                     mime='text/csv',
                     key=f"download_kr_{period}",
-                    use_container_width=True
+                    width='stretch'
                 )
 
                         # 기본값: 시가총액 내림차순
@@ -2372,7 +2372,7 @@ with col_left:
                 on_select="rerun",
                 selection_mode="single-row",
                 hide_index=True,
-                use_container_width=True,
+                width='stretch',
                 height=kr_height,
                 key=kr_key,
                 column_config={
@@ -2417,7 +2417,7 @@ with col_left:
                 col_prev, col_page_info, col_next = st.columns([0.4, 3, 0.4])
                 
                 with col_prev:
-                    if st.button("◀ 이전", key=f"kr_prev_{period}", disabled=st.session_state.kr_page == 0, use_container_width=True):
+                    if st.button("◀ 이전", key=f"kr_prev_{period}", disabled=st.session_state.kr_page == 0, width='stretch'):
                         st.session_state.kr_page -= 1
                         st.rerun()
                 
@@ -2431,7 +2431,7 @@ with col_left:
                     )
                 
                 with col_next:
-                    if st.button("다음 ▶", key=f"kr_next_{period}", disabled=st.session_state.kr_page >= kr_total_pages - 1, use_container_width=True):
+                    if st.button("다음 ▶", key=f"kr_next_{period}", disabled=st.session_state.kr_page >= kr_total_pages - 1, width='stretch'):
                         st.session_state.kr_page += 1
                         st.rerun()
             
@@ -2502,7 +2502,7 @@ with col_left:
             with col_us_header4:
                 # 오름차순/내림차순 토글
                 sort_icon = "🔼" if st.session_state.us_sort_ascending else "🔽"
-                if st.button(sort_icon, key=f"us_sort_dir_{period}", use_container_width=True):
+                if st.button(sort_icon, key=f"us_sort_dir_{period}", width='stretch'):
                     st.session_state.us_sort_ascending = not st.session_state.us_sort_ascending
                     st.session_state.us_page = 0
                     st.rerun()
@@ -2515,7 +2515,7 @@ with col_left:
                     file_name=f'us_stocks_{period}.csv',
                     mime='text/csv',
                     key=f"download_us_{period}",
-                    use_container_width=True
+                    width='stretch'
                 )
 
             # 기본값: 시가총액 내림차순
@@ -2591,7 +2591,7 @@ with col_left:
                 on_select="rerun",
                 selection_mode="single-row",
                 hide_index=True,
-                use_container_width=True,
+                width='stretch',
                 height=us_height,
                 key=us_key,
                 column_config={
@@ -2636,7 +2636,7 @@ with col_left:
                 col_prev, col_page_info, col_next = st.columns([0.4, 3, 0.4])
                 
                 with col_prev:
-                    if st.button("◀ 이전", key=f"us_prev_{period}", disabled=st.session_state.us_page == 0, use_container_width=True):
+                    if st.button("◀ 이전", key=f"us_prev_{period}", disabled=st.session_state.us_page == 0, width='stretch'):
                         st.session_state.us_page -= 1
                         st.rerun()
                 
@@ -2650,7 +2650,7 @@ with col_left:
                     )
                 
                 with col_next:
-                    if st.button("다음 ▶", key=f"us_next_{period}", disabled=st.session_state.us_page >= us_total_pages - 1, use_container_width=True):
+                    if st.button("다음 ▶", key=f"us_next_{period}", disabled=st.session_state.us_page >= us_total_pages - 1, width='stretch'):
                         st.session_state.us_page += 1
                         st.rerun()
             
