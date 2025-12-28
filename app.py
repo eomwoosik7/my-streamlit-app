@@ -96,10 +96,6 @@ def get_sector_check(trend_text):
     
     return '❌'
 
-# 캐시 클리어
-st.cache_data.clear()
-st.cache_resource.clear()
-
 # 페이지 설정
 st.set_page_config(page_title="Trading Copilot 🚀", layout="wide", initial_sidebar_state="expanded")
 
@@ -465,19 +461,28 @@ warnings.filterwarnings("ignore", message=".*keyword arguments.*deprecated.*conf
 warnings.filterwarnings("ignore", category=FutureWarning, message=".*to_pydatetime.*")
 warnings.filterwarnings("ignore", category=UserWarning, module="pykrx")
 
-@st.cache_data
+@st.cache_data(ttl=3600)  # ttl 추가
 def load_data():
     DB_PATH = "data/meta/universe.db"
     if not os.path.exists(DB_PATH):
         st.warning("데이터 없음 – 배치 실행하세요.")
         return pd.DataFrame()
-    con = duckdb.connect(DB_PATH, read_only=True)
+    
+    con = get_db_connection()  # ✅ 공유 연결 사용
+    if con is None:
+        st.warning("데이터 없음 – 배치 실행하세요.")
+        return pd.DataFrame()
+    
     df_ind = con.execute("SELECT * FROM indicators").fetchdf()
-    con.close()
+    # con.close() 삭제!
     return df_ind
 
+# ✅ 변경
+@st.cache_resource  # 이 줄 추가!
 def get_db_connection():
     DB_PATH = "data/meta/universe.db"
+    if not os.path.exists(DB_PATH):
+        return None
     return duckdb.connect(DB_PATH, read_only=True)
 
 @st.cache_data(ttl=3600)
@@ -499,7 +504,7 @@ def add_names(df):
         df['name'] = 'N/A'
         return df
     finally:
-        con.close()
+        pass
 
 @st.cache_data
 def load_meta():
@@ -511,46 +516,54 @@ def load_meta():
 
 @st.cache_data(ttl=3600)
 def add_foreign_net_buy(df):
-    """외국인 순매수 5일치 + 합산값 추가"""
-    if 'symbol' not in df.columns or 'market' not in df.columns:
+    """외국인 순매수 5일치 + 합산값 추가 - 벡터화 버전"""
+    if df.empty or 'symbol' not in df.columns or 'market' not in df.columns:
         return df
+    
     meta = load_meta()
     df = df.copy()
-    df['foreign_net_buy_5ago'] = np.nan
-    df['foreign_net_buy_4ago'] = np.nan
-    df['foreign_net_buy_3ago'] = np.nan
-    df['foreign_net_buy_2ago'] = np.nan
-    df['foreign_net_buy_1ago'] = np.nan
-    df['foreign_net_buy_sum'] = np.nan
-    if df.empty:
-        return df
-    for idx, row in df.iterrows():
-        symbol = row['symbol']
-        market = row['market']
-        meta_dict = meta.get(market, {}).get(symbol, {})
+    
+    # ✅ 벡터화: apply로 한 번에 처리
+    def get_foreign_data(row):
+        meta_dict = meta.get(row['market'], {}).get(row['symbol'], {})
         fnb = meta_dict.get('foreign_net_buy', [0, 0, 0, 0, 0])
-        # fnb는 최근부터 [0, 1, 2, 3, 4] 순서
-        df.at[idx, 'foreign_net_buy_1ago'] = fnb[0] if len(fnb) > 0 else 0
-        df.at[idx, 'foreign_net_buy_2ago'] = fnb[1] if len(fnb) > 1 else 0
-        df.at[idx, 'foreign_net_buy_3ago'] = fnb[2] if len(fnb) > 2 else 0
-        df.at[idx, 'foreign_net_buy_4ago'] = fnb[3] if len(fnb) > 3 else 0
-        df.at[idx, 'foreign_net_buy_5ago'] = fnb[4] if len(fnb) > 4 else 0
-        df.at[idx, 'foreign_net_buy_sum'] = sum(fnb)
+        
+        # 안전하게 값 추출
+        return pd.Series({
+            'foreign_net_buy_1ago': fnb[0] if len(fnb) > 0 else 0,
+            'foreign_net_buy_2ago': fnb[1] if len(fnb) > 1 else 0,
+            'foreign_net_buy_3ago': fnb[2] if len(fnb) > 2 else 0,
+            'foreign_net_buy_4ago': fnb[3] if len(fnb) > 3 else 0,
+            'foreign_net_buy_5ago': fnb[4] if len(fnb) > 4 else 0,
+            'foreign_net_buy_sum': sum(fnb)
+        })
+    
+    # apply로 모든 행에 한 번에 적용
+    foreign_cols = df.apply(get_foreign_data, axis=1)
+    
+    # 기존 df에 새 컬럼 추가
+    df = pd.concat([df, foreign_cols], axis=1)
+    
     return df
+
 
 @st.cache_data(ttl=3600)
 def add_close_price(df):
+    """종가 추가 - 벡터화 버전"""
     if df.empty or 'symbol' not in df.columns or 'market' not in df.columns:
         return df
+    
     meta = load_meta()
     df = df.copy()
-    df['close'] = np.nan
-    for idx, row in df.iterrows():
-        symbol = row['symbol']
-        market = row['market']
-        meta_dict = meta.get(market, {}).get(symbol, {})
-        close_price = meta_dict.get('close', 0.0)
-        df.at[idx, 'close'] = close_price
+    
+    # ✅ 벡터화: apply로 한 번에 처리
+    def get_close_data(row):
+        meta_dict = meta.get(row['market'], {}).get(row['symbol'], {})
+        return meta_dict.get('close', 0.0)
+    
+    # apply로 모든 행에 한 번에 적용
+    df['close'] = df.apply(get_close_data, axis=1)
+    
     return df
     
 # ========== 매수신호 계산 함수 ==========
@@ -969,18 +982,26 @@ def format_dataframe(df, market_type):
 
     return df
 
-def show_chart(symbol, market, chart_type):
-    """차트 표시 함수"""
+
+@st.cache_data(ttl=3600)
+def load_daily_data(symbol, market):
     base_dir = "data"
     daily_path = os.path.join(base_dir, ('us_daily' if market == 'US' else 'kr_daily'), f"{symbol}.csv")
-    
     if not os.path.exists(daily_path):
+        return None
+    df = pd.read_csv(daily_path, index_col=0, parse_dates=True)
+    if market == 'KR':
+        df = df.rename(columns={'시가': 'Open', '고가': 'High', '저가': 'Low', '종가': 'Close', '거래량': 'Volume'})
+    return df
+
+def show_chart(symbol, market, chart_type):
+    """차트 표시 함수"""
+    # 캐싱된 데이터 사용
+    df_chart = load_daily_data(symbol, market)
+    
+    if df_chart is None:
         st.warning("데이터 없음")
         return
-    
-    df_chart = pd.read_csv(daily_path, index_col=0)
-    if market == 'KR':
-        df_chart = df_chart.rename(columns={'시가': 'Open', '고가': 'High', '저가': 'Low', '종가': 'Close', '거래량': 'Volume'})
     
     close_col = 'Close'
     vol_col = 'Volume'
@@ -1044,6 +1065,7 @@ def show_chart(symbol, market, chart_type):
         )
         st.plotly_chart(fig, width='stretch', config={'displayModeBar': False}, theme="streamlit")
 
+@st.cache_data(ttl=3600)  # 추가
 def get_indicator_data(symbol, market):
     con = get_db_connection()
     query = """
@@ -1091,7 +1113,7 @@ def get_indicator_data(symbol, market):
     FROM parsed
     """
     df = con.execute(query, [symbol, market]).fetchdf()
-    con.close()
+
     if not df.empty:
         series = df.iloc[0]
         # RSI 컬럼 이름 변경 (백데이터 탭에서 표시용)
@@ -1337,8 +1359,11 @@ with st.sidebar:
     1. **RSI ≥ 70** → 과열 구간
     2. **OBV 하락 크로스** → 돈이 빠져나가기 시작
     3. **RSI 3일 하락 (≤50)** → 매수 심리 꺾임
-    4. **매도신호(6점)** → 보유한 종목의 매도 타이밍을 확인하세요 !
-    - 단기 필터(3) 각 → 1+점
+
+    → **보유한 종목의 매도 타이밍을 확인하세요 !**                     
+
+    4. **매도신호(6점)**  
+    - 매도 필터(3) 각 → 1+점  
     - 리버스 : 외국인 순매도 -, 캔들 하단 마감, 섹터 약세 → 각 +1점
     - 🟢 0~2점 : 안정  
     - 🟡 3~4점 : 주의  
@@ -2306,6 +2331,16 @@ with col_left:
             sort_by = [st.session_state.kr_sort_column]
             ascending = [st.session_state.kr_sort_ascending]
             
+            # ✅ 점수 컬럼인 경우 숫자 추출해서 정렬
+            score_columns = ['단기신호', '중기신호', '단기매수신호', '중기매수신호', '매도신호']
+            if st.session_state.kr_sort_column in score_columns and st.session_state.kr_sort_column in df_kr_filtered.columns:
+                # "🟣 6점" → 6으로 변환
+                try:
+                    df_kr_filtered['_정렬용_점수'] = df_kr_filtered[st.session_state.kr_sort_column].str.extract(r'(\d+)점')[0].astype(float)
+                    sort_by = ['_정렬용_점수']
+                except:
+                    pass  # 변환 실패 시 원본 사용
+
             # 2순위: 항상 시가총액으로 정렬 (1순위가 시가총액이 아닐 때)
             if st.session_state.kr_sort_column != '시가총액 (KRW 억원)' and '시가총액 (KRW 억원)' in df_kr_filtered.columns:
                 sort_by.append('시가총액 (KRW 억원)')
@@ -2525,6 +2560,15 @@ with col_left:
             sort_by = [st.session_state.us_sort_column]
             ascending = [st.session_state.us_sort_ascending]
             
+            # ✅ 점수 컬럼인 경우 숫자 추출해서 정렬
+            score_columns = ['단기신호', '중기신호', '단기매수신호', '중기매수신호', '매도신호']
+            if st.session_state.us_sort_column in score_columns and st.session_state.us_sort_column in df_us_filtered.columns:
+                try:
+                    df_us_filtered['_정렬용_점수'] = df_us_filtered[st.session_state.us_sort_column].str.extract(r'(\d+)점')[0].astype(float)
+                    sort_by = ['_정렬용_점수']
+                except:
+                    pass
+
             # 2순위: 항상 시가총액으로 정렬 (1순위가 시가총액이 아닐 때)
             if st.session_state.us_sort_column != '시가총액 (USD M)' and '시가총액 (USD M)' in df_us_filtered.columns:
                 sort_by.append('시가총액 (USD M)')
@@ -2816,10 +2860,3 @@ with col_right:
                     show_chart(symbol, market, "RSI")
     else:
         st.info("왼쪽 테이블에서 종목을 선택하세요.")
-
-# 연결 종료
-if hasattr(st.session_state, 'con') and st.session_state.con:
-    try:
-        st.session_state.con.close()
-    except:
-        pass
