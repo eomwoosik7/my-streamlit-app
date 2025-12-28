@@ -1114,15 +1114,15 @@ if 'kr_page' not in st.session_state:
 if 'us_page' not in st.session_state:
     st.session_state.us_page = 0
 
-# ✅ 정렬 상태 추가 (복수 컬럼 정렬)
-if 'kr_sort_rules' not in st.session_state:
-    st.session_state.kr_sort_rules = [
-        {'column': '시가총액 (KRW 억원)', 'ascending': False}
-    ]
-if 'us_sort_rules' not in st.session_state:
-    st.session_state.us_sort_rules = [
-        {'column': '시가총액 (USD M)', 'ascending': False}
-    ]
+# ✅ 추가
+if 'kr_sort_column' not in st.session_state:
+    st.session_state.kr_sort_column = '시가총액 (KRW 억원)'
+if 'kr_sort_ascending' not in st.session_state:
+    st.session_state.kr_sort_ascending = False
+if 'us_sort_column' not in st.session_state:
+    st.session_state.us_sort_column = '시가총액 (USD M)'
+if 'us_sort_ascending' not in st.session_state:
+    st.session_state.us_sort_ascending = False
 
 # ✅ 마지막 기간 저장 (탭 변경 감지용)
 if 'last_period' not in st.session_state:
@@ -2235,29 +2235,19 @@ with col_left:
             df_kr_csv = df_kr_filtered[csv_columns_kr]
             csv_kr = df_kr_csv.to_csv(index=False).encode('utf-8-sig')
             
-            # 헤더 + 정렬 UI
-            col_kr_header1, col_kr_header2, col_kr_header3, col_kr_header4 = st.columns([1, 1.5, 1.5, 1])
-            
+            # ✅ 3컬럼으로 변경
+            col_kr_header1, col_kr_header2, col_kr_header3 = st.columns([1, 2, 1])
+
             with col_kr_header1:
                 st.markdown("#### 국내 (KR)")
-            
+
             with col_kr_header2:
                 st.markdown(f"**{kr_stats}**")
-            
+
             with col_kr_header3:
-                # 정렬 컬럼 선택 (복수 선택 가능)
-                kr_display_cols = [col for col in display_cols if '(USD' not in col]
-                sort_options = [col for col in kr_display_cols if col not in ['종목코드', '시장', '회사명', '업종', '업종트렌드']]
-                if not sort_options:
-                    sort_options = ['시가총액 (KRW 억원)']
-                
-                # 기본값: 시가총액
-                if st.session_state.kr_sort_column not in sort_options:
-                    st.session_state.kr_sort_column = '시가총액 (KRW 억원)' if '시가총액 (KRW 억원)' in sort_options else sort_options[0]
-                
-                # ✅ 복수 선택 가능한 정렬
+                # 정렬 + 다운로드를 한 컬럼에 세로 배치
                 selected_sort = st.selectbox(
-                    "정렬 (1순위)",
+                    "정렬",
                     options=sort_options,
                     index=sort_options.index(st.session_state.kr_sort_column) if st.session_state.kr_sort_column in sort_options else 0,
                     key=f"kr_sort_col_{period}",
@@ -2268,27 +2258,23 @@ with col_left:
                     st.session_state.kr_sort_column = selected_sort
                     st.session_state.kr_page = 0
                     st.rerun()
-            
-            with col_kr_header4:
-                col_sort_btn, col_download = st.columns([1, 1])
                 
-                with col_sort_btn:
-                    # 오름차순/내림차순 토글
-                    sort_icon = "🔼" if st.session_state.kr_sort_ascending else "🔽"
-                    if st.button(sort_icon, key=f"kr_sort_dir_{period}", use_container_width=True):
-                        st.session_state.kr_sort_ascending = not st.session_state.kr_sort_ascending
-                        st.session_state.kr_page = 0
-                        st.rerun()
+                # 오름/내림차순 토글
+                sort_icon = "🔼" if st.session_state.kr_sort_ascending else "🔽"
+                if st.button(sort_icon, key=f"kr_sort_dir_{period}", use_container_width=True):
+                    st.session_state.kr_sort_ascending = not st.session_state.kr_sort_ascending
+                    st.session_state.kr_page = 0
+                    st.rerun()
                 
-                with col_download:
-                    st.download_button(
-                        label="💾",
-                        data=csv_kr,
-                        file_name=f'kr_stocks_{period}.csv',
-                        mime='text/csv',
-                        key=f"download_kr_{period}",
-                        use_container_width=True
-                    )
+                # 다운로드 버튼
+                st.download_button(
+                    label="💾 Data Download",
+                    data=csv_kr,
+                    file_name=f'kr_stocks_{period}.csv',
+                    mime='text/csv',
+                    key=f"download_kr_{period}",
+                    use_container_width=True
+                )
                         # 기본값: 시가총액 내림차순
             sort_by = [st.session_state.kr_sort_column]
             ascending = [st.session_state.kr_sort_ascending]
@@ -2455,8 +2441,8 @@ with col_left:
             df_us_csv = df_us_filtered[csv_columns_us]
             csv_us = df_us_csv.to_csv(index=False).encode('utf-8-sig')
             
-            # 헤더 + 정렬 UI
-            col_us_header1, col_us_header2, col_us_header3, col_us_header4 = st.columns([1, 1.5, 1.5, 1])
+            # 헤더 (3컬럼)
+            col_us_header1, col_us_header2, col_us_header3 = st.columns([1, 2, 1])
             
             with col_us_header1:
                 st.markdown("#### 해외 (US)")
@@ -2465,7 +2451,7 @@ with col_left:
                 st.markdown(f"**{us_stats}**")
             
             with col_us_header3:
-                # 정렬 컬럼 선택 (복수 선택 가능)
+                # 정렬 옵션 설정
                 us_display_cols = [col for col in display_cols if '(KRW' not in col]
                 sort_options = [col for col in us_display_cols if col not in ['종목코드', '시장', '회사명', '업종', '업종트렌드']]
                 if not sort_options:
@@ -2475,9 +2461,9 @@ with col_left:
                 if st.session_state.us_sort_column not in sort_options:
                     st.session_state.us_sort_column = '시가총액 (USD M)' if '시가총액 (USD M)' in sort_options else sort_options[0]
                 
-                # ✅ 복수 선택 가능한 정렬
+                # 정렬 컬럼 선택
                 selected_sort = st.selectbox(
-                    "정렬 (1순위)",
+                    "정렬",
                     options=sort_options,
                     index=sort_options.index(st.session_state.us_sort_column) if st.session_state.us_sort_column in sort_options else 0,
                     key=f"us_sort_col_{period}",
@@ -2488,27 +2474,23 @@ with col_left:
                     st.session_state.us_sort_column = selected_sort
                     st.session_state.us_page = 0
                     st.rerun()
-            
-            with col_us_header4:
-                col_sort_btn, col_download = st.columns([1, 1])
                 
-                with col_sort_btn:
-                    # 오름차순/내림차순 토글
-                    sort_icon = "🔼" if st.session_state.us_sort_ascending else "🔽"
-                    if st.button(sort_icon, key=f"us_sort_dir_{period}", use_container_width=True):
-                        st.session_state.us_sort_ascending = not st.session_state.us_sort_ascending
-                        st.session_state.us_page = 0
-                        st.rerun()
+                # 오름차순/내림차순 토글
+                sort_icon = "🔼" if st.session_state.us_sort_ascending else "🔽"
+                if st.button(sort_icon, key=f"us_sort_dir_{period}", use_container_width=True):
+                    st.session_state.us_sort_ascending = not st.session_state.us_sort_ascending
+                    st.session_state.us_page = 0
+                    st.rerun()
                 
-                with col_download:
-                    st.download_button(
-                        label="💾",
-                        data=csv_us,
-                        file_name=f'us_stocks_{period}.csv',
-                        mime='text/csv',
-                        key=f"download_us_{period}",
-                        use_container_width=True
-                    )
+                # 다운로드 버튼
+                st.download_button(
+                    label="💾 Data Download",
+                    data=csv_us,
+                    file_name=f'us_stocks_{period}.csv',
+                    mime='text/csv',
+                    key=f"download_us_{period}",
+                    use_container_width=True
+                )
 
             # 기본값: 시가총액 내림차순
             sort_by = [st.session_state.us_sort_column]
