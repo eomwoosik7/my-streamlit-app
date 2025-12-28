@@ -107,7 +107,7 @@ st.markdown("""
 <style>
     /* 전체 폰트 크기 축소 */
     html, body, [class*="css"] {
-        font-size: 13px !important;
+        font-size: 11px !important;
     }
     
     /* 전체 배경 - 불투명 */
