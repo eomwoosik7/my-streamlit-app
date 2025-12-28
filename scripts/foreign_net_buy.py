@@ -11,7 +11,7 @@ days_back = 0
 data_dir = r"C:\Users\ws\Desktop\Python\Project_Hermes5\data"
 os.makedirs(data_dir, exist_ok=True)  # 폴더 생성
 
-while collected_days < 3:
+while collected_days < 5:  # ✅ 3 → 5로 변경
     day = today - datetime.timedelta(days=days_back)
     date_str = day.strftime("%Y%m%d")
     
@@ -28,7 +28,7 @@ while collected_days < 3:
     if days_back > 30:
         break
 
-if collected_days < 3:
+if collected_days < 5:  # ✅ 3 → 5로 변경
     print("충분한 데이터 없음")
 else:
     latest_date = dfs[0]['날짜'].iloc[0]

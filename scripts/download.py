@@ -7,7 +7,7 @@ import json
 per_eps_path = r'C:\Users\ws\Desktop\Python\Project_Hermes5\data\per_eps_top_1000.csv'
 foreign_path = r'C:\Users\ws\Desktop\Python\Project_Hermes5\data\foreign_net_buy_daily_top_1000.csv'
 sector_path = r'C:\Users\ws\Desktop\Python\Project_Hermes5\data\kr_stock_sectors.csv'
-sector_trend_path = r'C:\Users\ws\Desktop\Python\Project_Hermes5\data\sector_etf_trends.csv'  # ✅ 추가
+sector_trend_path = r'C:\Users\ws\Desktop\Python\Project_Hermes5\data\sector_etf_trends.csv'
 json_path = r'C:\Users\ws\Desktop\Python\Project_Hermes5\data\meta\tickers_meta.json'
 
 # 1. CSV 로드
@@ -31,11 +31,11 @@ except Exception as e:
     print(f"⚠️ 섹터 트렌드 로드 실패: {e}")
     sector_trend_dict = {}
 
-# 외국인 데이터 처리: 종목별 최근 3일 순매수거래량 리스트 (최근 날짜부터, 없으면 0 패딩)
+# ✅ 외국인 데이터 처리: 종목별 최근 5일 순매수거래량 리스트 (최근 날짜부터, 없으면 0 패딩)
 df_foreign['날짜'] = pd.to_datetime(df_foreign['날짜'], format='%Y%m%d')
 df_foreign = df_foreign.sort_values(by=['종목명', '날짜'], ascending=[True, False])
 grouped = df_foreign.groupby('종목명')['순매수거래량'].apply(list)
-foreign_dict = {name: vals[:3] + [0] * (3 - len(vals[:3])) for name, vals in grouped.items()}
+foreign_dict = {name: vals[:5] + [0] * (5 - len(vals[:5])) for name, vals in grouped.items()}  # ✅ 3 → 5
 
 # 섹터 데이터 처리: 회사명 -> Sector 딕셔너리
 sector_dict = dict(zip(df_sectors['회사명'].str.strip(), df_sectors['Sector']))
@@ -71,8 +71,8 @@ for code, info in meta.get("KR", {}).items():
         
         updated_count += 1
     
-    # 외국인 순매수거래량 추가 (3일치 리스트, 없으면 [0,0,0])
-    info['foreign_net_buy'] = foreign_dict.get(meta_name, [0, 0, 0])
+    # ✅ 외국인 순매수거래량 추가 (5일치 리스트, 없으면 [0,0,0,0,0])
+    info['foreign_net_buy'] = foreign_dict.get(meta_name, [0, 0, 0, 0, 0])  # ✅ 3 → 5
     
     # 섹터 업데이트 (회사명 매칭, 없으면 기존 "N/A" 유지)
     if meta_name in sector_dict:
@@ -85,9 +85,9 @@ for code, info in meta.get("KR", {}).items():
     else:
         info['sector_trend'] = 'N/A'
 
-# US 섹션: foreign_net_buy = [0,0,0] 설정 + 섹터 트렌드 추가
+# ✅ US 섹션: foreign_net_buy = [0,0,0,0,0] 설정 + 섹터 트렌드 추가
 for code, info in meta.get("US", {}).items():
-    info['foreign_net_buy'] = [0, 0, 0]
+    info['foreign_net_buy'] = [0, 0, 0, 0, 0]  # ✅ 3 → 5
     
     # ✅ 섹터 트렌드 추가
     sector_val = info.get('sector', 'N/A')
@@ -101,9 +101,9 @@ with open(json_path, 'w', encoding='utf-8') as f:
     json.dump(meta, f, ensure_ascii=False, indent=4)
 
 print(f"성공! 총 {updated_count}개 KR 종목의 eps/per 최신화 완료")
-print("KR: foreign_net_buy 3일치 리스트 추가 (순매수거래량, 최근부터)")
+print("KR: foreign_net_buy 5일치 리스트 추가 (순매수거래량, 최근부터)")  # ✅ 메시지 수정
 print("KR: sector 업데이트 (매칭되는 경우)")
 print("✅ KR: sector_trend 추가 (섹터별 ETF 트렌드)")
-print("US: foreign_net_buy = [0,0,0] 추가")
+print("US: foreign_net_buy = [0,0,0,0,0] 추가")  # ✅ 메시지 수정
 print("✅ US: sector_trend 추가 (섹터별 ETF 트렌드)")
 print(f"기존 파일에 저장됨 → {json_path}")
