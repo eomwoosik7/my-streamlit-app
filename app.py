@@ -2241,7 +2241,7 @@ with col_left:
         display_cols = [col for col in display_cols if col in df_display.columns]
         
         # 검색 기능
-        search_term = st.text_input("🔍 종목 검색", placeholder="코드 또는 회사명 입력", key="main_search")
+        search_term = st.text_input("🔍 종목 검색", placeholder="코드 또는 회사명 입력", key=f"main_search_{period}")
         
         if search_term:
             mask = (df_display['종목코드'].astype(str).str.contains(search_term, case=False, na=False)) | \
