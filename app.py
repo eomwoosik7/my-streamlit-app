@@ -546,6 +546,53 @@ def add_foreign_net_buy(df):
     
     return df
 
+@st.cache_data(ttl=3600)
+def add_institutional_net_buy(df):
+    """기관 순매수 5일치 + 합산값 추가"""
+    if df.empty or 'symbol' not in df.columns or 'market' not in df.columns:
+        return df
+    
+    meta = load_meta()
+    df = df.copy()
+    
+    def get_institutional_data(row):
+        meta_dict = meta.get(row['market'], {}).get(row['symbol'], {})
+        inb = meta_dict.get('institutional_net_buy', [0, 0, 0, 0, 0])
+        
+        return pd.Series({
+            'institutional_net_buy_1ago': inb[0] if len(inb) > 0 else 0,
+            'institutional_net_buy_2ago': inb[1] if len(inb) > 1 else 0,
+            'institutional_net_buy_3ago': inb[2] if len(inb) > 2 else 0,
+            'institutional_net_buy_4ago': inb[3] if len(inb) > 3 else 0,
+            'institutional_net_buy_5ago': inb[4] if len(inb) > 4 else 0,
+            'institutional_net_buy_sum': sum(inb)
+        })
+    
+    # ✅ apply로 모든 행에 한 번에 적용
+    institutional_cols = df.apply(get_institutional_data, axis=1)
+    
+    # 기존 df에 새 컬럼 추가
+    df = pd.concat([df, institutional_cols], axis=1)
+    
+    # ✅ 이 부분이 빠져있었음!
+    return df
+
+@st.cache_data(ttl=3600)
+def add_ownership(df):
+    """기관+외국인 보유율 추가"""
+    if df.empty or 'symbol' not in df.columns or 'market' not in df.columns:
+        return df
+    
+    meta = load_meta()
+    df = df.copy()
+    
+    def get_ownership(row):
+        meta_dict = meta.get(row['market'], {}).get(row['symbol'], {})
+        return meta_dict.get('ownership_foreign_institution', 0.0)
+    
+    df['ownership_foreign_institution'] = df.apply(get_ownership, axis=1)
+    
+    return df
 
 @st.cache_data(ttl=3600)
 def add_close_price(df):
@@ -584,6 +631,7 @@ def parse_json_col(df, col_name, num_vals=3):
     parsed = df[col_name].apply(safe_parse).apply(pd.Series)
     return parsed.iloc[:, :num_vals]
 
+# calculate_buy_signals 함수 내부에서 디버깅
 def calculate_buy_signals(df):
     """매수/매도 신호 점수 계산"""
     if df.empty:
@@ -599,10 +647,16 @@ def calculate_buy_signals(df):
     else:
         df['foreign_sum'] = 0
     
-    # ✅ 캔들 (수정됨!)
+    # ✅ 기관 순매수 - 디버깅 강화
+    if 'institutional_net_buy_sum' in df.columns:
+        df['institutional_sum'] = df['institutional_net_buy_sum']
+    else:
+        df['institutional_sum'] = 0
+    
+    # 캔들
     if 'upper_closes' in df.columns and 'lower_closes' in df.columns:
-        df['candle_bullish'] = df['upper_closes'] > df['lower_closes']  # 매수: 상단 > 하단
-        df['candle_bearish'] = df['lower_closes'] >= df['upper_closes']  # 매도: 하단 >= 상단
+        df['candle_bullish'] = df['upper_closes'] > df['lower_closes']
+        df['candle_bearish'] = df['lower_closes'] >= df['upper_closes']
     else:
         df['candle_bullish'] = False
         df['candle_bearish'] = False
@@ -637,11 +691,12 @@ def calculate_buy_signals(df):
         df['sector_positive'] = False
         df['sector_negative'] = False
     
-    # ========== 단기 매수신호 (6점) ==========
+    # ========== 단기 매수신호 (7점) ✅ 6→7점 (1점만 증가) ==========
     df['short_obv_cross'] = df.get('obv_bullish_cross', False)
     df['short_trading'] = df.get('trading_surge_2x', False)
     df['short_break'] = df.get('breakout', False)
     df['short_foreign'] = df['foreign_sum'] > 0
+    df['short_institutional'] = df['institutional_sum'] > 0  # ✅ 이 값이 제대로 계산되는지 확인
     df['short_candle'] = df['candle_bullish']
     df['short_sector'] = df['sector_positive']
     
@@ -650,16 +705,18 @@ def calculate_buy_signals(df):
         df['short_trading'].astype(int) +
         df['short_break'].astype(int) +
         df['short_foreign'].astype(int) +
+        df['short_institutional'].astype(int) +
         df['short_candle'].astype(int) +
         df['short_sector'].astype(int)
     )
     
-    # ========== 중기 매수신호 (7점) ==========
+    # ========== 중기 매수신호 (8점) ✅ 7→8점 (1점만 증가) ==========
     df['mid_rsi'] = df.get('rsi_3up', False)
     df['mid_obv'] = df.get('obv_mid_condition', False)
     df['mid_golden'] = df.get('ma50_above_200', False)
     df['mid_trading'] = df.get('trading_above_avg', False)
     df['mid_foreign'] = df['foreign_sum'] > 0
+    df['mid_institutional'] = df['institutional_sum'] > 0
     df['mid_candle'] = df['candle_bullish']
     df['mid_sector'] = df['sector_positive']
     
@@ -669,23 +726,26 @@ def calculate_buy_signals(df):
         df['mid_golden'].astype(int) +
         df['mid_trading'].astype(int) +
         df['mid_foreign'].astype(int) +
+        df['mid_institutional'].astype(int) +
         df['mid_candle'].astype(int) +
         df['mid_sector'].astype(int)
     )
     
-    # ========== 매도신호 (6점) ==========
-    df['sell_rsi_overbought'] = df.get('rsi_overbought', False)  # 1. RSI 과열
-    df['sell_rsi_down'] = df.get('rsi_3down', False)  # 2. RSI 하강
-    df['sell_obv_cross'] = df.get('obv_bearish_cross', False)  # 3. OBV 하락 크로스
-    df['sell_foreign'] = df['foreign_sum'] < 0  # 4. 외국인 순매도 (마이너스)
-    df['sell_candle'] = df['candle_bearish']  # 5. 캔들 (하단 >= 상단) ✅ 수정됨!
-    df['sell_sector'] = df['sector_negative']  # 6. 섹터 약세 (마이너스)
+    # ========== 매도신호 (7점) ✅ 6→7점 (1점만 증가) ==========
+    df['sell_rsi_overbought'] = df.get('rsi_overbought', False)
+    df['sell_rsi_down'] = df.get('rsi_3down', False)
+    df['sell_obv_cross'] = df.get('obv_bearish_cross', False)
+    df['sell_foreign'] = df['foreign_sum'] < 0
+    df['sell_institutional'] = df['institutional_sum'] < 0
+    df['sell_candle'] = df['candle_bearish']
+    df['sell_sector'] = df['sector_negative']
     
     df['매도신호'] = (
         df['sell_rsi_overbought'].astype(int) +
         df['sell_rsi_down'].astype(int) +
         df['sell_obv_cross'].astype(int) +
         df['sell_foreign'].astype(int) +
+        df['sell_institutional'].astype(int) +
         df['sell_candle'].astype(int) +
         df['sell_sector'].astype(int)
     )
@@ -699,41 +759,45 @@ def format_buy_signal(score, signal_type):
     score = int(score)
     
     if signal_type == 'short':
-        # 단기 (기간 탭용): 🟣 6, 🔵 5, 🟢 0~4
-        if score == 6:
-            return f'🟣 {score}점'
-        elif score == 5:
-            return f'🔵 {score}점'
-        else:
-            return f'🟢 {score}점'
-    
-    elif signal_type == 'mid':
-        # 중기 (기간 탭용): 🟣 7, 🔵 6, 🟢 0~5
+        # 단기 (기간 탭용): 🟣 7, 🔵 5~6, 🟢 3~4, else str(score)
         if score == 7:
             return f'🟣 {score}점'
-        elif score == 6:
-            return f'🔵 {score}점'
-        else:
-            return f'🟢 {score}점'
-    
-    elif signal_type == 'all_short':
-        # 전체 단기: 🟣 6, 🔵 5, 🟢 3~4, 🟡 2, 🔴 0~1
-        if score == 6:
-            return f'🟣 {score}점'
-        elif score == 5:
+        elif score >= 5:
             return f'🔵 {score}점'
         elif score >= 3:
             return f'🟢 {score}점'
-        elif score == 2:
+        else:
+            return str(score)
+    
+    elif signal_type == 'mid':
+        # 중기 (기간 탭용): 🟣 8, 🔵 6~7, 🟢 4~5, else str(score)
+        if score == 8:
+            return f'🟣 {score}점'
+        elif score >= 6:
+            return f'🔵 {score}점'
+        elif score >= 4:
+            return f'🟢 {score}점'
+        else:
+            return str(score)
+    
+    elif signal_type == 'all_short':
+        # 전체 단기: 🟣 7, 🔵 5~6, 🟢 3~4, 🟡 2~3 (but 3 우선 🟢), 🔴 0~1
+        if score == 7:
+            return f'🟣 {score}점'
+        elif score >= 5:
+            return f'🔵 {score}점'
+        elif score >= 3:
+            return f'🟢 {score}점'
+        elif score >= 2:
             return f'🟡 {score}점'
         else:
             return f'🔴 {score}점'
     
     elif signal_type == 'all_mid':
-        # 전체 중기: 🟣 7, 🔵 6, 🟢 4~5, 🟡 2~3, 🔴 0~1
-        if score == 7:
+        # 전체 중기: 🟣 8, 🔵 6~7, 🟢 4~5, 🟡 2~3, 🔴 0~1
+        if score == 8:
             return f'🟣 {score}점'
-        elif score == 6:
+        elif score >= 6:
             return f'🔵 {score}점'
         elif score >= 4:
             return f'🟢 {score}점'
@@ -743,7 +807,6 @@ def format_buy_signal(score, signal_type):
             return f'🔴 {score}점'
     
     return str(score)
-# ========== 여기까지 매수신호 ==========
 
 def run_screener_query(con, filter_condition="all", use_us=True, use_kr=True, top_n=None, additional_filters=None):
     """
@@ -889,6 +952,12 @@ def format_dataframe(df, market_type):
             '외국인순매수_2일전': '외국인순매수_2일전 (주)',
             '외국인순매수_1일전': '외국인순매수_1일전 (주)',
             '외국인순매수_합산': '외국인순매수_합산 (주)',
+            'institutional_net_buy_5ago': '기관순매수_5일전',  # ✅ 추가
+            'institutional_net_buy_4ago': '기관순매수_4일전',
+            'institutional_net_buy_3ago': '기관순매수_3일전',
+            'institutional_net_buy_2ago': '기관순매수_2일전',
+            'institutional_net_buy_1ago': '기관순매수_1일전',
+            'institutional_net_buy_sum': '기관순매수_합산',
             'sector': '업종',
             'sector_trend': '업종트렌드',
         })
@@ -906,6 +975,12 @@ def format_dataframe(df, market_type):
             '외국인순매수_2일전': '외국인순매수_2일전 (N/A)',
             '외국인순매수_1일전': '외국인순매수_1일전 (N/A)',
             '외국인순매수_합산': '외국인순매수_합산 (N/A)',
+            'institutional_net_buy_5ago': '기관순매수_5일전 (N/A)',  # ✅ 추가
+            'institutional_net_buy_4ago': '기관순매수_4일전 (N/A)',
+            'institutional_net_buy_3ago': '기관순매수_3일전 (N/A)',
+            'institutional_net_buy_2ago': '기관순매수_2일전 (N/A)',
+            'institutional_net_buy_1ago': '기관순매수_1일전 (N/A)',
+            'institutional_net_buy_sum': '기관순매수_합산 (N/A)',
             'sector': '업종',
             'sector_trend': '업종트렌드',
         })
@@ -1177,11 +1252,17 @@ if st.session_state.reset_filters:
             del st.session_state[key]
     st.session_state.reset_filters = False
 
-# 기본값 설정
+# 세션 상태 초기화 부분에 추가
+if 'institutional' not in st.session_state:
+    st.session_state.institutional = False
+if 'sector' not in st.session_state:
+    st.session_state.sector = False
+
+# 필터 기본값 설정 부분 수정
 filter_defaults = {
     'short_obv': False, 'short_trading': False, 'short_break': False,
     'mid_rsi': False, 'mid_obv': False, 'mid_golden': False, 'mid_trading': False,
-    'foreign': False, 'candle': False
+    'foreign': False, 'institutional': False, 'candle': False, 'sector': False  # ✅ 추가
 }
 for key, default_val in filter_defaults.items():
     if key not in st.session_state:
@@ -1220,6 +1301,7 @@ with st.sidebar:
             ✅ 거래대금 급증(20일평균2배)  
             ✅ 돌파(20일 고가 or MA20 상향)  
                         ➕외국인 순매수(5일)  
+                        ➕기관 순매수(5일)  
                         ➕캔들(5일)  
                         ➕섹터 트렌드
             """)
@@ -1231,6 +1313,7 @@ with st.sidebar:
             ✅ 50MA > 200MA  
             ✅ 거래대금(20평균이상)  
                         ➕외국인 순매수(5일)  
+                        ➕기관 순매수(5일)  
                         ➕캔들(5일)  
                         ➕섹터 트렌드
             """)
@@ -1241,6 +1324,7 @@ with st.sidebar:
             ✅ OBV 하락 크로스  
             ✅ RSI 하강 지속  
                         ➕외국인 순매수(리버스)  
+                        ➕기관 순매수(리버스)  
                         ➕캔들(리버스)  
                         ➕섹터 트렌드(리버스)
             """)
@@ -1271,7 +1355,9 @@ with st.sidebar:
     # 필터(참고)
     with st.expander("필터(참고)", expanded=False):
         foreign_apply = st.checkbox("외국인 순매수(5일 합산 > 0)", disabled=filter_disabled, key="foreign")
+        institutional_apply = st.checkbox("기관 순매수(5일 합산 > 0)", disabled=filter_disabled, key="institutional")  # ✅ 추가
         candle_apply = st.checkbox("캔들(5일중 상단 > 하단)", disabled=filter_disabled, key="candle")
+        sector_apply = st.checkbox("섹터(업종 트렌드 +)", disabled=filter_disabled, key="sector")  # ✅ 추가
     
     st.markdown("---")
     
@@ -1301,24 +1387,25 @@ with st.sidebar:
     ## 🧭 필터 전략
 
     ### 🌐 전체 (필터) - 내 입맛대로 종목 찾기!  
-    1. **9개 필터** → AND조건으로 동작  
-    2. **단기신호(6점)**  
-    - 단기 필터(3) → 각 1+점  
-    - 외국인 순매도 +, 캔들 상승, 섹터 강세 → 각 +1점  
-    - 🟣 6점 : 매수 고려  
-    - 🔵 5점 : 안정  
-    - 🟢 3~4점 : 관심  
-    - 🟡 2점 : 주의  
-    - 🔴 0~2점 : 매수 제외                    
-                     
-    3. **중기신호(7점)**  
-    - 중기 필터(4) 각 → 1+점  
-    - 외국인 순매도 +, 캔들 상승, 섹터 강세 → 각 +1점  
-    - 🟣 7점 : 매수 고려  
-    - 🔵 6점 : 안정  
-    - 🟢 3~4점 : 관심  
-    - 🟡 1~2점 : 주의  
-    - 🔴 0~1점 : 매수 제외                
+    1. **11개 필터** → AND조건으로 동작  
+ 
+    2. **단기신호(7점)** ✨ 업그레이드!
+    - 단기 필터 → 각 1점(3)  
+    - 외국인 순매수 +, 기관 순매수 +, 캔들 상승, 섹터 강세 → 각 +1점(4)  
+    - 🟣 7점 : 매수 강력 고려  
+    - 🔵 6점 : 매수 고려  
+    - 🟢 4~5점 : 관심  
+    - 🟡 2~3점 : 주의  
+    - 🔴 0~1점 : 매수 제외                    
+                    
+    3. **중기신호(8점)** ✨ 업그레이드!
+    - 중기 필터 → 각 1점(4)  
+    - 외국인 순매수 +, 기관 순매수 +, 캔들 상승, 섹터 강세 → 각 +1점(4)   
+    - 🟣 8점 : 매수 강력 고려  
+    - 🔵 7점 : 매수 고려  
+    - 🟢 4~6점 : 관심  
+    - 🟡 2~3점 : 주의  
+    - 🔴 0~1점 : 매수 제외              
         
     ---              
                     
@@ -1329,12 +1416,12 @@ with st.sidebar:
 
     → **돈 + 관심 + 돌파 = 단기 급등 확률 ↑**
 
-    4. 단기매수점수(6점)  
-    - 단기 필터(3) 각 → 1+점  
-    - 외국인 순매도 +, 캔들 상승, 섹터 강세 → 각 +1점  
-    - 🟣 6점 : 매수 고려  
-    - 🔵 5점 : 안정  
-    - 🟢 3~4점 : 관심                      
+    4. 단기매수점수(7점)  
+    - 단기 필터 각 → 1+점(3)  
+    - 외국인 순매도 +, 캔들 상승, 섹터 강세 → 각 +1점(4)  
+    - 🟣 7점 : 매수 고려  
+    - 🔵 6점 : 안정  
+    - 🟢 4~5점 : 관심                      
 
     ---
 
@@ -1346,12 +1433,12 @@ with st.sidebar:
 
     → **추세 + 유입 + 회복 = 중기 안정 상승**
 
-    5. 중기매수점수(7점)  
-    - 중기 필터(4) 각 → 1+점
-    - 외국인 순매도 +, 캔들 상승, 섹터 강세 → 각 +1점
-    - 🟣 7점 : 매수 고려  
-    - 🔵 6점 : 안정
-    - 🟢 4~5점 : 관심      
+    5. 중기매수점수(8점)  
+    - 중기 필터 각 → 1+점(4)
+    - 외국인 순매도 +, 캔들 상승, 섹터 강세 → 각 +1점(4)
+    - 🟣 8점 : 매수 고려  
+    - 🔵 7점 : 안정
+    - 🟢 5~6점 : 관심      
 
     ---
 
@@ -1362,12 +1449,12 @@ with st.sidebar:
 
     → **보유한 종목의 매도 타이밍을 확인하세요 !**                     
 
-    4. **매도신호(6점)**  
+    4. **매도신호(7점)**  
     - 매도 필터(3) 각 → 1+점  
     - 리버스 : 외국인 순매도 -, 캔들 하단 마감, 섹터 약세 → 각 +1점
     - 🟢 0~2점 : 안정  
     - 🟡 3~4점 : 주의  
-    - 🔴 5~6점 : 매도 강하게 고려
+    - 🔴 5~7점 : 매도 강하게 고려
 
     ---
 
@@ -1406,30 +1493,35 @@ with st.sidebar:
     - + : 외국인이 더 많이 삼 → 긍정 신호  
     - - : 외국인이 더 많이 팜 → 주의  
     - 5일 합산 기준으로 판단
+                    
+    7. **기관 순매수**: 외국인 투자자 자금 유입 여부  
+    - + : 기관이 더 많이 삼 → 긍정 신호  
+    - - : 기관이 더 많이 팜 → 주의  
+    - 5일 합산 기준으로 판단                    
 
-    7. **캔들**: 하루 동안 매수·매도 힘의 결과  
+    8. **캔들**: 하루 동안 매수·매도 힘의 결과  
     - 상단 > 하단 : 매수 힘이 더 강함  
     - 상단 ≤ 하단 : 매도 힘이 더 강함  
     - 상단 마감 : 종가가 상위 70% → 강한 마감  
     - 하단 마감 : 종가가 하위 30% → 약한 마감
 
-    8. **업종**: 이 회사가 속한 산업(업종) 분위기  
+    9. **업종**: 이 회사가 속한 산업(업종) 분위기  
     - 같은 업종 종목들은 함께 움직이는 경향  
     - 최근 20일 등락률(%) 표시  
     - + : 업종 강세 🔴 / - : 업종 약세 🔵
 
-    9. **EPS**: 주당순이익 (1주당 얼마나 버는지)  
+    10. **EPS**: 주당순이익 (1주당 얼마나 버는지)  
     - 회사의 '돈 버는 실력'  
     - 높을수록, 꾸준히 늘수록 좋음
 
-    10. **PER**: 주가수익비율 (실력 대비 가격표)  
+    11. **PER**: 주가수익비율 (실력 대비 가격표)  
     - 주가 ÷ EPS  
     - 낮음 : 상대적으로 저렴  
     - 높음 : 비싸거나 기대가 큼  
     - 같은 업종끼리 비교
                     
         """)        
-# 필터 적용 로직
+
 # 필터 적용 로직
 if period == "전체":
     if apply_btn or reset_btn:
@@ -1571,40 +1663,62 @@ if period == "전체":
             df_filter = con.execute(query).fetchdf()
             
             df_filter = add_foreign_net_buy(df_filter)
+            df_filter = add_institutional_net_buy(df_filter)
+            df_filter = add_ownership(df_filter)
             
-            # 외국인 순매수 필터 적용 (5일 합산 > 0)
-            if st.session_state.foreign and not df_filter.empty and 'foreign_net_buy_sum' in df_filter.columns:
-                df_filter = df_filter[df_filter['foreign_net_buy_sum'] > 0]
+            # ✅ 1단계: 매수신호 계산 먼저 (sector_positive, institutional_sum 등 생성)
+            df_filter = calculate_buy_signals(df_filter)
+            
+            # ✅ 2단계: 이제 필터 적용 (계산된 컬럼 사용)
+            # 외국인 순매수 필터
+            if st.session_state.foreign and not df_filter.empty:
+                if 'foreign_sum' in df_filter.columns:
+                    df_filter = df_filter[df_filter['foreign_sum'] > 0]
+            
+            # 기관 순매수 필터
+            if st.session_state.institutional and not df_filter.empty:
+                if 'institutional_sum' in df_filter.columns:
+                    df_filter = df_filter[df_filter['institutional_sum'] > 0]
+            
+            # 섹터 필터
+            if st.session_state.sector and not df_filter.empty:
+                if 'sector_positive' in df_filter.columns:
+                    df_filter = df_filter[df_filter['sector_positive'] == True]
             
             df_filter = add_names(df_filter)
             df_filter = add_close_price(df_filter)
             
-            # ========== 1단계: 매수신호 계산 ==========
-            df_filter = calculate_buy_signals(df_filter)
-            
+            # ========== 3단계: 체크 표시 생성 (이미 계산된 값 사용) ==========
             if not df_filter.empty:
-                # ========== 2단계: 점수 계산에 사용한 값을 직접 재사용 (중복 방지) ==========
-                # ✅ short_foreign, short_candle, short_sector를 그대로 ✅/❌로 변환
+                # 외국인 순매수
                 if 'short_foreign' in df_filter.columns:
                     df_filter['_외국인_순매수'] = df_filter['short_foreign'].apply(lambda x: '✅' if x else '❌')
                 else:
                     df_filter['_외국인_순매수'] = '❌'
                 
+                # 기관 순매수
+                if 'short_institutional' in df_filter.columns:
+                    df_filter['_기관_순매수'] = df_filter['short_institutional'].apply(lambda x: '✅' if x else '❌')
+                else:
+                    df_filter['_기관_순매수'] = '❌'
+                
+                # 캔들
                 if 'short_candle' in df_filter.columns:
                     df_filter['_캔들'] = df_filter['short_candle'].apply(lambda x: '✅' if x else '❌')
                 else:
                     df_filter['_캔들'] = '❌'
                 
+                # 섹터
                 if 'short_sector' in df_filter.columns:
                     df_filter['_섹터'] = df_filter['short_sector'].apply(lambda x: '✅' if x else '❌')
                 else:
                     df_filter['_섹터'] = '❌'
                 
-                # ========== 3단계: 매수신호 포맷팅 ==========
+                # 매수신호 포맷팅
                 df_filter['단기매수신호_fmt'] = df_filter['단기매수신호'].apply(lambda x: format_buy_signal(x, 'all_short'))
                 df_filter['중기매수신호_fmt'] = df_filter['중기매수신호'].apply(lambda x: format_buy_signal(x, 'all_mid'))
                 
-                # ========== 4단계: rename ==========
+                # rename
                 df_filter = df_filter.rename(columns={
                     'symbol': '종목코드', 
                     'market': '시장', 
@@ -1624,8 +1738,15 @@ if period == "전체":
                     'foreign_net_buy_2ago': '외국인순매수_2일전',
                     'foreign_net_buy_1ago': '외국인순매수_1일전',
                     'foreign_net_buy_sum': '외국인순매수_합산',
+                    'institutional_net_buy_5ago': '기관순매수_5일전',  # ✅ 추가
+                    'institutional_net_buy_4ago': '기관순매수_4일전',
+                    'institutional_net_buy_3ago': '기관순매수_3일전',
+                    'institutional_net_buy_2ago': '기관순매수_2일전',
+                    'institutional_net_buy_1ago': '기관순매수_1일전',
+                    'institutional_net_buy_sum': '기관순매수_합산',
                     'cap_status': '업데이트',
                     '_외국인_순매수': '외국인 순매수',
+                    '_기관_순매수': '기관 순매수',  # ✅ 추가
                     '_캔들': '캔들',
                     '_섹터': '섹터',
                     '단기매수신호_fmt': '단기신호',
@@ -1646,10 +1767,10 @@ if period == "전체":
                     'rsi_3down': 'RSI 하강 지속'
                 })
                 
-                # ========== 5단계: 불필요한 컬럼 삭제 (중복 방지) ==========
+                # 불필요한 컬럼 삭제
                 drop_cols = [
-                    'short_obv_cross', 'short_trading', 'short_break', 'short_foreign', 'short_candle', 'short_sector',
-                    'mid_rsi', 'mid_obv', 'mid_golden', 'mid_trading', 'mid_foreign', 'mid_candle', 'mid_sector',
+                    'short_obv_cross', 'short_trading', 'short_break', 'short_foreign', 'short_institutional', 'short_candle', 'short_sector',
+                    'mid_rsi', 'mid_obv', 'mid_golden', 'mid_trading', 'mid_foreign', 'mid_institutional', 'mid_candle', 'mid_sector',
                     '단기매수신호', '중기매수신호'
                 ]
                 df_filter = df_filter.drop(columns=[col for col in drop_cols if col in df_filter.columns], errors='ignore')
@@ -1682,9 +1803,16 @@ elif period == "단기":
     df_result = add_names(df_result)
     df_result = add_foreign_net_buy(df_result)
     df_result = add_close_price(df_result)
+    df_result = add_institutional_net_buy(df_result)  # ✅ 추가
+    df_result = add_ownership(df_result)  # ✅ 추가
     
     if not df_result.empty:
         df_result = calculate_buy_signals(df_result)
+
+        if 'short_institutional' in df_result.columns:
+            df_result['_기관_순매수'] = df_result['short_institutional'].apply(lambda x: '✅' if x else '❌')
+        else:
+            df_result['_기관_순매수'] = '❌'
         
         # ✅ mid_foreign, mid_candle, mid_sector를 직접 재사용
         if 'mid_foreign' in df_result.columns:
@@ -1726,6 +1854,7 @@ elif period == "단기":
             'foreign_net_buy_1ago': '외국인순매수_1일전',
             'foreign_net_buy_sum': '외국인순매수_합산',
             '_외국인_순매수': '외국인 순매수',
+            '_기관_순매수': '기관 순매수',  # ✅ 추가
             '_캔들': '캔들',
             '_섹터': '섹터',
             'rsi_d_2ago': 'RSI_3일_2ago',
@@ -1767,10 +1896,18 @@ elif period == "중기":
     df_result = add_names(df_result)
     df_result = add_foreign_net_buy(df_result)
     df_result = add_close_price(df_result)
+    df_result = add_institutional_net_buy(df_result)  # ✅ 추가
+    df_result = add_ownership(df_result)  # ✅ 추가
     
     if not df_result.empty:
         # ========== 1단계: 매수신호 계산 ==========
         df_result = calculate_buy_signals(df_result)
+
+        # ✅ mid_institutional 추가
+        if 'mid_institutional' in df_result.columns:
+            df_result['_기관_순매수'] = df_result['mid_institutional'].apply(lambda x: '✅' if x else '❌')
+        else:
+            df_result['_기관_순매수'] = '❌'
 
         # ========== 2단계: 점수 계산에 사용한 값을 재사용 ==========
         if 'mid_foreign' in df_result.columns:
@@ -1807,6 +1944,7 @@ elif period == "중기":
             'foreign_net_buy_1ago': '외국인순매수_1일전',
             'foreign_net_buy_sum': '외국인순매수_합산',
             '_외국인_순매수': '외국인 순매수',
+            '_기관_순매수': '기관 순매수',  # ✅ 추가
             '_캔들': '캔들',
             '_섹터': '섹터',
             'rsi_d_2ago': 'RSI_3일_2ago',
@@ -1847,11 +1985,19 @@ elif period == "매도":
     df_result = add_names(df_result)
     df_result = add_foreign_net_buy(df_result)
     df_result = add_close_price(df_result)
+    df_result = add_institutional_net_buy(df_result)  # ✅ 추가
+    df_result = add_ownership(df_result)  # ✅ 추가
     
     if not df_result.empty:
         # ========== 1단계: 매도신호 계산 ==========
         df_result = calculate_buy_signals(df_result)
         
+        # ✅ sell_institutional 추가
+        if 'sell_institutional' in df_result.columns:
+            df_result['_기관_순매수_리버스'] = df_result['sell_institutional'].apply(lambda x: '✅' if x else '❌')
+        else:
+            df_result['_기관_순매수_리버스'] = '❌'
+
         # ========== 2단계: 점수 계산값 재사용 (중복 방지) ==========
         if 'sell_foreign' in df_result.columns:
             df_result['_외국인_순매수_리버스'] = df_result['sell_foreign'].apply(lambda x: '✅' if x else '❌')
@@ -1900,6 +2046,7 @@ elif period == "매도":
             'foreign_net_buy_1ago': '외국인순매수_1일전',
             'foreign_net_buy_sum': '외국인순매수_합산',
             '_외국인_순매수_리버스': '외국인 순매수(리버스)',
+            '_기관_순매수_리버스': '기관 순매수(리버스)',  # ✅ 추가
             '_캔들_리버스': '캔들(리버스)',
             '_섹터_리버스': '섹터(리버스)',
             '매도신호_fmt': '매도신호',  # ← 이제 안전
@@ -2167,7 +2314,8 @@ with col_left:
             # 단기매수신호 추가
             if '단기매수신호' in df_display.columns:
                 display_cols.append('단기매수신호')
-            check_cols = ['OBV 상승 크로스', '거래대금 급증(20일평균2배)', '돌파(20일 고가 or MA20 상향)', '외국인 순매수', '캔들', '섹터']
+            check_cols = ['OBV 상승 크로스', '거래대금 급증(20일평균2배)', '돌파(20일 고가 or MA20 상향)', 
+                  '외국인 순매수', '기관 순매수', '캔들', '섹터']  # ✅ '기관 순매수' 추가
             for col in check_cols:
                 if col in df_display.columns:
                     display_cols.append(col)
@@ -2180,7 +2328,8 @@ with col_left:
             # 중기매수신호 추가
             if '중기매수신호' in df_display.columns:
                 display_cols.append('중기매수신호')
-            check_cols = ['RSI 상승', 'OBV 우상향/크로스', '50MA > 200MA', '거래대금(20평균이상)', '외국인 순매수', '캔들', '섹터']
+            check_cols = ['RSI 상승', 'OBV 우상향/크로스', '50MA > 200MA', '거래대금(20평균이상)', 
+                  '외국인 순매수', '기관 순매수', '캔들', '섹터']  # ✅ '기관 순매수' 추가
             for col in check_cols:
                 if col in df_display.columns:
                     display_cols.append(col)
@@ -2193,7 +2342,8 @@ with col_left:
             # 매도신호 추가
             if '매도신호' in df_display.columns:
                 display_cols.append('매도신호')
-            check_cols = ['RSI 과열(70 이상)', 'RSI 하강 지속', 'OBV 하락 크로스', '외국인 순매수(리버스)', '캔들(리버스)', '섹터(리버스)']
+            check_cols = ['RSI 과열(70 이상)', 'RSI 하강 지속', 'OBV 하락 크로스', 
+                  '외국인 순매수(리버스)', '기관 순매수(리버스)', '캔들(리버스)', '섹터(리버스)']  # ✅ '기관 순매수(리버스)' 추가
             for col in check_cols:
                 if col in df_display.columns:
                     display_cols.append(col)
@@ -2231,7 +2381,7 @@ with col_left:
                 # 중기 필터
                 'RSI 상승', 'OBV 우상향/크로스', '50MA > 200MA', '거래대금(20평균이상)',
                 # 참고 필터
-                '외국인 순매수', '캔들', '섹터'
+                '외국인 순매수', '기관 순매수', '캔들', '섹터'  # ✅ '기관 순매수', '섹터' 추가
             ]
             for col in check_cols:
                 if col in df_display.columns:
@@ -2436,9 +2586,11 @@ with col_left:
                     "RSI 하강 지속": st.column_config.Column(width=40),
                     "OBV 하락 크로스": st.column_config.Column(width=40),
                     "외국인 순매수(리버스)": st.column_config.Column(width=40),
+                    "기관 순매수(리버스)": st.column_config.Column(width=40),
                     "캔들(리버스)": st.column_config.Column(width=40),
                     "섹터(리버스)": st.column_config.Column(width=40),
                     "외국인 순매수": st.column_config.Column(width=40),
+                    "기관 순매수": st.column_config.Column(width=40),
                     "캔들": st.column_config.Column(width=40),
                     "섹터": st.column_config.Column(width=40),
                     "업데이트": st.column_config.Column(width=60),
@@ -2664,9 +2816,11 @@ with col_left:
                     "RSI 하강 지속": st.column_config.Column(width=40),
                     "OBV 하락 크로스": st.column_config.Column(width=40),
                     "외국인 순매수(리버스)": st.column_config.Column(width=40),
+                    "기관 순매수(리버스)": st.column_config.Column(width=40),
                     "캔들(리버스)": st.column_config.Column(width=40),
                     "섹터(리버스)": st.column_config.Column(width=40),
                     "외국인 순매수": st.column_config.Column(width=40),
+                    "기관 순매수": st.column_config.Column(width=40),
                     "캔들": st.column_config.Column(width=40),
                     "섹터": st.column_config.Column(width=40),
                     "업데이트": st.column_config.Column(width=60),
@@ -2723,7 +2877,6 @@ with col_right:
         symbol = st.session_state.selected_symbol
         market = st.session_state.selected_market
         
-        # 선택된 종목 정보
         if not df_display.empty:
             selected_data = df_display[df_display['종목코드'] == symbol]
             
@@ -2736,10 +2889,24 @@ with col_right:
                     if ind_data is not None:
                         row = pd.concat([row, ind_data])
                 
+                # ✅ 메타에서 보유율 정보 가져오기
+                meta = load_meta()
+                meta_dict = meta.get(market, {}).get(symbol, {})
+                ownership = meta_dict.get('ownership_foreign_institution', 0.0)
+                
                 # 기본 정보
                 st.markdown(f"**종목**: {row['회사명']}")
                 st.markdown(f"**코드**: {symbol} · **시장**: {market} · **업종**: {row.get('업종', 'N/A')}")
                 
+                # ✅ 보유율 표시 수정 (데이터프레임에서 직접 가져오기)
+                if market == 'KR':
+                    # ownership_foreign_institution 컬럼이 있는지 확인
+                    if 'ownership_foreign_institution' in row and pd.notna(row['ownership_foreign_institution']):
+                        ownership_val = float(row['ownership_foreign_institution'])
+                        if ownership_val > 0:
+                            st.markdown(f"**기관+외국인 보유율**: {ownership_val:.2f}%")
+                
+                # 업종트렌드
                 if '업종트렌드' in row:
                     trend_text = row['업종트렌드']
                     bg_color = get_sector_trend_color(trend_text)
@@ -2813,12 +2980,22 @@ with col_right:
                     if '캔들(상단)' in row and '캔들(하단)' in row:
                         upper = int(row['캔들(상단)'])
                         lower = int(row['캔들(하단)'])
-                        st.markdown(f"**캔들 (상단/하단)**")
-                        st.markdown(f"<span style='color: #dc2626; font-size: 1.3rem; font-weight: 1000;'>{upper}</span> / <span style='color: #2563eb; font-size: 1.3rem; font-weight: 1000;'>{lower}</span>", unsafe_allow_html=True)
-                    
-                    # 외국인 순매수 5일치 + 합산 (플러스 빨간색, 마이너스 파란색)
+                        st.markdown(
+                            f"<div style='margin-bottom: 1rem;'>"
+                            f"<div style='font-weight: 600; font-size: 0.875rem; margin-bottom: 0.25rem;'>캔들 (상단/하단)</div>"
+                            f"<div style='font-size: 1.1rem; font-weight: 800;'>"
+                            f"<span style='color: #dc2626;'>{upper}</span> / <span style='color: #2563eb;'>{lower}</span>"
+                            f"</div>"
+                            f"</div>",
+                            unsafe_allow_html=True
+                        )
+                    # ✅ 외국인 순매수 5일치 + 합산
                     if market == 'KR':
-                        if all(k in row for k in ['외국인순매수_5일전 (주)', '외국인순매수_4일전 (주)', '외국인순매수_3일전 (주)', '외국인순매수_2일전 (주)', '외국인순매수_1일전 (주)', '외국인순매수_합산 (주)']):
+                        # 외국인
+                        foreign_cols = ['외국인순매수_5일전 (주)', '외국인순매수_4일전 (주)', '외국인순매수_3일전 (주)', 
+                                    '외국인순매수_2일전 (주)', '외국인순매수_1일전 (주)', '외국인순매수_합산 (주)']
+                        
+                        if all(col in row for col in foreign_cols):
                             f5 = int(row['외국인순매수_5일전 (주)'])
                             f4 = int(row['외국인순매수_4일전 (주)'])
                             f3 = int(row['외국인순매수_3일전 (주)'])
@@ -2826,7 +3003,7 @@ with col_right:
                             f1 = int(row['외국인순매수_1일전 (주)'])
                             f_sum = int(row['외국인순매수_합산 (주)'])
                             
-                            def format_foreign(val):
+                            def format_value(val):
                                 if val > 0:
                                     return f"<span style='color: #dc2626;'>{val:,}</span>"
                                 elif val < 0:
@@ -2834,10 +3011,40 @@ with col_right:
                                 else:
                                     return f"{val:,}"
                             
-                            st.markdown("**외국인 순매수(5일)**")
+                            # ✅ 제목과 값을 붙여서 표시
                             st.markdown(
+                                f"<div style='margin-bottom: 1rem;'>"
+                                f"<div style='font-weight: 600; font-size: 0.875rem; margin-bottom: 0.25rem;'>외국인 순매수(5일)</div>"
                                 f"<div style='font-size: 1.1rem; font-weight: 800;'>"
-                                f"{format_foreign(f_sum)}({format_foreign(f3)} / {format_foreign(f2)} / {format_foreign(f1)})"
+                                f"{format_value(f_sum)} ({format_value(f3)} / {format_value(f2)} / {format_value(f1)})"
+                                f"</div>"
+                                f"</div>",
+                                unsafe_allow_html=True
+                            )
+                        
+                        # ✅ 기관 순매수 5일치 + 합산 추가
+                        institutional_cols = ['기관순매수_5일전', '기관순매수_4일전', '기관순매수_3일전',
+                                            '기관순매수_2일전', '기관순매수_1일전', '기관순매수_합산']
+                        
+                        # 메타에서 기관 순매수 데이터 가져오기
+                        meta = load_meta()
+                        meta_dict = meta.get(market, {}).get(symbol, {})
+                        institutional_data = meta_dict.get('institutional_net_buy', [0, 0, 0, 0, 0])
+                        if len(institutional_data) >= 5:
+                            i1 = institutional_data[0]  # 1일전
+                            i2 = institutional_data[1]  # 2일전
+                            i3 = institutional_data[2]  # 3일전
+                            i4 = institutional_data[3]  # 4일전
+                            i5 = institutional_data[4]  # 5일전
+                            i_sum = sum(institutional_data)
+                            
+                            # ✅ 제목과 값을 붙여서 표시
+                            st.markdown(
+                                f"<div style='margin-bottom: 1rem;'>"
+                                f"<div style='font-weight: 600; font-size: 0.875rem; margin-bottom: 0.25rem;'>기관 순매수(5일)</div>"
+                                f"<div style='font-size: 1.1rem; font-weight: 800;'>"
+                                f"{format_value(i_sum)} ({format_value(i3)} / {format_value(i2)} / {format_value(i1)})"
+                                f"</div>"
                                 f"</div>",
                                 unsafe_allow_html=True
                             )

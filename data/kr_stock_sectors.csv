@@ -1,2906 +1,1001 @@
-﻿회사명,종목코드,업종,상장일,Sector
-3S,060310,"측정, 시험, 항해, 제어 및 기타 정밀기기 제조업; 광학기기 제외",2002-04-23,Information Technology
-AJ네트웍스,095570,산업용 기계 및 장비 임대업,2015-08-21,Industrials
-AK홀딩스,006840,기타 금융업,1999-08-11,Financials
-APS,054620,기타 금융업,2001-12-04,Financials
-AP시스템,265520,특수 목적용 기계 제조업,2017-04-07,Industrials
-AP위성,211270,통신 및 방송 장비 제조업,2016-03-04,Information Technology
-BF랩스,139050,"컴퓨터 프로그래밍, 시스템 통합 및 관리업",2011-07-29,Information Technology
-BGF,027410,기타 금융업,2014-05-19,Financials
-BGF리테일,282330,종합 소매업,2017-12-08,Consumer Discretionary
-BGF에코머티리얼즈,126600,합성고무 및 플라스틱 물질 제조업,2010-11-12,Materials
-BNK금융지주,138930,기타 금융업,2011-03-30,Financials
-BYC,001460,봉제의복 제조업,1975-06-02,Consumer Discretionary
-BYC우,001465,봉제의복 제조업,1975-06-02,Consumer Discretionary
-CG인바이츠,083790,자연과학 및 공학 연구개발업,2006-01-06,Health Care
-CJ,001040,기타 금융업,1973-06-29,Financials
-CJ CGV,079160,"영화, 비디오물, 방송프로그램 제작 및 배급업",2004-12-24,Consumer Discretionary
-CJ ENM,035760,텔레비전 방송업,1999-11-23,Communication Services
-CJ 바이오사이언스,311690,자연과학 및 공학 연구개발업,2019-12-26,Health Care
-CJ4우(전환),00104K,,,Other
-CJ대한통운,000120,도로 화물 운송업,1956-07-02,Industrials
-CJ씨푸드,011150,기타 식품 제조업,1988-11-26,Consumer Staples
-CJ씨푸드1우,011155,,,Other
-CJ우,001045,기타 금융업,1973-06-29,Financials
-CJ제일제당,097950,기타 식품 제조업,2007-09-28,Consumer Staples
-CJ제일제당 우,097955,기타 식품 제조업,2007-09-28,Consumer Staples
-CJ프레시웨이,051500,음·식료품 및 담배 도매업,2001-07-26,Consumer Discretionary
-CMG제약,058820,의약품 제조업,2001-08-31,Health Care
-CNT85,056730,건물 건설업,2002-01-04,Industrials
-CR홀딩스,000480,,,Other
-CS,065770,통신 및 방송 장비 제조업,2004-06-04,Information Technology
-CSA 코스믹,083660,기타 화학제품 제조업,2006-07-25,Materials
-CS홀딩스,000590,기타 금융업,1975-12-22,Financials
-DB,012030,"컴퓨터 프로그래밍, 시스템 통합 및 관리업",1993-01-06,Information Technology
-DB금융스팩12호,477760,,,Other
-DB손해보험,005830,보험업,1973-06-28,Financials
-DB증권,016610,금융 지원 서비스업,1988-06-27,Financials
-DB하이텍,000990,반도체 제조업,1975-12-12,Information Technology
-DGI,099520,영상 및 음향기기 제조업,2009-12-22,Information Technology
-DH오토넥스,000300,자동차 신품 부품 제조업,1975-06-09,Consumer Discretionary
-DH오토리드,290120,자동차 신품 부품 제조업,2018-12-07,Consumer Discretionary
-DH오토웨어,025440,영상 및 음향기기 제조업,1995-05-22,Information Technology
-DI동일,001530,,,Other
-DKME,015590,일반 목적용 기계 제조업,1989-05-27,Industrials
-DL,000210,기초 화학물질 제조업,1976-02-02,Energy
-DL우,000215,기초 화학물질 제조업,1976-02-02,Energy
-DL이앤씨,375500,토목 건설업,2021-01-25,Industrials
-DL이앤씨2우(전환),37550L,,,Other
-DL이앤씨우,37550K,토목 건설업,2021-01-25,Industrials
-DMS,068790,특수 목적용 기계 제조업,2004-10-01,Industrials
-DN오토모티브,007340,일차전지 및 이차전지 제조업,1988-09-24,Industrials
-DRB동일,004840,고무제품 제조업,1976-05-21,Materials
-DSC인베스트먼트,241520,신탁업 및 집합투자업,2016-12-19,Financials
-DSR,155660,1차 비철금속 제조업,2013-05-15,Materials
-DSR제강,069730,1차 철강 제조업,2003-01-28,Materials
-DS단석,017860,기타 화학제품 제조업,2023-12-22,Materials
-DXVX,180400,기타 과학기술 서비스업,2015-11-20,Health Care
-DYP,092780,자동차용 엔진 및 자동차 제조업,2017-12-08,Consumer Discretionary
-E1,017940,기타 전문 도매업,1997-08-27,Consumer Discretionary
-E8,418620,소프트웨어 개발 및 공급업,2024-02-23,Information Technology
-EDGC,245620,자연과학 및 공학 연구개발업,2018-06-26,Health Care
-EG,037370,기초 화학물질 제조업,2000-01-11,Energy
-EMB,278990,"전동기, 발전기 및 전기 변환 · 공급 · 제어 장치 제조업",2017-10-31,Industrials
-ESR켄달스퀘어리츠,365550,부동산 임대 및 공급업,2020-12-23,Real Estate
-ES큐브,050120,생활용품 도매업,2002-04-25,Consumer Discretionary
-F&F,383220,봉제의복 제조업,2021-05-21,Consumer Discretionary
-F&F홀딩스,007700,,,Other
-FSN,214270,소프트웨어 개발 및 공급업,2015-03-25,Information Technology
-GH신소재,130500,기타 섬유제품 제조업,2013-08-02,Consumer Discretionary
-GKL,114090,유원지 및 기타 오락관련 서비스업,2009-11-19,Consumer Discretionary
-GRT,900290,기타 금융업,2016-10-25,Financials
-GS,078930,기타 금융업,2004-08-05,Financials
-GST,083450,특수 목적용 기계 제조업,2006-02-01,Industrials
-GS건설,006360,건물 건설업,1981-08-03,Industrials
-GS글로벌,001250,상품 종합 도매업,1976-06-26,Consumer Discretionary
-GS리테일,007070,종합 소매업,2011-12-23,Consumer Discretionary
-GS우,078935,기타 금융업,2004-08-05,Financials
-GS피앤엘,499790,기타 금융업,2024-12-23,Financials
-HB솔루션,297890,특수 목적용 기계 제조업,2020-06-22,Industrials
-HB인베스트먼트,440290,기타 금융업,2024-01-25,Financials
-HB테크놀러지,078150,특수 목적용 기계 제조업,2004-12-08,Industrials
-HC보광산업,225530,기타 비금속 광물제품 제조업,2015-12-17,Materials
-HC홈센타,060560,기타 전문 도매업,2002-07-11,Consumer Discretionary
-HDC,012630,기타 금융업,1996-10-16,Financials
-HDC랩스,039570,전기 및 통신 공사업,2015-09-24,Industrials
-HDC현대EP,089470,기타 화학제품 제조업,2006-09-25,Materials
-HDC현대산업개발,294870,건물 건설업,2018-06-12,Industrials
-HD한국조선해양,009540,기타 금융업,1999-08-24,Financials
-HD현대,267250,기타 금융업,2017-05-10,Financials
-HD현대건설기계,267270,일반 목적용 기계 제조업,2017-05-10,Industrials
-HD현대마린솔루션,443060,"건축기술, 엔지니어링 및 관련 기술 서비스업",2024-05-08,Industrials
-HD현대마린엔진,071970,일반 목적용 기계 제조업,2009-05-15,Industrials
-HD현대에너지솔루션,322000,반도체 제조업,2019-11-19,Information Technology
-HD현대인프라코어,042670,특수 목적용 기계 제조업,2001-02-02,Industrials
-HD현대일렉트릭,267260,"전동기, 발전기 및 전기 변환 · 공급 · 제어 장치 제조업",2017-05-10,Industrials
-HD현대중공업,329180,선박 및 보트 건조업,2021-09-17,Industrials
-HEM파마,376270,자연과학 및 공학 연구개발업,2024-11-05,Health Care
-HJ중공업,097230,토목 건설업,2007-08-31,Industrials
-HK이노엔,195940,의약품 제조업,2021-08-09,Health Care
-HL D&I,014790,토목 건설업,1994-08-12,Industrials
-HLB,028300,의료용품 및 기타 의약 관련제품 제조업,1996-07-27,Health Care
-HLB글로벌,003580,종합 소매업,1990-03-23,Consumer Discretionary
-HLB바이오스텝,278650,자연과학 및 공학 연구개발업,2019-11-27,Health Care
-HLB사이언스,343090,의료용품 및 기타 의약 관련제품 제조업,2020-04-24,Health Care
-HLB생명과학,067630,의료용품 및 기타 의약 관련제품 제조업,2008-11-25,Health Care
-HLB이노베이션,024850,전자부품 제조업,2001-01-18,Information Technology
-HLB제넥스,187420,기초 의약물질 제조업,2015-05-29,Health Care
-HLB제약,047920,자연과학 및 공학 연구개발업,2015-12-21,Health Care
-HLB테라퓨틱스,115450,기타 전문 도매업,2010-03-26,Consumer Discretionary
-HLB파나진,046210,의료용품 및 기타 의약 관련제품 제조업,2000-08-16,Health Care
-HLB펩,196300,기초 의약물질 제조업,2016-12-07,Health Care
-HL만도,204320,자동차 신품 부품 제조업,2014-10-06,Consumer Discretionary
-HL홀딩스,060980,기타 금융업,2010-05-19,Financials
-HMM,011200,해상 운송업,1995-10-05,Industrials
-HPSP,403870,특수 목적용 기계 제조업,2022-07-15,Industrials
-HRS,036640,합성고무 및 플라스틱 물질 제조업,2000-05-30,Materials
-HS애드,035000,광고업,1999-08-11,Communication Services
-HS화성,002460,건물 건설업,1988-09-29,Industrials
-HS효성,487570,기타 금융업,2024-07-29,Financials
-HS효성첨단소재,298050,화학섬유 제조업,2018-07-13,Materials
-IBKS제23호스팩,467930,금융 지원 서비스업,2023-12-22,Financials
-IBKS제24호스팩,469480,금융 지원 서비스업,2024-02-01,Financials
-IBKS제25호스팩,0099X0,금융 지원 서비스업,2025-12-19,Financials
-IHQ,003560,,,Other
-INVENI,015360,회사 본부 및 경영 컨설팅 서비스업,1996-12-24,Financials
-ISC,095340,기계장비 및 관련 물품 도매업,2007-10-01,Consumer Discretionary
-JB금융지주,175330,기타 금융업,2013-07-18,Financials
-JTC,950170,종합 소매업,2018-04-06,Consumer Discretionary
-JW생명과학,234080,의약품 제조업,2016-10-27,Health Care
-JW신약,067290,의약품 제조업,2003-02-11,Health Care
-JW중외제약,001060,의약품 제조업,1976-06-14,Health Care
-JW중외제약2우B,001067,,,Other
-JW중외제약우,001065,의약품 제조업,1976-06-14,Health Care
-JW홀딩스,096760,기타 금융업,2007-07-31,Financials
-JYP Ent.,035900,오디오물 출판 및 원판 녹음업,2001-08-30,Consumer Discretionary
-KBG,318000,합성고무 및 플라스틱 물질 제조업,2019-08-01,Materials
-KBI동양철관,008970,1차 철강 제조업,1977-03-05,Materials
-KBI메탈,024840,1차 비철금속 제조업,1994-12-29,Materials
-KB금융,105560,기타 금융업,2008-10-10,Financials
-KB발해인프라,415640,신탁업 및 집합투자업,2024-11-29,Financials
-KB스타리츠,432320,부동산 임대 및 공급업,2022-10-06,Real Estate
-KB오토시스,024120,자동차 신품 부품 제조업,1994-12-07,Consumer Discretionary
-KB제25호스팩,455250,금융 지원 서비스업,2023-06-23,Financials
-KB제27호스팩,464680,금융 지원 서비스업,2023-11-03,Financials
-KB제29호스팩,478390,금융 지원 서비스업,2024-06-21,Financials
-KB제30호스팩,486630,금융 지원 서비스업,2024-09-25,Financials
-KB제31호스팩,492220,금융 지원 서비스업,2024-12-12,Financials
-KB제32호스팩,0037T0,금융 지원 서비스업,2025-07-04,Financials
-KB제33호스팩,0072Z0,금융 지원 서비스업,2025-09-30,Financials
-KCC,002380,,,Other
-KCC건설,021320,건물 건설업,2001-08-21,Industrials
-KCC글라스,344820,,,Other
-KCTC,009070,,,Other
-KC그린홀딩스,009440,기타 금융업,1994-11-05,Financials
-KC산업,112190,"시멘트, 석회, 플라스터 및 그 제품 제조업",2016-05-31,Materials
-KC코트렐,119650,일반 목적용 기계 제조업,2010-01-29,Industrials
-KD,044180,건물 건설업,2000-11-16,Industrials
-KEC,092220,반도체 제조업,2006-10-16,Information Technology
-KG모빌리언스,046440,소프트웨어 개발 및 공급업,2004-12-14,Information Technology
-KG모빌리티,003620,자동차용 엔진 및 자동차 제조업,1975-05-29,Consumer Discretionary
-KG스틸,016380,1차 철강 제조업,1986-02-03,Materials
-KG에코솔루션,151860,자동차 차체나 트레일러 제조업,2013-07-24,Consumer Discretionary
-KG이니시스,035600,소프트웨어 개발 및 공급업,2002-11-22,Information Technology
-KG케미칼,001390,기초 화학물질 제조업,1989-08-25,Energy
-KH 건설,226360,토목 건설업,2015-10-22,Industrials
-KH 미래물산,111870,영상 및 음향기기 제조업,2010-11-05,Information Technology
-KH 필룩스,033180,전자부품 제조업,2001-12-26,Information Technology
-KH바텍,060720,전자부품 제조업,2002-05-21,Information Technology
-KISCO홀딩스,001940,1차 철강 제조업,1989-11-13,Materials
-KNN,058400,텔레비전 방송업,2010-11-03,Communication Services
-KPX케미칼,025000,기초 화학물질 제조업,1994-12-27,Energy
-KPX홀딩스,092230,기초 화학물질 제조업,2006-10-12,Energy
-KR모터스,000040,그외 기타 운송장비 제조업,1976-05-25,Industrials
-KSS해운,044450,해상 운송업,2007-10-26,Industrials
-KS인더스트리,101000,특수 목적용 기계 제조업,2009-11-06,Industrials
-KT,030200,,,Other
-KT&G,033780,,,Other
-KTcs,058850,기타 정보 서비스업,2010-09-16,Information Technology
-KTis,058860,기타 정보 서비스업,2010-12-17,Information Technology
-KT나스미디어,089600,광고업,2013-07-17,Communication Services
-KT밀리의서재,418470,"서적, 잡지 및 기타 인쇄물 출판업",2023-09-27,Communication Services
-KT지니뮤직,043610,영상·오디오물 제공 서비스업,2000-07-20,Consumer Discretionary
-KX,122450,텔레비전 방송업,2011-05-25,Communication Services
-KX하이텍,052900,플라스틱제품 제조업,2005-01-18,Materials
-KZ정밀,036560,일반 목적용 기계 제조업,1999-12-28,Industrials
-LB세미콘,061970,반도체 제조업,2011-01-31,Information Technology
-LB인베스트먼트,309960,기타 금융업,2023-03-29,Financials
-LF,093050,봉제의복 제조업,2006-12-01,Consumer Discretionary
-LG,003550,기타 금융업,1970-02-13,Financials
-LG디스플레이,034220,전자부품 제조업,2004-07-23,Information Technology
-LG생활건강,051900,기타 화학제품 제조업,2001-04-25,Materials
-LG생활건강우,051905,기타 화학제품 제조업,2001-04-25,Materials
-LG씨엔에스,064400,"컴퓨터 프로그래밍, 시스템 통합 및 관리업",2025-02-05,Information Technology
-LG에너지솔루션,373220,일차전지 및 이차전지 제조업,2022-01-27,Industrials
-LG우,003555,기타 금융업,1970-02-13,Financials
-LG유플러스,032640,전기 통신업,2008-04-21,Communication Services
-LG이노텍,011070,전자부품 제조업,2008-07-24,Information Technology
-LG전자,066570,통신 및 방송 장비 제조업,2002-04-22,Information Technology
-LG전자우,066575,통신 및 방송 장비 제조업,2002-04-22,Information Technology
-LG헬로비전,037560,텔레비전 방송업,2012-11-09,Communication Services
-LG화학,051910,기초 화학물질 제조업,2001-04-25,Energy
-LG화학우,051915,기초 화학물질 제조업,2001-04-25,Energy
-LIG넥스원,079550,무기 및 총포탄 제조업,2015-10-02,Materials
-LK삼양,225190,사진장비 및 광학기기 제조업,2017-06-02,Information Technology
-LS,006260,기타 금융업,1977-06-30,Financials
-LS ELECTRIC,010120,,,Other
-LS네트웍스,000680,상품 종합 도매업,1973-11-15,Consumer Discretionary
-LS마린솔루션,060370,전기 및 통신 공사업,2002-02-15,Industrials
-LS머트리얼즈,417200,전자부품 제조업,2023-12-12,Information Technology
-LS에코에너지,229640,기타 금융업,2016-09-22,Financials
-LS증권,078020,금융 지원 서비스업,2007-02-21,Financials
-LS티라유텍,322180,소프트웨어 개발 및 공급업,2019-10-31,Information Technology
-LX세미콘,108320,반도체 제조업,2022-11-03,Information Technology
-LX인터내셔널,001120,상품 중개업,1976-01-30,Consumer Discretionary
-LX하우시스,108670,플라스틱제품 제조업,2009-04-20,Materials
-LX하우시스우,108675,플라스틱제품 제조업,2009-04-20,Materials
-LX홀딩스,383800,기타 금융업,2021-05-27,Financials
-LX홀딩스1우,38380K,,,Other
-M83,476080,"영화, 비디오물, 방송프로그램 제작 및 배급업",2024-08-22,Consumer Discretionary
-MDS테크,086960,소프트웨어 개발 및 공급업,2006-09-26,Information Technology
-MH에탄올,023150,알코올음료 제조업,1996-12-24,Consumer Staples
-NAVER,035420,"자료처리, 호스팅, 포털 및 기타 인터넷 정보매개 서비스업",2008-11-28,Information Technology
-NEW,160550,"영화, 비디오물, 방송프로그램 제작 및 배급업",2014-12-23,Consumer Discretionary
-NE능률,053290,"서적, 잡지 및 기타 인쇄물 출판업",2002-12-10,Communication Services
-NHN,181710,소프트웨어 개발 및 공급업,2013-08-29,Information Technology
-NHN KCP,060250,금융 지원 서비스업,2002-01-08,Financials
-NHN벅스,104200,소프트웨어 개발 및 공급업,2009-10-06,Information Technology
-NH올원리츠,400760,부동산 임대 및 공급업,2021-11-18,Real Estate
-NH투자증권,005940,금융 지원 서비스업,1975-09-30,Financials
-NH투자증권우,005945,금융 지원 서비스업,1975-09-30,Financials
-NH프라임리츠,338100,부동산 임대 및 공급업,2019-12-05,Real Estate
-NICE,034310,회사 본부 및 경영 컨설팅 서비스업,2004-02-04,Financials
-NICE인프라,063570,기타 사업지원 서비스업,2006-07-14,Industrials
-NICE평가정보,030190,기타 정보 서비스업,2023-08-08,Information Technology
-NI스틸,008260,1차 철강 제조업,1975-06-28,Materials
-NPC,004250,,,Other
-NPC우,004255,,,Other
-NPX,222160,특수 목적용 기계 제조업,2021-11-18,Industrials
-OCI,456040,기초 화학물질 제조업,2023-05-30,Energy
-OCI홀딩스,010060,기타 금융업,1985-07-09,Financials
-PI첨단소재,178920,플라스틱제품 제조업,2021-08-09,Materials
-PKC,001340,기초 화학물질 제조업,1976-06-10,Energy
-PN풍년,024940,생활용품 도매업,1995-01-04,Consumer Discretionary
-POSCO홀딩스,005490,1차 철강 제조업,1988-06-10,Materials
-PS일렉트로닉스,332570,전자부품 제조업,2020-07-31,Information Technology
-RFHIC,218410,통신 및 방송 장비 제조업,2015-06-30,Information Technology
-RF머트리얼즈,327260,전자부품 제조업,2019-12-24,Information Technology
-RF시스템즈,474610,기타 금속 가공제품 제조업,2024-11-19,Materials
-S&K폴리텍,091340,전자부품 제조업,2007-07-30,Information Technology
-S-Oil,010950,석유 정제품 제조업,1987-05-27,Energy
-S-Oil우,010955,석유 정제품 제조업,1987-05-27,Energy
-SAMG엔터,419530,"영화, 비디오물, 방송프로그램 제작 및 배급업",2022-12-06,Consumer Discretionary
-SBI인베스트먼트,019550,신탁업 및 집합투자업,1989-09-06,Financials
-SBS,034120,텔레비전 방송업,2003-06-25,Communication Services
-SB성보,003080,"비료, 농약 및 살균, 살충제 제조업",1976-12-23,Consumer Staples
-SCL사이언스,246960,의료용품 및 기타 의약 관련제품 제조업,2019-02-01,Health Care
-SDN,099220,기계장비 및 관련 물품 도매업,2009-05-19,Consumer Discretionary
-SFA반도체,036540,반도체 제조업,2001-05-02,Information Technology
-SG,255220,기타 비금속 광물제품 제조업,2018-01-26,Materials
-SG&G,040610,자동차 신품 부품 제조업,2000-04-27,Consumer Discretionary
-SGA솔루션즈,184230,소프트웨어 개발 및 공급업,2013-12-20,Information Technology
-SGC E&C,016250,건물 건설업,1999-12-28,Industrials
-SGC에너지,005090,전기업,1993-01-06,Utilities
-SG글로벌,001380,자동차 신품 부품 제조업,1976-06-29,Consumer Discretionary
-SG세계물산,004060,상품 종합 도매업,1976-04-19,Consumer Discretionary
-SHD,001770,1차 철강 제조업,1988-11-23,Materials
-SH에너지화학,002360,기초 화학물질 제조업,1985-12-23,Energy
-SIMPAC,009160,1차 철강 제조업,1989-07-29,Materials
-SJG세종,033530,자동차 신품 부품 제조업,2002-09-25,Consumer Discretionary
-SJM,123700,,,Other
-SJM홀딩스,025530,,,Other
-SK,034730,기타 금융업,2009-11-11,Financials
-SKAI,357880,소프트웨어 개발 및 공급업,2021-11-10,Information Technology
-SKC,011790,기타 화학제품 제조업,1997-07-18,Materials
-SK가스,018670,기타 전문 도매업,1997-08-27,Consumer Discretionary
-SK네트웍스,001740,기타 전문 도매업,1977-06-30,Consumer Discretionary
-SK디스커버리,006120,기타 금융업,1976-06-29,Financials
-SK디스커버리우,006125,기타 금융업,1976-06-29,Financials
-SK디앤디,210980,부동산 임대 및 공급업,2015-06-23,Real Estate
-SK리츠,395400,부동산 임대 및 공급업,2021-09-14,Real Estate
-SK바이오사이언스,302440,기초 의약물질 제조업,2021-03-18,Health Care
-SK바이오팜,326030,,,Other
-SK스퀘어,402340,기타 금융업,2021-11-29,Financials
-SK시그넷,260870,"전동기, 발전기 및 전기 변환 · 공급 · 제어 장치 제조업",2017-08-30,Industrials
-SK아이이테크놀로지,361610,일차전지 및 이차전지 제조업,2021-05-11,Industrials
-SK오션플랜트,100090,1차 철강 제조업,2023-04-19,Materials
-SK우,03473K,기타 금융업,2009-11-11,Financials
-SK이노베이션,096770,석유 정제품 제조업,2007-07-25,Energy
-SK이노베이션우,096775,석유 정제품 제조업,2007-07-25,Energy
-SK이터닉스,475150,건물 건설업,2024-03-29,Industrials
-SK증권,001510,금융 지원 서비스업,1986-09-20,Financials
-SK증권우,001515,금융 지원 서비스업,1986-09-20,Financials
-SK케미칼,285130,합성고무 및 플라스틱 물질 제조업,2018-01-05,Materials
-SK케미칼우,28513K,합성고무 및 플라스틱 물질 제조업,2018-01-05,Materials
-SK텔레콤,017670,전기 통신업,1989-11-07,Communication Services
-SK하이닉스,000660,반도체 제조업,1996-12-26,Information Technology
-SM C&C,048550,광고업,2001-01-18,Communication Services
-SM Life Design,063440,기록매체 복제업,2002-05-30,Communication Services
-SNT다이내믹스,003570,자동차 신품 부품 제조업,1976-07-08,Consumer Discretionary
-SNT모티브,064960,자동차 신품 부품 제조업,2002-03-11,Consumer Discretionary
-SNT에너지,100840,일반 목적용 기계 제조업,2008-02-22,Industrials
-SNT홀딩스,036530,기타 금융업,2002-10-22,Financials
-SOOP,067160,소프트웨어 개발 및 공급업,2003-12-19,Information Technology
-SPC삼립,005610,기타 식품 제조업,1975-05-02,Consumer Staples
-STX,011810,상품 종합 도매업,1990-09-12,Consumer Discretionary
-STX그린로지스,465770,해상 운송업,2023-09-15,Industrials
-STX엔진,077970,일반 목적용 기계 제조업,2004-05-10,Industrials
-SUN&L,002820,나무제품 제조업,1976-05-22,Materials
-SV인베스트먼트,289080,기타 금융업,2018-07-06,Financials
-TBH글로벌,084870,,,Other
-TCC스틸,002710,1차 철강 제조업,1984-12-21,Materials
-THE CUBE&,013720,자동차 신품 부품 제조업,1993-12-29,Consumer Discretionary
-THE E&M,089230,기타 정보 서비스업,2006-10-10,Information Technology
-TJ미디어,032540,영상 및 음향기기 제조업,1997-04-16,Information Technology
-TKG휴켐스,069260,,,Other
-TP,007980,봉제의복 제조업,1994-12-27,Consumer Discretionary
-TPC,048770,일반 목적용 기계 제조업,2001-01-16,Industrials
-TS인베스트먼트,246690,신탁업 및 집합투자업,2016-12-15,Financials
-TS트릴리온,317240,기타 화학제품 제조업,2019-04-29,Materials
-TYM,002900,특수 목적용 기계 제조업,1973-06-26,Industrials
-WISCOM,024070,플라스틱제품 제조업,1996-11-22,Materials
-YBM넷,057030,교육지원 서비스업,2004-06-08,Industrials
-YG PLUS,037270,"자료처리, 호스팅, 포털 및 기타 인터넷 정보매개 서비스업",2003-08-01,Information Technology
-YTN,040300,"영화, 비디오물, 방송프로그램 제작 및 배급업",2001-09-04,Consumer Discretionary
-YW,051390,상품 종합 도매업,2001-11-15,Consumer Discretionary
-iMBC,052220,영상·오디오물 제공 서비스업,2005-01-21,Consumer Discretionary
-iM금융지주,139130,기타 금융업,2011-06-07,Financials
-가비아,079940,소프트웨어 개발 및 공급업,2005-10-19,Information Technology
-가온그룹,078890,통신 및 방송 장비 제조업,2005-07-12,Information Technology
-가온전선,000500,절연선 및 케이블 제조업,1987-06-08,Utilities
-가온칩스,399720,반도체 제조업,2022-05-20,Information Technology
-가이아코퍼레이션,296520,생활용품 도매업,2023-06-20,Consumer Discretionary
-감성코퍼레이션,036620,기타 전문 도매업,2000-01-11,Consumer Discretionary
-강남제비스코,000860,기타 화학제품 제조업,1975-11-12,Materials
-강동씨앤엘,198440,"시멘트, 석회, 플라스터 및 그 제품 제조업",2014-08-13,Materials
-강스템바이오텍,217730,기초 의약물질 제조업,2015-12-21,Health Care
-강원랜드,035250,유원지 및 기타 오락관련 서비스업,2003-09-04,Consumer Discretionary
-강원에너지,114190,기타 전기장비 제조업,2009-11-20,Utilities
-갤럭시아머니트리,094480,소프트웨어 개발 및 공급업,2007-07-20,Information Technology
-갤럭시아에스엠,011420,스포츠 서비스업,1989-11-14,Consumer Discretionary
-경남스틸,039240,1차 철강 제조업,2000-03-07,Materials
-경남제약,053950,의약품 제조업,2001-11-06,Health Care
-경농,002100,"비료, 농약 및 살균, 살충제 제조업",1977-06-30,Consumer Staples
-경동나비엔,009450,가정용 기기 제조업,1993-08-31,Consumer Discretionary
-경동도시가스,267290,연료용 가스 제조 및 배관공급업,2017-05-12,Energy
-경동인베스트,012320,기타 금융업,1997-03-07,Financials
-경동제약,011040,의약품 제조업,1992-12-18,Health Care
-경방,000050,종합 소매업,1956-03-03,Consumer Discretionary
-경보제약,214390,기초 의약물질 제조업,2015-06-29,Health Care
-경인양행,012610,기초 화학물질 제조업,1995-10-05,Energy
-경인전자,009140,전자부품 제조업,1989-06-20,Information Technology
-경창산업,024910,자동차 신품 부품 제조업,1994-12-29,Consumer Discretionary
-계룡건설,013580,,,Other
-계양전기,012200,일반 목적용 기계 제조업,1988-07-06,Industrials
-계양전기우,012205,일반 목적용 기계 제조업,1988-07-06,Industrials
-고려산업,002140,"곡물가공품, 전분 및 전분제품 제조업",1991-01-14,Consumer Staples
-고려신용정보,049720,기타 사업지원 서비스업,2002-01-31,Industrials
-고려아연,010130,1차 비철금속 제조업,1990-07-28,Materials
-고려제강,002240,1차 철강 제조업,1976-05-25,Materials
-고려제약,014570,의약품 제조업,2000-12-07,Health Care
-고바이오랩,348150,자연과학 및 공학 연구개발업,2020-11-18,Health Care
-고스트스튜디오,950190,소프트웨어 개발 및 공급업,2020-08-18,Information Technology
-고영,098460,특수 목적용 기계 제조업,2008-06-03,Industrials
-골드앤에스,035290,"서적, 잡지 및 기타 인쇄물 출판업",1999-12-07,Communication Services
-골프존,215000,소프트웨어 개발 및 공급업,2015-04-03,Information Technology
-골프존홀딩스,121440,상품 중개업,2011-05-20,Consumer Discretionary
-공구우먼,366030,의복 액세서리 제조업,2022-03-23,Consumer Discretionary
-광동제약,009290,의약품 제조업,1989-11-17,Health Care
-광동헬스바이오,086220,기타 식품 제조업,2015-07-09,Consumer Staples
-광명전기,017040,"전동기, 발전기 및 전기 변환 · 공급 · 제어 장치 제조업",1990-09-14,Industrials
-광무,029480,통신 및 방송 장비 제조업,1996-08-27,Information Technology
-광전자,017900,반도체 제조업,1996-10-16,Information Technology
-광주신세계,037710,종합 소매업,2002-02-07,Consumer Discretionary
-광진실업,026910,1차 철강 제조업,1996-01-03,Materials
-교보14호스팩,456490,금융 지원 서비스업,2023-07-06,Financials
-교보15호스팩,465320,금융 지원 서비스업,2023-12-05,Financials
-교보16호스팩,482520,금융 지원 서비스업,2024-08-13,Financials
-교보17호스팩,489210,금융 지원 서비스업,2024-11-21,Financials
-교보18호스팩,0041B0,금융 지원 서비스업,2025-08-14,Financials
-교보19호스팩,0098T0,금융 지원 서비스업,2025-12-12,Financials
-교보증권,030610,금융 지원 서비스업,2002-07-18,Financials
-교촌에프앤비,339770,음·식료품 및 담배 도매업,2020-11-12,Consumer Discretionary
-구영테크,053270,자동차 신품 부품 제조업,2002-02-07,Consumer Discretionary
-국도화학,007690,기초 화학물질 제조업,1989-08-05,Energy
-국보,001140,도로 화물 운송업,1989-12-02,Industrials
-국보디자인,066620,실내건축 및 건축마무리 공사업,2002-09-05,Industrials
-국순당,043650,알코올음료 제조업,2000-08-24,Consumer Staples
-국영지앤엠,006050,유리 및 유리제품 제조업,1994-10-07,Materials
-국일신동,060480,1차 비철금속 제조업,2014-12-29,Materials
-국일제지,078130,기타 종이 및 판지 제품 제조업,2004-10-22,Materials
-국전약품,307750,의약품 제조업,2018-12-19,Health Care
-국제약품,002720,의약품 제조업,1975-12-27,Health Care
-그래디언트,035080,무점포 소매업,1999-07-05,Consumer Discretionary
-그래피,318060,합성고무 및 플라스틱 물질 제조업,2025-08-25,Materials
-그리드위즈,453450,"그외 기타 전문, 과학 및 기술 서비스업",2024-06-14,Health Care
-그리티,204020,봉제의복 제조업,2018-07-23,Consumer Discretionary
-그린광학,0015G0,사진장비 및 광학기기 제조업,2025-11-17,Information Technology
-그린리소스,402490,반도체 제조업,2023-11-24,Information Technology
-그린생명과학,114450,기초 의약물질 제조업,2009-12-22,Health Care
-그린케미칼,083420,기타 화학제품 제조업,2005-10-20,Materials
-그린플러스,186230,1차 비철금속 제조업,2019-08-07,Materials
-극동유화,014530,석유 정제품 제조업,1991-01-31,Energy
-글로벌에스엠,900070,기타 금융업,2009-12-23,Financials
-글로벌텍스프리,204620,금융 지원 서비스업,2014-11-19,Financials
-글로본,019660,상품 종합 도매업,1992-06-04,Consumer Discretionary
-금강공업,014280,1차 철강 제조업,1988-09-10,Materials
-금강공업우,014285,1차 철강 제조업,1988-09-10,Materials
-금강철강,053260,1차 철강 제조업,2002-01-04,Materials
-금비,008870,유리 및 유리제품 제조업,1990-06-08,Materials
-금양,001570,기초 화학물질 제조업,1976-12-17,Energy
-금양그린파워,282720,전기 및 통신 공사업,2023-03-13,Industrials
-금호건설,002990,건물 건설업,1976-06-26,Industrials
-금호건설우,002995,건물 건설업,1976-06-26,Industrials
-금호석유화학,011780,기초 화학물질 제조업,1988-01-22,Energy
-금호석유화학우,011785,기초 화학물질 제조업,1988-01-22,Energy
-금호에이치티,214330,자동차 신품 부품 제조업,2015-11-11,Consumer Discretionary
-금호전기,001210,전구 및 조명장치 제조업,1973-11-15,Utilities
-금호타이어,073240,고무제품 제조업,2005-02-17,Materials
-금화피에스시,036190,전기 및 통신 공사업,2000-12-26,Industrials
-기가레인,049080,전자부품 제조업,2013-12-19,Information Technology
-기가비스,420770,특수 목적용 기계 제조업,2023-05-24,Industrials
-기산텔레콤,035460,통신 및 방송 장비 제조업,1999-11-18,Information Technology
-기신정기,092440,특수 목적용 기계 제조업,2007-10-30,Industrials
-기아,000270,자동차용 엔진 및 자동차 제조업,1973-07-21,Consumer Discretionary
-기업은행,024110,은행 및 저축기관,2003-12-24,Financials
-까뮤이앤씨,013700,건물 건설업,1989-11-30,Industrials
-깨끗한나라,004540,"펄프, 종이 및 판지 제조업",1975-06-25,Materials
-깨끗한나라우,004545,"펄프, 종이 및 판지 제조업",1975-06-25,Materials
-꿈비,407400,가구 제조업,2023-02-09,Consumer Discretionary
-나노,187790,기초 화학물질 제조업,2014-05-08,Energy
-나노신소재,121600,기타 화학제품 제조업,2011-02-09,Materials
-나노실리칸첨단소재,286750,기초 화학물질 제조업,2019-08-19,Energy
-나노씨엠에스,247660,전자부품 제조업,2021-03-09,Information Technology
-나노엔텍,039860,의료용 기기 제조업,2000-08-16,Health Care
-나노캠텍,091970,플라스틱제품 제조업,2007-01-30,Materials
-나노팀,417010,일반 목적용 기계 제조업,2023-03-03,Industrials
-나눔테크,244880,의료용 기기 제조업,2016-06-01,Health Care
-나라셀라,405920,음·식료품 및 담배 도매업,2023-06-02,Consumer Discretionary
-나라소프트,288490,소프트웨어 개발 및 공급업,2018-11-23,Information Technology
-나라스페이스테크놀로지,478340,"항공기,우주선 및 부품 제조업",2025-12-17,Industrials
-나라엠앤디,051490,특수 목적용 기계 제조업,2001-06-12,Industrials
-나래나노텍,137080,특수 목적용 기계 제조업,2022-02-08,Industrials
-나무가,190510,전자부품 제조업,2015-11-12,Information Technology
-나무기술,242040,소프트웨어 개발 및 공급업,2016-09-07,Information Technology
-나우IB,293580,기타 금융업,2018-10-04,Financials
-나우로보틱스,459510,특수 목적용 기계 제조업,2025-05-08,Industrials
-나우코스,257990,기타 화학제품 제조업,2020-12-30,Materials
-나이벡,138610,의료용품 및 기타 의약 관련제품 제조업,2011-07-13,Health Care
-나이스디앤비,130580,기타 사업지원 서비스업,2011-12-22,Industrials
-나이스정보통신,036800,전기 통신업,2000-05-03,Communication Services
-나인테크,267320,특수 목적용 기계 제조업,2017-06-22,Industrials
-남광토건,001260,토목 건설업,1976-12-28,Industrials
-남선알미늄,008350,1차 비철금속 제조업,1978-05-22,Materials
-남선알미우,008355,,,Other
-남성,004270,기타 전문 도매업,1989-11-14,Consumer Discretionary
-남양유업,003920,동·식물성 유지 및 낙농제품 제조업,1978-06-24,Consumer Staples
-남양유업우,003925,동·식물성 유지 및 낙농제품 제조업,1978-06-24,Consumer Staples
-남해화학,025860,"비료, 농약 및 살균, 살충제 제조업",1995-11-10,Consumer Staples
-남화산업,111710,스포츠 서비스업,2018-11-29,Consumer Discretionary
-남화토건,091590,건물 건설업,2012-01-31,Industrials
-내츄럴엔도텍,168330,자연과학 및 공학 연구개발업,2013-10-31,Health Care
-네오리진,094860,소프트웨어 개발 및 공급업,2007-04-16,Information Technology
-네오셈,253590,특수 목적용 기계 제조업,2018-04-04,Industrials
-네오오토,212560,자동차 신품 부품 제조업,2015-11-18,Consumer Discretionary
-네오위즈,095660,소프트웨어 개발 및 공급업,2007-07-02,Information Technology
-네오위즈홀딩스,042420,소프트웨어 개발 및 공급업,2000-06-27,Information Technology
-네오이뮨텍,950220,자연과학 및 공학 연구개발업,2021-03-16,Health Care
-네오크레마,311390,기타 식품 제조업,2019-08-22,Consumer Staples
-네오티스,085910,자동차 신품 부품 제조업,2007-10-01,Consumer Discretionary
-네오팜,092730,기타 화학제품 제조업,2007-01-30,Materials
-네오펙트,290660,의료용 기기 제조업,2018-11-28,Health Care
-네온테크,306620,특수 목적용 기계 제조업,2018-10-31,Industrials
-네이블,153460,소프트웨어 개발 및 공급업,2012-07-19,Information Technology
-네이처셀,007390,기초 의약물질 제조업,1992-11-30,Health Care
-네패스,033640,반도체 제조업,1999-12-14,Information Technology
-네패스아크,330860,"그외 기타 전문, 과학 및 기술 서비스업",2020-11-17,Health Care
-넥사다이내믹스,351320,특수 목적용 기계 제조업,2020-06-22,Industrials
-넥센,005720,고무제품 제조업,1987-12-19,Materials
-넥센우,005725,고무제품 제조업,1987-12-19,Materials
-넥센타이어,002350,고무제품 제조업,1976-05-19,Materials
-넥센타이어1우B,002355,,,Other
-넥스턴앤롤코리아,089140,특수 목적용 기계 제조업,2006-11-01,Industrials
-넥스트바이오메디컬,389650,의료용 기기 제조업,2024-08-20,Health Care
-넥스트아이,137940,"측정, 시험, 항해, 제어 및 기타 정밀기기 제조업; 광학기기 제외",2011-06-14,Information Technology
-넥스트칩,396270,반도체 제조업,2022-07-01,Information Technology
-넥스틴,348210,특수 목적용 기계 제조업,2020-10-08,Industrials
-넥스틸,092790,1차 철강 제조업,2023-08-21,Materials
-넥슨게임즈,225570,소프트웨어 개발 및 공급업,2015-09-25,Information Technology
-넥써쓰,205500,소프트웨어 개발 및 공급업,2014-11-12,Information Technology
-넵튠,217270,소프트웨어 개발 및 공급업,2015-06-18,Information Technology
-넷마블,251270,소프트웨어 개발 및 공급업,2017-05-12,Information Technology
-노드메이슨,317860,기타 화학제품 제조업,2019-12-06,Materials
-노랑풍선,104620,여행사 및 기타 여행보조 서비스업,2019-01-30,Consumer Discretionary
-노루페인트,090350,기타 화학제품 제조업,2006-07-03,Materials
-노루페인트우,090355,기타 화학제품 제조업,2006-07-03,Materials
-노루홀딩스,000320,기타 금융업,1973-08-10,Financials
-노루홀딩스우,000325,기타 금융업,1973-08-10,Financials
-노머스,473980,창작 및 예술관련 서비스업,2024-11-12,Consumer Discretionary
-노바렉스,194700,기타 식품 제조업,2018-11-14,Consumer Staples
-노바텍,285490,그외 기타 제품 제조업,2018-11-02,Consumer Discretionary
-노브랜드,145170,편조의복 제조업,2024-05-23,Consumer Discretionary
-노브메타파마,229500,자연과학 및 공학 연구개발업,2015-10-28,Health Care
-노블엠앤비,106520,사진장비 및 광학기기 제조업,2012-07-13,Information Technology
-노을,376930,의료용 기기 제조업,2022-03-03,Health Care
-노타,486990,소프트웨어 개발 및 공급업,2025-11-03,Information Technology
-녹십자,006280,의약품 제조업,1989-08-01,Health Care
-녹십자엠에스,142280,의료용품 및 기타 의약 관련제품 제조업,2014-12-17,Health Care
-녹십자웰빙,234690,의약품 제조업,2019-10-14,Health Care
-녹십자홀딩스,005250,회사 본부 및 경영 컨설팅 서비스업,1978-08-28,Financials
-녹십자홀딩스2우,005257,,,Other
-농심,004370,기타 식품 제조업,1976-06-30,Consumer Staples
-농심홀딩스,072710,기타 금융업,2003-07-30,Financials
-농우바이오,054050,작물 재배업,2002-04-02,Consumer Staples
-누리플랜,069140,"구조용 금속제품, 탱크 및 증기발생기 제조업",2010-10-26,Industrials
-누리플렉스,040160,소프트웨어 개발 및 공급업,2000-08-29,Information Technology
-누보,332290,"비료, 농약 및 살균, 살충제 제조업",2019-10-11,Consumer Staples
-뉴로메카,348340,특수 목적용 기계 제조업,2022-11-04,Industrials
-뉴로핏,380550,소프트웨어 개발 및 공급업,2025-07-25,Information Technology
-뉴보텍,060260,플라스틱제품 제조업,2002-02-05,Materials
-뉴엔AI,463020,소프트웨어 개발 및 공급업,2025-07-04,Information Technology
-뉴온,123840,기타 식품 제조업,2010-10-05,Consumer Staples
-뉴인텍,012340,자동차 신품 부품 제조업,1997-02-12,Consumer Discretionary
-뉴키즈온,462310,봉제의복 제조업,2025-07-09,Consumer Discretionary
-뉴트리,270870,기타 식품 제조업,2018-12-13,Consumer Staples
-뉴파워프라즈마,144960,특수 목적용 기계 제조업,2016-11-30,Industrials
-뉴프렉스,085670,전자부품 제조업,2006-01-17,Information Technology
-다날,064260,소프트웨어 개발 및 공급업,2004-07-23,Information Technology
-다보링크,340360,통신 및 방송 장비 제조업,2019-12-19,Information Technology
-다산네트웍스,039560,통신 및 방송 장비 제조업,2000-06-22,Information Technology
-다산디엠씨,208860,소프트웨어 개발 및 공급업,2016-07-28,Information Technology
-다산솔루에타,154040,전자부품 제조업,2013-12-27,Information Technology
-다스코,058730,"구조용 금속제품, 탱크 및 증기발생기 제조업",2004-08-02,Industrials
-다올투자증권,030210,금융 지원 서비스업,1996-11-19,Financials
-다우기술,023590,"자료처리, 호스팅, 포털 및 기타 인터넷 정보매개 서비스업",1997-08-27,Information Technology
-다우데이타,032190,기계장비 및 관련 물품 도매업,1999-12-21,Consumer Discretionary
-다원넥스뷰,323350,특수 목적용 기계 제조업,2024-06-11,Industrials
-다원시스,068240,"전동기, 발전기 및 전기 변환 · 공급 · 제어 장치 제조업",2010-09-14,Industrials
-다이나믹디자인,145210,특수 목적용 기계 제조업,2015-03-19,Industrials
-달바글로벌,483650,기타 화학제품 제조업,2025-05-22,Materials
-닷밀,464580,"영화, 비디오물, 방송프로그램 제작 및 배급업",2024-11-13,Consumer Discretionary
-대교,019680,초등 교육기관,2004-02-03,Industrials
-대교우B,019685,,,Other
-대구백화점,006370,종합 소매업,1988-10-10,Consumer Discretionary
-대덕,008060,기타 금융업,1989-01-26,Financials
-대덕1우,00806K,,,Other
-대덕전자,353200,전자부품 제조업,2020-05-21,Information Technology
-대덕전자1우,35320K,,,Other
-대동,000490,특수 목적용 기계 제조업,1975-06-27,Industrials
-대동고려삼,178600,기타 식품 제조업,2013-12-20,Consumer Staples
-대동금속,020400,금속 주조업,1993-07-30,Materials
-대동기어,008830,특수 목적용 기계 제조업,1991-05-17,Industrials
-대동스틸,048470,기타 전문 도매업,2002-01-10,Consumer Discretionary
-대동전자,008110,통신 및 방송 장비 제조업,1990-06-05,Information Technology
-대륙제관,004780,기타 금속 가공제품 제조업,1994-12-29,Materials
-대림바스,005750,"내화, 비내화 요업제품 제조업",1992-12-23,Materials
-대림제지,017650,기타 종이 및 판지 제품 제조업,1994-11-07,Materials
-대림통상,006570,기타 금속 가공제품 제조업,1975-11-20,Materials
-대명에너지,389260,건물 건설업,2022-05-16,Industrials
-대모,317850,특수 목적용 기계 제조업,2019-07-24,Industrials
-대보마그네틱,290670,기타 전기장비 제조업,2018-11-06,Utilities
-대봉엘에스,078140,의약품 제조업,2005-12-23,Health Care
-대산F&B,065150,음·식료품 및 담배 도매업,2007-07-18,Consumer Discretionary
-대상,001680,기타 식품 제조업,1970-04-01,Consumer Staples
-대상우,001685,기타 식품 제조업,1970-04-01,Consumer Staples
-대상홀딩스,084690,기타 금융업,2005-08-17,Financials
-대상홀딩스우,084695,기타 금융업,2005-08-17,Financials
-대성미생물,036480,의약품 제조업,2000-04-04,Health Care
-대성산업,128820,연료 소매업,2010-07-30,Energy
-대성에너지,117580,연료용 가스 제조 및 배관공급업,2010-12-24,Energy
-대성창투,027830,신탁업 및 집합투자업,1999-11-30,Financials
-대성파인텍,104040,자동차 신품 부품 제조업,2009-01-23,Consumer Discretionary
-대성하이텍,129920,특수 목적용 기계 제조업,2022-08-22,Industrials
-대성홀딩스,016710,회사 본부 및 경영 컨설팅 서비스업,1999-12-22,Financials
-대신밸런스제16호스팩,457630,금융 지원 서비스업,2023-09-04,Financials
-대신밸런스제17호스팩,471050,금융 지원 서비스업,2024-01-24,Financials
-대신밸런스제18호스팩,478780,금융 지원 서비스업,2024-08-22,Financials
-대신밸런스제19호스팩,482690,금융 지원 서비스업,2024-11-20,Financials
-대신밸류리츠,0030R0,신탁업 및 집합투자업,2025-07-10,Financials
-대신정보통신,020180,"컴퓨터 프로그래밍, 시스템 통합 및 관리업",1995-10-06,Information Technology
-대신증권,003540,금융 지원 서비스업,1975-10-01,Financials
-대신증권2우B,003547,,,Other
-대신증권우,003545,금융 지원 서비스업,1975-10-01,Financials
-대아티아이,045390,기타 전기장비 제조업,2001-05-17,Utilities
-대양금속,009190,1차 철강 제조업,1994-04-29,Materials
-대양전기공업,108380,선박 및 보트 건조업,2011-07-08,Industrials
-대영포장,014160,"골판지, 종이 상자 및 종이용기 제조업",1990-03-06,Materials
-대우건설,047040,건물 건설업,2001-03-23,Industrials
-대웅,003090,의약품 제조업,1973-06-26,Health Care
-대웅제약,069620,의약품 제조업,2002-11-01,Health Care
-대원,007680,건물 건설업,2017-12-01,Industrials
-대원강업,000430,자동차 신품 부품 제조업,1977-06-22,Consumer Discretionary
-대원미디어,048910,기타 전문 도매업,2001-07-31,Consumer Discretionary
-대원산업,005710,자동차 신품 부품 제조업,1993-06-21,Consumer Discretionary
-대원전선,006340,절연선 및 케이블 제조업,1988-05-04,Utilities
-대원전선우,006345,절연선 및 케이블 제조업,1988-05-04,Utilities
-대원제약,003220,의약품 제조업,1999-12-15,Health Care
-대원화성,024890,플라스틱제품 제조업,1997-10-28,Materials
-대유에이텍,002880,자동차 신품 부품 제조업,1977-02-18,Consumer Discretionary
-대정화금,120240,기초 화학물질 제조업,2010-12-20,Energy
-대주산업,003310,동물용 사료 및 조제식품 제조업,1992-08-01,Consumer Staples
-대주이엔티,114920,1차 철강 제조업,2013-07-01,Materials
-대주전자재료,078600,전자부품 제조업,2004-12-10,Information Technology
-대진첨단소재,393970,플라스틱제품 제조업,2025-03-06,Materials
-대창,012800,1차 비철금속 제조업,1989-12-05,Materials
-대창단조,015230,자동차 신품 부품 제조업,1989-07-25,Consumer Discretionary
-대창솔루션,096350,"구조용 금속제품, 탱크 및 증기발생기 제조업",2007-12-17,Industrials
-대창스틸,140520,1차 철강 제조업,2014-12-05,Materials
-대한과학,131220,기계장비 및 관련 물품 도매업,2011-10-11,Consumer Discretionary
-대한광통신,010170,절연선 및 케이블 제조업,1994-11-07,Utilities
-대한뉴팜,054670,의약품 제조업,2002-02-26,Health Care
-대한방직,001070,직물직조 및 직물제품 제조업,1973-12-28,Materials
-대한약품,023910,의약품 제조업,1994-11-23,Health Care
-대한유화,006650,기초 화학물질 제조업,1999-08-11,Energy
-대한전선,001440,절연선 및 케이블 제조업,1968-12-27,Utilities
-대한제강,084010,1차 철강 제조업,2005-10-31,Materials
-대한제당,001790,"곡물가공품, 전분 및 전분제품 제조업",1968-12-27,Consumer Staples
-대한제당우,001795,"곡물가공품, 전분 및 전분제품 제조업",1968-12-27,Consumer Staples
-대한제분,001130,"곡물가공품, 전분 및 전분제품 제조업",1970-11-25,Consumer Staples
-대한조선,439260,선박 및 보트 건조업,2025-08-01,Industrials
-대한항공,003490,항공 여객 운송업,1966-03-18,Industrials
-대한항공우,003495,항공 여객 운송업,1966-03-18,Industrials
-대한해운,005880,해상 운송업,1992-04-23,Industrials
-대한화섬,003830,화학섬유 제조업,1985-12-23,Materials
-대현,016090,봉제의복 제조업,1990-09-20,Consumer Discretionary
-대호에이엘,069460,1차 비철금속 제조업,2002-11-11,Materials
-대호특수강,021040,1차 철강 제조업,1996-08-27,Materials
-대호특수강우,021045,1차 철강 제조업,1996-08-27,Materials
-대화제약,067080,의약품 제조업,2003-02-14,Health Care
-더네이쳐홀딩스,298540,의복 액세서리 제조업,2020-07-27,Consumer Discretionary
-더라미,032860,"해체, 선별 및 원료 재생업",1997-07-04,Industrials
-더본코리아,475560,상품 종합 도매업,2024-11-06,Consumer Discretionary
-더블유게임즈,192080,소프트웨어 개발 및 공급업,2019-03-12,Information Technology
-더블유씨피,393890,일차전지 및 이차전지 제조업,2022-09-30,Industrials
-더블유에스아이,299170,생활용품 도매업,2018-09-21,Consumer Discretionary
-더존비즈온,012510,"컴퓨터 프로그래밍, 시스템 통합 및 관리업",1988-10-28,Information Technology
-더즌,462860,전기 통신업,2025-03-24,Communication Services
-더코디,224060,특수 목적용 기계 제조업,2015-12-29,Industrials
-더콘텐츠온,302920,"영화, 비디오물, 방송프로그램 제작 및 배급업",2018-08-13,Consumer Discretionary
-더테크놀로지,043090,기타 전문 도매업,2001-10-11,Consumer Discretionary
-더핑크퐁컴퍼니,403850,"영화, 비디오물, 방송프로그램 제작 및 배급업",2025-11-18,Consumer Discretionary
-덕산네오룩스,213420,전자부품 제조업,2015-02-06,Information Technology
-덕산테코피아,317330,기타 화학제품 제조업,2019-08-02,Materials
-덕산하이메탈,077360,반도체 제조업,2005-10-14,Information Technology
-덕성,004830,플라스틱제품 제조업,1987-09-25,Materials
-덕성우,004835,플라스틱제품 제조업,1987-09-25,Materials
-덕신이피씨,090410,"구조용 금속제품, 탱크 및 증기발생기 제조업",2014-08-01,Industrials
-덕우전자,263600,전자부품 제조업,2017-08-28,Information Technology
-데브시스터즈,194480,소프트웨어 개발 및 공급업,2014-10-06,Information Technology
-데이원컴퍼니,373160,기타 교육기관,2025-01-24,Industrials
-데이타솔루션,263800,기계장비 및 관련 물품 도매업,2017-08-03,Consumer Discretionary
-데이터스트림즈,199150,소프트웨어 개발 및 공급업,2014-06-25,Information Technology
-덱스터,206560,"영화, 비디오물, 방송프로그램 제작 및 배급업",2015-12-22,Consumer Discretionary
-덴티스,261200,의료용 기기 제조업,2017-06-26,Health Care
-덴티움,145720,의료용 기기 제조업,2017-03-15,Health Care
-도부,227420,직물직조 및 직물제품 제조업,2016-12-28,Materials
-도우인시스,484120,전자부품 제조업,2025-07-23,Information Technology
-도이치모터스,067990,자동차 판매업,2004-12-03,Consumer Discretionary
-도화엔지니어링,002150,"건축기술, 엔지니어링 및 관련 기술 서비스업",2010-08-12,Industrials
-동구바이오제약,006620,의약품 제조업,2018-02-13,Health Care
-동국S&C,100130,"구조용 금속제품, 탱크 및 증기발생기 제조업",2009-08-31,Industrials
-동국산업,005160,1차 철강 제조업,1999-06-25,Materials
-동국생명과학,303810,의약품 제조업,2025-02-17,Health Care
-동국씨엠,460850,1차 철강 제조업,2023-06-16,Materials
-동국알앤에스,075970,기타 비금속 광물제품 제조업,2004-02-13,Materials
-동국제강,460860,1차 철강 제조업,2023-06-16,Materials
-동국제약,086450,의약품 제조업,2007-05-29,Health Care
-동국홀딩스,001230,기타 금융업,1988-05-09,Financials
-동남합성,023450,기초 화학물질 제조업,1996-12-24,Energy
-동방,004140,기타 운송관련 서비스업,1988-08-10,Industrials
-동방메디컬,240550,의료용 기기 제조업,2025-02-13,Health Care
-동방선기,099410,선박 및 보트 건조업,2009-11-10,Industrials
-동방아그로,007590,"비료, 농약 및 살균, 살충제 제조업",1977-06-29,Consumer Staples
-동부건설,005960,토목 건설업,1978-10-30,Industrials
-동부건설우,005965,토목 건설업,1978-10-30,Industrials
-동서,026960,음·식료품 및 담배 도매업,2016-07-15,Consumer Discretionary
-동성제약,002210,의약품 제조업,1990-01-19,Health Care
-동성케미컬,102260,합성고무 및 플라스틱 물질 제조업,2008-06-23,Materials
-동성화인텍,033500,기초 화학물질 제조업,1997-12-19,Energy
-동신건설,025950,토목 건설업,1995-08-07,Industrials
-동아쏘시오홀딩스,000640,기타 금융업,1970-02-10,Financials
-동아에스티,170900,의약품 제조업,2013-04-08,Health Care
-동아엘텍,088130,특수 목적용 기계 제조업,2007-01-03,Industrials
-동아지질,028100,기반조성 및 시설물 축조관련 전문공사업,2009-06-12,Industrials
-동아화성,041930,고무제품 제조업,2001-12-26,Materials
-동양,001520,"시멘트, 석회, 플라스터 및 그 제품 제조업",1976-06-25,Materials
-동양2우B,001527,,,Other
-동양고속,084670,육상 여객 운송업,2005-07-25,Industrials
-동양생명,082640,보험업,2009-10-08,Financials
-동양에스텍,060380,1차 철강 제조업,2002-02-05,Materials
-동양우,001525,"시멘트, 석회, 플라스터 및 그 제품 제조업",1976-06-25,Materials
-동양이엔피,079960,"전동기, 발전기 및 전기 변환 · 공급 · 제어 장치 제조업",2005-02-01,Industrials
-동양파일,228340,"시멘트, 석회, 플라스터 및 그 제품 제조업",2016-04-06,Materials
-동우팜투테이블,088910,"도축, 육류 가공 및 저장 처리업",2006-06-23,Consumer Staples
-동운아나텍,094170,반도체 제조업,2015-06-30,Information Technology
-동원개발,013120,건물 건설업,1994-12-29,Industrials
-동원금속,018500,자동차 신품 부품 제조업,1995-11-10,Consumer Discretionary
-동원산업,006040,기타 금융업,1989-03-07,Financials
-동원수산,030720,어로 어업,1996-11-22,Consumer Staples
-동원시스템즈,014820,플라스틱제품 제조업,1994-03-29,Materials
-동원시스템즈우,014825,플라스틱제품 제조업,1994-03-29,Materials
-동인기연,111380,"가죽, 가방 및 유사제품 제조업",2023-11-21,Consumer Discretionary
-동일고무벨트,163560,고무제품 제조업,2012-10-19,Materials
-동일금속,109860,금속 주조업,2009-07-28,Materials
-동일기연,032960,전자부품 제조업,1997-07-18,Information Technology
-동일산업,004890,1차 철강 제조업,2005-06-30,Materials
-동일스틸럭스,023790,1차 철강 제조업,1994-11-07,Materials
-동일제강,002690,1차 철강 제조업,2015-09-24,Materials
-동진쎄미켐,005290,기초 화학물질 제조업,1999-12-21,Energy
-동화기업,025900,나무제품 제조업,1995-08-07,Materials
-동화약품,000020,의약품 제조업,1976-03-24,Health Care
-두산,000150,기타 금융업,1973-06-29,Financials
-두산2우B,000157,,,Other
-두산로보틱스,454910,특수 목적용 기계 제조업,2023-10-05,Industrials
-두산밥캣,241560,특수 목적용 기계 제조업,2016-11-18,Industrials
-두산에너빌리티,034020,일반 목적용 기계 제조업,2000-10-25,Industrials
-두산우,000155,기타 금융업,1973-06-29,Financials
-두산테스나,131970,"그외 기타 전문, 과학 및 기술 서비스업",2013-10-22,Health Care
-두산퓨얼셀,336260,"전동기, 발전기 및 전기 변환 · 공급 · 제어 장치 제조업",2019-10-18,Industrials
-두산퓨얼셀1우,33626K,,,Other
-두산퓨얼셀2우B,33626L,,,Other
-두올,016740,자동차 신품 부품 제조업,2016-07-29,Consumer Discretionary
-듀오백,073190,가구 제조업,2004-02-06,Consumer Discretionary
-듀켐바이오,176750,의약품 제조업,2024-12-20,Health Care
-드래곤플라이,030350,소프트웨어 개발 및 공급업,1997-11-10,Information Technology
-드림시큐리티,203650,소프트웨어 개발 및 공급업,2014-10-13,Information Technology
-드림씨아이에스,223250,자연과학 및 공학 연구개발업,2020-05-22,Health Care
-드림어스컴퍼니,060570,영상·오디오물 제공 서비스업,2003-12-19,Consumer Discretionary
-드림인사이트,362990,광고업,2024-01-25,Communication Services
-드림텍,192650,전자부품 제조업,2019-03-14,Information Technology
-디모아,016670,기타 전문 도매업,1993-04-21,Consumer Discretionary
-디바이스,187870,특수 목적용 기계 제조업,2017-12-20,Industrials
-디비금융제13호스팩,489730,기타 금융업,2024-11-28,Financials
-디비금융제14호스팩,0004Y0,기타 금융업,2025-07-22,Financials
-디씨엠,024090,1차 철강 제조업,1999-08-18,Materials
-디아이,003160,"측정, 시험, 항해, 제어 및 기타 정밀기기 제조업; 광학기기 제외",1996-07-31,Information Technology
-디아이씨,092200,자동차 신품 부품 제조업,2007-10-18,Consumer Discretionary
-디아이티,110990,특수 목적용 기계 제조업,2018-08-07,Industrials
-디알젬,263690,의료용 기기 제조업,2018-11-22,Health Care
-디알텍,214680,의료용 기기 제조업,2015-04-20,Health Care
-디앤디파마텍,347850,자연과학 및 공학 연구개발업,2024-05-02,Health Care
-디앤디플랫폼리츠,377190,부동산 임대 및 공급업,2021-08-27,Real Estate
-디앤씨미디어,263720,"서적, 잡지 및 기타 인쇄물 출판업",2017-08-01,Communication Services
-디어유,376300,소프트웨어 개발 및 공급업,2021-11-10,Information Technology
-디에스케이,109740,특수 목적용 기계 제조업,2009-09-23,Industrials
-디에이치엑스컴퍼니,031860,상품 종합 도매업,1997-01-07,Consumer Discretionary
-디에이테크놀로지,196490,특수 목적용 기계 제조업,2014-11-19,Industrials
-디에이피,066900,전자부품 제조업,2004-05-14,Information Technology
-디엔에프,092070,기타 화학제품 제조업,2007-11-16,Materials
-디오,039840,의료용 기기 제조업,2000-06-29,Health Care
-디와이,013570,기타 금융업,1989-05-30,Financials
-디와이덕양,024900,자동차 신품 부품 제조업,1997-06-23,Consumer Discretionary
-디와이디,219550,생활용품 도매업,2015-07-22,Consumer Discretionary
-디와이씨,310870,자동차 신품 부품 제조업,2018-12-20,Consumer Discretionary
-디와이파워,210540,특수 목적용 기계 제조업,2015-01-15,Industrials
-디와이피엔에프,104460,일반 목적용 기계 제조업,2009-12-22,Industrials
-디이엔티,079810,기타 전기장비 제조업,2005-01-26,Utilities
-디젠스,113810,자동차 신품 부품 제조업,2012-11-22,Consumer Discretionary
-디지아이,043360,컴퓨터 및 주변장치 제조업,2001-07-20,Information Technology
-디지캡,197140,소프트웨어 개발 및 공급업,2018-09-07,Information Technology
-디지털대성,068930,일반 교습 학원,2003-10-17,Industrials
-디지틀조선,033130,"자료처리, 호스팅, 포털 및 기타 인터넷 정보매개 서비스업",1997-08-06,Information Technology
-디케이락,105740,일반 목적용 기계 제조업,2010-11-12,Industrials
-디케이앤디,263020,플라스틱제품 제조업,2018-11-20,Materials
-디케이티,290550,전자부품 제조업,2018-12-21,Information Technology
-디티씨,066670,전자부품 제조업,2002-12-30,Information Technology
-디티앤씨,187220,기타 과학기술 서비스업,2014-12-17,Health Care
-디티앤씨알오,383930,자연과학 및 공학 연구개발업,2022-11-11,Health Care
-딜리,131180,컴퓨터 및 주변장치 제조업,2011-01-31,Information Technology
-딥노이드,315640,소프트웨어 개발 및 공급업,2021-08-17,Information Technology
-라닉스,317120,반도체 제조업,2019-09-18,Information Technology
-라메디텍,462510,의료용 기기 제조업,2024-06-17,Health Care
-라온시큐어,042510,소프트웨어 개발 및 공급업,2001-01-03,Information Technology
-라온테크,232680,특수 목적용 기계 제조업,2021-06-17,Industrials
-라온텍,418420,전자부품 제조업,2023-03-09,Information Technology
-라온피플,300120,소프트웨어 개발 및 공급업,2019-10-18,Information Technology
-라이온켐텍,171120,기타 화학제품 제조업,2013-11-19,Materials
-라이콤,388790,통신 및 방송 장비 제조업,2021-09-03,Information Technology
-라파스,214260,기타 화학제품 제조업,2019-11-11,Materials
-라피치,403360,소프트웨어 개발 및 공급업,2021-12-14,Information Technology
-램테크놀러지,171010,기초 화학물질 제조업,2013-11-18,Energy
-랩지노믹스,084650,자연과학 및 공학 연구개발업,2014-12-16,Health Care
-러셀,217500,특수 목적용 기계 제조업,2015-06-16,Industrials
-럭스피아,092590,반도체 제조업,2015-10-30,Information Technology
-레드캡투어,038390,여행사 및 기타 여행보조 서비스업,2000-02-01,Consumer Discretionary
-레몬,294140,화학섬유 제조업,2020-02-28,Materials
-레뷰코퍼레이션,443250,광고업,2023-10-06,Communication Services
-레이,228670,의료용 기기 제조업,2019-08-08,Health Care
-레이언스,228850,의료용 기기 제조업,2016-04-11,Health Care
-레이저쎌,412350,특수 목적용 기계 제조업,2022-06-24,Industrials
-레이저옵텍,199550,의료용 기기 제조업,2024-02-01,Health Care
-레이크머티리얼즈,281740,기타 화학제품 제조업,2017-12-12,Materials
-레인보우로보틱스,277810,특수 목적용 기계 제조업,2021-02-03,Industrials
-로보로보,215100,기타 전기장비 제조업,2015-04-22,Utilities
-로보스타,090360,특수 목적용 기계 제조업,2011-10-17,Industrials
-로보쓰리에이아이,238500,"그외 기타 전문, 과학 및 기술 서비스업",2016-04-20,Health Care
-로보티즈,108490,특수 목적용 기계 제조업,2018-10-26,Industrials
-로스웰,900260,기타 금융업,2016-06-30,Financials
-로젠,033290,"섬유, 의복, 신발 및 가죽제품 소매업",1997-10-13,Consumer Discretionary
-로지스몬,223220,기타 운송관련 서비스업,2015-07-09,Industrials
-로지시스,067730,"컴퓨터 프로그래밍, 시스템 통합 및 관리업",2015-07-29,Information Technology
-로체시스템즈,071280,특수 목적용 기계 제조업,2003-11-14,Industrials
-로킷헬스케어,376900,의료용품 및 기타 의약 관련제품 제조업,2025-05-12,Health Care
-롤링스톤,214610,의료용 기기 제조업,2020-10-22,Health Care
-롯데관광개발,032350,여행사 및 기타 여행보조 서비스업,2006-06-08,Consumer Discretionary
-롯데렌탈,089860,운송장비 임대업,2021-08-19,Industrials
-롯데리츠,330590,부동산 임대 및 공급업,2019-10-30,Real Estate
-롯데손해보험,000400,보험업,1971-04-16,Financials
-롯데쇼핑,023530,종합 소매업,2006-02-09,Consumer Discretionary
-롯데에너지머티리얼즈,020150,전자부품 제조업,2011-03-04,Information Technology
-롯데웰푸드,280360,기타 식품 제조업,2017-10-30,Consumer Staples
-롯데이노베이트,286940,"컴퓨터 프로그래밍, 시스템 통합 및 관리업",2018-07-27,Information Technology
-롯데정밀화학,004000,기초 화학물질 제조업,1976-04-15,Energy
-롯데지주,004990,기타 금융업,1974-02-16,Financials
-롯데지주우,00499K,기타 금융업,1974-02-16,Financials
-롯데칠성,005300,,,Other
-롯데칠성우,005305,,,Other
-롯데케미칼,011170,기초 화학물질 제조업,1991-05-30,Energy
-롯데하이마트,071840,가전제품 및 정보통신장비 소매업,2011-06-29,Consumer Discretionary
-루닛,328130,소프트웨어 개발 및 공급업,2022-07-21,Information Technology
-루멘스,038060,반도체 제조업,2006-08-08,Information Technology
-루미르,474170,"항공기,우주선 및 부품 제조업",2024-10-21,Industrials
-루켄테크놀러지스,162120,기타 전기장비 제조업,2017-07-25,Utilities
-루트락,253610,기타 전문 도매업,2020-12-24,Consumer Discretionary
-리가켐바이오,141080,자연과학 및 공학 연구개발업,2013-05-10,Health Care
-리노공업,058470,전자부품 제조업,2001-12-18,Information Technology
-리더스코스메틱,016100,"골판지, 종이 상자 및 종이용기 제조업",2003-01-15,Materials
-리드코프,012700,기타 전문 도매업,1996-01-19,Consumer Discretionary
-리메드,302550,의료용 기기 제조업,2019-12-06,Health Care
-리브스메드,491000,의료용 기기 제조업,2025-12-24,Health Care
-리튬포어스,073570,그외 기타 제품 제조업,2004-01-06,Consumer Discretionary
-리파인,377450,기타 정보 서비스업,2021-10-29,Information Technology
-린드먼아시아,277070,신탁업 및 집합투자업,2018-03-14,Financials
-링네트,042500,"컴퓨터 프로그래밍, 시스템 통합 및 관리업",2002-01-10,Information Technology
-링크드,193250,전자부품 제조업,2014-12-29,Information Technology
-링크솔루션,474650,특수 목적용 기계 제조업,2025-06-10,Industrials
-링크제니시스,219420,소프트웨어 개발 및 공급업,2018-02-05,Information Technology
-마녀공장,439090,기타 화학제품 제조업,2023-06-08,Materials
-마니커,027740,"도축, 육류 가공 및 저장 처리업",2002-10-29,Consumer Staples
-마니커에프앤지,195500,"도축, 육류 가공 및 저장 처리업",2019-08-20,Consumer Staples
-마스턴프리미어리츠,357430,부동산 임대 및 공급업,2022-05-31,Real Estate
-마음AI,377480,소프트웨어 개발 및 공급업,2021-11-23,Information Technology
-마이크로디지탈,305090,의료용 기기 제조업,2019-06-05,Health Care
-마이크로엔엑스,448780,의료용 기기 제조업,2022-12-21,Health Care
-마이크로컨텍솔,098120,전자부품 제조업,2008-09-23,Information Technology
-마이크로투나노,424980,반도체 제조업,2023-04-26,Information Technology
-마크로젠,038290,"그외 기타 전문, 과학 및 기술 서비스업",2000-02-22,Health Care
-만호제강,001080,1차 철강 제조업,1977-06-18,Materials
-매일유업,267980,동·식물성 유지 및 낙농제품 제조업,2017-06-05,Consumer Staples
-매일홀딩스,005990,동·식물성 유지 및 낙농제품 제조업,1999-05-14,Consumer Staples
-매커스,093520,기계장비 및 관련 물품 도매업,2007-02-12,Consumer Discretionary
-맥쿼리인프라,088980,신탁업 및 집합투자업,2006-03-15,Financials
-맵스리얼티,094800,신탁업 및 집합투자업,2007-04-09,Financials
-머니무브,179720,기타 금융업,2013-07-01,Financials
-머큐리,100590,통신 및 방송 장비 제조업,2018-12-14,Information Technology
-멀티캠퍼스,067280,기타 교육기관,2006-11-16,Industrials
-메가스터디,072870,"서적, 잡지 및 기타 인쇄물 출판업",2004-12-21,Communication Services
-메가스터디교육,215200,일반 교습 학원,2015-05-04,Industrials
-메가엠디,133750,일반 교습 학원,2015-12-18,Industrials
-메가터치,446540,일차전지 및 이차전지 제조업,2023-11-09,Industrials
-메드팩토,235980,자연과학 및 공학 연구개발업,2019-12-19,Health Care
-메디쎄이,200580,의료용 기기 제조업,2015-10-20,Health Care
-메디아나,041920,의료용 기기 제조업,2014-10-07,Health Care
-메디안디노스틱,233250,의료용품 및 기타 의약 관련제품 제조업,2017-06-26,Health Care
-메디앙스,014100,상품 종합 도매업,1995-01-03,Consumer Discretionary
-메디젠휴먼케어,236340,자연과학 및 공학 연구개발업,2016-01-26,Health Care
-메디콕스,054180,선박 및 보트 건조업,2001-10-16,Industrials
-메디톡스,086900,기초 의약물질 제조업,2009-01-16,Health Care
-메디포스트,078160,기초 의약물질 제조업,2005-07-29,Health Care
-메리츠금융지주,138040,기타 금융업,2011-05-13,Financials
-메리츠제1호스팩,0088D0,금융 지원 서비스업,2025-12-15,Financials
-메쎄이상,408920,기타 사업지원 서비스업,2022-03-07,Industrials
-메이슨캐피탈,021880,기타 금융업,1996-09-02,Financials
-메지온,140410,자연과학 및 공학 연구개발업,2012-01-20,Health Care
-메카로,241770,반도체 제조업,2017-12-06,Information Technology
-메타랩스,090370,봉제의복 제조업,2006-12-26,Consumer Discretionary
-메타바이오메드,059210,의료용품 및 기타 의약 관련제품 제조업,2008-04-15,Health Care
-메타케어,118000,기계장비 및 관련 물품 도매업,2009-12-30,Consumer Discretionary
-멕아이씨에스,058110,의료용 기기 제조업,2015-12-14,Health Care
-멤레이비티,072770,"컴퓨터 프로그래밍, 시스템 통합 및 관리업",2007-07-25,Information Technology
-명문제약,017180,의약품 제조업,2008-07-10,Health Care
-명신산업,009900,자동차 신품 부품 제조업,2020-12-07,Consumer Discretionary
-명인제약,317450,의약품 제조업,2025-10-01,Health Care
-모나리자,012690,기타 종이 및 판지 제품 제조업,1988-10-14,Materials
-모나미,005360,생활용품 도매업,1974-06-26,Consumer Discretionary
-모나용평,070960,일반 및 생활 숙박시설 운영업,2016-05-27,Consumer Discretionary
-모니터랩,434480,소프트웨어 개발 및 공급업,2023-05-19,Information Technology
-모다이노칩,080420,"섬유, 의복, 신발 및 가죽제품 소매업",2005-12-06,Consumer Discretionary
-모델솔루션,417970,특수 목적용 기계 제조업,2022-10-07,Industrials
-모두투어,080160,여행사 및 기타 여행보조 서비스업,2005-07-26,Consumer Discretionary
-모바일어플라이언스,087260,소프트웨어 개발 및 공급업,2017-02-24,Information Technology
-모베이스,101330,통신 및 방송 장비 제조업,2010-02-04,Information Technology
-모베이스전자,012860,자동차 신품 부품 제조업,1994-10-26,Consumer Discretionary
-모비데이즈,363260,광고업,2021-02-10,Communication Services
-모비릭스,348030,소프트웨어 개발 및 공급업,2021-01-28,Information Technology
-모비스,250060,"컴퓨터 프로그래밍, 시스템 통합 및 관리업",2016-09-08,Information Technology
-모아데이타,288980,소프트웨어 개발 및 공급업,2022-03-10,Information Technology
-모아라이프플러스,142760,자연과학 및 공학 연구개발업,2016-07-07,Health Care
-모아텍,033200,전자부품 제조업,1997-10-13,Information Technology
-모코엠시스,333050,소프트웨어 개발 및 공급업,2019-10-31,Information Technology
-모토닉,009680,자동차 신품 부품 제조업,1994-01-14,Consumer Discretionary
-모트렉스,118990,자동차 신품 부품 제조업,2017-08-04,Consumer Discretionary
-모티브링크,463480,전자부품 제조업,2025-02-20,Information Technology
-모헨즈,006920,"시멘트, 석회, 플라스터 및 그 제품 제조업",1989-01-05,Materials
-무림P&P,009580,"펄프, 종이 및 판지 제조업",1989-06-20,Materials
-무림SP,001810,"펄프, 종이 및 판지 제조업",2000-01-04,Materials
-무림페이퍼,009200,"펄프, 종이 및 판지 제조업",1990-06-09,Materials
-무진메디,322970,자연과학 및 공학 연구개발업,2020-06-24,Health Care
-무학,033920,알코올음료 제조업,2010-07-20,Consumer Staples
-문배철강,008420,1차 철강 제조업,1994-11-05,Materials
-미디어젠,279600,소프트웨어 개발 및 공급업,2019-11-05,Information Technology
-미래나노텍,095500,플라스틱제품 제조업,2007-10-01,Materials
-미래반도체,254490,기타 전문 도매업,2023-01-27,Consumer Discretionary
-미래산업,025560,"측정, 시험, 항해, 제어 및 기타 정밀기기 제조업; 광학기기 제외",1996-11-22,Information Technology
-미래생명자원,218150,동물용 사료 및 조제식품 제조업,2015-06-18,Consumer Staples
-미래아이앤지,007120,"컴퓨터 프로그래밍, 시스템 통합 및 관리업",1999-11-26,Information Technology
-미래에셋글로벌리츠,396690,부동산 임대 및 공급업,2021-12-03,Real Estate
-미래에셋맵스리츠,357250,부동산 임대 및 공급업,2020-08-05,Real Estate
-미래에셋벤처투자,100790,기타 금융업,2019-03-15,Financials
-미래에셋비전스팩10호,0097F0,금융 지원 서비스업,2025-12-23,Financials
-미래에셋비전스팩11호,0099W0,금융 지원 서비스업,2025-12-22,Financials
-미래에셋비전스팩3호,448830,금융 지원 서비스업,2023-04-07,Financials
-미래에셋비전스팩4호,477380,금융 지원 서비스업,2024-05-29,Financials
-미래에셋비전스팩5호,477470,금융 지원 서비스업,2024-06-19,Financials
-미래에셋비전스팩6호,478440,금융 지원 서비스업,2024-06-24,Financials
-미래에셋비전스팩7호,482680,금융 지원 서비스업,2024-09-11,Financials
-미래에셋비전스팩8호,0093G0,금융 지원 서비스업,2025-11-27,Financials
-미래에셋비전스팩9호,0096D0,금융 지원 서비스업,2025-12-01,Financials
-미래에셋생명,085620,보험업,2015-07-08,Financials
-미래에셋증권,006800,금융 지원 서비스업,1975-09-30,Financials
-미래에셋증권2우B,00680K,,,Other
-미래에셋증권우,006805,금융 지원 서비스업,1975-09-30,Financials
-미래엔에듀파트너,208890,교육지원 서비스업,2014-12-18,Industrials
-미래컴퍼니,049950,특수 목적용 기계 제조업,2005-01-04,Industrials
-미스터블루,207760,기타 정보 서비스업,2014-12-12,Information Technology
-미스토홀딩스,081660,생활용품 도매업,2010-09-28,Consumer Discretionary
-미원상사,002840,기타 화학제품 제조업,1989-09-25,Materials
-미원에스씨,268280,기초 화학물질 제조업,2017-05-22,Energy
-미원홀딩스,107590,기타 금융업,2009-03-02,Financials
-미원화학,134380,기타 화학제품 제조업,2011-02-15,Materials
-미쥬,351020,봉제의복 제조업,2023-10-26,Consumer Discretionary
-미창석유,003650,,,Other
-미코,059090,반도체 제조업,2002-01-15,Information Technology
-미투온,201490,소프트웨어 개발 및 공급업,2016-10-10,Information Technology
-미트박스,475460,기타 정보 서비스업,2025-01-23,Information Technology
-민테크,452200,"측정, 시험, 항해, 제어 및 기타 정밀기기 제조업; 광학기기 제외",2024-05-03,Information Technology
-바디텍메드,206640,의료용품 및 기타 의약 관련제품 제조업,2014-12-29,Health Care
-바른손,018700,생활용품 도매업,1994-03-18,Consumer Discretionary
-바른손이앤에이,035620,"영화, 비디오물, 방송프로그램 제작 및 배급업",1999-08-13,Consumer Discretionary
-바스칸바이오제약,354390,의약품 제조업,2022-07-20,Health Care
-바이넥스,053030,의약품 제조업,2001-08-07,Health Care
-바이브컴퍼니,301300,소프트웨어 개발 및 공급업,2020-10-28,Information Technology
-바이오노트,377740,의료용품 및 기타 의약 관련제품 제조업,2022-12-22,Health Care
-바이오니아,064550,의료용품 및 기타 의약 관련제품 제조업,2005-12-29,Health Care
-바이오다인,314930,의료용 기기 제조업,2021-03-17,Health Care
-바이오비쥬,489460,기타 화학제품 제조업,2025-05-20,Materials
-바이오솔루션,086820,기초 의약물질 제조업,2018-08-20,Health Care
-바이오스마트,038460,전자부품 제조업,2000-06-22,Information Technology
-바이오에프디엔씨,251120,기초 의약물질 제조업,2022-02-21,Health Care
-바이오인프라,199730,자연과학 및 공학 연구개발업,2023-03-02,Health Care
-바이오인프라생명과학,266470,자연과학 및 공학 연구개발업,2020-07-22,Health Care
-바이오텐,289170,기타 식품 제조업,2023-10-13,Consumer Staples
-바이오톡스텍,086040,자연과학 및 공학 연구개발업,2007-09-21,Health Care
-바이오포트,188040,기타 식품 제조업,2025-05-16,Consumer Staples
-바이오프로테크,199290,의료용 기기 제조업,2016-12-08,Health Care
-바이오플러스,099430,기초 의약물질 제조업,2021-09-27,Health Care
-바이온,032980,음·식료품 및 담배 도매업,1997-08-06,Consumer Discretionary
-바이젠셀,308080,자연과학 및 공학 연구개발업,2021-08-25,Health Care
-바텍,043150,의료용 기기 제조업,2006-09-29,Health Care
-박셀바이오,323990,자연과학 및 공학 연구개발업,2020-09-22,Health Care
-방림,003610,직물직조 및 직물제품 제조업,1989-05-30,Materials
-배럴,267790,봉제의복 제조업,2018-02-01,Consumer Discretionary
-백금T&A,046310,통신 및 방송 장비 제조업,2002-02-05,Information Technology
-백산,035150,플라스틱제품 제조업,1999-08-11,Materials
-밸로프,331520,소프트웨어 개발 및 공급업,2019-10-29,Information Technology
-뱅크웨어글로벌,199480,소프트웨어 개발 및 공급업,2024-08-12,Information Technology
-버넥트,438700,소프트웨어 개발 및 공급업,2023-07-26,Information Technology
-버킷스튜디오,066410,전기 통신업,2003-12-19,Communication Services
-범양건영,002410,건물 건설업,1988-05-25,Industrials
-범한퓨얼셀,382900,"전동기, 발전기 및 전기 변환 · 공급 · 제어 장치 제조업",2022-06-17,Industrials
-베노티앤알,206400,실내건축 및 건축마무리 공사업,2014-12-10,Industrials
-베뉴지,019010,종합 소매업,1993-11-05,Consumer Discretionary
-베셀,177350,특수 목적용 기계 제조업,2015-06-19,Industrials
-벡트,457600,영상 및 음향기기 제조업,2024-12-16,Information Technology
-벨로크,424760,"컴퓨터 프로그래밍, 시스템 통합 및 관리업",2022-07-22,Information Technology
-벽산,007210,기타 비금속 광물제품 제조업,1972-01-04,Materials
-보라티알,250000,음·식료품 및 담배 도매업,2017-06-08,Consumer Discretionary
-보락,002760,기타 화학제품 제조업,1989-11-30,Materials
-보령,003850,의약품 제조업,1988-10-24,Health Care
-보로노이,310210,자연과학 및 공학 연구개발업,2022-06-24,Health Care
-보성파워텍,006910,"구조용 금속제품, 탱크 및 증기발생기 제조업",1994-09-07,Industrials
-보해양조,000890,알코올음료 제조업,1988-09-23,Consumer Staples
-본느,226340,기타 화학제품 제조업,2015-11-05,Materials
-본시스템즈,496320,특수 목적용 기계 제조업,2025-09-08,Industrials
-볼빅,206950,운동 및 경기용구 제조업,2015-12-30,Consumer Discretionary
-부광약품,003000,의약품 제조업,1988-08-05,Health Care
-부국증권,001270,금융 지원 서비스업,1988-07-19,Financials
-부국증권우,001275,금융 지원 서비스업,1988-07-19,Financials
-부국철강,026940,1차 철강 제조업,2008-10-14,Materials
-부방,014470,부동산 임대 및 공급업,1994-02-25,Real Estate
-부산산업,011390,"시멘트, 석회, 플라스터 및 그 제품 제조업",1990-09-14,Materials
-부산주공,005030,자동차 신품 부품 제조업,1975-12-26,Consumer Discretionary
-부스타,008470,"구조용 금속제품, 탱크 및 증기발생기 제조업",2011-02-23,Industrials
-뷰노,338220,소프트웨어 개발 및 공급업,2021-02-26,Information Technology
-뷰웍스,100120,의료용 기기 제조업,2009-04-10,Health Care
-뷰티스킨,406820,기타 화학제품 제조업,2023-07-24,Materials
-브레인즈컴퍼니,099390,소프트웨어 개발 및 공급업,2021-08-19,Information Technology
-브리지텍,064480,소프트웨어 개발 및 공급업,2008-06-04,Information Technology
-브이씨,365900,운동 및 경기용구 제조업,2022-02-24,Consumer Discretionary
-브이엠,089970,특수 목적용 기계 제조업,2018-08-23,Industrials
-브이원텍,251630,특수 목적용 기계 제조업,2017-07-13,Industrials
-브이티,018290,기타 화학제품 제조업,1994-09-07,Materials
-블랙야크아이앤씨,478560,신발 및 신발 부분품 제조업,2025-01-21,Consumer Discretionary
-블루산업개발,006740,"골판지, 종이 상자 및 종이용기 제조업",1996-07-03,Materials
-블루엠텍,439580,기타 전문 도매업,2023-12-13,Consumer Discretionary
-블루콤,033560,영상 및 음향기기 제조업,2011-01-26,Information Technology
-블루탑,191600,전자부품 제조업,2016-08-05,Information Technology
-블리츠웨이엔터테인먼트,369370,창작 및 예술관련 서비스업,2020-12-23,Consumer Discretionary
-비나텍,126340,일차전지 및 이차전지 제조업,2020-09-23,Industrials
-비덴트,121800,통신 및 방송 장비 제조업,2011-12-01,Information Technology
-비보존 제약,082800,의약품 제조업,2005-11-18,Health Care
-비비씨,318410,기타 화학제품 제조업,2020-09-21,Materials
-비비안,002070,봉제의복 제조업,1976-07-13,Consumer Discretionary
-비상교육,100220,"서적, 잡지 및 기타 인쇄물 출판업",2008-06-30,Communication Services
-비스토스,419540,의료용 기기 제조업,2022-10-18,Health Care
-비씨엔씨,146320,반도체 제조업,2022-03-03,Information Technology
-비씨월드제약,200780,의약품 제조업,2014-12-15,Health Care
-비아이매트릭스,413640,소프트웨어 개발 및 공급업,2023-11-09,Information Technology
-비아트론,141000,특수 목적용 기계 제조업,2012-05-04,Industrials
-비에이치,090460,전자부품 제조업,2023-06-20,Information Technology
-비에이치아이,083650,일반 목적용 기계 제조업,2005-12-02,Industrials
-비엔케이제2호스팩,473370,금융 지원 서비스업,2024-03-05,Financials
-비엔케이제3호스팩,0068Y0,금융 지원 서비스업,2025-11-21,Financials
-비엘팜텍,065170,음·식료품 및 담배 도매업,2002-11-19,Consumer Discretionary
-비엠티,086670,일반 목적용 기계 제조업,2007-11-02,Industrials
-비유테크놀러지,230980,소프트웨어 개발 및 공급업,2016-03-02,Information Technology
-비츠로넥스텍,488900,"항공기,우주선 및 부품 제조업",2025-11-21,Industrials
-비츠로셀,082920,일차전지 및 이차전지 제조업,2009-10-28,Industrials
-비츠로시스,054220,"전동기, 발전기 및 전기 변환 · 공급 · 제어 장치 제조업",2001-12-26,Industrials
-비츠로테크,042370,기타 금융업,2000-08-03,Financials
-비케이홀딩스,050090,광고업,2004-06-29,Communication Services
-비큐AI,148780,소프트웨어 개발 및 공급업,2022-06-20,Information Technology
-비투엔,307870,소프트웨어 개발 및 공급업,2018-12-12,Information Technology
-비트맥스,377030,소프트웨어 개발 및 공급업,2021-07-27,Information Technology
-비트컴퓨터,032850,소프트웨어 개발 및 공급업,1997-07-04,Information Technology
-비트플래닛,049470,소프트웨어 개발 및 공급업,2001-10-11,Information Technology
-비피도,238200,기타 식품 제조업,2018-12-26,Consumer Staples
-빅솔론,093190,컴퓨터 및 주변장치 제조업,2007-08-20,Information Technology
-빅텍,065450,"측정, 시험, 항해, 제어 및 기타 정밀기기 제조업; 광학기기 제외",2003-02-05,Information Technology
-빌리언스,044480,고무제품 제조업,2001-01-11,Materials
-빙그레,005180,동·식물성 유지 및 낙농제품 제조업,1978-08-31,Consumer Staples
-빛과전자,069540,통신 및 방송 장비 제조업,2004-02-13,Information Technology
-빛샘전자,072950,전자부품 제조업,2012-03-21,Information Technology
-뿌리깊은나무들,266170,"영화, 비디오물, 방송프로그램 제작 및 배급업",2017-06-09,Consumer Discretionary
-삐아,451250,기타 화학제품 제조업,2024-04-25,Materials
-사람인,143240,"자료처리, 호스팅, 포털 및 기타 인터넷 정보매개 서비스업",2012-02-21,Information Technology
-사이냅소프트,466410,소프트웨어 개발 및 공급업,2024-11-19,Information Technology
-사조대림,003960,수산물 가공 및 저장 처리업,1976-09-16,Consumer Staples
-사조동아원,008040,"곡물가공품, 전분 및 전분제품 제조업",1989-06-24,Consumer Staples
-사조산업,007160,수산물 가공 및 저장 처리업,1989-07-25,Consumer Staples
-사조씨푸드,014710,수산물 가공 및 저장 처리업,2012-06-29,Consumer Staples
-사조오양,006090,수산물 가공 및 저장 처리업,1986-12-24,Consumer Staples
-사토시홀딩스,223310,상품 종합 도매업,2015-12-24,Consumer Discretionary
-사피엔반도체,452430,반도체 제조업,2024-02-19,Information Technology
-산돌,419120,소프트웨어 개발 및 공급업,2022-10-27,Information Technology
-산일전기,062040,"전동기, 발전기 및 전기 변환 · 공급 · 제어 장치 제조업",2024-07-29,Industrials
-삼기,122350,자동차 신품 부품 제조업,2010-03-19,Consumer Discretionary
-삼기에너지솔루션즈,419050,자동차 신품 부품 제조업,2023-02-03,Consumer Discretionary
-삼륭물산,014970,"골판지, 종이 상자 및 종이용기 제조업",1992-12-29,Materials
-삼목에스폼,018310,"구조용 금속제품, 탱크 및 증기발생기 제조업",1996-05-03,Industrials
-삼미금속,012210,기타 금속 가공제품 제조업,2025-12-29,Materials
-삼보모터스,053700,자동차 신품 부품 제조업,2001-11-06,Consumer Discretionary
-삼보산업,009620,1차 비철금속 제조업,1993-12-07,Materials
-삼보판지,023600,"펄프, 종이 및 판지 제조업",1996-05-29,Materials
-삼부토건,001470,토목 건설업,1976-06-26,Industrials
-삼성E&A,028050,"건축기술, 엔지니어링 및 관련 기술 서비스업",1996-12-24,Industrials
-삼성FN리츠,448730,부동산 임대 및 공급업,2023-04-10,Real Estate
-삼성SDI,006400,일차전지 및 이차전지 제조업,1979-02-27,Industrials
-삼성SDI우,006405,일차전지 및 이차전지 제조업,1979-02-27,Industrials
-삼성공조,006660,자동차 신품 부품 제조업,1987-11-28,Consumer Discretionary
-삼성물산,028260,기타 전문 도매업,2014-12-18,Consumer Discretionary
-삼성물산우B,02826K,,,Other
-삼성바이오로직스,207940,기초 의약물질 제조업,2016-11-10,Health Care
-삼성생명,032830,보험업,2010-05-12,Financials
-삼성스팩10호,0044K0,금융 지원 서비스업,2025-08-21,Financials
-삼성스팩11호,0071M0,금융 지원 서비스업,2025-09-30,Financials
-삼성스팩12호,0096B0,기타 금융업,2025-11-28,Financials
-삼성에스디에스,018260,"컴퓨터 프로그래밍, 시스템 통합 및 관리업",2014-11-14,Information Technology
-삼성에피스홀딩스,0126Z0,기타 금융업,2025-11-24,Financials
-삼성전기,009150,전자부품 제조업,1979-02-27,Information Technology
-삼성전기우,009155,전자부품 제조업,1979-02-27,Information Technology
-삼성전자,005930,통신 및 방송 장비 제조업,1975-06-11,Information Technology
-삼성전자우,005935,통신 및 방송 장비 제조업,1975-06-11,Information Technology
-삼성제약,001360,의약품 제조업,1975-07-04,Health Care
-삼성중공업,010140,선박 및 보트 건조업,1994-01-28,Industrials
-삼성증권,016360,금융 지원 서비스업,1988-03-28,Financials
-삼성출판사,068290,"서적, 잡지 및 기타 인쇄물 출판업",2002-08-05,Communication Services
-삼성카드,029780,기타 금융업,2007-06-27,Financials
-삼성화재,000810,,,Other
-삼성화재우,000815,,,Other
-삼아알미늄,006110,1차 비철금속 제조업,1980-12-05,Materials
-삼아제약,009300,의약품 제조업,2000-07-19,Health Care
-삼양바이오팜,0120G0,의약품 제조업,2025-11-24,Health Care
-삼양사,145990,기타 식품 제조업,2011-12-05,Consumer Staples
-삼양사우,145995,기타 식품 제조업,2011-12-05,Consumer Staples
-삼양식품,003230,기타 식품 제조업,1975-06-30,Consumer Staples
-삼양엔씨켐,482630,기타 화학제품 제조업,2025-02-03,Materials
-삼양컴텍,484590,무기 및 총포탄 제조업,2025-08-18,Materials
-삼양케이씨아이,036670,기타 화학제품 제조업,2001-01-03,Materials
-삼양통상,002170,"가죽, 가방 및 유사제품 제조업",1989-11-10,Consumer Discretionary
-삼양패키징,272550,플라스틱제품 제조업,2017-11-29,Materials
-삼양홀딩스,000070,기타 금융업,1968-12-27,Financials
-삼영,003720,플라스틱제품 제조업,1976-06-30,Materials
-삼영무역,002810,기타 전문 도매업,1988-03-28,Consumer Discretionary
-삼영에스앤씨,361670,전자부품 제조업,2021-05-21,Information Technology
-삼영엠텍,054540,"구조용 금속제품, 탱크 및 증기발생기 제조업",2001-11-15,Industrials
-삼영이엔씨,065570,통신 및 방송 장비 제조업,2003-01-21,Information Technology
-삼영전자,005680,,,Other
-삼원강재,023000,자동차 신품 부품 제조업,2011-07-22,Consumer Discretionary
-삼익THK,004380,일반 목적용 기계 제조업,1989-09-26,Industrials
-삼익악기,002450,악기 제조업,1988-09-30,Consumer Discretionary
-삼익제약,014950,의약품 제조업,2025-10-27,Health Care
-삼일,032280,도로 화물 운송업,1997-03-15,Industrials
-삼일기업공사,002290,건물 건설업,1992-11-30,Industrials
-삼일씨엔에스,004440,"시멘트, 석회, 플라스터 및 그 제품 제조업",2016-03-30,Materials
-삼일제약,000520,의약품 제조업,1985-05-29,Health Care
-삼정펄프,009770,"펄프, 종이 및 판지 제조업",2006-10-17,Materials
-삼지전자,037460,통신 및 방송 장비 제조업,1999-12-16,Information Technology
-삼진,032750,통신 및 방송 장비 제조업,1997-07-14,Information Technology
-삼진식품,0013V0,수산물 가공 및 저장 처리업,2025-12-22,Consumer Staples
-삼진엘앤디,054090,그외 기타 제품 제조업,2004-02-06,Consumer Discretionary
-삼진제약,005500,의약품 제조업,1988-06-18,Health Care
-삼천당제약,000250,의약품 제조업,2000-10-04,Health Care
-삼천리,004690,연료용 가스 제조 및 배관공급업,1976-12-23,Energy
-삼천리자전거,024950,생활용품 도매업,1995-01-04,Consumer Discretionary
-삼표시멘트,038500,기타 비금속 광물제품 제조업,2001-02-01,Materials
-삼현,437730,자동차 신품 부품 제조업,2024-03-21,Consumer Discretionary
-삼현철강,017480,1차 철강 제조업,2001-01-09,Materials
-삼호개발,010960,기반조성 및 시설물 축조관련 전문공사업,2005-05-12,Industrials
-삼화네트웍스,046390,"영화, 비디오물, 방송프로그램 제작 및 배급업",2001-01-11,Consumer Discretionary
-삼화왕관,004450,기타 금속 가공제품 제조업,1976-05-28,Materials
-삼화전기,009470,전자부품 제조업,1986-11-24,Information Technology
-삼화전자,011230,,,Other
-삼화콘덴서,001820,,,Other
-삼화페인트,000390,,,Other
-상보,027580,플라스틱제품 제조업,2007-10-01,Materials
-상상인,038540,"컴퓨터 프로그래밍, 시스템 통합 및 관리업",2000-08-18,Information Technology
-상상인제4호스팩,452670,금융 지원 서비스업,2023-09-14,Financials
-상상인증권,001290,금융 지원 서비스업,1988-09-23,Financials
-상신브레이크,041650,자동차 신품 부품 제조업,2004-10-27,Consumer Discretionary
-상신이디피,091580,일차전지 및 이차전지 제조업,2007-05-23,Industrials
-상신전자,263810,전자부품 제조업,2017-10-16,Information Technology
-상아프론테크,089980,플라스틱제품 제조업,2011-07-21,Materials
-상지건설,042940,건물 건설업,2000-10-19,Industrials
-새로닉스,042600,전자부품 제조업,2002-10-01,Information Technology
-새론오토모티브,075180,자동차 신품 부품 제조업,2005-10-21,Consumer Discretionary
-새빗켐,107600,기타 화학제품 제조업,2022-08-04,Materials
-샌즈랩,411080,소프트웨어 개발 및 공급업,2023-02-15,Information Technology
-샘씨엔에스,252990,전자부품 제조업,2021-05-20,Information Technology
-샘표,007540,기타 금융업,1976-06-29,Financials
-샘표식품,248170,기타 식품 제조업,2016-08-09,Consumer Staples
-샤페론,378800,기초 의약물질 제조업,2022-10-19,Health Care
-서남,294630,기타 전기장비 제조업,2020-02-20,Utilities
-서린바이오,038070,기타 전문 도매업,2005-10-25,Consumer Discretionary
-서부T&D,006730,일반 및 생활 숙박시설 운영업,1995-10-06,Consumer Discretionary
-서산,079650,"시멘트, 석회, 플라스터 및 그 제품 제조업",2005-01-21,Materials
-서암기계공업,100660,일반 목적용 기계 제조업,2011-12-19,Industrials
-서연,007860,기타 금융업,1989-09-09,Financials
-서연이화,200880,자동차 신품 부품 제조업,2014-08-08,Consumer Discretionary
-서연탑메탈,019770,특수 목적용 기계 제조업,2011-06-24,Industrials
-서울가스,017390,,,Other
-서울리거,043710,기타 전문 도매업,2002-07-11,Consumer Discretionary
-서울바이오시스,092190,반도체 제조업,2020-03-06,Information Technology
-서울반도체,046890,반도체 제조업,2002-01-17,Information Technology
-서울보증보험,031210,보험업,2025-03-14,Financials
-서울식품,004410,,,Other
-서울식품우,004415,,,Other
-서울옥션,063170,상품 중개업,2008-07-01,Consumer Discretionary
-서울전자통신,027040,"전동기, 발전기 및 전기 변환 · 공급 · 제어 장치 제조업",1999-12-03,Industrials
-서울제약,018680,의약품 제조업,2000-08-18,Health Care
-서울평가정보,036120,기타 정보 서비스업,1999-12-07,Information Technology
-서원,021050,금속 주조업,1996-01-30,Materials
-서원인텍,093920,통신 및 방송 장비 제조업,2007-12-20,Information Technology
-서전기전,189860,"전동기, 발전기 및 전기 변환 · 공급 · 제어 장치 제조업",2014-12-24,Industrials
-서진시스템,178320,기타 전기장비 제조업,2017-03-27,Utilities
-서진오토모티브,122690,자동차 신품 부품 제조업,2010-05-25,Consumer Discretionary
-서플러스글로벌,140070,기계장비 및 관련 물품 도매업,2017-01-25,Consumer Discretionary
-서한,011370,건물 건설업,1994-05-24,Industrials
-서호전기,065710,"전동기, 발전기 및 전기 변환 · 공급 · 제어 장치 제조업",2002-07-16,Industrials
-서흥,008490,기타 화학제품 제조업,1990-03-27,Materials
-서희건설,035890,건물 건설업,1999-12-24,Industrials
-석경에이티,357550,기초 화학물질 제조업,2020-12-23,Energy
-선광,003100,기타 운송관련 서비스업,1999-12-21,Industrials
-선도전기,007610,"전동기, 발전기 및 전기 변환 · 공급 · 제어 장치 제조업",1989-11-30,Industrials
-선바이오,067370,의약품 제조업,2022-10-05,Health Care
-선샤인푸드,217620,음식점업,2015-06-10,Consumer Discretionary
-선익시스템,171090,특수 목적용 기계 제조업,2017-09-20,Industrials
-선진,136490,동물용 사료 및 조제식품 제조업,2011-02-16,Consumer Staples
-선진뷰티사이언스,086710,기타 화학제품 제조업,2021-01-27,Materials
-성광벤드,014620,1차 철강 제조업,2001-01-11,Materials
-성도이엔지,037350,"건축기술, 엔지니어링 및 관련 기술 서비스업",2000-01-11,Industrials
-성문전자,014910,전자부품 제조업,1990-03-24,Information Technology
-성문전자우,014915,전자부품 제조업,1990-03-24,Information Technology
-성신양회,004980,"시멘트, 석회, 플라스터 및 그 제품 제조업",1976-06-30,Materials
-성신양회우,004985,"시멘트, 석회, 플라스터 및 그 제품 제조업",1976-06-30,Materials
-성안머티리얼스,011300,직물직조 및 직물제품 제조업,1995-11-10,Materials
-성우,458650,"곡물가공품, 전분 및 전분제품 제조업",1988-10-10,Consumer Staples
-성우,458650,일차전지 및 이차전지 제조업,2024-10-31,Industrials
-성우전자,081580,통신 및 방송 장비 제조업,2007-10-12,Information Technology
-성우테크론,045300,전자부품 제조업,2001-12-18,Information Technology
-성우하이텍,015750,자동차 신품 부품 제조업,1995-11-04,Consumer Discretionary
-성일하이텍,365340,기초 화학물질 제조업,2022-07-28,Energy
-성창기업지주,000180,회사 본부 및 경영 컨설팅 서비스업,1976-06-02,Financials
-성창오토텍,080470,자동차 신품 부품 제조업,2006-11-03,Consumer Discretionary
-성호전자,043260,전자부품 제조업,2001-11-29,Information Technology
-세경하이테크,148150,전자부품 제조업,2019-07-30,Information Technology
-세기상사,002420,연료 소매업,1968-12-27,Energy
-세나테크놀로지,061090,통신 및 방송 장비 제조업,2025-11-14,Information Technology
-세니젠,188260,그외 기타 제품 제조업,2023-11-03,Consumer Discretionary
-세동,053060,자동차 신품 부품 제조업,2001-08-17,Consumer Discretionary
-세림B&G,340440,플라스틱제품 제조업,2019-12-27,Materials
-세명전기,017510,기타 금속 가공제품 제조업,1991-12-26,Materials
-세미파이브,490470,"건축기술, 엔지니어링 및 관련 기술 서비스업",2025-12-29,Industrials
-세방,004360,도로 화물 운송업,1977-05-19,Industrials
-세방우,004365,도로 화물 운송업,1977-05-19,Industrials
-세방전지,004490,일차전지 및 이차전지 제조업,1987-11-28,Industrials
-세보엠이씨,011560,건물설비 설치 공사업,1996-12-23,Industrials
-세븐브로이맥주,267080,알코올음료 제조업,2024-01-17,Consumer Staples
-세아메카닉스,396300,기타 금속 가공제품 제조업,2022-03-24,Materials
-세아베스틸지주,001430,1차 철강 제조업,1991-03-12,Materials
-세아제강,306200,1차 철강 제조업,2018-10-05,Materials
-세아제강지주,003030,기타 금융업,1969-05-13,Financials
-세아특수강,019440,1차 철강 제조업,2011-06-01,Materials
-세아홀딩스,058650,1차 철강 제조업,2001-07-30,Materials
-세우글로벌,013000,기타 전문 도매업,1989-09-05,Consumer Discretionary
-세운메디칼,100700,의료용품 및 기타 의약 관련제품 제조업,2008-09-30,Health Care
-세원물산,024830,자동차 신품 부품 제조업,1994-12-29,Consumer Discretionary
-세원정공,021820,자동차 신품 부품 제조업,1996-07-03,Consumer Discretionary
-세이브존I&C,067830,종합 소매업,2002-07-25,Consumer Discretionary
-세종메디칼,258830,의료용 기기 제조업,2018-05-29,Health Care
-세종텔레콤,036630,전기 및 통신 공사업,2000-01-04,Industrials
-세중,039310,소프트웨어 개발 및 공급업,2000-06-09,Information Technology
-세진중공업,075580,선박 및 보트 건조업,2015-11-30,Industrials
-세진티에스,067770,전자부품 제조업,2004-01-09,Information Technology
-세코닉스,053450,사진장비 및 광학기기 제조업,2001-08-09,Information Technology
-세토피아,222810,1차 철강 제조업,2015-08-13,Materials
-세화피앤씨,252500,기타 화학제품 제조업,2016-11-02,Materials
-센서뷰,321370,전자부품 제조업,2023-07-19,Information Technology
-센코,347000,"측정, 시험, 항해, 제어 및 기타 정밀기기 제조업; 광학기기 제외",2020-10-29,Information Technology
-셀레믹스,331920,기초 의약물질 제조업,2020-08-21,Health Care
-셀레스트라,352770,의료용품 및 기타 의약 관련제품 제조업,2020-12-04,Health Care
-셀로맥스사이언스,471820,기타 식품 제조업,2024-12-13,Consumer Staples
-셀루메드,049180,기초 의약물질 제조업,2002-05-23,Health Care
-셀리드,299660,자연과학 및 공학 연구개발업,2019-02-20,Health Care
-셀바스AI,108860,소프트웨어 개발 및 공급업,2009-12-10,Information Technology
-셀바스헬스케어,208370,의료용 기기 제조업,2014-12-17,Health Care
-셀바이오휴먼텍,318160,기타 섬유제품 제조업,2023-04-20,Consumer Discretionary
-셀비온,308430,의약품 제조업,2024-10-16,Health Care
-셀트리온,068270,기초 의약물질 제조업,2018-02-09,Health Care
-셀트리온제약,068760,의약품 제조업,2006-02-03,Health Care
-셀피글로벌,068940,전자부품 제조업,2010-10-19,Information Technology
-소노스퀘어,007720,상품 종합 도매업,1994-01-06,Consumer Discretionary
-소룩스,290690,전구 및 조명장치 제조업,2020-11-06,Utilities
-소마젠,950200,"그외 기타 전문, 과학 및 기술 서비스업",2020-07-13,Health Care
-소프트센,032680,기타 정보 서비스업,1997-07-18,Information Technology
-소프트센우,032685,기타 정보 서비스업,1997-07-18,Information Technology
-소프트캠프,258790,소프트웨어 개발 및 공급업,2017-04-27,Information Technology
-손오공,066910,기타 전문 도매업,2005-01-07,Consumer Discretionary
-솔디펜스,215090,"측정, 시험, 항해, 제어 및 기타 정밀기기 제조업; 광학기기 제외",2015-04-28,Information Technology
-솔루스첨단소재,336370,전자부품 제조업,2019-10-18,Information Technology
-솔루스첨단소재1우,33637K,,,Other
-솔루스첨단소재2우B,33637L,,,Other
-솔루엠,248070,전자부품 제조업,2021-02-02,Information Technology
-솔본,035610,회사 본부 및 경영 컨설팅 서비스업,1999-08-13,Financials
-솔브레인,357780,기타 화학제품 제조업,2020-08-06,Materials
-솔브레인홀딩스,036830,회사 본부 및 경영 컨설팅 서비스업,2000-01-18,Financials
-솔트룩스,304100,소프트웨어 개발 및 공급업,2020-07-23,Information Technology
-솔트웨어,328380,"컴퓨터 프로그래밍, 시스템 통합 및 관리업",2019-08-20,Information Technology
-송원산업,004430,기타 화학제품 제조업,1977-06-25,Materials
-쇼박스,086980,"영화, 비디오물, 방송프로그램 제작 및 배급업",2006-07-07,Consumer Discretionary
-수산세보틱스,017550,특수 목적용 기계 제조업,1991-08-30,Industrials
-수산아이앤티,050960,소프트웨어 개발 및 공급업,2016-10-11,Information Technology
-수산인더스트리,126720,건물설비 설치 공사업,2022-08-01,Industrials
-수성웹툰,084180,일반 목적용 기계 제조업,2005-12-16,Industrials
-수젠텍,253840,의료용품 및 기타 의약 관련제품 제조업,2019-05-28,Health Care
-수프로,185190,산업용 농·축산물 및 동·식물 도매업,2013-10-29,Consumer Discretionary
-슈어소프트테크,298830,소프트웨어 개발 및 공급업,2023-04-28,Information Technology
-슈프리마,236200,통신 및 방송 장비 제조업,2016-02-05,Information Technology
-슈프리마에이치큐,094840,통신 및 방송 장비 제조업,2008-07-11,Information Technology
-슈피겐코리아,192440,그외 기타 제품 제조업,2014-11-05,Consumer Discretionary
-스마트레이더시스템,424960,"측정, 시험, 항해, 제어 및 기타 정밀기기 제조업; 광학기기 제외",2023-08-22,Information Technology
-스맥,099440,특수 목적용 기계 제조업,2009-05-26,Industrials
-스카이라이프,053210,,,Other
-스코넥,276040,소프트웨어 개발 및 공급업,2022-02-04,Information Technology
-스타에스엠리츠,204210,부동산 임대 및 공급업,2016-09-22,Real Estate
-스타코링크,060240,선박 및 보트 건조업,2002-01-04,Industrials
-스타플렉스,115570,플라스틱제품 제조업,2010-01-27,Materials
-스톤브릿지벤처스,330730,기타 금융업,2022-02-25,Financials
-스톰테크,352090,플라스틱제품 제조업,2023-11-20,Materials
-스튜디오드래곤,253450,"영화, 비디오물, 방송프로그램 제작 및 배급업",2017-11-24,Consumer Discretionary
-스튜디오미르,408900,"영화, 비디오물, 방송프로그램 제작 및 배급업",2023-02-07,Consumer Discretionary
-스튜디오산타클로스,204630,창작 및 예술관련 서비스업,2014-12-29,Consumer Discretionary
-스튜디오삼익,415380,기타 생활용품 소매업,2024-02-06,Consumer Discretionary
-스틱인베스트먼트,026890,신탁업 및 집합투자업,1997-11-25,Financials
-스페코,013810,특수 목적용 기계 제조업,1997-11-03,Industrials
-스피어,347700,소프트웨어 개발 및 공급업,2021-03-23,Information Technology
-승일,049830,기타 금속 가공제품 제조업,2001-01-18,Materials
-시공테크,020710,전문디자인업,1999-08-13,Communication Services
-시그네틱스,033170,반도체 제조업,2010-11-26,Information Technology
-시너지이노베이션,048870,의료용 기기 제조업,2004-08-13,Health Care
-시노펙스,025320,전자부품 제조업,1995-04-20,Information Technology
-시디즈,134790,가구 제조업,2011-01-25,Consumer Discretionary
-시선AI,340810,소프트웨어 개발 및 공급업,2023-05-19,Information Technology
-시스웍,269620,"측정, 시험, 항해, 제어 및 기타 정밀기기 제조업; 광학기기 제외",2017-12-26,Information Technology
-시지메드텍,056090,의료용 기기 제조업,2015-11-12,Health Care
-시지트로닉스,429270,반도체 제조업,2023-08-03,Information Technology
-시큐레터,418250,소프트웨어 개발 및 공급업,2023-08-24,Information Technology
-시큐브,131090,소프트웨어 개발 및 공급업,2011-12-21,Information Technology
-시프트업,462870,소프트웨어 개발 및 공급업,2024-07-11,Information Technology
-신대양제지,016590,"골판지, 종이 상자 및 종이용기 제조업",1995-12-21,Materials
-신도기연,290520,특수 목적용 기계 제조업,2020-07-06,Industrials
-신도리코,029530,컴퓨터 및 주변장치 제조업,1996-12-24,Information Technology
-신라교역,004970,어로 어업,1976-06-30,Consumer Staples
-신라섬유,001000,부동산 임대 및 공급업,1994-06-28,Real Estate
-신라에스지,025870,음·식료품 및 담배 도매업,1995-07-07,Consumer Discretionary
-신라젠,215600,자연과학 및 공학 연구개발업,2016-12-06,Health Care
-신성델타테크,065350,가정용 기기 제조업,2004-08-06,Consumer Discretionary
-신성에스티,416180,자동차 신품 부품 제조업,2023-10-19,Consumer Discretionary
-신성이엔지,011930,반도체 제조업,1996-07-31,Information Technology
-신세계,004170,종합 소매업,1985-08-19,Consumer Discretionary
-신세계 I&C,035510,,,Other
-신세계인터내셔날,031430,"섬유, 의복, 신발 및 가죽제품 소매업",2011-07-14,Consumer Discretionary
-신세계푸드,031440,음식점업,2010-04-29,Consumer Discretionary
-신송홀딩스,006880,산업용 농·축산물 및 동·식물 도매업,2013-11-21,Consumer Discretionary
-신스틸,162300,1차 철강 제조업,2022-12-23,Materials
-신시웨이,290560,소프트웨어 개발 및 공급업,2023-11-03,Information Technology
-신신제약,002800,의약품 제조업,2017-02-28,Health Care
-신영스팩10호,472220,금융 지원 서비스업,2024-02-06,Financials
-신영스팩11호,0091W0,금융 지원 서비스업,2025-11-24,Financials
-신영와코루,005800,봉제의복 제조업,1976-12-28,Consumer Discretionary
-신영증권,001720,금융 지원 서비스업,1987-08-24,Financials
-신원,009270,봉제의복 제조업,1988-08-24,Consumer Discretionary
-신원종합개발,017000,건물 건설업,1994-12-07,Industrials
-신일전자,002700,기계장비 및 관련 물품 도매업,1975-09-30,Consumer Discretionary
-신일제약,012790,의약품 제조업,1999-08-13,Health Care
-신진에스엠,138070,기타 금속 가공제품 제조업,2011-11-28,Materials
-신테카바이오,226330,소프트웨어 개발 및 공급업,2019-12-17,Information Technology
-신풍,002870,기타 전문 도매업,1976-06-30,Consumer Discretionary
-신풍제약,019170,의약품 제조업,1990-01-20,Health Care
-신풍제약우,019175,의약품 제조업,1990-01-20,Health Care
-신한글로벌액티브리츠,481850,신탁업 및 집합투자업,2024-07-01,Financials
-신한서부티엔디리츠,404990,부동산 임대 및 공급업,2021-12-10,Real Estate
-신한알파리츠,293940,부동산 임대 및 공급업,2018-08-08,Real Estate
-신한제11호스팩,452980,금융 지원 서비스업,2023-10-04,Financials
-신한제12호스팩,474660,금융 지원 서비스업,2024-04-15,Financials
-신한제13호스팩,474930,금융 지원 서비스업,2024-04-22,Financials
-신한제14호스팩,487360,금융 지원 서비스업,2024-12-23,Financials
-신한제15호스팩,487830,금융 지원 서비스업,2024-11-15,Financials
-신한제16호스팩,496070,금융 지원 서비스업,2025-05-29,Financials
-신한지주,055550,기타 금융업,2001-09-10,Financials
-신화인터텍,056700,플라스틱제품 제조업,2001-12-13,Materials
-신화콘텍,187270,"전동기, 발전기 및 전기 변환 · 공급 · 제어 장치 제조업",2014-08-08,Industrials
-신흥,004080,기계장비 및 관련 물품 도매업,1991-02-08,Consumer Discretionary
-신흥에스이씨,243840,일차전지 및 이차전지 제조업,2017-09-27,Industrials
-실리콘투,257720,상품 종합 도매업,2021-09-29,Consumer Discretionary
-심텍,222800,전자부품 제조업,2015-08-07,Information Technology
-심텍홀딩스,036710,회사 본부 및 경영 컨설팅 서비스업,2000-01-04,Financials
-심플랫폼,444530,소프트웨어 개발 및 공급업,2025-03-21,Information Technology
-싸이닉솔루션,234030,반도체 제조업,2025-07-07,Information Technology
-싸이맥스,160980,특수 목적용 기계 제조업,2015-06-17,Industrials
-싸이버원,356890,소프트웨어 개발 및 공급업,2021-03-11,Information Technology
-싸이토젠,217330,자연과학 및 공학 연구개발업,2018-11-22,Health Care
-써니전자,004770,전자부품 제조업,1987-04-22,Information Technology
-썬테크,217320,"전동기, 발전기 및 전기 변환 · 공급 · 제어 장치 제조업",2015-04-29,Industrials
-썸에이지,208640,소프트웨어 개발 및 공급업,2014-12-29,Information Technology
-쎄노텍,222420,기타 비금속 광물제품 제조업,2015-08-06,Materials
-쎄니트,037760,1차 철강 제조업,2000-04-07,Materials
-쎄크,081180,일반 목적용 기계 제조업,2025-04-28,Industrials
-쎄트렉아이,099320,"항공기,우주선 및 부품 제조업",2008-06-13,Industrials
-쎌바이오텍,049960,기초 의약물질 제조업,2002-12-13,Health Care
-쏘닉스,088280,반도체 제조업,2023-11-07,Information Technology
-쏘카,403550,운송장비 임대업,2022-08-22,Industrials
-쏠리드,050890,통신 및 방송 장비 제조업,2005-07-08,Information Technology
-쓰리빌리언,394800,자연과학 및 공학 연구개발업,2024-11-14,Health Care
-쓰리에이로직스,177900,반도체 제조업,2024-12-24,Information Technology
-씨메스,475400,특수 목적용 기계 제조업,2024-10-24,Industrials
-씨싸이트,109670,봉제의복 제조업,2023-12-21,Consumer Discretionary
-씨씨에스,066790,텔레비전 방송업,2003-05-30,Communication Services
-씨아이에스,222080,특수 목적용 기계 제조업,2015-09-02,Industrials
-씨아이테크,004920,영상 및 음향기기 제조업,1989-11-30,Information Technology
-씨알푸드,236030,"곡물가공품, 전분 및 전분제품 제조업",2017-12-14,Consumer Staples
-씨앗,103660,기타 화학제품 제조업,2015-06-22,Materials
-씨앤씨인터내셔널,352480,기타 화학제품 제조업,2021-05-17,Materials
-씨앤에스링크,245450,통신 및 방송 장비 제조업,2016-06-24,Information Technology
-씨앤지하이테크,264660,특수 목적용 기계 제조업,2018-01-25,Industrials
-씨앤투스,352700,화학섬유 제조업,2021-01-28,Materials
-씨어스테크놀로지,458870,의료용 기기 제조업,2024-06-19,Health Care
-씨에스베어링,297090,일반 목적용 기계 제조업,2019-11-21,Industrials
-씨에스윈드,112610,"구조용 금속제품, 탱크 및 증기발생기 제조업",2014-11-27,Industrials
-씨엑스아이,900120,기타 금융업,2010-03-31,Financials
-씨엔알리서치,359090,"그외 기타 전문, 과학 및 기술 서비스업",2020-09-23,Health Care
-씨엔플러스,115530,전자부품 제조업,2011-11-02,Information Technology
-씨엠티엑스,388210,전자부품 제조업,2025-11-20,Information Technology
-씨유메디칼,115480,의료용 기기 제조업,2011-12-15,Health Care
-씨유테크,376290,전자부품 제조업,2021-10-08,Information Technology
-씨이랩,189330,소프트웨어 개발 및 공급업,2021-02-24,Information Technology
-씨젠,096530,의료용품 및 기타 의약 관련제품 제조업,2010-09-10,Health Care
-씨케이솔루션,480370,"건축기술, 엔지니어링 및 관련 기술 서비스업",2025-03-17,Industrials
-씨큐브,101240,기초 화학물질 제조업,2011-11-08,Energy
-씨티씨바이오,060590,의약품 제조업,2002-02-21,Health Care
-씨티알모빌리티,308170,자동차 신품 부품 제조업,2019-11-25,Consumer Discretionary
-씨티케이,260930,기타 화학제품 제조업,2017-12-07,Materials
-씨피시스템,413630,플라스틱제품 제조업,2022-03-31,Materials
-아가방컴퍼니,013990,생활용품 도매업,2002-01-17,Consumer Discretionary
-아나패스,123860,반도체 제조업,2010-11-05,Information Technology
-아난티,025980,일반 및 생활 숙박시설 운영업,1996-01-06,Consumer Discretionary
-아남전자,008700,영상 및 음향기기 제조업,1984-08-11,Information Technology
-아로마티카,0015N0,기타 화학제품 제조업,2025-11-27,Materials
-아모그린텍,125210,전자부품 제조업,2019-03-29,Information Technology
-아모레퍼시픽,090430,기타 화학제품 제조업,2006-06-29,Materials
-아모레퍼시픽우,090435,기타 화학제품 제조업,2006-06-29,Materials
-아모레퍼시픽홀딩스,002790,기타 화학제품 제조업,1973-04-30,Materials
-아모레퍼시픽홀딩스3우C,00279K,,,Other
-아모레퍼시픽홀딩스우,002795,기타 화학제품 제조업,1973-04-30,Materials
-아모센스,357580,전자부품 제조업,2021-06-25,Information Technology
-아모텍,052710,전자부품 제조업,2003-08-01,Information Technology
-아미노로직스,074430,기초 의약물질 제조업,2004-06-04,Health Care
-아미코젠,092040,기타 식품 제조업,2013-09-12,Consumer Staples
-아바코,083930,특수 목적용 기계 제조업,2005-10-11,Industrials
-아바텍,149950,전자부품 제조업,2012-11-06,Information Technology
-아비코전자,036010,전자부품 제조업,2002-07-03,Information Technology
-아세아,002030,회사 본부 및 경영 컨설팅 서비스업,1974-06-03,Financials
-아세아시멘트,183190,"시멘트, 석회, 플라스터 및 그 제품 제조업",2013-11-06,Materials
-아세아제지,002310,"골판지, 종이 상자 및 종이용기 제조업",1988-12-15,Materials
-아세아텍,050860,특수 목적용 기계 제조업,2010-01-26,Industrials
-아센디오,012170,"영화, 비디오물, 방송프로그램 제작 및 배급업",1989-12-20,Consumer Discretionary
-아셈스,136410,플라스틱제품 제조업,2022-02-07,Materials
-아스타,246720,의료용품 및 기타 의약 관련제품 제조업,2017-03-20,Health Care
-아스테라시스,450950,의료용 기기 제조업,2025-01-24,Health Care
-아스트,067390,"항공기,우주선 및 부품 제조업",2014-12-24,Industrials
-아스플로,159010,일반 목적용 기계 제조업,2021-10-07,Industrials
-아시아경제,127710,"자료처리, 호스팅, 포털 및 기타 인터넷 정보매개 서비스업",2015-07-31,Information Technology
-아시아나IDT,267850,"컴퓨터 프로그래밍, 시스템 통합 및 관리업",2018-11-23,Information Technology
-아시아나항공,020560,항공 여객 운송업,2008-03-28,Industrials
-아시아종묘,154030,작물 재배업,2018-02-12,Consumer Staples
-아우딘퓨쳐스,227610,기타 화학제품 제조업,2017-07-12,Materials
-아우토크립트,331740,소프트웨어 개발 및 공급업,2025-07-15,Information Technology
-아이디스,143160,통신 및 방송 장비 제조업,2011-09-26,Information Technology
-아이디스홀딩스,054800,기타 전문 서비스업,2001-09-27,Industrials
-아이디피,332370,컴퓨터 및 주변장치 제조업,2020-08-24,Information Technology
-아이로보틱스,066430,기타 전문 도매업,2002-12-24,Consumer Discretionary
-아이마켓코리아,122900,상품 종합 도매업,2010-07-30,Consumer Discretionary
-아이비김영,339950,일반 교습 학원,2019-12-24,Industrials
-아이비젼웍스,469750,특수 목적용 기계 제조업,2024-09-03,Industrials
-아이빔테크놀로지,460470,사진장비 및 광학기기 제조업,2024-08-06,Information Technology
-아이센스,099190,의료용 기기 제조업,2013-01-30,Health Care
-아이스크림미디어,461300,소프트웨어 개발 및 공급업,2024-08-30,Information Technology
-아이스크림에듀,289010,"서적, 잡지 및 기타 인쇄물 출판업",2019-07-11,Communication Services
-아이쓰리시스템,214430,전자부품 제조업,2015-07-30,Information Technology
-아이씨디,040910,특수 목적용 기계 제조업,2011-08-05,Industrials
-아이씨에이치,368600,전자부품 제조업,2022-07-29,Information Technology
-아이씨티케이,456010,반도체 제조업,2024-05-17,Information Technology
-아이앤씨,052860,반도체 제조업,2009-10-06,Information Technology
-아이언디바이스,464500,반도체 제조업,2024-09-23,Information Technology
-아이에스동서,010780,"시멘트, 석회, 플라스터 및 그 제품 제조업",1986-01-27,Materials
-아이에스티이,212710,반도체 제조업,2025-02-12,Information Technology
-아이에이,038880,전자부품 제조업,2000-04-27,Information Technology
-아이엘,307180,전구 및 조명장치 제조업,2018-12-21,Utilities
-아이엘커누스,403810,전자부품 제조업,2025-11-18,Information Technology
-아이엠,101390,전자부품 제조업,2008-07-23,Information Technology
-아이엠비디엑스,461030,자연과학 및 공학 연구개발업,2024-04-03,Health Care
-아이엠지티,456570,의료용품 및 기타 의약 관련제품 제조업,2023-07-19,Health Care
-아이엠티,451220,특수 목적용 기계 제조업,2023-10-10,Industrials
-아이오바이오,447690,의료용 기기 제조업,2022-12-28,Health Care
-아이윈,090150,자동차 신품 부품 제조업,2006-10-20,Consumer Discretionary
-아이윈플러스,123010,전자부품 제조업,2016-07-20,Information Technology
-아이즈비전,031310,전기 통신업,1997-07-25,Communication Services
-아이지넷,462980,기타 정보 서비스업,2025-02-04,Information Technology
-아이진,185490,자연과학 및 공학 연구개발업,2015-11-16,Health Care
-아이컴포넌트,059100,전자부품 제조업,2008-12-16,Information Technology
-아이케이세미콘,149010,반도체 제조업,2014-11-14,Information Technology
-아이퀘스트,262840,소프트웨어 개발 및 공급업,2021-02-05,Information Technology
-아이큐어,175250,의약품 제조업,2018-07-12,Health Care
-아이크래프트,052460,"컴퓨터 프로그래밍, 시스템 통합 및 관리업",2005-01-03,Information Technology
-아이텍,119830,"그외 기타 전문, 과학 및 기술 서비스업",2010-10-26,Health Care
-아이톡시,052770,소프트웨어 개발 및 공급업,2002-08-22,Information Technology
-아이티센글로벌,124500,"컴퓨터 프로그래밍, 시스템 통합 및 관리업",2014-12-23,Information Technology
-아이티센씨티에스,031820,"컴퓨터 프로그래밍, 시스템 통합 및 관리업",1997-02-12,Information Technology
-아이티센엔텍,010280,"컴퓨터 프로그래밍, 시스템 통합 및 관리업",2000-04-14,Information Technology
-아이티센코어,243870,"컴퓨터 프로그래밍, 시스템 통합 및 관리업",2016-10-31,Information Technology
-아이티센피엔에스,232830,소프트웨어 개발 및 공급업,2023-06-29,Information Technology
-아이티아이즈,372800,소프트웨어 개발 및 공급업,2021-11-11,Information Technology
-아이티엠반도체,084850,전자부품 제조업,2019-11-07,Information Technology
-아이티켐,309710,기초 의약물질 제조업,2025-08-07,Health Care
-아이패밀리에스씨,114840,기타 화학제품 제조업,2021-10-28,Materials
-아주IB투자,027360,기타 금융업,2018-11-21,Financials
-아주스틸,139990,1차 철강 제조업,2021-08-20,Materials
-아즈텍WB,032080,"섬유제품 염색, 정리 및 마무리 가공업",2000-10-26,Consumer Discretionary
-아진산업,013310,자동차 신품 부품 제조업,2015-12-22,Consumer Discretionary
-아진엑스텍,059120,반도체 제조업,2014-07-24,Information Technology
-아진전자부품,009320,자동차 신품 부품 제조업,1989-08-25,Consumer Discretionary
-아크릴,0007C0,소프트웨어 개발 및 공급업,2025-12-16,Information Technology
-아크솔루션스,203690,"펄프, 종이 및 판지 제조업",2014-09-30,Materials
-아톤,158430,소프트웨어 개발 및 공급업,2019-10-17,Information Technology
-아티스트스튜디오,200350,"영화, 비디오물, 방송프로그램 제작 및 배급업",2021-12-30,Consumer Discretionary
-아티스트컴퍼니,321820,소프트웨어 개발 및 공급업,2021-02-03,Information Technology
-아퓨어스,149300,자연과학 및 공학 연구개발업,2019-09-03,Health Care
-아하,102950,전자부품 제조업,2022-11-30,Information Technology
-안국약품,001540,의약품 제조업,2000-06-15,Health Care
-안랩,053800,소프트웨어 개발 및 공급업,2001-09-13,Information Technology
-안지오랩,251280,자연과학 및 공학 연구개발업,2016-10-25,Health Care
-안트로젠,065660,기타 전문 도매업,2016-02-15,Consumer Discretionary
-알로이스,297570,통신 및 방송 장비 제조업,2018-07-20,Information Technology
-알루코,001780,1차 비철금속 제조업,2007-06-07,Materials
-알리코제약,260660,의료용품 및 기타 의약 관련제품 제조업,2018-02-12,Health Care
-알멕,354320,1차 비철금속 제조업,2023-06-30,Materials
-알비더블유,361570,오디오물 출판 및 원판 녹음업,2021-11-22,Consumer Discretionary
-알서포트,131370,소프트웨어 개발 및 공급업,2011-01-05,Information Technology
-알에스오토메이션,140670,전자부품 제조업,2017-08-11,Information Technology
-알에프세미,096610,반도체 제조업,2007-11-20,Information Technology
-알에프텍,061040,통신 및 방송 장비 제조업,2002-05-16,Information Technology
-알엔투테크놀로지,148250,전자부품 제조업,2016-06-22,Information Technology
-알지노믹스,476830,자연과학 및 공학 연구개발업,2025-12-18,Health Care
-알체라,347860,소프트웨어 개발 및 공급업,2020-12-21,Information Technology
-알테오젠,196170,자연과학 및 공학 연구개발업,2014-12-12,Health Care
-알톤,123750,그외 기타 운송장비 제조업,2010-07-02,Industrials
-알트,459550,통신 및 방송 장비 제조업,2025-11-17,Information Technology
-알티캐스트,085810,소프트웨어 개발 및 공급업,2013-12-06,Information Technology
-알파AI,043100,의료용 기기 제조업,2000-08-08,Health Care
-알파칩스,117670,반도체 제조업,2010-09-17,Information Technology
-알피바이오,314140,의약품 제조업,2022-09-29,Health Care
-압타머사이언스,291650,자연과학 및 공학 연구개발업,2020-09-16,Health Care
-압타바이오,293780,자연과학 및 공학 연구개발업,2019-06-12,Health Care
-애경산업,018250,기타 화학제품 제조업,2018-03-22,Materials
-애경케미칼,161000,기초 화학물질 제조업,2012-09-17,Energy
-애니메디솔루션,390110,의료용 기기 제조업,2022-12-21,Health Care
-애니플러스,310200,"영화, 비디오물, 방송프로그램 제작 및 배급업",2018-12-21,Consumer Discretionary
-애드바이오텍,179530,의약품 제조업,2022-01-24,Health Care
-애드포러스,397810,광고업,2025-08-22,Communication Services
-애머릿지,900100,자동차 부품 및 내장품 판매업,2010-04-21,Consumer Discretionary
-액토즈소프트,052790,소프트웨어 개발 및 공급업,2001-08-14,Information Technology
-액트로,290740,전자부품 제조업,2018-08-28,Information Technology
-앤디포스,238090,플라스틱제품 제조업,2016-10-12,Materials
-앤씨앤,092600,반도체 제조업,2007-06-26,Information Technology
-앱코,129890,컴퓨터 및 주변장치 제조업,2020-12-02,Information Technology
-앱클론,174900,의료용품 및 기타 의약 관련제품 제조업,2017-09-18,Health Care
-앱토크롬,109960,기타 전문 도매업,2009-11-13,Consumer Discretionary
-앱튼,270520,"건축기술, 엔지니어링 및 관련 기술 서비스업",2017-08-22,Industrials
-야스,255440,특수 목적용 기계 제조업,2017-09-29,Industrials
-양지사,030960,인쇄 및 인쇄관련 산업,1996-10-24,Materials
-어보브반도체,102120,반도체 제조업,2009-06-05,Information Technology
-얼라인드,238120,사진장비 및 광학기기 제조업,2016-11-03,Information Technology
-엄지하우스,224810,실내건축 및 건축마무리 공사업,2015-10-21,Industrials
-에너토크,019990,일반 목적용 기계 제조업,2006-02-01,Industrials
-에넥스,011090,가구 제조업,1995-07-08,Consumer Discretionary
-에르코스,435570,도시락 및 식사용 조리식품 제조업,2025-02-28,Consumer Staples
-에브리봇,270660,가정용 기기 제조업,2021-07-28,Consumer Discretionary
-에스넷,038680,"컴퓨터 프로그래밍, 시스템 통합 및 관리업",2000-04-27,Information Technology
-에스디바이오센서,137310,의료용 기기 제조업,2021-07-16,Health Care
-에스디생명공학,217480,기타 화학제품 제조업,2017-03-02,Materials
-에스디시스템,121890,전자부품 제조업,2010-07-16,Information Technology
-에스바이오메딕스,304360,의약품 제조업,2023-05-04,Health Care
-에스비비테크,389500,일반 목적용 기계 제조업,2022-10-17,Industrials
-에스씨디,042110,가정용 기기 제조업,2000-07-13,Consumer Discretionary
-에스씨엠생명과학,298060,의약품 제조업,2020-06-17,Health Care
-에스아이리소스,065420,기타 화학제품 제조업,2002-08-22,Materials
-에스알바이오텍,270210,기타 화학제품 제조업,2017-06-15,Materials
-에스앤더블류,103230,일반 목적용 기계 제조업,2009-08-05,Industrials
-에스앤디,260970,기타 식품 제조업,2021-09-29,Consumer Staples
-에스앤에스텍,101490,전자부품 제조업,2009-04-14,Information Technology
-에스에너지,095910,"전동기, 발전기 및 전기 변환 · 공급 · 제어 장치 제조업",2007-10-16,Industrials
-에스에스알,275630,소프트웨어 개발 및 공급업,2018-08-06,Information Technology
-에스에이엠티,031330,기계장비 및 관련 물품 도매업,2000-05-23,Consumer Discretionary
-에스에이티,060540,"측정, 시험, 항해, 제어 및 기타 정밀기기 제조업; 광학기기 제외",2006-11-28,Information Technology
-에스에프에이,056190,특수 목적용 기계 제조업,2001-12-18,Industrials
-에스엔시스,0008Z0,"전동기, 발전기 및 전기 변환 · 공급 · 제어 장치 제조업",2025-08-19,Industrials
-에스엘,005850,자동차 신품 부품 제조업,1988-11-08,Consumer Discretionary
-에스엘에스바이오,246250,"그외 기타 전문, 과학 및 기술 서비스업",2023-10-20,Health Care
-에스엠,041510,오디오물 출판 및 원판 녹음업,2000-04-27,Consumer Discretionary
-에스엠벡셀,010580,자동차 신품 부품 제조업,1994-12-27,Consumer Discretionary
-에스엠씨지,460870,유리 및 유리제품 제조업,2025-03-07,Materials
-에스엠코어,007820,일반 목적용 기계 제조업,2011-11-08,Industrials
-에스오에스랩,464080,"측정, 시험, 항해, 제어 및 기타 정밀기기 제조업; 광학기기 제외",2024-06-25,Information Technology
-에스와이,109610,"구조용 금속제품, 탱크 및 증기발생기 제조업",2015-12-29,Industrials
-에스와이스틸텍,365330,"구조용 금속제품, 탱크 및 증기발생기 제조업",2023-11-13,Industrials
-에스원,012750,"경비, 경호 및 탐정업",1996-01-30,Industrials
-에스제이그룹,306040,"가죽, 가방 및 유사제품 제조업",2019-11-18,Consumer Discretionary
-에스제이켐,217910,기초 화학물질 제조업,2018-04-27,Energy
-에스지헬스케어,398120,의료용 기기 제조업,2024-12-19,Health Care
-에스케이증권제10호스팩,457940,,,Other
-에스케이증권제11호스팩,472230,,,Other
-에스케이증권제12호스팩,473000,,,Other
-에스케이증권제13호스팩,473950,,,Other
-에스케이증권제9호스팩,455910,,,Other
-에스켐,475660,기타 화학제품 제조업,2024-11-18,Materials
-에스코넥,096630,통신 및 방송 장비 제조업,2007-12-26,Information Technology
-에스텍,069510,영상 및 음향기기 제조업,2003-11-14,Information Technology
-에스투더블유,488280,소프트웨어 개발 및 공급업,2025-09-19,Information Technology
-에스트래픽,234300,"컴퓨터 프로그래밍, 시스템 통합 및 관리업",2017-12-05,Information Technology
-에스티아이,039440,특수 목적용 기계 제조업,2002-02-28,Industrials
-에스티오,098660,봉제의복 제조업,2009-04-17,Consumer Discretionary
-에스티큐브,052020,기계장비 및 관련 물품 도매업,2001-07-05,Consumer Discretionary
-에스티팜,237690,의약품 제조업,2016-06-23,Health Care
-에스폴리텍,050760,플라스틱제품 제조업,2002-05-16,Materials
-에스퓨얼셀,288620,"전동기, 발전기 및 전기 변환 · 공급 · 제어 장치 제조업",2018-10-15,Industrials
-에스피소프트,443670,상품 중개업,2024-02-15,Consumer Discretionary
-에스피시스템스,317830,특수 목적용 기계 제조업,2019-08-14,Industrials
-에스피지,058610,"전동기, 발전기 및 전기 변환 · 공급 · 제어 장치 제조업",2002-07-23,Industrials
-에쎈테크,043340,일반 목적용 기계 제조업,2000-08-29,Industrials
-에쓰씨엔지니어링,023960,토목 건설업,1997-06-23,Industrials
-에어레인,163280,일반 목적용 기계 제조업,2024-11-08,Industrials
-에어부산,298690,항공 여객 운송업,2018-12-27,Industrials
-에이디테크놀로지,200710,반도체 제조업,2014-12-16,Information Technology
-에이럭스,475580,그외 기타 제품 제조업,2024-11-01,Consumer Discretionary
-에이루트,096690,컴퓨터 및 주변장치 제조업,2010-12-01,Information Technology
-에이리츠,140910,부동산 임대 및 공급업,2011-07-14,Real Estate
-에이블씨엔씨,078520,기타 화학제품 제조업,2011-09-07,Materials
-에이비엘바이오,298380,기초 의약물질 제조업,2018-12-19,Health Care
-에이비온,203400,자연과학 및 공학 연구개발업,2021-09-08,Health Care
-에이비프로바이오,195990,특수 목적용 기계 제조업,2015-04-13,Industrials
-에이스침대,003800,가구 제조업,1996-05-03,Consumer Discretionary
-에이스테크,088800,통신 및 방송 장비 제조업,2006-03-27,Information Technology
-에이스토리,241840,"영화, 비디오물, 방송프로그램 제작 및 배급업",2019-07-19,Consumer Discretionary
-에이아이코리아,364950,특수 목적용 기계 제조업,2025-04-29,Industrials
-에이에스텍,453860,기타 화학제품 제조업,2023-11-28,Materials
-에이에프더블류,312610,일차전지 및 이차전지 제조업,2019-07-01,Industrials
-에이엔피,015260,전자부품 제조업,1988-01-18,Information Technology
-에이엘티,172670,반도체 제조업,2023-07-27,Information Technology
-에이엠시지,495900,의료용 기기 제조업,2024-12-13,Health Care
-에이원알폼,234070,산업용 기계 및 장비 임대업,2015-12-21,Industrials
-에이유브랜즈,481070,"섬유, 의복, 신발 및 가죽제품 소매업",2025-04-03,Consumer Discretionary
-에이전트AI,060900,전기업,2002-09-17,Utilities
-에이직랜드,445090,반도체 제조업,2023-11-13,Information Technology
-에이치브이엠,295310,1차 비철금속 제조업,2024-06-28,Materials
-에이치시티,072990,기타 과학기술 서비스업,2016-10-17,Health Care
-에이치엔에스하이텍,044990,전자부품 제조업,2024-10-25,Information Technology
-에이치엘사이언스,239610,기타 식품 제조업,2016-10-28,Consumer Staples
-에이치엠넥스,036170,반도체 제조업,1999-12-21,Information Technology
-에이치엠씨제6호스팩,462020,금융 지원 서비스업,2023-10-13,Financials
-에이치엠씨제7호스팩,477340,금융 지원 서비스업,2024-06-24,Financials
-에이치와이티씨,148930,기타 금속 가공제품 제조업,2022-08-09,Materials
-에이치케이,044780,특수 목적용 기계 제조업,2000-09-07,Industrials
-에이치피오,357230,기타 식품 제조업,2021-05-14,Consumer Staples
-에이텀,355690,전자부품 제조업,2023-12-01,Information Technology
-에이테크솔루션,071670,특수 목적용 기계 제조업,2009-04-17,Industrials
-에이텍,045660,컴퓨터 및 주변장치 제조업,2001-05-24,Information Technology
-에이텍모빌리티,224110,통신 및 방송 장비 제조업,2015-08-25,Information Technology
-에이티넘인베스트,021080,신탁업 및 집합투자업,1991-07-12,Financials
-에이팩트,200470,반도체 제조업,2014-12-26,Information Technology
-에이펙스인텍,207490,전구 및 조명장치 제조업,2018-11-28,Utilities
-에이프로,262260,기타 전기장비 제조업,2020-07-16,Utilities
-에이프로젠,007460,기타 금속 가공제품 제조업,1995-07-08,Materials
-에이프로젠바이오로직스,003060,의약품 제조업,1984-10-19,Health Care
-에이프릴바이오,397030,자연과학 및 공학 연구개발업,2022-07-28,Health Care
-에이플러스에셋,244920,보험 및 연금관련 서비스업,2020-11-20,Financials
-에이피알,278470,기타 화학제품 제조업,2024-02-27,Materials
-에임드바이오,0009K0,자연과학 및 공학 연구개발업,2025-12-04,Health Care
-에치에프알,230240,통신 및 방송 장비 제조업,2015-12-16,Information Technology
-에코글로우,159910,기타 화학제품 제조업,2012-12-27,Materials
-에코마케팅,230360,광고업,2016-08-08,Communication Services
-에코바이오,038870,사업시설 유지·관리 서비스업,2001-05-29,Industrials
-에코볼트,097780,자동차 신품 부품 제조업,2008-01-23,Consumer Discretionary
-에코아이,448280,기타 전문 서비스업,2023-11-21,Industrials
-에코앤드림,101360,기타 화학제품 제조업,2020-07-30,Materials
-에코캡,128540,자동차 신품 부품 제조업,2018-12-05,Consumer Discretionary
-에코프로,086520,기타 금융업,2007-07-20,Financials
-에코프로머티,450080,일차전지 및 이차전지 제조업,2023-11-17,Industrials
-에코프로비엠,247540,일차전지 및 이차전지 제조업,2019-03-05,Industrials
-에코프로에이치엔,383310,기타 화학제품 제조업,2021-05-28,Materials
-에코플라스틱,038110,자동차 신품 부품 제조업,2000-03-23,Consumer Discretionary
-에프알텍,073540,통신 및 방송 장비 제조업,2007-05-18,Information Technology
-에프앤가이드,064850,기타 정보 서비스업,2020-12-17,Information Technology
-에프에스티,036810,전자부품 제조업,2000-01-18,Information Technology
-에프엔씨엔터,173940,창작 및 예술관련 서비스업,2014-12-04,Consumer Discretionary
-에프엔에스테크,083500,특수 목적용 기계 제조업,2017-02-27,Industrials
-에피바이오텍,446440,자연과학 및 공학 연구개발업,2023-07-31,Health Care
-엑사이엔씨,054940,실내건축 및 건축마무리 공사업,2001-12-13,Industrials
-엑세스바이오,950130,의료용품 및 기타 의약 관련제품 제조업,2013-05-30,Health Care
-엑셀세라퓨틱스,373110,기초 의약물질 제조업,2024-07-15,Health Care
-엑셈,205100,소프트웨어 개발 및 공급업,2014-11-07,Information Technology
-엑스게이트,356680,소프트웨어 개발 및 공급업,2023-03-16,Information Technology
-엑스큐어,070300,소프트웨어 개발 및 공급업,2010-06-09,Information Technology
-엑스페릭스,317770,전자부품 제조업,2019-08-01,Information Technology
-엑스플러스,373200,그외 기타 제품 제조업,2021-02-26,Consumer Discretionary
-엑시온그룹,069920,무점포 소매업,2007-12-05,Consumer Discretionary
-엑시콘,092870,특수 목적용 기계 제조업,2015-10-22,Industrials
-엑시큐어하이트론,019490,영상 및 음향기기 제조업,1998-11-04,Information Technology
-엔더블유시,059180,통신 및 방송 장비 제조업,2025-12-22,Information Technology
-엔바이오니아,317870,그외 기타 제품 제조업,2019-10-24,Consumer Discretionary
-엔브이에이치코리아,067570,자동차 신품 부품 제조업,2013-12-03,Consumer Discretionary
-엔비티,236810,광고업,2021-01-21,Communication Services
-엔솔바이오사이언스,140610,자연과학 및 공학 연구개발업,2018-09-10,Health Care
-엔시스,333620,기타 전기장비 제조업,2021-04-01,Utilities
-엔시트론,101400,반도체 제조업,2009-03-31,Information Technology
-엔씨소프트,036570,소프트웨어 개발 및 공급업,2003-05-22,Information Technology
-엔알비,475230,기타 금속 가공제품 제조업,2025-07-28,Materials
-엔에스엠,238170,합성고무 및 플라스틱 물질 제조업,2019-12-26,Materials
-엔에스이엔엠,078860,"영화, 비디오물, 방송프로그램 제작 및 배급업",2006-06-27,Consumer Discretionary
-엔에스컴퍼니,224760,토목 건설업,2015-07-31,Industrials
-엔에이치스팩29호,451700,금융 지원 서비스업,2023-06-23,Financials
-엔에이치스팩30호,466910,금융 지원 서비스업,2023-12-01,Financials
-엔에이치스팩31호,481890,금융 지원 서비스업,2024-07-26,Financials
-엔에이치스팩32호,0054V0,금융 지원 서비스업,2025-12-05,Financials
-엔에프씨,265740,기타 화학제품 제조업,2020-12-02,Materials
-엔젠바이오,354200,"그외 기타 전문, 과학 및 기술 서비스업",2020-12-10,Health Care
-엔젤로보틱스,455900,특수 목적용 기계 제조업,2024-03-26,Industrials
-엔젯,419080,특수 목적용 기계 제조업,2022-11-18,Industrials
-엔지브이아이,093510,자동차 신품 부품 제조업,2019-09-30,Consumer Discretionary
-엔지켐생명과학,183490,기초 의약물질 제조업,2018-02-21,Health Care
-엔케이,085310,"구조용 금속제품, 탱크 및 증기발생기 제조업",2008-01-24,Industrials
-엔케이맥스,182400,기초 의약물질 제조업,2015-10-23,Health Care
-엔켐,348370,기초 화학물질 제조업,2021-11-01,Energy
-엔텔스,069410,소프트웨어 개발 및 공급업,2007-06-20,Information Technology
-엔투텍,227950,특수 목적용 기계 제조업,2015-11-18,Industrials
-엔피,291230,기타 사업지원 서비스업,2018-09-13,Industrials
-엔피케이,048830,합성고무 및 플라스틱 물질 제조업,2000-10-12,Materials
-엘디티,096870,반도체 제조업,2008-05-02,Information Technology
-엘리비젼,276240,영상 및 음향기기 제조업,2018-07-05,Information Technology
-엘브이엠씨홀딩스,900140,,,Other
-엘앤씨바이오,290650,의약품 제조업,2018-11-01,Health Care
-엘앤에프,066970,일차전지 및 이차전지 제조업,2024-01-29,Industrials
-엘앤케이바이오,156100,의료용 기기 제조업,2016-11-30,Health Care
-엘에스스팩1호,0041J0,금융 지원 서비스업,2025-07-22,Financials
-엘에이티,311060,특수 목적용 기계 제조업,2018-12-28,Industrials
-엘엠에스,073110,전자부품 제조업,2007-10-12,Information Technology
-엘오티베큠,083310,특수 목적용 기계 제조업,2005-10-05,Industrials
-엘컴텍,037950,전자부품 제조업,2000-08-24,Information Technology
-엘케이켐,489500,기타 화학제품 제조업,2025-02-25,Materials
-엘티씨,170920,기초 화학물질 제조업,2013-10-08,Energy
-엠게임,058630,소프트웨어 개발 및 공급업,2008-12-19,Information Technology
-엠디바이스,226590,전자부품 제조업,2025-03-07,Information Technology
-엠로,058970,소프트웨어 개발 및 공급업,2021-08-13,Information Technology
-엠브레인,169330,시장조사 및 여론조사업,2020-07-01,Communication Services
-엠씨넥스,097520,영상 및 음향기기 제조업,2021-07-06,Information Technology
-엠아이큐브솔루션,373170,소프트웨어 개발 및 공급업,2023-08-04,Information Technology
-엠아이텍,179290,의료용 기기 제조업,2018-11-29,Health Care
-엠앤씨솔루션,484870,특수 목적용 기계 제조업,2024-12-16,Industrials
-엠에스씨,009780,기타 식품 제조업,1993-10-12,Consumer Staples
-엠에스오토텍,123040,자동차 신품 부품 제조업,2010-08-06,Consumer Discretionary
-엠에프씨,432980,기초 의약물질 제조업,2024-12-26,Health Care
-엠오티,413390,특수 목적용 기계 제조업,2024-11-18,Industrials
-엠젠솔루션,032790,기계장비 및 관련 물품 도매업,1997-06-26,Consumer Discretionary
-엠케이전자,033160,전자부품 제조업,1997-11-10,Information Technology
-엠투아이,347890,"측정, 시험, 항해, 제어 및 기타 정밀기기 제조업; 광학기기 제외",2020-07-29,Information Technology
-엠투엔,033310,전자부품 제조업,1997-11-10,Information Technology
-엠플러스,259630,특수 목적용 기계 제조업,2017-09-20,Industrials
-엣지파운드리,105550,전자부품 제조업,2014-07-11,Information Technology
-영림원소프트랩,060850,소프트웨어 개발 및 공급업,2020-08-12,Information Technology
-영보화학,014440,플라스틱제품 제조업,1997-08-27,Materials
-영우디에스피,143540,특수 목적용 기계 제조업,2014-10-29,Industrials
-영원무역,111770,상품 종합 도매업,2009-07-30,Consumer Discretionary
-영원무역홀딩스,009970,기타 금융업,1988-11-07,Financials
-영진약품,003520,의약품 제조업,1973-06-25,Health Care
-영풍,000670,1차 비철금속 제조업,1976-06-12,Materials
-영화금속,012280,자동차 신품 부품 제조업,1990-01-25,Consumer Discretionary
-영화테크,265560,자동차 신품 부품 제조업,2017-10-26,Consumer Discretionary
-영흥,012160,1차 철강 제조업,2010-01-25,Materials
-예림당,036000,"서적, 잡지 및 기타 인쇄물 출판업",1999-11-30,Communication Services
-예선테크,250930,플라스틱제품 제조업,2016-09-29,Materials
-예스24,053280,무점포 소매업,2008-05-07,Consumer Discretionary
-예스티,122640,특수 목적용 기계 제조업,2015-12-16,Industrials
-오가노이드사이언스,476040,자연과학 및 공학 연구개발업,2025-05-09,Health Care
-오가닉티코스메틱,900300,기타 금융업,2016-11-04,Financials
-오건에코텍,212310,의료용 기기 제조업,2016-07-26,Health Care
-오공,045060,기타 화학제품 제조업,2000-08-10,Materials
-오늘이엔엠,192410,통신 및 방송 장비 제조업,2014-08-14,Information Technology
-오디텍,080520,반도체 제조업,2007-10-08,Information Technology
-오뚜기,007310,기타 식품 제조업,1994-08-12,Consumer Staples
-오로라,039830,전문디자인업,2001-01-03,Communication Services
-오로스테크놀로지,322310,특수 목적용 기계 제조업,2021-02-24,Industrials
-오르비텍,046120,기타 과학기술 서비스업,2010-06-15,Health Care
-오름테라퓨틱,475830,기초 의약물질 제조업,2025-02-14,Health Care
-오리엔탈정공,014940,일반 목적용 기계 제조업,2001-12-26,Industrials
-오리엔트바이오,002630,의약품 제조업,1976-12-28,Health Care
-오리엔트정공,065500,자동차 신품 부품 제조업,2002-09-19,Consumer Discretionary
-오리온,271560,기타 식품 제조업,2017-07-07,Consumer Staples
-오리온홀딩스,001800,기타 금융업,1975-06-27,Financials
-오리콤,010470,광고업,2000-10-24,Communication Services
-오브젠,417860,소프트웨어 개발 및 공급업,2023-01-30,Information Technology
-오비고,352910,"컴퓨터 프로그래밍, 시스템 통합 및 관리업",2021-07-13,Information Technology
-오상자이엘,053980,소프트웨어 개발 및 공급업,2002-04-09,Information Technology
-오상헬스케어,036220,의료용 기기 제조업,2024-03-13,Health Care
-오성첨단소재,052420,플라스틱제품 제조업,2001-08-07,Materials
-오션스바이오,332190,의료용 기기 제조업,2025-01-14,Health Care
-오션인더블유,052300,상품 종합 도매업,2001-08-02,Consumer Discretionary
-오스코텍,039200,의약품 제조업,2007-01-17,Health Care
-오스테오닉,226400,의료용 기기 제조업,2018-02-22,Health Care
-오스템,031510,자동차 신품 부품 제조업,1997-02-12,Consumer Discretionary
-오아,342870,가전제품 및 정보통신장비 소매업,2025-09-09,Consumer Discretionary
-오에스피,368970,동물용 사료 및 조제식품 제조업,2022-10-14,Consumer Staples
-오이솔루션,138080,통신 및 방송 장비 제조업,2014-02-27,Information Technology
-오킨스전자,080580,전자부품 제조업,2014-12-24,Information Technology
-오텍,067170,자동차 재제조 부품 제조업,2003-11-14,Consumer Discretionary
-오토앤,353590,자동차 부품 및 내장품 판매업,2022-01-20,Consumer Discretionary
-오파스넷,173130,"컴퓨터 프로그래밍, 시스템 통합 및 관리업",2018-08-24,Information Technology
-오픈놀,440320,소프트웨어 개발 및 공급업,2023-06-30,Information Technology
-오픈베이스,049480,"컴퓨터 프로그래밍, 시스템 통합 및 관리업",2001-01-09,Information Technology
-오픈엣지테크놀로지,394280,소프트웨어 개발 및 공급업,2022-09-26,Information Technology
-온코닉테라퓨틱스,476060,자연과학 및 공학 연구개발업,2024-12-19,Health Care
-온코크로스,382150,자연과학 및 공학 연구개발업,2024-12-18,Health Care
-온타이드,005320,생활용품 도매업,1996-12-24,Consumer Discretionary
-올리패스,244460,기초 의약물질 제조업,2019-09-20,Health Care
-올릭스,226950,자연과학 및 공학 연구개발업,2018-07-18,Health Care
-옴니시스템,057540,"측정, 시험, 항해, 제어 및 기타 정밀기기 제조업; 광학기기 제외",2007-09-19,Information Technology
-옵투스제약,131030,의약품 제조업,2010-12-03,Health Care
-옵트론텍,082210,사진장비 및 광학기기 제조업,2005-06-24,Information Technology
-옵티시스,109080,통신 및 방송 장비 제조업,2011-07-12,Information Technology
-옵티코어,380540,마그네틱 및 광학 매체 제조업,2022-12-29,Information Technology
-옵티팜,153710,의료용품 및 기타 의약 관련제품 제조업,2018-10-26,Health Care
-와이랩,432430,"영화, 비디오물, 방송프로그램 제작 및 배급업",2023-07-20,Consumer Discretionary
-와이바이오로직스,338840,자연과학 및 공학 연구개발업,2023-12-05,Health Care
-와이솔,122990,전자부품 제조업,2010-09-10,Information Technology
-와이씨,232140,특수 목적용 기계 제조업,2015-12-24,Industrials
-와이씨켐,112290,기타 화학제품 제조업,2022-07-14,Materials
-와이어블,065530,전기 통신업,2002-06-04,Communication Services
-와이엔텍,067900,폐기물 처리업,2005-12-23,Industrials
-와이엠,007530,기타 금속 가공제품 제조업,1994-08-05,Materials
-와이엠씨,155650,전자부품 제조업,2012-11-15,Information Technology
-와이엠텍,273640,"전동기, 발전기 및 전기 변환 · 공급 · 제어 장치 제조업",2021-09-10,Industrials
-와이엠티,251370,기초 화학물질 제조업,2017-04-27,Energy
-와이제이링크,209640,특수 목적용 기계 제조업,2024-10-18,Industrials
-와이즈넛,096250,소프트웨어 개발 및 공급업,2025-01-24,Information Technology
-와이즈버즈,273060,광고업,2017-08-07,Communication Services
-와이지-원,019210,기타 금속 가공제품 제조업,1997-08-06,Materials
-와이지엔터테인먼트,122870,오디오물 출판 및 원판 녹음업,2011-11-23,Consumer Discretionary
-와이투솔루션,011690,반도체 제조업,1995-12-21,Information Technology
-와토스코리아,079000,플라스틱제품 제조업,2005-11-15,Materials
-우듬지팜,403490,"과실, 채소 가공 및 저장 처리업",2023-09-19,Consumer Staples
-우리금융지주,316140,기타 금융업,2019-02-13,Financials
-우리기술,032820,"전동기, 발전기 및 전기 변환 · 공급 · 제어 장치 제조업",2000-06-22,Industrials
-우리기술투자,041190,기타 금융업,2000-06-09,Financials
-우리넷,115440,통신 및 방송 장비 제조업,2010-01-27,Information Technology
-우리로,046970,기타 전문 도매업,2012-11-27,Consumer Discretionary
-우리바이오,082850,기타 식품 제조업,2005-07-29,Consumer Staples
-우리산업,215360,자동차 신품 부품 제조업,2015-05-06,Consumer Discretionary
-우리산업홀딩스,072470,자동차 신품 부품 제조업,2003-10-28,Consumer Discretionary
-우리손에프앤지,073560,"도축, 육류 가공 및 저장 처리업",2016-07-27,Consumer Staples
-우리엔터프라이즈,037400,상품 종합 도매업,1999-12-16,Consumer Discretionary
-우리이앤엘,153490,반도체 제조업,2013-02-05,Information Technology
-우림피티에스,101170,일반 목적용 기계 제조업,2009-04-28,Industrials
-우성,006980,일차전지 및 이차전지 제조업,2024-10-31,Industrials
-우성,006980,"곡물가공품, 전분 및 전분제품 제조업",1988-10-10,Consumer Staples
-우수AMS,066590,자동차 신품 부품 제조업,2003-02-12,Consumer Discretionary
-우신시스템,017370,특수 목적용 기계 제조업,2002-05-28,Industrials
-우양,103840,"과실, 채소 가공 및 저장 처리업",2019-11-20,Consumer Staples
-우양에이치씨,101970,"구조용 금속제품, 탱크 및 증기발생기 제조업",2025-03-28,Industrials
-우원개발,046940,기반조성 및 시설물 축조관련 전문공사업,2002-06-18,Industrials
-우정바이오,215380,자연과학 및 공학 연구개발업,2015-05-18,Health Care
-우주일렉트로,065680,전자부품 제조업,2004-01-02,Information Technology
-우진,105840,"측정, 시험, 항해, 제어 및 기타 정밀기기 제조업; 광학기기 제외",2010-07-26,Information Technology
-우진비앤지,018620,의약품 제조업,2008-05-20,Health Care
-우진아이엔에스,010400,건물설비 설치 공사업,2018-09-14,Industrials
-우진엔텍,457550,"그외 기타 전문, 과학 및 기술 서비스업",2024-01-24,Health Care
-우진플라임,049800,특수 목적용 기계 제조업,2006-05-24,Industrials
-웅진,016880,회사 본부 및 경영 컨설팅 서비스업,1994-11-05,Financials
-웅진씽크빅,095720,초등 교육기관,2007-05-31,Industrials
-워트,396470,특수 목적용 기계 제조업,2023-10-26,Industrials
-원림,005820,직물직조 및 직물제품 제조업,1990-04-20,Materials
-원바이오젠,307280,의료용품 및 기타 의약 관련제품 제조업,2018-12-05,Health Care
-원익,032940,기계장비 및 관련 물품 도매업,1997-07-18,Consumer Discretionary
-원익IPS,240810,특수 목적용 기계 제조업,2016-05-02,Industrials
-원익QnC,074600,유리 및 유리제품 제조업,2003-12-12,Materials
-원익머트리얼즈,104830,기초 화학물질 제조업,2011-12-28,Energy
-원익큐브,014190,기타 전문 도매업,1996-04-26,Consumer Discretionary
-원익피앤이,217820,특수 목적용 기계 제조업,2015-12-07,Industrials
-원익홀딩스,030530,기초 화학물질 제조업,1996-09-24,Energy
-원일특강,012620,1차 철강 제조업,1994-06-28,Materials
-원일티엔아이,136150,일반 목적용 기계 제조업,2025-05-09,Industrials
-원준,382840,특수 목적용 기계 제조업,2021-10-07,Industrials
-원텍,336570,의료용 기기 제조업,2019-12-19,Health Care
-원티드랩,376980,소프트웨어 개발 및 공급업,2021-08-11,Information Technology
-원포유,122830,소프트웨어 개발 및 공급업,2020-10-23,Information Technology
-원풍,008370,플라스틱제품 제조업,1992-12-18,Materials
-원풍물산,008290,봉제의복 제조업,1997-07-18,Consumer Discretionary
-월덱스,101160,전자부품 제조업,2008-06-19,Information Technology
-웨이버스,336060,소프트웨어 개발 및 공급업,2019-11-28,Information Technology
-웨이브일렉트로,095270,"측정, 시험, 항해, 제어 및 기타 정밀기기 제조업; 광학기기 제외",2007-09-12,Information Technology
-웨이비스,289930,반도체 제조업,2024-10-25,Information Technology
-웰바이오텍,010600,상품 중개업,1997-07-18,Consumer Discretionary
-웰크론,065950,직물직조 및 직물제품 제조업,2003-07-29,Materials
-웰크론한텍,076080,건물 건설업,2008-07-18,Industrials
-웰킵스하이텍,043590,반도체 제조업,2001-12-20,Information Technology
-웹스,196700,합성고무 및 플라스틱 물질 제조업,2015-08-24,Materials
-웹젠,069080,소프트웨어 개발 및 공급업,2003-05-23,Information Technology
-웹케시,053580,소프트웨어 개발 및 공급업,2019-01-25,Information Technology
-위너스,479960,기타 전기장비 제조업,2025-02-24,Utilities
-위니아에이드,377460,개인 및 가정용품 수리업,2022-06-23,Consumer Discretionary
-위닉스,044340,가정용 기기 제조업,2000-10-24,Consumer Discretionary
-위더스제약,330350,의약품 제조업,2020-07-03,Health Care
-위드텍,348350,"측정, 시험, 항해, 제어 및 기타 정밀기기 제조업; 광학기기 제외",2020-10-30,Information Technology
-위메이드,112040,소프트웨어 개발 및 공급업,2009-12-18,Information Technology
-위메이드맥스,101730,소프트웨어 개발 및 공급업,2009-06-03,Information Technology
-위메이드플레이,123420,소프트웨어 개발 및 공급업,2010-11-10,Information Technology
-위세아이텍,065370,소프트웨어 개발 및 공급업,2020-02-10,Information Technology
-위월드,140660,통신 및 방송 장비 제조업,2013-12-26,Information Technology
-위즈코프,038620,연료 소매업,2000-05-04,Energy
-위지윅스튜디오,299900,"영화, 비디오물, 방송프로그램 제작 및 배급업",2018-12-20,Consumer Discretionary
-위지트,036090,특수 목적용 기계 제조업,1999-12-10,Industrials
-위츠,459100,전자부품 제조업,2024-11-20,Information Technology
-윈스테크넷,136540,"컴퓨터 프로그래밍, 시스템 통합 및 관리업",2011-05-02,Information Technology
-윈팩,097800,반도체 제조업,2013-03-07,Information Technology
-윈하이텍,192390,"구조용 금속제품, 탱크 및 증기발생기 제조업",2014-07-25,Industrials
-윌비스,008600,생활용품 도매업,1989-07-28,Consumer Discretionary
-윙스풋,335870,"섬유, 의복, 신발 및 가죽제품 소매업",2019-12-09,Consumer Discretionary
-윙입푸드,900340,기타 금융업,2018-11-30,Financials
-유나이티드제약,033270,,,Other
-유니드,014830,기초 화학물질 제조업,2004-12-03,Energy
-유니드비티플러스,446070,제재 및 목재 가공업,2022-11-28,Materials
-유니셈,036200,특수 목적용 기계 제조업,1999-12-10,Industrials
-유니슨,018000,일반 목적용 기계 제조업,1996-01-10,Industrials
-유니온,000910,"시멘트, 석회, 플라스터 및 그 제품 제조업",1996-07-03,Materials
-유니온머티리얼,047400,"내화, 비내화 요업제품 제조업",2009-09-29,Materials
-유니온바이오메트릭스,203450,통신 및 방송 장비 제조업,2016-12-07,Information Technology
-유니켐,011330,"가죽, 가방 및 유사제품 제조업",1989-12-14,Consumer Discretionary
-유니퀘스트,077500,기계장비 및 관련 물품 도매업,2004-08-05,Consumer Discretionary
-유니크,011320,자동차 신품 부품 제조업,1993-12-29,Consumer Discretionary
-유니테스트,086390,특수 목적용 기계 제조업,2006-12-05,Industrials
-유니테크노,241690,자동차 신품 부품 제조업,2016-09-20,Consumer Discretionary
-유니트론텍,142210,자동차 부품 및 내장품 판매업,2016-02-02,Consumer Discretionary
-유니포인트,121060,"컴퓨터 프로그래밍, 시스템 통합 및 관리업",2014-10-24,Information Technology
-유디엠텍,389680,소프트웨어 개발 및 공급업,2024-11-20,Information Technology
-유라클,088340,소프트웨어 개발 및 공급업,2024-08-16,Information Technology
-유라테크,048430,"전동기, 발전기 및 전기 변환 · 공급 · 제어 장치 제조업",2001-01-11,Industrials
-유바이오로직스,206650,의약품 제조업,2017-01-24,Health Care
-유비벨록스,089850,소프트웨어 개발 및 공급업,2010-06-18,Information Technology
-유비씨,495810,소프트웨어 개발 및 공급업,2024-12-23,Information Technology
-유비온,084440,소프트웨어 개발 및 공급업,2022-11-18,Information Technology
-유비케어,032620,소프트웨어 개발 및 공급업,1997-05-02,Information Technology
-유비쿼스,264450,통신 및 방송 장비 제조업,2017-03-31,Information Technology
-유비쿼스홀딩스,078070,기타 금융업,2009-01-23,Financials
-유성기업,002920,자동차 신품 부품 제조업,1988-10-10,Consumer Discretionary
-유성티엔에스,024800,육상 여객 운송업,1999-12-10,Industrials
-유수홀딩스,000700,회사 본부 및 경영 컨설팅 서비스업,1956-03-03,Financials
-유신,054930,"건축기술, 엔지니어링 및 관련 기술 서비스업",2002-01-15,Industrials
-유아이디,069330,전자부품 제조업,2003-08-18,Information Technology
-유아이엘,049520,전자부품 제조업,2001-08-02,Information Technology
-유안타제11호스팩,444920,금융 지원 서비스업,2023-09-01,Financials
-유안타제12호스팩,446150,금융 지원 서비스업,2023-03-17,Financials
-유안타제14호스팩,450940,금융 지원 서비스업,2023-07-27,Financials
-유안타제15호스팩,473050,금융 지원 서비스업,2024-02-29,Financials
-유안타제16호스팩,474490,금융 지원 서비스업,2024-05-02,Financials
-유안타제17호스팩,493790,금융 지원 서비스업,2025-01-23,Financials
-유안타증권,003470,금융 지원 서비스업,1988-01-21,Financials
-유안타증권우,003475,금융 지원 서비스업,1988-01-21,Financials
-유에스티,263770,1차 철강 제조업,2017-04-06,Materials
-유엑스엔,337840,의료용 기기 제조업,2019-11-28,Health Care
-유엔젤,072130,"자료처리, 호스팅, 포털 및 기타 인터넷 정보매개 서비스업",2003-07-01,Information Technology
-유유제약,000220,의약품 제조업,1975-11-18,Health Care
-유유제약1우,000225,,,Other
-유유제약2우B,000227,,,Other
-유일로보틱스,388720,특수 목적용 기계 제조업,2022-03-18,Industrials
-유일에너테크,340930,특수 목적용 기계 제조업,2021-02-25,Industrials
-유진기업,023410,"시멘트, 석회, 플라스터 및 그 제품 제조업",1994-10-07,Materials
-유진로봇,056080,특수 목적용 기계 제조업,2001-11-13,Industrials
-유진스팩10호,468760,금융 지원 서비스업,2024-02-29,Financials
-유진스팩11호,488060,금융 지원 서비스업,2024-10-31,Financials
-유진스팩12호,0105P0,금융 지원 서비스업,2025-12-11,Financials
-유진테크,084370,특수 목적용 기계 제조업,2006-01-17,Industrials
-유진테크놀로지,240600,기타 금속 가공제품 제조업,2023-11-02,Materials
-유진투자증권,001200,,,Other
-유투바이오,221800,기타 과학기술 서비스업,2023-11-02,Health Care
-유티아이,179900,전자부품 제조업,2017-09-27,Information Technology
-유틸렉스,263050,기초 의약물질 제조업,2018-12-24,Health Care
-유한양행,000100,의약품 제조업,1962-11-01,Health Care
-유한양행우,000105,의약품 제조업,1962-11-01,Health Care
-유화증권,003460,금융 지원 서비스업,1987-08-24,Financials
-유화증권우,003465,금융 지원 서비스업,1987-08-24,Financials
-육일씨엔에쓰,191410,전자부품 제조업,2015-12-24,Information Technology
-윤성에프앤씨,372170,특수 목적용 기계 제조업,2022-11-14,Industrials
-율촌,146060,1차 철강 제조업,2023-09-08,Materials
-율촌화학,008730,플라스틱제품 제조업,1988-08-30,Materials
-이건산업,008250,나무제품 제조업,1988-10-21,Materials
-이건홀딩스,039020,제재 및 목재 가공업,2000-05-04,Materials
-이구산업,025820,1차 비철금속 제조업,1995-08-18,Materials
-이글루,067920,기타 정보 서비스업,2010-08-04,Information Technology
-이글벳,044960,기타 전문 도매업,2000-11-16,Consumer Discretionary
-이노뎁,303530,소프트웨어 개발 및 공급업,2021-06-18,Information Technology
-이노룰스,296640,소프트웨어 개발 및 공급업,2022-10-07,Information Technology
-이노메트리,302430,특수 목적용 기계 제조업,2018-12-12,Industrials
-이노벡스,279060,"측정, 시험, 항해, 제어 및 기타 정밀기기 제조업; 광학기기 제외",2019-04-12,Information Technology
-이노션,214320,광고업,2015-07-17,Communication Services
-이노스페이스,462350,"항공기,우주선 및 부품 제조업",2024-07-02,Industrials
-이노시뮬레이션,274400,소프트웨어 개발 및 공급업,2023-07-06,Information Technology
-이노와이어리스,073490,통신 및 방송 장비 제조업,2005-02-04,Information Technology
-이노인스트루먼트,215790,통신 및 방송 장비 제조업,2015-05-08,Information Technology
-이노진,344860,기타 화학제품 제조업,2023-02-20,Materials
-이노테크,469610,특수 목적용 기계 제조업,2025-11-07,Industrials
-이녹스,088390,그외 기타 운송장비 제조업,2006-10-20,Industrials
-이녹스첨단소재,272290,전자부품 제조업,2017-07-10,Information Technology
-이니텍,053350,소프트웨어 개발 및 공급업,2001-11-15,Information Technology
-이닉스,452400,자동차 신품 부품 제조업,2024-02-01,Consumer Discretionary
-이랜시스,264850,전자부품 제조업,2017-06-01,Information Technology
-이랜텍,054210,전자부품 제조업,2002-05-09,Information Technology
-이렘,009730,1차 철강 제조업,1990-07-27,Materials
-이루온,065440,소프트웨어 개발 및 공급업,2003-01-28,Information Technology
-이리츠코크렙,088260,부동산 임대 및 공급업,2018-06-27,Real Estate
-이마트,139480,종합 소매업,2011-06-10,Consumer Discretionary
-이뮨온시아,424870,자연과학 및 공학 연구개발업,2025-05-19,Health Care
-이미지스,115610,반도체 제조업,2010-02-26,Information Technology
-이베스트스팩6호,478110,금융 지원 서비스업,2024-07-12,Financials
-이브이첨단소재,131400,전자부품 제조업,2010-12-27,Information Technology
-이비테크,208850,기타 전기장비 제조업,2016-06-22,Utilities
-이삭엔지니어링,351330,"컴퓨터 프로그래밍, 시스템 통합 및 관리업",2021-04-21,Information Technology
-이상네트웍스,080010,상품 중개업,2005-09-30,Consumer Discretionary
-이성씨엔아이,379390,"건축기술, 엔지니어링 및 관련 기술 서비스업",2021-06-04,Industrials
-이수스페셜티케미컬,457190,기초 화학물질 제조업,2023-05-31,Energy
-이수앱지스,086890,의료용품 및 기타 의약 관련제품 제조업,2009-02-03,Health Care
-이수페타시스,007660,전자부품 제조업,2003-10-07,Information Technology
-이수화학,005950,기초 화학물질 제조업,1988-04-28,Energy
-이스타코,015020,부동산 임대 및 공급업,1988-12-23,Real Estate
-이스트소프트,047560,소프트웨어 개발 및 공급업,2008-07-01,Information Technology
-이스트아시아홀딩스,900110,기타 금융업,2010-04-23,Financials
-이스트에이드,239340,"자료처리, 호스팅, 포털 및 기타 인터넷 정보매개 서비스업",2016-06-09,Information Technology
-이씨에스,067010,"컴퓨터 프로그래밍, 시스템 통합 및 관리업",2007-12-18,Information Technology
-이앤에치,341310,기타 섬유제품 제조업,2019-12-27,Consumer Discretionary
-이엔셀,456070,기초 의약물질 제조업,2024-08-23,Health Care
-이엔에프테크놀로지,102710,기타 화학제품 제조업,2009-05-28,Materials
-이엔플러스,074610,일반 목적용 기계 제조업,2003-12-23,Industrials
-이엘씨,041520,"측정, 시험, 항해, 제어 및 기타 정밀기기 제조업; 광학기기 제외",2003-07-04,Information Technology
-이엘피,063760,"측정, 시험, 항해, 제어 및 기타 정밀기기 제조업; 광학기기 제외",2017-04-06,Information Technology
-이엠넷,123570,광고업,2011-11-25,Communication Services
-이엠앤아이,083470,기초 화학물질 제조업,2008-09-18,Energy
-이엠코리아,095190,기타 금속 가공제품 제조업,2007-10-29,Materials
-이엠텍,091120,전자부품 제조업,2007-05-02,Information Technology
-이엠티,232530,일차전지 및 이차전지 제조업,2015-12-30,Industrials
-이연제약,102460,의약품 제조업,2010-06-10,Health Care
-이오테크닉스,039030,특수 목적용 기계 제조업,2000-08-24,Industrials
-이오플로우,294090,의료용 기기 제조업,2020-09-14,Health Care
-이원컴포텍,088290,자동차 신품 부품 제조업,2009-12-01,Consumer Discretionary
-이월드,084680,귀금속 및 장신용품 제조업,2005-07-26,Consumer Discretionary
-이지바이오,353810,동물용 사료 및 조제식품 제조업,2020-06-05,Consumer Staples
-이지스,261520,소프트웨어 개발 및 공급업,2025-12-11,Information Technology
-이지스레지던스리츠,350520,부동산 임대 및 공급업,2020-08-05,Real Estate
-이지스밸류플러스리츠,334890,부동산 임대 및 공급업,2020-07-16,Real Estate
-이지케어텍,099750,소프트웨어 개발 및 공급업,2019-03-22,Information Technology
-이지트로닉스,377330,"전동기, 발전기 및 전기 변환 · 공급 · 제어 장치 제조업",2022-02-04,Industrials
-이지홀딩스,035810,동물용 사료 및 조제식품 제조업,1999-11-23,Consumer Staples
-이크레더블,092130,기타 정보 서비스업,2008-10-24,Information Technology
-이퓨쳐,134060,"서적, 잡지 및 기타 인쇄물 출판업",2011-04-27,Communication Services
-이화공영,001840,건물 건설업,1994-11-23,Industrials
-이화산업,000760,기타 전문 도매업,1994-04-29,Consumer Discretionary
-인디에프,014990,봉제의복 제조업,1989-06-20,Consumer Discretionary
-인바디,041830,의료용 기기 제조업,2000-12-14,Health Care
-인바이오,352940,"비료, 농약 및 살균, 살충제 제조업",2020-12-11,Consumer Staples
-인바이오젠,101140,기계장비 및 관련 물품 도매업,2008-04-02,Consumer Discretionary
-인바이츠바이오코아,216400,자연과학 및 공학 연구개발업,2015-06-29,Health Care
-인베니아,079950,특수 목적용 기계 제조업,2005-02-04,Industrials
-인벤티지랩,389470,자연과학 및 공학 연구개발업,2022-11-22,Health Care
-인산가,277410,기타 식품 제조업,2017-09-29,Consumer Staples
-인선이엔티,060150,폐기물 처리업,2002-06-14,Industrials
-인성정보,033230,"컴퓨터 프로그래밍, 시스템 통합 및 관리업",1999-07-30,Information Technology
-인스웨이브,450520,소프트웨어 개발 및 공급업,2023-09-25,Information Technology
-인스코비,006490,전기 통신업,1985-01-17,Communication Services
-인스피언,465480,소프트웨어 개발 및 공급업,2024-10-18,Information Technology
-인지디스플레,037330,전자부품 제조업,1999-12-14,Information Technology
-인지소프트,100030,소프트웨어 개발 및 공급업,2010-05-25,Information Technology
-인지컨트롤스,023800,자동차 신품 부품 제조업,1997-06-23,Consumer Discretionary
-인천도시가스,034590,연료용 가스 제조 및 배관공급업,2006-11-07,Energy
-인카금융서비스,211050,보험 및 연금관련 서비스업,2022-02-16,Financials
-인콘,083640,상품 종합 도매업,2005-12-27,Consumer Discretionary
-인크레더블버즈,064090,상품 종합 도매업,2002-12-17,Consumer Discretionary
-인크로스,216050,광고업,2016-10-31,Communication Services
-인탑스,049070,통신 및 방송 장비 제조업,2002-02-21,Information Technology
-인터로이드,311960,소프트웨어 개발 및 공급업,2022-11-29,Information Technology
-인터로조,119610,의료용 기기 제조업,2010-07-28,Health Care
-인터엠,017250,영상 및 음향기기 제조업,1996-01-03,Information Technology
-인터지스,129260,도로 화물 운송업,2011-12-16,Industrials
-인터플렉스,051370,전자부품 제조업,2003-01-22,Information Technology
-인텍플러스,064290,특수 목적용 기계 제조업,2011-01-05,Industrials
-인텔리안테크,189300,통신 및 방송 장비 제조업,2016-10-18,Information Technology
-인투셀,287840,자연과학 및 공학 연구개발업,2025-05-23,Health Care
-인트로메딕,150840,의료용 기기 제조업,2013-12-19,Health Care
-인트론바이오,048530,기초 의약물질 제조업,2011-01-26,Health Care
-인팩,023810,자동차 신품 부품 제조업,2004-09-21,Consumer Discretionary
-인포바인,115310,전기 통신업,2010-02-09,Communication Services
-인포뱅크,039290,기타 정보 서비스업,2006-07-04,Information Technology
-인피니트헬스케어,071200,소프트웨어 개발 및 공급업,2010-05-26,Information Technology
-인화정공,101930,선박 및 보트 건조업,2010-10-22,Industrials
-일동제약,249420,의약품 제조업,2016-08-31,Health Care
-일동홀딩스,000230,의약품 제조업,1975-06-28,Health Care
-일성건설,013360,토목 건설업,1989-12-02,Industrials
-일성아이에스,003120,의약품 제조업,1985-01-14,Health Care
-일승,333430,선박 및 보트 건조업,2019-11-06,Industrials
-일신바이오,068330,일반 목적용 기계 제조업,2007-12-26,Industrials
-일신방직,003200,방적 및 가공사 제조업,1973-05-23,Materials
-일신석재,007110,"건축자재, 철물 및 난방장치 도매업",1986-03-04,Consumer Discretionary
-일양약품,007570,의약품 제조업,1974-08-28,Health Care
-일양약품우,007575,의약품 제조업,1974-08-28,Health Care
-일월지엠엘,178780,상품 종합 도매업,2015-06-30,Consumer Discretionary
-일정실업,008500,편조원단 제조업,1994-08-12,Materials
-일지테크,019540,자동차 신품 부품 제조업,1992-11-03,Consumer Discretionary
-일진다이아,081000,기타 화학제품 제조업,2004-12-22,Materials
-일진디스플,020760,반도체 제조업,2002-01-09,Information Technology
-일진전기,103590,절연선 및 케이블 제조업,2008-08-01,Utilities
-일진파워,094820,전기 및 통신 공사업,2007-11-06,Industrials
-일진하이솔루스,271940,그외 기타 운송장비 제조업,2021-09-01,Industrials
-일진홀딩스,015860,기타 금융업,1990-03-22,Financials
-잇츠한불,226320,기타 화학제품 제조업,2015-12-28,Materials
-잉글우드랩,950140,기타 화학제품 제조업,2016-10-14,Materials
-잉크테크,049550,기타 화학제품 제조업,2002-02-28,Materials
-자람테크놀로지,389020,반도체 제조업,2023-03-07,Information Technology
-자비스,254120,특수 목적용 기계 제조업,2016-12-02,Industrials
-자연과환경,043910,"시멘트, 석회, 플라스터 및 그 제품 제조업",2005-11-18,Materials
-자이글,234920,가정용 기기 제조업,2016-09-06,Consumer Discretionary
-자이언트스텝,289220,"영화, 비디오물, 방송프로그램 제작 및 배급업",2021-03-24,Consumer Discretionary
-자이에스앤디,317400,부동산 임대 및 공급업,2019-11-06,Real Estate
-자화전자,033240,전자부품 제조업,1999-01-06,Information Technology
-장원테크,174880,통신 및 방송 장비 제조업,2016-07-15,Information Technology
-재영솔루텍,049630,사진장비 및 광학기기 제조업,2003-01-24,Information Technology
-저스템,417840,특수 목적용 기계 제조업,2022-10-28,Industrials
-전방,000950,방적 및 가공사 제조업,1968-10-21,Materials
-전진건설로봇,079900,특수 목적용 기계 제조업,2024-08-19,Industrials
-전진바이오팜,110020,기타 화학제품 제조업,2018-12-14,Materials
-정다운,208140,"도축, 육류 가공 및 저장 처리업",2014-12-17,Consumer Staples
-정상제이엘에스,040420,일반 교습 학원,2000-08-01,Industrials
-정원엔시스,045510,기계장비 및 관련 물품 도매업,2000-09-07,Consumer Discretionary
-제너셈,217190,특수 목적용 기계 제조업,2015-09-25,Industrials
-제넥신,095700,자연과학 및 공학 연구개발업,2009-09-15,Health Care
-제노레이,122310,의료용 기기 제조업,2018-05-28,Health Care
-제노코,361390,통신 및 방송 장비 제조업,2021-03-24,Information Technology
-제노텍,066830,기타 화학제품 제조업,2016-07-18,Materials
-제놀루션,225220,기초 의약물질 제조업,2020-07-24,Health Care
-제닉,123330,기타 화학제품 제조업,2011-08-03,Materials
-제닉스로보틱스,381620,특수 목적용 기계 제조업,2024-09-30,Industrials
-제로투세븐,159580,생활용품 도매업,2013-02-19,Consumer Discretionary
-제룡산업,147830,"구조용 금속제품, 탱크 및 증기발생기 제조업",2012-02-13,Industrials
-제룡전기,033100,"전동기, 발전기 및 전기 변환 · 공급 · 제어 장치 제조업",1997-08-18,Industrials
-제우스,079370,특수 목적용 기계 제조업,2006-02-01,Industrials
-제이브이엠,054950,일반 목적용 기계 제조업,2006-06-07,Industrials
-제이스코홀딩스,023440,1차 철강 제조업,1994-10-07,Materials
-제이스텍,090470,특수 목적용 기계 제조업,2007-01-10,Industrials
-제이씨케미칼,137950,기타 화학제품 제조업,2011-08-08,Materials
-제이씨현시스템,033320,기계장비 및 관련 물품 도매업,1997-11-10,Consumer Discretionary
-제이아이테크,417500,기타 화학제품 제조업,2022-11-04,Materials
-제이알글로벌리츠,348950,부동산 임대 및 공급업,2020-08-07,Real Estate
-제이앤티씨,204270,전자부품 제조업,2020-03-04,Information Technology
-제이에스링크,127120,자연과학 및 공학 연구개발업,2011-12-26,Health Care
-제이에스코퍼레이션,194370,"가죽, 가방 및 유사제품 제조업",2016-02-04,Consumer Discretionary
-제이에스티나,026040,귀금속 및 장신용품 제조업,1999-12-21,Consumer Discretionary
-제이엔비,452160,특수 목적용 기계 제조업,2023-11-24,Industrials
-제이엔케이글로벌,126880,일반 목적용 기계 제조업,2011-01-31,Industrials
-제이엘케이,322510,소프트웨어 개발 및 공급업,2019-12-11,Information Technology
-제이엠멀티,254160,제재 및 목재 가공업,2021-12-13,Materials
-제이엠아이,033050,기타 화학제품 제조업,1997-08-18,Materials
-제이엠티,094970,전자부품 제조업,2007-10-12,Information Technology
-제이오,418550,"건축기술, 엔지니어링 및 관련 기술 서비스업",2023-02-16,Industrials
-제이케이시냅스,060230,기타 화학제품 제조업,2002-06-25,Materials
-제이투케이바이오,420570,기타 화학제품 제조업,2024-03-25,Materials
-제이티,089790,특수 목적용 기계 제조업,2006-10-27,Industrials
-제이피아이헬스케어,0010V0,의료용 기기 제조업,2025-08-21,Health Care
-제일기획,030000,광고업,1998-03-03,Communication Services
-제일바이오,052670,의약품 제조업,2002-01-24,Health Care
-제일약품,271980,의약품 제조업,2017-07-17,Health Care
-제일엠앤에스,412540,특수 목적용 기계 제조업,2024-04-30,Industrials
-제일연마,001560,기타 비금속 광물제품 제조업,2005-12-09,Materials
-제일일렉트릭,199820,"전동기, 발전기 및 전기 변환 · 공급 · 제어 장치 제조업",2020-11-26,Industrials
-제일테크노스,038010,"구조용 금속제품, 탱크 및 증기발생기 제조업",2000-01-11,Industrials
-제일파마홀딩스,002620,회사 본부 및 경영 컨설팅 서비스업,1988-01-20,Financials
-제주반도체,080220,반도체 제조업,2005-02-01,Information Technology
-제주은행,006220,은행 및 저축기관,1972-12-28,Financials
-제주항공,089590,항공 여객 운송업,2015-11-06,Industrials
-제테마,216080,의료용품 및 기타 의약 관련제품 제조업,2019-11-14,Health Care
-젝시믹스,337930,기타 정보 서비스업,2020-08-13,Information Technology
-젠큐릭스,229000,의료용품 및 기타 의약 관련제품 제조업,2020-06-25,Health Care
-젬백스,082270,특수 목적용 기계 제조업,2005-06-24,Industrials
-조광페인트,004910,기타 화학제품 제조업,1976-12-27,Materials
-조광피혁,004700,"가죽, 가방 및 유사제품 제조업",1977-05-27,Consumer Discretionary
-조비,001550,"비료, 농약 및 살균, 살충제 제조업",1976-12-28,Consumer Staples
-조선내화,462520,"내화, 비내화 요업제품 제조업",2023-07-28,Materials
-조선선재,120030,기타 금속 가공제품 제조업,2010-02-19,Materials
-조아제약,034940,의약품 제조업,1999-08-13,Health Care
-조이시티,067000,소프트웨어 개발 및 공급업,2008-05-30,Information Technology
-조이웍스앤코,309930,기타 생활용품 소매업,2018-12-20,Consumer Discretionary
-조일알미늄,018470,1차 비철금속 제조업,1988-11-22,Materials
-조흥,002600,기타 식품 제조업,1976-12-23,Consumer Staples
-종근당,185750,의약품 제조업,2013-12-06,Health Care
-종근당바이오,063160,의약품 제조업,2001-12-11,Health Care
-종근당홀딩스,001630,의약품 제조업,1976-06-30,Health Care
-좋은사람들,033340,봉제의복 제조업,1997-11-03,Consumer Discretionary
-주성엔지니어링,036930,특수 목적용 기계 제조업,1999-12-24,Industrials
-주성코퍼레이션,109070,통신 및 방송 장비 제조업,2009-03-17,Information Technology
-주연테크,044380,컴퓨터 및 주변장치 제조업,2006-11-15,Information Technology
-중앙백신,072020,기초 의약물질 제조업,2003-10-31,Health Care
-중앙에너비스,000440,기타 전문 도매업,1993-03-24,Consumer Discretionary
-중앙첨단소재,051980,통신 및 방송 장비 제조업,2001-07-31,Information Technology
-지노믹트리,228760,자연과학 및 공학 연구개발업,2019-03-27,Health Care
-지놈앤컴퍼니,314130,기초 의약물질 제조업,2020-12-23,Health Care
-지누스,013890,가구 제조업,2019-10-30,Consumer Discretionary
-지니너스,389030,자연과학 및 공학 연구개발업,2021-11-08,Health Care
-지니언스,263860,소프트웨어 개발 및 공급업,2017-08-02,Information Technology
-지니틱스,303030,반도체 제조업,2018-08-30,Information Technology
-지더블유바이텍,036180,기계장비 및 관련 물품 도매업,1999-12-21,Consumer Discretionary
-지란지교시큐리티,208350,소프트웨어 개발 및 공급업,2014-12-24,Information Technology
-지슨,446840,"측정, 시험, 항해, 제어 및 기타 정밀기기 제조업; 광학기기 제외",2023-05-17,Information Technology
-지씨셀,144510,"그외 기타 전문, 과학 및 기술 서비스업",2016-06-23,Health Care
-지씨지놈,340450,"그외 기타 전문, 과학 및 기술 서비스업",2025-06-11,Health Care
-지아이이노베이션,358570,자연과학 및 공학 연구개발업,2023-03-30,Health Care
-지아이텍,382480,특수 목적용 기계 제조업,2021-10-21,Industrials
-지앤비에스 에코,382800,특수 목적용 기계 제조업,2021-10-29,Industrials
-지앤이헬스케어,299480,기타 섬유제품 제조업,2018-06-29,Consumer Discretionary
-지어소프트,051160,소프트웨어 개발 및 공급업,2002-05-28,Information Technology
-지에스이,053050,연료용 가스 제조 및 배관공급업,2001-10-11,Energy
-지에이이노더스,076340,기반조성 및 시설물 축조관련 전문공사업,2015-05-18,Industrials
-지에프씨생명과학,388610,기타 화학제품 제조업,2025-06-30,Materials
-지엔씨에너지,119850,"전동기, 발전기 및 전기 변환 · 공급 · 제어 장치 제조업",2013-10-02,Industrials
-지엔코,065060,봉제의복 제조업,2002-05-28,Consumer Discretionary
-지엘팜텍,204840,생활용품 도매업,2014-11-20,Consumer Discretionary
-지엠비코리아,013870,자동차 신품 부품 제조업,2012-11-20,Consumer Discretionary
-지역난방공사,071320,"증기, 냉·온수 및 공기조절 공급업",2010-01-29,Industrials
-지오엘리먼트,311320,전자부품 제조업,2021-11-11,Information Technology
-지투지바이오,456160,의약품 제조업,2025-08-14,Health Care
-지투파워,388050,"전동기, 발전기 및 전기 변환 · 공급 · 제어 장치 제조업",2022-04-01,Industrials
-진도,088790,기타 전문 도매업,2006-03-28,Consumer Discretionary
-진로발효,018120,알코올음료 제조업,1993-12-29,Consumer Staples
-진매트릭스,109820,자연과학 및 공학 연구개발업,2009-11-06,Health Care
-진바이오텍,086060,산업용 농·축산물 및 동·식물 도매업,2006-04-28,Consumer Discretionary
-진성티이씨,036890,특수 목적용 기계 제조업,2000-07-20,Industrials
-진시스템,363250,의료용 기기 제조업,2021-05-26,Health Care
-진양산업,003780,플라스틱제품 제조업,1973-06-26,Materials
-진양제약,007370,의약품 제조업,2000-07-27,Health Care
-진양폴리,010640,,,Other
-진양홀딩스,100250,플라스틱제품 제조업,2008-02-15,Materials
-진양화학,051630,플라스틱제품 제조업,2001-01-29,Materials
-진에어,272450,항공 여객 운송업,2017-12-08,Industrials
-진영,285800,플라스틱제품 제조업,2023-06-01,Materials
-진원생명과학,011000,의약품 제조업,1987-11-16,Health Care
-진코스텍,250030,기타 화학제품 제조업,2019-11-29,Materials
-진흥기업,002780,토목 건설업,1977-06-25,Industrials
-진흥기업2우B,002787,,,Other
-진흥기업우B,002785,,,Other
-질경이,233990,기타 화학제품 제조업,2015-12-29,Materials
-차AI헬스케어,025620,기타 화학제품 제조업,1995-07-08,Materials
-차바이오텍,085660,기초 의약물질 제조업,2005-12-27,Health Care
-차백신연구소,261780,자연과학 및 공학 연구개발업,2021-10-22,Health Care
-차이커뮤니케이션,351870,광고업,2024-09-27,Communication Services
-참엔지니어링,009310,특수 목적용 기계 제조업,1987-11-12,Industrials
-참좋은여행,094850,여행사 및 기타 여행보조 서비스업,2007-04-30,Consumer Discretionary
-창대정밀,368030,특수 목적용 기계 제조업,2024-12-23,Industrials
-창해에탄올,004650,알코올음료 제조업,2014-07-30,Consumer Staples
-천보,278280,기초 화학물질 제조업,2019-02-11,Energy
-천일고속,000650,육상 여객 운송업,1977-06-23,Industrials
-청담글로벌,362320,생활용품 도매업,2022-06-03,Consumer Discretionary
-체리부로,066360,"도축, 육류 가공 및 저장 처리업",2017-12-04,Consumer Staples
-체시스,033250,자동차 신품 부품 제조업,1999-08-11,Consumer Discretionary
-초록뱀미디어,047820,"영화, 비디오물, 방송프로그램 제작 및 배급업",2002-12-24,Consumer Discretionary
-칩스앤미디어,094360,반도체 제조업,2015-08-05,Information Technology
-카스,016920,기계장비 및 관련 물품 도매업,1990-01-04,Consumer Discretionary
-카이노스메드,284620,자연과학 및 공학 연구개발업,2018-06-08,Health Care
-카카오,035720,"자료처리, 호스팅, 포털 및 기타 인터넷 정보매개 서비스업",2017-07-10,Information Technology
-카카오게임즈,293490,소프트웨어 개발 및 공급업,2020-09-10,Information Technology
-카카오뱅크,323410,은행 및 저축기관,2021-08-06,Financials
-카카오페이,377300,금융 지원 서비스업,2021-11-03,Financials
-카티스,140430,"컴퓨터 프로그래밍, 시스템 통합 및 관리업",2024-05-03,Information Technology
-카페24,042000,"자료처리, 호스팅, 포털 및 기타 인터넷 정보매개 서비스업",2018-02-08,Information Technology
-카프로,006380,기초 화학물질 제조업,1974-05-28,Energy
-캐리,313760,"전동기, 발전기 및 전기 변환 · 공급 · 제어 장치 제조업",2019-07-25,Industrials
-캐리소프트,317530,"영화, 비디오물, 방송프로그램 제작 및 배급업",2019-10-29,Consumer Discretionary
-캐스텍코리아,071850,자동차 신품 부품 제조업,2014-05-27,Consumer Discretionary
-캐프,198080,전자부품 제조업,2020-03-16,Information Technology
-캔버스엔,210120,"영화, 비디오물, 방송프로그램 제작 및 배급업",2023-08-17,Consumer Discretionary
-캠시스,050110,전자부품 제조업,2001-05-17,Information Technology
-캡스톤파트너스,452300,기타 금융업,2023-11-15,Financials
-컨텍,451760,"컴퓨터 프로그래밍, 시스템 통합 및 관리업",2023-11-09,Information Technology
-컬러레이,900310,기타 금융업,2017-08-10,Financials
-컴투스,078340,소프트웨어 개발 및 공급업,2007-07-06,Information Technology
-컴투스홀딩스,063080,소프트웨어 개발 및 공급업,2009-07-30,Information Technology
-컴퍼니케이,307930,기타 금융업,2019-05-23,Financials
-케스피온,079190,통신 및 방송 장비 제조업,2005-11-29,Information Technology
-케어랩스,263700,광고업,2018-03-28,Communication Services
-케어젠,214370,기초 의약물질 제조업,2015-11-17,Health Care
-케이디켐,221980,기타 화학제품 제조업,2015-11-19,Materials
-케이바이오,038530,생활용품 도매업,2000-06-09,Consumer Discretionary
-케이비아이동국실업,001620,자동차 신품 부품 제조업,1990-09-15,Consumer Discretionary
-케이사인,192250,소프트웨어 개발 및 공급업,2014-04-28,Information Technology
-케이쓰리아이,431190,소프트웨어 개발 및 공급업,2024-08-20,Information Technology
-케이씨,029460,"측정, 시험, 항해, 제어 및 기타 정밀기기 제조업; 광학기기 제외",1997-11-25,Information Technology
-케이씨에스,115500,"컴퓨터 프로그래밍, 시스템 통합 및 관리업",2010-04-14,Information Technology
-케이씨텍,281820,"측정, 시험, 항해, 제어 및 기타 정밀기기 제조업; 광학기기 제외",2017-12-05,Information Technology
-케이씨티,089150,"컴퓨터 프로그래밍, 시스템 통합 및 관리업",2006-12-13,Information Technology
-케이씨피드,025880,동물용 사료 및 조제식품 제조업,1995-07-07,Consumer Staples
-케이아이엔엑스,093320,"자료처리, 호스팅, 포털 및 기타 인터넷 정보매개 서비스업",2011-02-08,Information Technology
-케이알엠,093640,반도체 제조업,2007-10-19,Information Technology
-케이에스피,073010,일반 목적용 기계 제조업,2004-12-17,Industrials
-케이엔더블유,105330,자동차 신품 부품 제조업,2009-09-29,Consumer Discretionary
-케이엔솔,053080,일반 목적용 기계 제조업,2020-09-24,Industrials
-케이엔알시스템,199430,"측정, 시험, 항해, 제어 및 기타 정밀기기 제조업; 광학기기 제외",2024-03-07,Information Technology
-케이엔에스,432470,특수 목적용 기계 제조업,2023-12-06,Industrials
-케이엔제이,272110,반도체 제조업,2019-10-25,Information Technology
-케이엘넷,039420,전기 통신업,2002-03-12,Communication Services
-케이엠,083550,기타 섬유제품 제조업,2005-12-20,Consumer Discretionary
-케이엠더블유,032500,통신 및 방송 장비 제조업,2000-03-21,Information Technology
-케이엠제약,225430,기타 화학제품 제조업,2015-10-08,Materials
-케이옥션,102370,상품 중개업,2022-01-24,Consumer Discretionary
-케이웨더,068100,일반 목적용 기계 제조업,2024-02-22,Industrials
-케이이엠텍,106080,전자부품 제조업,2010-02-09,Information Technology
-케이지에이,455180,특수 목적용 기계 제조업,2025-06-17,Industrials
-케이카,381970,자동차 판매업,2021-10-13,Consumer Discretionary
-케이탑리츠,145270,부동산 임대 및 공급업,2012-01-31,Real Estate
-케이티알파,036030,상품 중개업,1999-12-24,Consumer Discretionary
-케이프,064820,선박 및 보트 건조업,2007-05-29,Industrials
-케이피에프,024880,기타 금속 가공제품 제조업,1994-12-29,Materials
-케이피엠테크,042040,기타 전문 도매업,2003-01-07,Consumer Discretionary
-케이피티유,054410,기타 금속 가공제품 제조업,2002-04-25,Materials
-케일럼,258610,"구조용 금속제품, 탱크 및 증기발생기 제조업",2017-08-22,Industrials
-켄코아에어로스페이스,274090,"항공기,우주선 및 부품 제조업",2020-03-03,Industrials
-켈스,402420,의료용 기기 제조업,2021-11-30,Health Care
-켐트로닉스,089010,기타 화학제품 제조업,2007-01-17,Materials
-켐트로스,220260,기타 화학제품 제조업,2015-07-27,Materials
-코나솔,176590,기타 금속 가공제품 제조업,2022-06-15,Materials
-코나아이,052400,소프트웨어 개발 및 공급업,2001-10-18,Information Technology
-코난테크놀로지,402030,소프트웨어 개발 및 공급업,2022-07-07,Information Technology
-코닉오토메이션,391710,특수 목적용 기계 제조업,2021-10-15,Industrials
-코다코,046070,자동차 신품 부품 제조업,2000-12-26,Consumer Discretionary
-코데즈컴바인,047770,봉제의복 제조업,2001-09-18,Consumer Discretionary
-코디,080530,기타 화학제품 제조업,2010-01-05,Materials
-코람코더원리츠,417310,부동산 임대 및 공급업,2022-03-28,Real Estate
-코람코라이프인프라리츠,357120,부동산 임대 및 공급업,2020-08-31,Real Estate
-코렌텍,104540,의료용 기기 제조업,2013-03-05,Health Care
-코리아나,027050,기타 화학제품 제조업,1999-12-10,Materials
-코리아써우,007815,,,Other
-코리아써키트,007810,전자부품 제조업,1985-09-09,Information Technology
-코리아써키트2우B,00781K,,,Other
-코리아에셋투자증권,190650,금융 지원 서비스업,2019-11-20,Financials
-코리아에프티,123410,자동차 신품 부품 제조업,2010-08-27,Consumer Discretionary
-코리안리,003690,재 보험업,1969-12-22,Financials
-코맥스,036690,통신 및 방송 장비 제조업,2000-01-18,Information Technology
-코메론,049430,"측정, 시험, 항해, 제어 및 기타 정밀기기 제조업; 광학기기 제외",2001-01-16,Information Technology
-코미코,183300,특수 목적용 기계 제조업,2017-03-23,Industrials
-코미팜,041960,의약품 제조업,2001-10-30,Health Care
-코세스,089890,특수 목적용 기계 제조업,2006-11-08,Industrials
-코셈,360350,"측정, 시험, 항해, 제어 및 기타 정밀기기 제조업; 광학기기 제외",2024-02-23,Information Technology
-코셋,189350,통신 및 방송 장비 제조업,2013-12-24,Information Technology
-코스나인,082660,기타 화학제품 제조업,2005-10-05,Materials
-코스맥스,192820,기타 화학제품 제조업,2014-04-07,Materials
-코스맥스비티아이,044820,기타 금융업,2006-11-13,Financials
-코스맥스엔비티,222040,기타 식품 제조업,2015-12-16,Consumer Staples
-코스메카코리아,241710,기타 화학제품 제조업,2016-10-28,Materials
-코스모신소재,005070,기타 화학제품 제조업,1987-09-28,Materials
-코스모화학,005420,기타 화학제품 제조업,1987-07-23,Materials
-코스텍시스,355150,반도체 제조업,2020-09-18,Information Technology
-코스텍시스템,169670,특수 목적용 기계 제조업,2022-01-21,Industrials
-코아스,071950,가구 제조업,2005-08-04,Consumer Discretionary
-코아스템켐온,166480,의약품 제조업,2015-06-26,Health Care
-코아시아,045970,반도체 제조업,2000-08-03,Information Technology
-코아시아씨엠,196450,사진장비 및 광학기기 제조업,2014-06-02,Information Technology
-코어라인소프트,384470,소프트웨어 개발 및 공급업,2023-09-18,Information Technology
-코오롱,002020,기타 금융업,1975-06-23,Financials
-코오롱ENP,138490,합성고무 및 플라스틱 물질 제조업,2011-06-15,Materials
-코오롱글로벌,003070,토목 건설업,1978-09-15,Industrials
-코오롱글로벌우,003075,토목 건설업,1978-09-15,Industrials
-코오롱모빌리티그룹,450140,자동차 판매업,2023-01-31,Consumer Discretionary
-코오롱모빌리티그룹우,45014K,자동차 판매업,2023-01-31,Consumer Discretionary
-코오롱생명과학,102940,기초 의약물질 제조업,2009-04-07,Health Care
-코오롱우,002025,기타 금융업,1975-06-23,Financials
-코오롱인더,120110,화학섬유 제조업,2010-02-01,Materials
-코오롱인더우,120115,화학섬유 제조업,2010-02-01,Materials
-코오롱티슈진,950160,기초 의약물질 제조업,2017-11-06,Health Care
-코웨이,021240,그외 기타 개인 서비스업,2001-08-07,Consumer Discretionary
-코위버,056360,통신 및 방송 장비 제조업,2001-12-04,Information Technology
-코윈테크,282880,특수 목적용 기계 제조업,2019-08-05,Industrials
-코이즈,121850,플라스틱제품 제조업,2012-09-27,Materials
-코츠테크놀로지,448710,컴퓨터 및 주변장치 제조업,2023-08-10,Information Technology
-코칩,126730,전자부품 제조업,2024-05-07,Information Technology
-코콤,015710,통신 및 방송 장비 제조업,1997-09-30,Information Technology
-코텍,052330,영상 및 음향기기 제조업,2001-07-10,Information Technology
-코퍼스코리아,322780,"영화, 비디오물, 방송프로그램 제작 및 배급업",2019-05-31,Consumer Discretionary
-콘텐트리중앙,036420,"영화, 비디오물, 방송프로그램 제작 및 배급업",2019-10-18,Consumer Discretionary
-콜마비앤에이치,200130,기초 의약물질 제조업,2014-07-23,Health Care
-콜마홀딩스,024720,기타 금융업,2002-04-09,Financials
-쿠콘,294570,기타 정보 서비스업,2021-04-28,Information Technology
-쿠쿠홀딩스,192400,기타 금융업,2014-08-06,Financials
-쿠쿠홈시스,284740,개인 및 가정용품 임대업,2018-01-11,Consumer Discretionary
-쿼드메디슨,464490,기초 의약물질 제조업,2025-12-12,Health Care
-퀀타매트릭스,317690,의료용 기기 제조업,2020-12-09,Health Care
-퀄리타스반도체,432720,반도체 제조업,2023-10-27,Information Technology
-큐라켐,456190,의료용품 및 기타 의약 관련제품 제조업,2023-05-18,Health Care
-큐라클,365270,자연과학 및 공학 연구개발업,2021-07-22,Health Care
-큐라티스,348080,자연과학 및 공학 연구개발업,2023-06-15,Health Care
-큐렉소,060280,기타 상품 전문 소매업,2002-07-03,Consumer Discretionary
-큐로셀,372320,자연과학 및 공학 연구개발업,2023-11-09,Health Care
-큐로홀딩스,051780,음·식료품 및 담배 소매업,2001-06-26,Consumer Discretionary
-큐리언트,115180,자연과학 및 공학 연구개발업,2016-02-29,Health Care
-큐리오시스,494120,사진장비 및 광학기기 제조업,2025-11-13,Information Technology
-큐리옥스바이오시스템즈,445680,의료용 기기 제조업,2023-08-10,Health Care
-큐브엔터,182360,오디오물 출판 및 원판 녹음업,2013-11-21,Consumer Discretionary
-큐알티,405100,"그외 기타 전문, 과학 및 기술 서비스업",2022-11-02,Health Care
-큐에스아이,066310,반도체 제조업,2006-11-24,Information Technology
-큐엠씨,136660,특수 목적용 기계 제조업,2014-07-01,Industrials
-큐캐피탈,016600,기타 금융업,1993-06-21,Financials
-크라우드웍스,355390,소프트웨어 개발 및 공급업,2023-08-31,Information Technology
-크라운제과,264900,"떡, 빵 및 과자류 제조업",2017-04-11,Consumer Discretionary
-크라운제과우,26490K,"떡, 빵 및 과자류 제조업",2017-04-11,Consumer Discretionary
-크라운해태홀딩스,005740,기타 금융업,1976-06-30,Financials
-크라운해태홀딩스우,005745,기타 금융업,1976-06-30,Financials
-크래프톤,259960,소프트웨어 개발 및 공급업,2021-08-10,Information Technology
-크레버스,096240,일반 교습 학원,2008-06-27,Industrials
-크레오에스지,040350,"컴퓨터 프로그래밍, 시스템 통합 및 관리업",2002-01-10,Information Technology
-크로넥스,215570,자연과학 및 공학 연구개발업,2015-12-28,Health Care
-크리스에프앤씨,110790,봉제의복 제조업,2018-10-01,Consumer Discretionary
-크리스탈신소재,900250,기타 금융업,2016-01-28,Financials
-크린앤사이언스,045520,일반 목적용 기계 제조업,2000-12-05,Industrials
-클래시스,214150,의료용 기기 제조업,2015-04-03,Health Care
-클로봇,466100,소프트웨어 개발 및 공급업,2024-10-28,Information Technology
-클리오,237880,기타 화학제품 제조업,2016-11-09,Materials
-키네마스터,139670,소프트웨어 개발 및 공급업,2011-12-02,Information Technology
-키다리스튜디오,020120,"자료처리, 호스팅, 포털 및 기타 인터넷 정보매개 서비스업",1996-07-03,Information Technology
-키스트론,475430,절연선 및 케이블 제조업,2025-06-02,Utilities
-키움제10호스팩,487720,금융 지원 서비스업,2024-12-20,Financials
-키움제11호스팩,489480,금융 지원 서비스업,2024-12-11,Financials
-키움증권,039490,금융 지원 서비스업,2009-08-03,Financials
-키움히어로제1호스팩,466690,금융 지원 서비스업,2025-12-12,Financials
-키이스트,054780,"영화, 비디오물, 방송프로그램 제작 및 배급업",2003-11-14,Consumer Discretionary
-킵스파마,256940,의약품 제조업,2017-09-06,Health Care
-타스컴,336040,의료용 기기 제조업,2019-12-02,Health Care
-타이거일렉,219130,전자부품 제조업,2015-09-25,Information Technology
-타이드,346010,전자부품 제조업,2022-12-28,Information Technology
-타임기술,318660,소프트웨어 개발 및 공급업,2021-06-24,Information Technology
-타조이엔터테인먼트,476710,창작 및 예술관련 서비스업,2024-10-30,Consumer Discretionary
-탈로스,434190,일차전지 및 이차전지 제조업,2022-10-24,Industrials
-탑런토탈솔루션,336680,전자부품 제조업,2024-11-01,Information Technology
-탑머티리얼,360070,일차전지 및 이차전지 제조업,2022-10-18,Industrials
-탑선,180060,기타 전기장비 제조업,2017-10-27,Utilities
-탑엔지니어링,065130,특수 목적용 기계 제조업,2003-01-29,Industrials
-탑코미디어,134580,"자료처리, 호스팅, 포털 및 기타 인터넷 정보매개 서비스업",2013-11-26,Information Technology
-태경비케이,014580,"시멘트, 석회, 플라스터 및 그 제품 제조업",1991-03-07,Materials
-태경산업,015890,기초 화학물질 제조업,1996-01-30,Energy
-태경케미컬,006890,기초 화학물질 제조업,2003-01-28,Energy
-태광,023160,1차 철강 제조업,1994-09-07,Materials
-태광산업,003240,화학섬유 제조업,1975-12-27,Materials
-태림포장,011280,"골판지, 종이 상자 및 종이용기 제조업",1988-12-20,Materials
-태성,323280,특수 목적용 기계 제조업,2019-06-24,Industrials
-태양,053620,기타 금속 가공제품 제조업,2001-08-07,Materials
-태양3C,052960,자동차 부품 및 내장품 판매업,2023-01-26,Consumer Discretionary
-태양금속,004100,,,Other
-태양금속우,004105,,,Other
-태양기계,116100,자동차 신품 부품 제조업,2013-07-01,Consumer Discretionary
-태영건설,009410,토목 건설업,1989-11-13,Industrials
-태영건설우,009415,토목 건설업,1989-11-13,Industrials
-태웅,044490,기타 금속 가공제품 제조업,2001-11-08,Materials
-태웅로직스,124560,기타 운송관련 서비스업,2019-12-10,Industrials
-태원물산,001420,자동차 신품 부품 제조업,1975-06-24,Consumer Discretionary
-테고사이언스,191420,기초 의약물질 제조업,2014-11-06,Health Care
-테라뷰,950250,기타 금융업,2025-12-09,Financials
-테라사이언스,073640,기타 금속 가공제품 제조업,2004-01-06,Materials
-테라젠이텍스,066700,의약품 제조업,2004-05-27,Health Care
-테스,095610,특수 목적용 기계 제조업,2008-05-20,Industrials
-테이팩스,055490,플라스틱제품 제조업,2017-10-31,Materials
-테크엔,308700,전구 및 조명장치 제조업,2018-12-21,Utilities
-테크엘,064520,반도체 제조업,2002-12-04,Information Technology
-테크윙,089030,특수 목적용 기계 제조업,2011-11-10,Industrials
-테크트랜스,258050,기타 금속 가공제품 제조업,2018-07-13,Materials
-텔레칩스,054450,반도체 제조업,2004-12-10,Information Technology
-텔코웨어,078000,"자료처리, 호스팅, 포털 및 기타 인터넷 정보매개 서비스업",2004-07-20,Information Technology
-텔콘RF제약,200230,의약품 제조업,2014-11-24,Health Care
-토니모리,214420,기타 화학제품 제조업,2015-07-10,Materials
-토마토시스템,393210,소프트웨어 개발 및 공급업,2023-04-27,Information Technology
-토모큐브,475960,사진장비 및 광학기기 제조업,2024-11-07,Information Technology
-토박스코리아,215480,"섬유, 의복, 신발 및 가죽제품 소매업",2015-05-13,Consumer Discretionary
-토비스,051360,영상 및 음향기기 제조업,2004-11-19,Information Technology
-토탈소프트,045340,소프트웨어 개발 및 공급업,2002-07-19,Information Technology
-톱텍,108230,특수 목적용 기계 제조업,2009-09-15,Industrials
-투비소프트,079970,소프트웨어 개발 및 공급업,2010-06-01,Information Technology
-툴젠,199800,자연과학 및 공학 연구개발업,2021-12-10,Health Care
-트루엔,417790,영상 및 음향기기 제조업,2023-05-17,Information Technology
-트윔,290090,소프트웨어 개발 및 공급업,2021-11-17,Information Technology
-특수건설,026150,토목 건설업,1997-08-06,Industrials
-티디에스팜,464280,의약품 제조업,2024-08-21,Health Care
-티로보틱스,117730,특수 목적용 기계 제조업,2018-11-29,Industrials
-티비씨,033830,텔레비전 방송업,2010-11-29,Communication Services
-티사이언티픽,057680,소프트웨어 개발 및 공급업,2002-06-18,Information Technology
-티쓰리,204610,소프트웨어 개발 및 공급업,2022-11-17,Information Technology
-티씨머티리얼즈,125020,절연선 및 케이블 제조업,2025-05-15,Utilities
-티씨케이,064760,기타 비금속 광물제품 제조업,2003-08-18,Materials
-티앤알바이오팹,246710,기초 의약물질 제조업,2018-11-28,Health Care
-티앤엘,340570,의료용품 및 기타 의약 관련제품 제조업,2020-11-20,Health Care
-티에스넥스젠,043220,특수 목적용 기계 제조업,2001-07-03,Industrials
-티에스아이,277880,특수 목적용 기계 제조업,2020-07-22,Industrials
-티에스이,131290,"측정, 시험, 항해, 제어 및 기타 정밀기기 제조업; 광학기기 제외",2011-01-05,Information Technology
-티에이치엔,019180,기타 전기장비 제조업,1996-07-31,Utilities
-티에프이,425420,전자부품 제조업,2022-11-17,Information Technology
-티엑스알로보틱스,484810,일반 목적용 기계 제조업,2025-03-20,Industrials
-티엔엔터테인먼트,131100,"영화, 비디오물, 방송프로그램 제작 및 배급업",2011-06-14,Consumer Discretionary
-티엘비,356860,전자부품 제조업,2020-12-14,Information Technology
-티엘엔지니어링,413300,"건축기술, 엔지니어링 및 관련 기술 서비스업",2022-09-27,Industrials
-티엠씨,217590,절연선 및 케이블 제조업,2025-12-15,Utilities
-티와이홀딩스,363280,기타 금융업,2020-09-22,Financials
-티와이홀딩스우,36328K,기타 금융업,2020-09-22,Financials
-티움바이오,321550,자연과학 및 공학 연구개발업,2019-11-22,Health Care
-티웨이항공,091810,항공 여객 운송업,2018-08-01,Industrials
-티웨이홀딩스,004870,"시멘트, 석회, 플라스터 및 그 제품 제조업",1977-06-30,Materials
-티이엠씨,425040,기초 화학물질 제조업,2023-01-19,Energy
-티이엠씨씨엔에스,241790,특수 목적용 기계 제조업,2016-12-01,Industrials
-티케이지애강,022220,플라스틱제품 제조업,2006-04-11,Materials
-티케이케미칼,104480,화학섬유 제조업,2011-04-26,Materials
-티플랙스,081150,1차 비철금속 제조업,2009-04-23,Materials
-티피씨글로벌,130740,자동차 신품 부품 제조업,2011-02-08,Consumer Discretionary
-틸론,217880,소프트웨어 개발 및 공급업,2015-05-28,Information Technology
-팅크웨어,084730,통신 및 방송 장비 제조업,2006-05-19,Information Technology
-파두,440110,반도체 제조업,2023-08-07,Information Technology
-파라다이스,034230,유원지 및 기타 오락관련 서비스업,2024-06-24,Consumer Discretionary
-파라택시스코리아,288330,기초 의약물질 제조업,2019-12-20,Health Care
-파라텍,033540,특수 목적용 기계 제조업,1997-12-26,Industrials
-파로스아이바이오,388870,자연과학 및 공학 연구개발업,2023-07-27,Health Care
-파루,043200,"전동기, 발전기 및 전기 변환 · 공급 · 제어 장치 제조업",2000-07-19,Industrials
-파마리서치,214450,의료용품 및 기타 의약 관련제품 제조업,2015-07-24,Health Care
-파마리서치바이오,217950,의약품 제조업,2015-11-05,Health Care
-파멥신,208340,의약품 제조업,2018-11-21,Health Care
-파미셀,005690,기초 의약물질 제조업,1988-05-20,Health Care
-파버나인,177830,전자부품 제조업,2014-08-04,Information Technology
-파세코,037070,가정용 기기 제조업,2000-01-04,Consumer Discretionary
-파수,150900,소프트웨어 개발 및 공급업,2013-10-18,Information Technology
-파워넷,037030,"전동기, 발전기 및 전기 변환 · 공급 · 제어 장치 제조업",2018-06-07,Industrials
-파워로직스,047310,"전동기, 발전기 및 전기 변환 · 공급 · 제어 장치 제조업",2003-07-25,Industrials
-파이버프로,368770,"측정, 시험, 항해, 제어 및 기타 정밀기기 제조업; 광학기기 제외",2021-01-21,Information Technology
-파이오링크,170790,통신 및 방송 장비 제조업,2013-08-01,Information Technology
-파인디앤씨,049120,전자부품 제조업,2001-07-26,Information Technology
-파인디지털,038950,통신 및 방송 장비 제조업,2000-05-04,Information Technology
-파인메딕스,387570,의료용 기기 제조업,2024-12-26,Health Care
-파인엠텍,441270,전자부품 제조업,2022-10-07,Information Technology
-파인테크닉스,106240,전구 및 조명장치 제조업,2009-03-16,Utilities
-파인텍,131760,특수 목적용 기계 제조업,2015-08-17,Industrials
-파커스,065690,고무제품 제조업,2002-07-16,Materials
-파크시스템스,140860,"측정, 시험, 항해, 제어 및 기타 정밀기기 제조업; 광학기기 제외",2015-12-17,Information Technology
-파트론,091700,전자부품 제조업,2006-12-13,Information Technology
-판도라티비,202960,소프트웨어 개발 및 공급업,2014-08-11,Information Technology
-판타지오,032800,창작 및 예술관련 서비스업,1997-06-26,Consumer Discretionary
-팜스빌,318010,기타 식품 제조업,2019-10-22,Consumer Staples
-팜스코,036580,"곡물가공품, 전분 및 전분제품 제조업",1999-10-25,Consumer Staples
-팜스토리,027710,동물용 사료 및 조제식품 제조업,1996-07-06,Consumer Staples
-팜젠사이언스,004720,의약품 제조업,1990-06-15,Health Care
-팡스카이,266350,소프트웨어 개발 및 공급업,2024-06-28,Information Technology
-패션플랫폼,225590,봉제의복 제조업,2015-10-05,Consumer Discretionary
-팬스타엔터프라이즈,054300,일반 목적용 기계 제조업,2002-01-10,Industrials
-팬엔터테인먼트,068050,"영화, 비디오물, 방송프로그램 제작 및 배급업",2006-07-07,Consumer Discretionary
-팬오션,028670,해상 운송업,2007-09-21,Industrials
-팬젠,222110,의약품 제조업,2016-03-11,Health Care
-팸텍,271830,특수 목적용 기계 제조업,2023-05-23,Industrials
-퍼스텍,010820,무기 및 총포탄 제조업,1989-05-10,Materials
-퍼시스,016800,가구 제조업,1996-12-24,Consumer Discretionary
-펄어비스,263750,소프트웨어 개발 및 공급업,2017-09-14,Information Technology
-펌텍코리아,251970,플라스틱제품 제조업,2019-07-04,Materials
-페스카로,0015S0,"그외 기타 전문, 과학 및 기술 서비스업",2025-12-10,Health Care
-페이퍼코리아,001020,"펄프, 종이 및 판지 제조업",1976-06-26,Materials
-펨토바이오메드,327610,의료용 기기 제조업,2019-07-10,Health Care
-펨트론,168360,특수 목적용 기계 제조업,2022-11-24,Industrials
-펩트론,087010,기초 의약물질 제조업,2015-07-22,Health Care
-평화산업,090080,자동차 신품 부품 제조업,2006-06-02,Consumer Discretionary
-평화홀딩스,010770,자동차 신품 부품 제조업,1986-03-31,Consumer Discretionary
-포니링크,064800,"섬유, 의복, 신발 및 가죽제품 소매업",2002-08-22,Consumer Discretionary
-포메탈,119500,기타 금속 가공제품 제조업,2010-09-17,Materials
-포바이포,389140,"영화, 비디오물, 방송프로그램 제작 및 배급업",2022-04-28,Consumer Discretionary
-포스뱅크,105760,일반 목적용 기계 제조업,2024-01-29,Industrials
-포스코DX,022100,"건축기술, 엔지니어링 및 관련 기술 서비스업",2024-01-02,Industrials
-포스코스틸리온,058430,1차 철강 제조업,2002-08-16,Materials
-포스코엠텍,009520,1차 철강 제조업,1997-11-10,Materials
-포스코인터내셔널,047050,상품 중개업,2001-03-23,Consumer Discretionary
-포스코퓨처엠,003670,일차전지 및 이차전지 제조업,2019-05-29,Industrials
-포시에스,189690,소프트웨어 개발 및 공급업,2015-02-11,Information Technology
-포인트모바일,318020,컴퓨터 및 주변장치 제조업,2020-12-03,Information Technology
-포인트엔지니어링,256630,기타 금속 가공제품 제조업,2017-05-02,Materials
-포커스에이아이,331380,영상 및 음향기기 제조업,2019-10-02,Information Technology
-포톤,208710,전자부품 제조업,2014-12-24,Information Technology
-폰드그룹,472850,"섬유, 의복, 신발 및 가죽제품 소매업",2024-02-02,Consumer Discretionary
-폴라리스AI,039980,"컴퓨터 프로그래밍, 시스템 통합 및 관리업",2002-08-13,Information Technology
-폴라리스AI파마,041910,의약품 제조업,2004-02-06,Health Care
-폴라리스세원,234100,자동차 신품 부품 제조업,2017-10-20,Consumer Discretionary
-폴라리스오피스,041020,소프트웨어 개발 및 공급업,2005-10-28,Information Technology
-폴라리스우노,114630,화학섬유 제조업,2010-01-15,Materials
-푸드나무,290720,무점포 소매업,2018-10-04,Consumer Discretionary
-푸드웰,005670,"과실, 채소 가공 및 저장 처리업",1993-12-07,Consumer Staples
-푸른기술,094940,컴퓨터 및 주변장치 제조업,2007-09-14,Information Technology
-푸른소나무,057880,비거주 복지시설 운영업,2003-12-29,Real Estate
-푸른저축은행,007330,은행 및 저축기관,1993-12-07,Financials
-풀무원,017810,기타 식품 제조업,1995-10-05,Consumer Staples
-풍강,093380,기타 금속 가공제품 제조업,2007-06-01,Materials
-풍국주정,023900,알코올음료 제조업,1994-11-23,Consumer Staples
-풍산,103140,1차 비철금속 제조업,2008-07-30,Materials
-풍산홀딩스,005810,기타 금융업,1988-07-28,Financials
-풍원정밀,371950,전자부품 제조업,2022-02-28,Information Technology
-퓨런티어,370090,"측정, 시험, 항해, 제어 및 기타 정밀기기 제조업; 광학기기 제외",2022-02-23,Information Technology
-퓨릿,445180,기초 화학물질 제조업,2023-10-18,Energy
-퓨쳐메디신,341170,자연과학 및 공학 연구개발업,2022-07-27,Health Care
-퓨쳐켐,220100,의약품 제조업,2016-12-01,Health Care
-프럼파스트,035200,플라스틱제품 제조업,2002-01-15,Materials
-프레스티지바이오로직스,334970,의약품 제조업,2021-03-11,Health Care
-프레스티지바이오파마,950210,자연과학 및 공학 연구개발업,2021-02-05,Health Care
-프로브잇,227100,부동산 관련 서비스업,2018-11-15,Real Estate
-프로이천,321260,반도체 제조업,2019-05-31,Information Technology
-프로젠,296160,자연과학 및 공학 연구개발업,2023-11-15,Health Care
-프로텍,053610,특수 목적용 기계 제조업,2001-08-17,Industrials
-프로티나,468530,자연과학 및 공학 연구개발업,2025-07-29,Health Care
-프로티아,303360,의료용 기기 제조업,2023-06-16,Health Care
-프롬바이오,377220,기타 식품 제조업,2021-09-28,Consumer Staples
-프리시젼바이오,335810,의료용 기기 제조업,2020-12-22,Health Care
-프리엠스,053160,"전동기, 발전기 및 전기 변환 · 공급 · 제어 장치 제조업",2001-10-30,Industrials
-플라즈맵,405000,의료용 기기 제조업,2022-10-21,Health Care
-플래스크,041590,실내건축 및 건축마무리 공사업,2002-11-01,Industrials
-플래티어,367000,소프트웨어 개발 및 공급업,2021-08-12,Information Technology
-플랜티넷,075130,"컴퓨터 프로그래밍, 시스템 통합 및 관리업",2005-06-10,Information Technology
-플럼라인생명과학,222670,자연과학 및 공학 연구개발업,2015-07-28,Health Care
-플레이그램,009810,기타 전문 도매업,1988-08-31,Consumer Discretionary
-플레이디,237820,광고업,2020-03-12,Communication Services
-플레이위드,023770,소프트웨어 개발 및 공급업,1994-11-07,Information Technology
-플루토스,019570,신탁업 및 집합투자업,1989-03-14,Financials
-플리토,300080,"자료처리, 호스팅, 포털 및 기타 인터넷 정보매개 서비스업",2019-07-17,Information Technology
-피노,033790,통신 및 방송 장비 제조업,2001-06-26,Information Technology
-피델릭스,032580,반도체 제조업,1997-04-22,Information Technology
-피씨디렉트,051380,기계장비 및 관련 물품 도매업,2002-02-15,Consumer Discretionary
-피씨엘,241820,의료용품 및 기타 의약 관련제품 제조업,2017-02-23,Health Care
-피아이이,452450,특수 목적용 기계 제조업,2025-02-04,Industrials
-피앤씨테크,237750,"전동기, 발전기 및 전기 변환 · 공급 · 제어 장치 제조업",2016-07-04,Industrials
-피앤에스로보틱스,460940,의료용 기기 제조업,2024-07-31,Health Care
-피에스케이,319660,특수 목적용 기계 제조업,2019-05-10,Industrials
-피에스케이홀딩스,031980,특수 목적용 기계 제조업,1997-01-07,Industrials
-피에스텍,002230,"측정, 시험, 항해, 제어 및 기타 정밀기기 제조업; 광학기기 제외",1991-01-04,Information Technology
-피에이치에이,043370,자동차 신품 부품 제조업,2001-12-13,Consumer Discretionary
-피엔에이치테크,239890,기초 화학물질 제조업,2021-02-16,Energy
-피엔케이피부임상연구센타,347740,"그외 기타 전문, 과학 및 기술 서비스업",2020-09-09,Health Care
-피엔티,137400,특수 목적용 기계 제조업,2012-07-06,Industrials
-피엔티엠에스,257370,특수 목적용 기계 제조업,2018-09-13,Industrials
-피엠티,147760,"측정, 시험, 항해, 제어 및 기타 정밀기기 제조업; 광학기기 제외",2016-12-12,Information Technology
-피제이메탈,128660,1차 비철금속 제조업,2010-12-13,Materials
-피제이전자,006140,의료용 기기 제조업,1993-12-07,Health Care
-피코그램,376180,그외 기타 제품 제조업,2021-11-03,Consumer Discretionary
-피플바이오,304840,의료용품 및 기타 의약 관련제품 제조업,2020-10-19,Health Care
-픽셀플러스,087600,전자부품 제조업,2015-06-12,Information Technology
-핀텔,291810,소프트웨어 개발 및 공급업,2022-10-20,Information Technology
-필에너지,378340,특수 목적용 기계 제조업,2023-07-14,Industrials
-필옵틱스,161580,특수 목적용 기계 제조업,2017-06-01,Industrials
-핌스,347770,전자부품 제조업,2020-09-18,Information Technology
-핑거,163730,소프트웨어 개발 및 공급업,2021-01-29,Information Technology
-핑거스토리,417180,기타 정보 서비스업,2022-12-08,Information Technology
-하나29호스팩,454640,금융 지원 서비스업,2023-06-28,Financials
-하나30호스팩,469880,금융 지원 서비스업,2023-12-22,Financials
-하나31호스팩,469900,금융 지원 서비스업,2024-03-05,Financials
-하나32호스팩,475240,금융 지원 서비스업,2024-03-27,Financials
-하나33호스팩,475250,금융 지원 서비스업,2024-04-24,Financials
-하나34호스팩,484130,금융 지원 서비스업,2024-11-19,Financials
-하나35호스팩,0041L0,금융 지원 서비스업,2025-08-06,Financials
-하나36호스팩,0101C0,금융 지원 서비스업,2025-12-22,Financials
-하나금융지주,086790,기타 금융업,2005-12-12,Financials
-하나기술,299030,특수 목적용 기계 제조업,2020-11-25,Industrials
-하나마이크론,067310,반도체 제조업,2005-10-11,Information Technology
-하나머티리얼즈,166090,반도체 제조업,2017-04-28,Information Technology
-하나제약,293480,의약품 제조업,2018-10-02,Health Care
-하나투어,039130,여행사 및 기타 여행보조 서비스업,2011-11-01,Consumer Discretionary
-하림,136480,"도축, 육류 가공 및 저장 처리업",2011-05-02,Consumer Staples
-하림지주,003380,기타 금융업,2017-06-30,Financials
-하스,450330,의료용품 및 기타 의약 관련제품 제조업,2024-07-03,Health Care
-하이드로리튬,101670,"구조용 금속제품, 탱크 및 증기발생기 제조업",2008-07-15,Industrials
-하이딥,365590,반도체 제조업,2020-12-21,Information Technology
-하이로닉,149980,의료용 기기 제조업,2014-12-17,Health Care
-하이록코리아,013030,1차 철강 제조업,1989-12-15,Materials
-하이브,352820,오디오물 출판 및 원판 녹음업,2020-10-15,Consumer Discretionary
-하이비젼시스템,126700,사진장비 및 광학기기 제조업,2010-09-10,Information Technology
-하이스틸,071090,1차 철강 제조업,2003-02-17,Materials
-하이제8호스팩,450050,금융 지원 서비스업,2023-06-22,Financials
-하이젠알앤엠,160190,"전동기, 발전기 및 전기 변환 · 공급 · 제어 장치 제조업",2024-06-27,Industrials
-하이즈항공,221840,"항공기,우주선 및 부품 제조업",2015-11-25,Industrials
-하이텍팜,106190,기초 의약물질 제조업,2010-07-28,Health Care
-하이트진로,000080,알코올음료 제조업,2009-10-19,Consumer Staples
-하이트진로2우B,000087,,,Other
-하이트진로홀딩스,000140,기타 금융업,1973-09-19,Financials
-하이트진로홀딩스우,000145,기타 금융업,1973-09-19,Financials
-하이퍼코퍼레이션,065650,기계장비 및 관련 물품 도매업,2003-01-21,Consumer Discretionary
-하츠,066130,가정용 기기 제조업,2003-02-11,Consumer Discretionary
-한국ANKOR유전,152550,신탁업 및 집합투자업,2012-03-08,Financials
-한국가구,004590,기타 상품 전문 소매업,1993-06-03,Consumer Discretionary
-한국가스공사,036460,연료용 가스 제조 및 배관공급업,1999-12-15,Energy
-한국경제TV,039340,텔레비전 방송업,2004-07-30,Communication Services
-한국공항,005430,기타 운송관련 서비스업,1976-12-28,Industrials
-한국금융지주,071050,기타 금융업,2003-07-21,Financials
-한국금융지주우,071055,기타 금융업,2003-07-21,Financials
-한국기업평가,034950,기타 사업지원 서비스업,2002-02-07,Industrials
-한국내화,010040,"내화, 비내화 요업제품 제조업",2000-10-16,Materials
-한국단자,025540,,,Other
-한국맥널티,222980,기타 식품 제조업,2015-12-23,Consumer Staples
-한국무브넥스,010100,자동차 신품 부품 제조업,1987-10-02,Consumer Discretionary
-한국미라클피플사,331660,기타 화학제품 제조업,2019-10-28,Materials
-한국비엔씨,256840,기초 의약물질 제조업,2016-12-28,Health Care
-한국비티비,219750,의료용 기기 제조업,2018-09-21,Health Care
-한국석유,004090,,,Other
-한국선재,025550,1차 철강 제조업,1995-06-19,Materials
-한국수출포장,002200,,,Other
-한국쉘석유,002960,석유 정제품 제조업,1988-08-10,Energy
-한국알콜,017890,기타 화학제품 제조업,1992-08-04,Materials
-한국앤컴퍼니,000240,기타 금융업,1968-12-27,Financials
-한국유니온제약,080720,의약품 제조업,2018-07-26,Health Care
-한국자산신탁,123890,신탁업 및 집합투자업,2016-07-13,Financials
-한국전력,015760,,,Other
-한국전자인증,041460,소프트웨어 개발 및 공급업,2010-11-19,Information Technology
-한국전자홀딩스,006200,기타 금융업,1979-11-30,Financials
-한국정밀기계,101680,특수 목적용 기계 제조업,2009-05-19,Industrials
-한국정보공학,039740,기타 전문 도매업,2000-07-06,Consumer Discretionary
-한국정보인증,053300,소프트웨어 개발 및 공급업,2014-02-04,Information Technology
-한국정보통신,025770,전기 통신업,1998-01-20,Communication Services
-한국제12호스팩,458610,금융 지원 서비스업,2023-08-30,Financials
-한국제13호스팩,464440,금융 지원 서비스업,2023-11-13,Financials
-한국제15호스팩,479880,금융 지원 서비스업,2024-06-26,Financials
-한국제지,027970,"펄프, 종이 및 판지 제조업",1996-07-03,Materials
-한국종합기술,023350,"건축기술, 엔지니어링 및 관련 기술 서비스업",2011-04-28,Industrials
-한국주강,025890,특수 목적용 기계 제조업,1997-07-18,Industrials
-한국주철관,000970,,,Other
-한국철강,104700,1차 철강 제조업,2008-09-29,Materials
-한국첨단소재,062970,통신 및 방송 장비 제조업,2019-12-26,Information Technology
-한국카본,017960,"구조용 금속제품, 탱크 및 증기발생기 제조업",1995-07-08,Industrials
-한국캐피탈,023760,기타 금융업,1994-11-07,Financials
-한국컴퓨터,054040,전자부품 제조업,2002-01-15,Information Technology
-한국콜마,161890,기타 화학제품 제조업,2012-10-19,Materials
-한국큐빅,021650,플라스틱제품 제조업,2003-01-24,Materials
-한국타이어앤테크놀로지,161390,고무제품 제조업,2012-10-04,Materials
-한국토지신탁,034830,신탁업 및 집합투자업,2016-07-11,Financials
-한국특강,007280,1차 철강 제조업,1989-11-13,Materials
-한국파마,032300,의약품 제조업,2020-08-10,Health Care
-한국팩키지,037230,"골판지, 종이 상자 및 종이용기 제조업",1999-12-21,Materials
-한국피아이엠,448900,자동차 신품 부품 제조업,2025-04-04,Consumer Discretionary
-한국항공우주,047810,"항공기,우주선 및 부품 제조업",2011-06-30,Industrials
-한국화장품,123690,생활용품 도매업,2010-06-01,Consumer Discretionary
-한국화장품제조,003350,기타 화학제품 제조업,1978-02-06,Materials
-한글과컴퓨터,030520,소프트웨어 개발 및 공급업,1996-09-24,Information Technology
-한네트,052600,전기 통신업,2001-07-10,Communication Services
-한농화성,011500,기타 화학제품 제조업,2003-01-09,Materials
-한독,002390,의약품 제조업,1976-06-30,Health Care
-한독크린텍,256150,일반 목적용 기계 제조업,2019-09-05,Industrials
-한라IMS,092460,선박 및 보트 건조업,2007-05-22,Industrials
-한라캐스트,125490,자동차 신품 부품 제조업,2025-08-20,Consumer Discretionary
-한미글로벌,053690,"건축기술, 엔지니어링 및 관련 기술 서비스업",2009-06-23,Industrials
-한미반도체,042700,특수 목적용 기계 제조업,2005-07-22,Industrials
-한미사이언스,008930,기타 금융업,1988-06-20,Financials
-한미약품,128940,의약품 제조업,2010-07-30,Health Care
-한빛레이저,452190,특수 목적용 기계 제조업,2024-01-04,Industrials
-한빛소프트,047080,소프트웨어 개발 및 공급업,2002-01-10,Information Technology
-한샘,009240,생활용품 도매업,2002-07-16,Consumer Discretionary
-한선엔지니어링,452280,기타 금속 가공제품 제조업,2023-11-24,Materials
-한섬,020000,봉제의복 제조업,1996-07-03,Consumer Discretionary
-한성기업,003680,수산물 가공 및 저장 처리업,1989-01-26,Consumer Staples
-한성크린텍,066980,"건축기술, 엔지니어링 및 관련 기술 서비스업",2003-01-17,Industrials
-한세실업,105630,봉제의복 제조업,2009-03-20,Consumer Discretionary
-한세엠케이,069640,"섬유, 의복, 신발 및 가죽제품 소매업",2011-06-21,Consumer Discretionary
-한세예스24홀딩스,016450,봉제의복 제조업,2000-01-06,Consumer Discretionary
-한솔로지스틱스,009180,기타 운송관련 서비스업,1989-11-13,Industrials
-한솔아이원스,114810,특수 목적용 기계 제조업,2013-02-07,Industrials
-한솔인티큐브,070590,"컴퓨터 프로그래밍, 시스템 통합 및 관리업",2004-01-08,Information Technology
-한솔제지,213500,"펄프, 종이 및 판지 제조업",2015-01-26,Materials
-한솔케미칼,014680,기초 화학물질 제조업,1989-05-20,Energy
-한솔테크닉스,004710,전자부품 제조업,1988-07-06,Information Technology
-한솔홀딩스,004150,기타 금융업,1972-05-17,Financials
-한솔홈데코,025750,제재 및 목재 가공업,2003-11-04,Materials
-한스바이오메드,042520,의료용품 및 기타 의약 관련제품 제조업,2009-10-09,Health Care
-한신공영,004960,건물 건설업,1976-07-07,Industrials
-한신기계,011700,,,Other
-한싹,430690,소프트웨어 개발 및 공급업,2023-10-04,Information Technology
-한양디지텍,078350,반도체 제조업,2004-05-14,Information Technology
-한양이엔지,045100,"건축기술, 엔지니어링 및 관련 기술 서비스업",2000-08-31,Industrials
-한양증권,001750,금융 지원 서비스업,1988-03-04,Financials
-한양증권우,001755,금융 지원 서비스업,1988-03-04,Financials
-한온시스템,018880,일반 목적용 기계 제조업,1996-07-31,Industrials
-한올바이오파마,009420,의약품 제조업,1989-12-18,Health Care
-한울반도체,320000,특수 목적용 기계 제조업,2019-09-18,Industrials
-한울소재과학,091440,통신 및 방송 장비 제조업,2008-02-01,Information Technology
-한울앤제주,276730,알코올음료 제조업,2021-05-26,Consumer Staples
-한익스프레스,014130,도로 화물 운송업,1989-07-25,Industrials
-한일단조,024740,자동차 신품 부품 제조업,1996-11-29,Consumer Discretionary
-한일사료,005860,동물용 사료 및 조제식품 제조업,1994-11-07,Consumer Staples
-한일시멘트,300720,"시멘트, 석회, 플라스터 및 그 제품 제조업",2018-08-06,Materials
-한일철강,002220,1차 철강 제조업,1988-10-07,Materials
-한일홀딩스,003300,"시멘트, 석회, 플라스터 및 그 제품 제조업",1969-11-20,Materials
-한일화학,007770,기초 화학물질 제조업,1992-09-07,Energy
-한전KPS,051600,전기 및 통신 공사업,2007-12-14,Industrials
-한전기술,052690,"건축기술, 엔지니어링 및 관련 기술 서비스업",2009-12-14,Industrials
-한전산업,130660,"건축기술, 엔지니어링 및 관련 기술 서비스업",2010-12-16,Industrials
-한주라이트메탈,198940,1차 비철금속 제조업,2023-01-19,Materials
-한주에이알티,058450,"영화, 비디오물, 방송프로그램 제작 및 배급업",2002-01-17,Consumer Discretionary
-한중엔시에스,107640,"전동기, 발전기 및 전기 변환 · 공급 · 제어 장치 제조업",2024-06-24,Industrials
-한진,002320,도로 화물 운송업,1974-08-12,Industrials
-한진중공업홀딩스,003480,연료용 가스 제조 및 배관공급업,1956-03-03,Energy
-한진칼,180640,기타 금융업,2013-09-16,Financials
-한진칼우,18064K,기타 금융업,2013-09-16,Financials
-한창,005110,기계장비 및 관련 물품 도매업,1976-06-01,Consumer Discretionary
-한창산업,079170,1차 비철금속 제조업,2005-02-01,Materials
-한창제지,009460,"펄프, 종이 및 판지 제조업",1987-12-23,Materials
-한컴라이프케어,372910,의료용 기기 제조업,2021-08-17,Health Care
-한컴위드,054920,소프트웨어 개발 및 공급업,2001-11-01,Information Technology
-한켐,457370,기초 화학물질 제조업,2024-10-22,Energy
-한탑,002680,"곡물가공품, 전분 및 전분제품 제조업",1995-07-07,Consumer Staples
-한텍,098070,일반 목적용 기계 제조업,2025-03-20,Industrials
-한화,000880,기타 화학제품 제조업,1976-06-24,Materials
-한화3우B,00088K,,,Other
-한화갤러리아,452260,종합 소매업,2023-03-31,Consumer Discretionary
-한화갤러리아우,45226K,종합 소매업,2023-03-31,Consumer Discretionary
-한화리츠,451800,부동산 임대 및 공급업,2023-03-27,Real Estate
-한화비전,489790,통신 및 방송 장비 제조업,2024-09-27,Information Technology
-한화생명,088350,보험업,2010-03-17,Financials
-한화손해보험,000370,보험업,1975-06-30,Financials
-한화솔루션,009830,기초 화학물질 제조업,1974-06-19,Energy
-한화솔루션우,009835,기초 화학물질 제조업,1974-06-19,Energy
-한화시스템,272210,전자부품 제조업,2019-11-13,Information Technology
-한화에어로스페이스,012450,"항공기,우주선 및 부품 제조업",1987-05-27,Industrials
-한화엔진,082740,일반 목적용 기계 제조업,2011-01-04,Industrials
-한화오션,042660,선박 및 보트 건조업,2001-02-02,Industrials
-한화투자증권,003530,금융 지원 서비스업,1986-11-25,Financials
-한화투자증권우,003535,금융 지원 서비스업,1986-11-25,Financials
-한화플러스제4호스팩,455310,금융 지원 서비스업,2023-09-07,Financials
-한화플러스제5호스팩,498390,금융 지원 서비스업,2025-03-20,Financials
-해성디에스,195870,전자부품 제조업,2016-06-24,Information Technology
-해성산업,034810,기타 금융업,1999-04-16,Financials
-해성산업1우,03481K,,,Other
-해성에어로보틱스,059270,기타 금속 가공제품 제조업,2021-04-21,Materials
-해성옵틱스,076610,사진장비 및 광학기기 제조업,2013-11-06,Information Technology
-해태제과식품,101530,기타 식품 제조업,2016-05-11,Consumer Staples
-핸디소프트,220180,소프트웨어 개발 및 공급업,2016-11-24,Information Technology
-핸즈코퍼레이션,143210,자동차 신품 부품 제조업,2016-12-02,Consumer Discretionary
-헝셩그룹,900270,기타 금융업,2016-08-18,Financials
-헥토이노베이션,214180,기타 정보 서비스업,2015-06-30,Information Technology
-헥토파이낸셜,234340,기타 정보 서비스업,2019-07-12,Information Technology
-헬릭스미스,084990,자연과학 및 공학 연구개발업,2005-12-29,Health Care
-현대ADM,187660,자연과학 및 공학 연구개발업,2021-06-03,Health Care
-현대건설,000720,토목 건설업,1984-12-22,Industrials
-현대건설우,000725,토목 건설업,1984-12-22,Industrials
-현대공업,170030,자동차 신품 부품 제조업,2013-12-04,Consumer Discretionary
-현대그린푸드,453340,종합 소매업,2023-04-10,Consumer Discretionary
-현대글로비스,086280,기타 운송관련 서비스업,2005-12-26,Industrials
-현대로템,064350,철도장비 제조업,2013-10-30,Industrials
-현대리바트,079430,가구 제조업,2005-11-22,Consumer Discretionary
-현대모비스,012330,자동차 신품 부품 제조업,1989-09-05,Consumer Discretionary
-현대무벡스,319400,일반 목적용 기계 제조업,2019-05-08,Industrials
-현대바이오,048410,기타 화학제품 제조업,2002-08-08,Materials
-현대바이오랜드,052260,기타 화학제품 제조업,2001-05-17,Materials
-현대백화점,069960,종합 소매업,2002-11-25,Consumer Discretionary
-현대비앤지스틸,004560,1차 철강 제조업,1987-03-24,Materials
-현대사료,016790,동물용 사료 및 조제식품 제조업,2018-06-01,Consumer Staples
-현대약품,004310,의약품 제조업,1978-06-28,Health Care
-현대에버다임,041440,특수 목적용 기계 제조업,2003-11-14,Industrials
-현대에이치티,039010,통신 및 방송 장비 제조업,2000-07-20,Information Technology
-현대엘리베이터,017800,일반 목적용 기계 제조업,1996-07-03,Industrials
-현대오토에버,307950,소프트웨어 개발 및 공급업,2019-03-28,Information Technology
-현대위아,011210,자동차 신품 부품 제조업,2011-02-21,Consumer Discretionary
-현대이지웰,090850,소프트웨어 개발 및 공급업,2013-12-27,Information Technology
-현대제철,004020,1차 철강 제조업,1987-05-23,Materials
-현대지에프홀딩스,005440,기타 금융업,1989-08-22,Financials
-현대차,005380,,,Other
-현대차2우B,005387,,,Other
-현대차3우B,005389,,,Other
-현대차우,005385,,,Other
-현대차증권,001500,금융 지원 서비스업,1990-06-09,Financials
-현대코퍼레이션,011760,상품 종합 도매업,1977-12-01,Consumer Discretionary
-현대코퍼레이션홀딩스,227840,음·식료품 및 담배 도매업,2015-10-23,Consumer Discretionary
-현대퓨처넷,126560,전기 통신업,2010-12-23,Communication Services
-현대해상,001450,보험업,1989-08-25,Financials
-현대홈쇼핑,057050,무점포 소매업,2010-09-13,Consumer Discretionary
-현대힘스,460930,선박 및 보트 건조업,2024-01-26,Industrials
-현우산업,092300,전자부품 제조업,2007-10-24,Information Technology
-협진,138360,특수 목적용 기계 제조업,2013-11-08,Industrials
-형지I&C,011080,봉제의복 제조업,2004-07-02,Consumer Discretionary
-형지글로벌,308100,"섬유, 의복, 신발 및 가죽제품 소매업",2019-06-10,Consumer Discretionary
-형지엘리트,093240,봉제의복 제조업,2009-09-28,Consumer Discretionary
-혜인,003010,기계장비 및 관련 물품 도매업,1988-09-20,Consumer Discretionary
-호전실업,111110,봉제의복 제조업,2017-02-02,Consumer Discretionary
-호텔신라,008770,기타 상품 전문 소매업,1991-03-12,Consumer Discretionary
-호텔신라우,008775,기타 상품 전문 소매업,1991-03-12,Consumer Discretionary
-홈캐스트,064240,기타 전문 도매업,2003-06-11,Consumer Discretionary
-화성밸브,039610,일반 목적용 기계 제조업,2000-03-16,Industrials
-화승알앤에이,378850,자동차 신품 부품 제조업,2021-03-15,Consumer Discretionary
-화승엔터프라이즈,241590,신발 및 신발 부분품 제조업,2016-10-04,Consumer Discretionary
-화승인더,006060,,,Other
-화승코퍼레이션,013520,자동차 신품 부품 제조업,1991-02-22,Consumer Discretionary
-화신,010690,자동차 신품 부품 제조업,1994-01-14,Consumer Discretionary
-화신정공,126640,자동차 신품 부품 제조업,2010-08-31,Consumer Discretionary
-화인베스틸,133820,1차 철강 제조업,2014-07-22,Materials
-화인써키트,127980,전자부품 제조업,2023-02-17,Information Technology
-화일약품,061250,의약품 제조업,2002-04-18,Health Care
-화천기계,010660,특수 목적용 기계 제조업,1988-12-12,Industrials
-화천기공,000850,특수 목적용 기계 제조업,1999-11-18,Industrials
-환인제약,016580,의약품 제조업,1996-07-03,Health Care
-황금에스티,032560,1차 비철금속 제조업,2009-10-29,Materials
-효성,004800,기타 금융업,1973-06-30,Financials
-효성ITX,094280,,,Other
-효성오앤비,097870,"비료, 농약 및 살균, 살충제 제조업",2008-04-08,Consumer Staples
-효성중공업,298040,"전동기, 발전기 및 전기 변환 · 공급 · 제어 장치 제조업",2018-07-13,Industrials
-효성티앤씨,298020,화학섬유 제조업,2018-07-13,Materials
-효성화학,298000,기초 화학물질 제조업,2018-07-13,Energy
-후성,093370,기초 화학물질 제조업,2006-12-22,Energy
-휴네시온,290270,소프트웨어 개발 및 공급업,2018-08-02,Information Technology
-휴니드,005870,,,Other
-휴럼,353190,기타 식품 제조업,2020-06-17,Consumer Staples
-휴림로봇,090710,특수 목적용 기계 제조업,2006-12-05,Industrials
-휴림에이텍,078590,자동차 신품 부품 제조업,2005-10-27,Consumer Discretionary
-휴마시스,205470,의료용품 및 기타 의약 관련제품 제조업,2014-12-01,Health Care
-휴맥스,115160,영상 및 음향기기 제조업,2009-11-16,Information Technology
-휴맥스홀딩스,028080,"컴퓨터 프로그래밍, 시스템 통합 및 관리업",1997-04-16,Information Technology
-휴먼테크놀로지,175140,통신 및 방송 장비 제조업,2015-09-23,Information Technology
-휴메딕스,200670,의약품 제조업,2014-12-26,Health Care
-휴비스,079980,화학섬유 제조업,2012-02-23,Materials
-휴비츠,065510,의료용 기기 제조업,2003-10-31,Health Care
-휴스틸,005010,1차 철강 제조업,1973-06-29,Materials
-휴엠앤씨,263920,그외 기타 제품 제조업,2017-09-28,Consumer Discretionary
-휴온스,243070,의약품 제조업,2016-06-03,Health Care
-휴온스글로벌,084110,의약품 제조업,2006-12-19,Health Care
-휴젤,145020,기초 의약물질 제조업,2015-12-24,Health Care
-흥구석유,024060,기타 전문 도매업,1994-12-07,Consumer Discretionary
-흥국,010240,특수 목적용 기계 제조업,2009-05-12,Industrials
-흥국에프엔비,189980,비알코올음료 및 얼음 제조업,2015-08-07,Consumer Staples
-흥국화재,000540,보험업,1974-12-05,Financials
-흥국화재우,000545,보험업,1974-12-05,Financials
-흥아해운,003280,해상 운송업,1976-06-29,Industrials
-희림,037440,"건축기술, 엔지니어링 및 관련 기술 서비스업",2000-02-03,Industrials
-힘스,238490,특수 목적용 기계 제조업,2017-07-20,Industrials
+﻿회사명,종목코드,업종,Sector
+삼성전자,005930,반도체와반도체장비,Information Technology
+SK하이닉스,000660,반도체와반도체장비,Information Technology
+LG에너지솔루션,373220,전기제품,Utilities
+삼성전자우,005935,반도체와반도체장비,Information Technology
+삼성바이오로직스,207940,제약,Health Care
+현대차,005380,자동차,Consumer Discretionary
+HD현대중공업,329180,조선,Industrials
+SK스퀘어,402340,복합기업,Industrials
+두산에너빌리티,034020,기계,Industrials
+한화에어로스페이스,012450,우주항공과국방,Industrials
+셀트리온,068270,제약,Health Care
+KB금융,105560,은행,Financials
+기아,000270,자동차,Consumer Discretionary
+삼성물산,028260,복합기업,Industrials
+NAVER,035420,양방향미디어와서비스,Communication Services
+신한지주,055550,은행,Financials
+한화오션,042660,조선,Industrials
+현대모비스,012330,자동차부품,Consumer Discretionary
+삼성생명,032830,생명보험,Financials
+한국전력,015760,전기유틸리티,Utilities
+HD현대일렉트릭,267260,전기장비,Utilities
+HD한국조선해양,009540,조선,Industrials
+카카오,035720,양방향미디어와서비스,Communication Services
+하나금융지주,086790,은행,Financials
+알테오젠,196170,생물공학,Health Care
+POSCO홀딩스,005490,철강,Materials
+LG화학,051910,화학,Materials
+삼성화재,000810,손해보험,Financials
+현대로템,064350,우주항공과국방,Industrials
+삼성SDI,006400,전기제품,Utilities
+고려아연,010130,비철금속,Materials
+삼성중공업,010140,조선,Industrials
+SK,034730,석유와가스,Energy
+우리금융지주,316140,은행,Financials
+삼성전기,009150,전자장비와기기,Information Technology
+메리츠금융지주,138040,증권,Financials
+HMM,011200,해운사,Industrials
+SK이노베이션,096770,석유와가스,Energy
+한미반도체,042700,반도체와반도체장비,Information Technology
+효성중공업,298040,전기장비,Utilities
+삼성에피스홀딩스,0126Z0,제약,Health Care
+KT&G,033780,담배,Consumer Staples
+기업은행,024110,은행,Financials
+미래에셋증권,006800,증권,Financials
+포스코퓨처엠,003670,화학,Materials
+HD현대,267250,조선,Industrials
+LG전자,066570,전자제품,Information Technology
+LS ELECTRIC,010120,전기장비,Utilities
+에코프로비엠,247540,전기제품,Utilities
+하이브,352820,방송과엔터테인먼트,Consumer Discretionary
+현대글로비스,086280,항공화물운송과물류,Industrials
+삼성에스디에스,018260,IT서비스,Information Technology
+KT,030200,다각화된통신서비스,Communication Services
+한국항공우주,047810,우주항공과국방,Industrials
+LG,003550,복합기업,Industrials
+두산,000150,복합기업,Industrials
+에코프로,086520,화학,Materials
+크래프톤,259960,게임엔터테인먼트,Communication Services
+SK텔레콤,017670,무선통신서비스,Communication Services
+한화시스템,272210,우주항공과국방,Industrials
+에이비엘바이오,298380,생물공학,Health Care
+LIG넥스원,079550,우주항공과국방,Industrials
+카카오뱅크,323410,은행,Financials
+SK바이오팜,326030,제약,Health Care
+한국금융지주,071050,증권,Financials
+S-Oil,010950,석유와가스,Energy
+삼양식품,003230,식품,Consumer Staples
+유한양행,000100,제약,Health Care
+DB손해보험,005830,손해보험,Financials
+레인보우로보틱스,277810,기계,Industrials
+HD현대마린솔루션,443060,조선,Industrials
+포스코인터내셔널,047050,무역회사와판매업체,Consumer Discretionary
+현대오토에버,307950,IT서비스,Information Technology
+키움증권,039490,증권,Financials
+현대건설,000720,건설,Industrials
+이수페타시스,007660,전자장비와기기,Information Technology
+대한항공,003490,항공사,Industrials
+에이피알,278470,화장품,Consumer Discretionary
+한진칼,180640,항공사,Industrials
+NH투자증권,005940,증권,Financials
+현대차2우B,005387,자동차,Consumer Discretionary
+HLB,028300,건강관리장비와용품,Health Care
+한국타이어앤테크놀로지,161390,자동차부품,Consumer Discretionary
+아모레퍼시픽,090430,화장품,Consumer Discretionary
+삼성증권,016360,증권,Financials
+카카오페이,377300,IT서비스,Information Technology
+LS,006260,전기장비,Utilities
+리가켐바이오,141080,제약,Health Care
+한화,000880,복합기업,Industrials
+LG이노텍,011070,전자장비와기기,Information Technology
+LG유플러스,032640,무선통신서비스,Communication Services
+삼성카드,029780,카드,Financials
+LG디스플레이,034220,디스플레이패널,Information Technology
+LG씨엔에스,064400,IT서비스,Information Technology
+한미약품,128940,제약,Health Care
+코웨이,021240,가정용기기와용품,Consumer Discretionary
+펩트론,087010,생물공학,Health Care
+두산밥캣,241560,기계,Industrials
+삼천당제약,000250,제약,Health Care
+코오롱티슈진,950160,생물공학,Health Care
+GS,078930,석유와가스,Energy
+맥쿼리인프라,088980,금융,Financials
+두산로보틱스,454910,기계,Industrials
+CJ,001040,복합기업,Industrials
+리노공업,058470,반도체와반도체장비,Information Technology
+BNK금융지주,138930,은행,Financials
+현대차우,005385,자동차,Consumer Discretionary
+대한전선,001440,전기장비,Utilities
+JB금융지주,175330,은행,Financials
+삼성E&A,028050,건설,Industrials
+한화솔루션,009830,에너지장비및서비스,Energy
+엔씨소프트,036570,게임엔터테인먼트,Communication Services
+파마리서치,214450,건강관리장비와용품,Health Care
+포스코DX,022100,IT서비스,Information Technology
+넷마블,251270,게임엔터테인먼트,Communication Services
+산일전기,062040,전기장비,Utilities
+디앤디파마텍,347850,생물공학,Health Care
+SKC,011790,화학,Materials
+엘앤에프,066970,전기제품,Utilities
+오리온,271560,식품,Consumer Staples
+LG생활건강,051900,화장품,Consumer Discretionary
+현대제철,004020,철강,Materials
+이오테크닉스,039030,반도체와반도체장비,Information Technology
+원익IPS,240810,반도체와반도체장비,Information Technology
+강원랜드,035250,"호텔,레스토랑,레저",Consumer Discretionary
+에코프로머티,450080,전기제품,Utilities
+SK바이오사이언스,302440,제약,Health Care
+클래시스,214150,건강관리장비와용품,Health Care
+보로노이,310210,제약,Health Care
+한전기술,052690,전기유틸리티,Utilities
+영원무역,111770,"섬유,의류,신발,호화품",Consumer Discretionary
+로보티즈,108490,기계,Industrials
+한화엔진,082740,조선,Industrials
+케어젠,214370,건강관리업체및서비스,Health Care
+한국가스공사,036460,가스유틸리티,Energy
+KCC,002380,건축자재,Industrials
+에임드바이오,0009K0,생물공학,Health Care
+서울보증보험,031210,손해보험,Financials
+현대엘리베이터,017800,기계,Industrials
+원익홀딩스,030530,반도체와반도체장비,Information Technology
+풍산,103140,비철금속,Materials
+HPSP,403870,반도체와반도체장비,Information Technology
+DB하이텍,000990,반도체와반도체장비,Information Technology
+HD현대마린엔진,071970,조선,Industrials
+메지온,140410,식품,Consumer Staples
+금호석유화학,011780,화학,Materials
+CJ제일제당,097950,식품,Consumer Staples
+롯데케미칼,011170,화학,Materials
+일진전기,103590,전기장비,Utilities
+올릭스,226950,생명과학도구및서비스,Health Care
+셀트리온제약,068760,제약,Health Care
+더존비즈온,012510,소프트웨어,Information Technology
+오름테라퓨틱,475830,제약,Health Care
+한화생명,088350,생명보험,Financials
+한솔케미칼,014680,화학,Materials
+휴젤,145020,생물공학,Health Care
+현대해상,001450,손해보험,Financials
+롯데지주,004990,복합기업,Industrials
+에스원,012750,상업서비스와공급품,Industrials
+현대무벡스,319400,기계,Industrials
+에스엠,041510,방송과엔터테인먼트,Consumer Discretionary
+HL만도,204320,자동차부품,Consumer Discretionary
+에스티팜,237690,제약,Health Care
+HD현대인프라코어,042670,기계,Industrials
+한미사이언스,008930,제약,Health Care
+동서,026960,식품,Consumer Staples
+영원무역홀딩스,009970,"섬유,의류,신발,호화품",Consumer Discretionary
+농심,004370,식품,Consumer Staples
+대한조선,439260,조선,Industrials
+JYP Ent.,035900,방송과엔터테인먼트,Consumer Discretionary
+미스토홀딩스,081660,"섬유,의류,신발,호화품",Consumer Discretionary
+iM금융지주,139130,은행,Financials
+한화비전,489790,통신장비,Information Technology
+실리콘투,257720,인터넷과카탈로그소매,Information Technology
+ISC,095340,반도체와반도체장비,Information Technology
+F&F,383220,"섬유,의류,신발,호화품",Consumer Discretionary
+펄어비스,263750,게임엔터테인먼트,Communication Services
+한올바이오파마,009420,제약,Health Care
+제일기획,030000,광고,Communication Services
+한국앤컴퍼니,000240,자동차부품,Consumer Discretionary
+코리안리,003690,손해보험,Financials
+신세계,004170,백화점과일반상점,Consumer Discretionary
+이마트,139480,백화점과일반상점,Consumer Discretionary
+한전KPS,051600,전기유틸리티,Utilities
+신영증권,001720,증권,Financials
+대덕전자,353200,전자장비와기기,Information Technology
+솔브레인,357780,반도체와반도체장비,Information Technology
+CJ대한통운,000120,항공화물운송과물류,Industrials
+아모레퍼시픽홀딩스,002790,화장품,Consumer Discretionary
+동진쎄미켐,005290,반도체와반도체장비,Information Technology
+유진테크,084370,반도체와반도체장비,Information Technology
+SK가스,018670,가스유틸리티,Energy
+시프트업,462870,게임엔터테인먼트,Communication Services
+두산퓨얼셀,336260,전기제품,Utilities
+팬오션,028670,해운사,Industrials
+SK아이이테크놀로지,361610,전기제품,Utilities
+현대위아,011210,자동차부품,Consumer Discretionary
+한온시스템,018880,자동차부품,Consumer Discretionary
+알지노믹스,476830,생물공학,Health Care
+코스맥스,192820,화장품,Consumer Discretionary
+OCI홀딩스,010060,화학,Materials
+HJ중공업,097230,건설,Industrials
+두산우,000155,복합기업,Industrials
+테크윙,089030,반도체와반도체장비,Information Technology
+효성,004800,복합기업,Industrials
+큐리옥스바이오시스템즈,445680,생명과학도구및서비스,Health Care
+세아베스틸지주,001430,철강,Materials
+에스엘,005850,자동차부품,Consumer Discretionary
+롯데쇼핑,023530,백화점과일반상점,Consumer Discretionary
+대웅제약,069620,제약,Health Care
+하나마이크론,067310,반도체와반도체장비,Information Technology
+현대백화점,069960,백화점과일반상점,Consumer Discretionary
+HD현대건설기계,267270,기계,Industrials
+티씨케이,064760,반도체와반도체장비,Information Technology
+녹십자,006280,제약,Health Care
+이수스페셜티케미컬,457190,화학,Materials
+다우기술,023590,증권,Financials
+동원산업,006040,식품,Consumer Staples
+비에이치아이,083650,에너지장비및서비스,Energy
+심텍,222800,전자장비와기기,Information Technology
+BGF리테일,282330,백화점과일반상점,Consumer Discretionary
+고영,098460,전자장비와기기,Information Technology
+오스코텍,039200,제약,Health Care
+삼현,437730,자동차부품,Consumer Discretionary
+SK리츠,395400,부동산,Financials
+호텔신라,008770,백화점과일반상점,Consumer Discretionary
+달바글로벌,483650,화장품,Consumer Discretionary
+씨에스윈드,112610,에너지장비및서비스,Energy
+미래에셋증권2우B,00680K,증권,Financials
+롯데관광개발,032350,"호텔,레스토랑,레저",Consumer Discretionary
+GS리테일,007070,백화점과일반상점,Consumer Discretionary
+에스피지,058610,전기제품,Utilities
+미래에셋생명,085620,생명보험,Financials
+SNT다이내믹스,003570,자동차부품,Consumer Discretionary
+GS건설,006360,건설,Industrials
+하이젠알앤엠,160190,기계,Industrials
+파크시스템스,140860,전자장비와기기,Information Technology
+아시아나항공,020560,항공사,Industrials
+금호타이어,073240,자동차부품,Consumer Discretionary
+DL이앤씨,375500,건설,Industrials
+대우건설,047040,건설,Industrials
+한국카본,017960,조선,Industrials
+롯데에너지머티리얼즈,020150,전자장비와기기,Information Technology
+신성델타테크,065350,가정용기기와용품,Consumer Discretionary
+가온전선,000500,전기장비,Utilities
+LS마린솔루션,060370,건설,Industrials
+엠앤씨솔루션,484870,우주항공과국방,Industrials
+주성엔지니어링,036930,반도체와반도체장비,Information Technology
+오뚜기,007310,식품,Consumer Staples
+한국콜마,161890,화장품,Consumer Discretionary
+엘앤씨바이오,290650,건강관리장비와용품,Health Care
+씨어스테크놀로지,458870,건강관리기술,Health Care
+서진시스템,178320,전기장비,Utilities
+파라다이스,034230,"호텔,레스토랑,레저",Consumer Discretionary
+HK이노엔,195940,제약,Health Care
+코스모신소재,005070,화학,Materials
+클로봇,466100,기계,Industrials
+엔켐,348370,전기제품,Utilities
+DN오토모티브,007340,자동차부품,Consumer Discretionary
+대신증권,003540,증권,Financials
+와이씨,232140,반도체와반도체장비,Information Technology
+리브스메드,491000,건강관리장비와용품,Health Care
+HDC현대산업개발,294870,건설,Industrials
+카카오게임즈,293490,게임엔터테인먼트,Communication Services
+STX엔진,077970,조선,Industrials
+네이처셀,007390,생물공학,Health Care
+CJ ENM,035760,방송과엔터테인먼트,Consumer Discretionary
+루닛,328130,건강관리기술,Health Care
+스튜디오드래곤,253450,방송과엔터테인먼트,Consumer Discretionary
+피에스케이,319660,반도체와반도체장비,Information Technology
+하이트진로,000080,음료,Consumer Staples
+대웅,003090,제약,Health Care
+LX인터내셔널,001120,무역회사와판매업체,Consumer Discretionary
+현대지에프홀딩스,005440,복합기업,Industrials
+태성,323280,전자장비와기기,Information Technology
+SK오션플랜트,100090,에너지장비및서비스,Energy
+한일시멘트,300720,건축자재,Industrials
+씨젠,096530,생명과학도구및서비스,Health Care
+LG화학우,051915,화학,Materials
+오리온홀딩스,001800,식품,Consumer Staples
+일동제약,249420,제약,Health Care
+KB발해인프라,415640,금융,Financials
+와이지엔터테인먼트,122870,방송과엔터테인먼트,Consumer Discretionary
+에이프릴바이오,397030,제약,Health Care
+젬백스,082270,반도체와반도체장비,Information Technology
+하림지주,003380,식품,Consumer Staples
+제이앤티씨,204270,핸드셋,Information Technology
+에스앤에스텍,101490,반도체와반도체장비,Information Technology
+롯데칠성,005300,음료,Consumer Staples
+SK케미칼,285130,화학,Materials
+테스,095610,반도체와반도체장비,Information Technology
+코오롱인더,120110,화학,Materials
+삼성화재우,000815,손해보험,Financials
+SK디스커버리,006120,석유와가스,Energy
+롯데리츠,330590,부동산,Financials
+더블유게임즈,192080,게임엔터테인먼트,Communication Services
+종근당,185750,제약,Health Care
+NHN,181710,IT서비스,Information Technology
+피에스케이홀딩스,031980,반도체와반도체장비,Information Technology
+LS에코에너지,229640,전기장비,Utilities
+지역난방공사,071320,복합유틸리티,Utilities
+필옵틱스,161580,전자장비와기기,Information Technology
+차바이오텍,085660,건강관리업체및서비스,Health Care
+노타,486990,IT서비스,Information Technology
+롯데정밀화학,004000,화학,Materials
+교보증권,030610,증권,Financials
+쎄트렉아이,099320,우주항공과국방,Industrials
+제주반도체,080220,반도체와반도체장비,Information Technology
+에스디바이오센서,137310,건강관리장비와용품,Health Care
+코리아써키트,007810,전자장비와기기,Information Technology
+ESR켄달스퀘어리츠,365550,부동산,Financials
+두산테스나,131970,반도체와반도체장비,Information Technology
+롯데렌탈,089860,도로와철도운송,Industrials
+지아이이노베이션,358570,생물공학,Health Care
+코미코,183300,반도체와반도체장비,Information Technology
+한화투자증권,003530,증권,Financials
+인벤티지랩,389470,제약,Health Care
+앱클론,174900,생물공학,Health Care
+큐리언트,115180,제약,Health Care
+파두,440110,반도체와반도체장비,Information Technology
+동양생명,082640,생명보험,Financials
+프로티나,468530,생물공학,Health Care
+지투지바이오,456160,제약,Health Care
+세진중공업,075580,조선,Industrials
+한샘,009240,가구,Consumer Discretionary
+HDC,012630,건설,Industrials
+롯데웰푸드,280360,식품,Consumer Staples
+세미파이브,490470,반도체와반도체장비,Information Technology
+휴림로봇,090710,기계,Industrials
+쿠쿠홀딩스,192400,가정용기기와용품,Consumer Discretionary
+레이크머티리얼즈,281740,화학,Materials
+RFHIC,218410,통신장비,Information Technology
+SK네트웍스,001740,복합기업,Industrials
+로킷헬스케어,376900,건강관리장비와용품,Health Care
+하나머티리얼즈,166090,반도체와반도체장비,Information Technology
+대주전자재료,078600,전자장비와기기,Information Technology
+NICE평가정보,030190,상업서비스와공급품,Industrials
+CJ CGV,079160,방송과엔터테인먼트,Consumer Discretionary
+케이씨텍,281820,반도체와반도체장비,Information Technology
+유일로보틱스,388720,기계,Industrials
+덕산네오룩스,213420,디스플레이장비및부품,Information Technology
+SFA반도체,036540,반도체와반도체장비,Information Technology
+명인제약,317450,제약,Health Care
+효성티앤씨,298020,"섬유,의류,신발,호화품",Consumer Discretionary
+피엔티,137400,전기제품,Utilities
+씨엠티엑스,388210,반도체와반도체장비,Information Technology
+온코닉테라퓨틱스,476060,제약,Health Care
+이뮨온시아,424870,제약,Health Care
+비츠로셀,082920,전기제품,Utilities
+스피어,347700,우주항공과국방,Industrials
+SNT모티브,064960,자동차부품,Consumer Discretionary
+성호전자,043260,전기제품,Utilities
+메디톡스,086900,생물공학,Health Care
+디어유,376300,양방향미디어와서비스,Communication Services
+LS머트리얼즈,417200,전기제품,Utilities
+위메이드,112040,게임엔터테인먼트,Communication Services
+대한유화,006650,화학,Materials
+영풍,000670,핸드셋,Information Technology
+세방전지,004490,자동차부품,Consumer Discretionary
+GKL,114090,"호텔,레스토랑,레저",Consumer Discretionary
+인투셀,287840,제약,Health Care
+에스에프에이,056190,기계,Industrials
+파미셀,005690,화학,Materials
+해성디에스,195870,반도체와반도체장비,Information Technology
+SNT홀딩스,036530,자동차부품,Consumer Discretionary
+GS피앤엘,499790,"호텔,레스토랑,레저",Consumer Discretionary
+LX세미콘,108320,디스플레이장비및부품,Information Technology
+LG전자우,066575,전자제품,Information Technology
+디아이,003160,반도체와반도체장비,Information Technology
+넥슨게임즈,225570,게임엔터테인먼트,Communication Services
+후성,093370,화학,Materials
+솔브레인홀딩스,036830,전기제품,Utilities
+태광산업,003240,화학,Materials
+서부T&D,006730,"호텔,레스토랑,레저",Consumer Discretionary
+경동나비엔,009450,가정용기기와용품,Consumer Discretionary
+SNT에너지,100840,에너지장비및서비스,Energy
+HS효성첨단소재,298050,화학,Materials
+보령,003850,제약,Health Care
+한국금융지주우,071055,증권,Financials
+아이티센글로벌,124500,IT서비스,Information Technology
+미래에셋벤처투자,100790,창업투자,Financials
+에이치브이엠,295310,비철금속,Materials
+유안타증권,003470,증권,Financials
+프레스티지바이오파마,950210,제약,Health Care
+동성화인텍,033500,화학,Materials
+동국제약,086450,제약,Health Care
+브이엠,089970,반도체와반도체장비,Information Technology
+한화리츠,451800,부동산,Financials
+SOOP,067160,양방향미디어와서비스,Communication Services
+카페24,042000,IT서비스,Information Technology
+솔루엠,248070,전자장비와기기,Information Technology
+넥스틴,348210,반도체와반도체장비,Information Technology
+빙그레,005180,식품,Consumer Staples
+DL,000210,화학,Materials
+케이카,381970,자동차,Consumer Discretionary
+인텔리안테크,189300,통신장비,Information Technology
+F&F홀딩스,007700,"섬유,의류,신발,호화품",Consumer Discretionary
+녹십자홀딩스,005250,제약,Health Care
+로보스타,090360,기계,Industrials
+넥스트바이오메디컬,389650,건강관리장비와용품,Health Care
+아난티,025980,"호텔,레스토랑,레저",Consumer Discretionary
+지노믹트리,228760,건강관리장비와용품,Health Care
+TKG휴켐스,069260,화학,Materials
+큐로셀,372320,생물공학,Health Care
+이노션,214320,광고,Communication Services
+한화3우B,00088K,복합기업,Industrials
+원텍,336570,건강관리장비와용품,Health Care
+하나투어,039130,"호텔,레스토랑,레저",Consumer Discretionary
+신풍제약,019170,제약,Health Care
+코스메카코리아,241710,화장품,Consumer Discretionary
+동원시스템즈,014820,포장재,Materials
+이엔에프테크놀로지,102710,반도체와반도체장비,Information Technology
+다우데이타,032190,증권,Financials
+넥센타이어,002350,자동차부품,Consumer Discretionary
+SK이터닉스,475150,에너지장비및서비스,Energy
+대상,001680,식품,Consumer Staples
+한국단자,025540,자동차부품,Consumer Discretionary
+전진건설로봇,079900,기계,Industrials
+KG모빌리티,003620,자동차,Consumer Discretionary
+티에스이,131290,반도체와반도체장비,Information Technology
+동아쏘시오홀딩스,000640,제약,Health Care
+성광벤드,014620,기계,Industrials
+아이에스동서,010780,건설,Industrials
+에프에스티,036810,반도체와반도체장비,Information Technology
+미원상사,002840,화학,Materials
+한라캐스트,125490,자동차부품,Consumer Discretionary
+메디포스트,078160,생물공학,Health Care
+코나아이,052400,IT서비스,Information Technology
+동운아나텍,094170,반도체와반도체장비,Information Technology
+신한알파리츠,293940,부동산,Financials
+미원에스씨,268280,화학,Materials
+우리기술,032820,우주항공과국방,Industrials
+안랩,053800,소프트웨어,Information Technology
+우리기술투자,041190,창업투자,Financials
+CJ4우(전환),00104K,복합기업,Industrials
+한화손해보험,000370,손해보험,Financials
+인카금융서비스,211050,손해보험,Financials
+현대힘스,460930,조선,Industrials
+퓨쳐켐,220100,제약,Health Care
+HD현대에너지솔루션,322000,에너지장비및서비스,Energy
+NHN KCP,060250,IT서비스,Information Technology
+케이엠더블유,032500,통신장비,Information Technology
+토모큐브,475960,생명과학도구및서비스,Health Care
+율촌화학,008730,포장재,Materials
+펌텍코리아,251970,포장재,Materials
+아세아,002030,건축자재,Industrials
+현대홈쇼핑,057050,인터넷과카탈로그소매,Information Technology
+포스코엠텍,009520,철강,Materials
+브이티,018290,화장품,Consumer Discretionary
+금양,001570,화학,Materials
+에스티큐브,052020,판매업체,Consumer Discretionary
+가온칩스,399720,반도체와반도체장비,Information Technology
+JW중외제약,001060,제약,Health Care
+카프로,006380,화학,Materials
+아이쓰리시스템,214430,우주항공과국방,Industrials
+휴온스글로벌,084110,제약,Health Care
+나노신소재,121600,화학,Materials
+LX홀딩스,383800,무역회사와판매업체,Consumer Discretionary
+원익QnC,074600,반도체와반도체장비,Information Technology
+티엘비,356860,반도체와반도체장비,Information Technology
+제룡전기,033100,전기장비,Utilities
+부국증권,001270,증권,Financials
+코오롱생명과학,102940,제약,Health Care
+비나텍,126340,전기장비,Utilities
+코미팜,041960,제약,Health Care
+GST,083450,반도체와반도체장비,Information Technology
+자화전자,033240,통신장비,Information Technology
+천보,278280,전기제품,Utilities
+삼양컴텍,484590,우주항공과국방,Industrials
+태광,023160,기계,Industrials
+케이아이엔엑스,093320,IT서비스,Information Technology
+네오위즈,095660,게임엔터테인먼트,Communication Services
+재영솔루텍,049630,핸드셋,Information Technology
+E1,017940,가스유틸리티,Energy
+HLB제약,047920,제약,Health Care
+대한해운,005880,해운사,Industrials
+제이알글로벌리츠,348950,부동산,Financials
+태웅,044490,에너지장비및서비스,Energy
+코오롱,002020,복합기업,Industrials
+한국쉘석유,002960,화학,Materials
+바이오노트,377740,건강관리장비와용품,Health Care
+풍산홀딩스,005810,비철금속,Materials
+다날,064260,IT서비스,Information Technology
+비츠로넥스텍,488900,우주항공과국방,Industrials
+고려제강,002240,철강,Materials
+한글과컴퓨터,030520,소프트웨어,Information Technology
+세아홀딩스,058650,철강,Materials
+비에이치,090460,전자장비와기기,Information Technology
+대신증권우,003545,증권,Financials
+코스모화학,005420,화학,Materials
+에스티아이,039440,반도체와반도체장비,Information Technology
+지엔씨에너지,119850,전기장비,Utilities
+씨아이에스,222080,전기제품,Utilities
+툴젠,199800,생물공학,Health Care
+롯데손해보험,000400,손해보험,Financials
+제이에스링크,127120,생명과학도구및서비스,Health Care
+네오셈,253590,반도체와반도체장비,Information Technology
+덴티움,145720,건강관리장비와용품,Health Care
+성우하이텍,015750,자동차부품,Consumer Discretionary
+시노펙스,025320,핸드셋,Information Technology
+켐트로닉스,089010,전자장비와기기,Information Technology
+위메이드맥스,101730,게임엔터테인먼트,Communication Services
+DB증권,016610,증권,Financials
+한세실업,105630,"섬유,의류,신발,호화품",Consumer Discretionary
+유진로봇,056080,기계,Industrials
+쿠쿠홈시스,284740,가정용기기와용품,Consumer Discretionary
+큐렉소,060280,건강관리장비와용품,Health Care
+삼표시멘트,038500,건축자재,Industrials
+KG스틸,016380,철강,Materials
+선익시스템,171090,디스플레이장비및부품,Information Technology
+HLB생명과학,067630,건강관리장비와용품,Health Care
+솔루스첨단소재,336370,전자장비와기기,Information Technology
+아스테라시스,450950,건강관리장비와용품,Health Care
+엠씨넥스,097520,핸드셋,Information Technology
+OCI,456040,화학,Materials
+감성코퍼레이션,036620,"섬유,의류,신발,호화품",Consumer Discretionary
+일진하이솔루스,271940,자동차부품,Consumer Discretionary
+현대차증권,001500,증권,Financials
+LF,093050,"섬유,의류,신발,호화품",Consumer Discretionary
+삼천리,004690,가스유틸리티,Energy
+퍼시스,016800,가구,Consumer Discretionary
+신대양제지,016590,포장재,Materials
+성일하이텍,365340,전기제품,Utilities
+에코프로에이치엔,383310,상업서비스와공급품,Industrials
+세아제강지주,003030,철강,Materials
+현대그린푸드,453340,식품,Consumer Staples
+풀무원,017810,식품,Consumer Staples
+태영건설,009410,건설,Industrials
+쓰리빌리언,394800,건강관리기술,Health Care
+안트로젠,065660,제약,Health Care
+드림텍,192650,핸드셋,Information Technology
+에코마케팅,230360,"섬유,의류,신발,호화품",Consumer Discretionary
+제우스,079370,반도체와반도체장비,Information Technology
+바이넥스,053030,제약,Health Care
+한일홀딩스,003300,건축자재,Industrials
+현대차3우B,005389,자동차,Consumer Discretionary
+동아에스티,170900,제약,Health Care
+티에프이,425420,반도체와반도체장비,Information Technology
+디아이씨,092200,자동차부품,Consumer Discretionary
+삼양사,145990,식품,Consumer Staples
+미코,059090,반도체와반도체장비,Information Technology
+맵스리얼티,094800,부동산,Financials
+현대바이오,048410,화장품,Consumer Discretionary
+NICE,034310,IT서비스,Information Technology
+쏠리드,050890,통신장비,Information Technology
+아모레퍼시픽우,090435,화장품,Consumer Discretionary
+엠로,058970,소프트웨어,Information Technology
+신도리코,029530,사무용전자제품,Information Technology
+명신산업,009900,자동차부품,Consumer Discretionary
+PI첨단소재,178920,화학,Materials
+이녹스첨단소재,272290,디스플레이장비및부품,Information Technology
+엔젤로보틱스,455900,건강관리장비와용품,Health Care
+신라젠,215600,제약,Health Care
+유티아이,179900,핸드셋,Information Technology
+코오롱모빌리티그룹,450140,자동차,Consumer Discretionary
+한양이엔지,045100,반도체와반도체장비,Information Technology
+휴메딕스,200670,제약,Health Care
+인화정공,101930,조선,Industrials
+제주은행,006220,은행,Financials
+유니드,014830,화학,Materials
+삼양홀딩스,000070,화학,Materials
+천일고속,000650,도로와철도운송,Industrials
+웹젠,069080,게임엔터테인먼트,Communication Services
+한국기업평가,034950,상업서비스와공급품,Industrials
+가비아,079940,IT서비스,Information Technology
+파인엠텍,441270,핸드셋,Information Technology
+씨앤씨인터내셔널,352480,화장품,Consumer Discretionary
+파이버프로,368770,전자장비와기기,Information Technology
+에스바이오메딕스,304360,생물공학,Health Care
+원익머트리얼즈,104830,화학,Materials
+SPC삼립,005610,식품,Consumer Staples
+애경케미칼,161000,화학,Materials
+아이센스,099190,건강관리장비와용품,Health Care
+에이디테크놀로지,200710,반도체와반도체장비,Information Technology
+인바디,041830,건강관리장비와용품,Health Care
+아세아시멘트,183190,건축자재,Industrials
+메가스터디교육,215200,교육서비스,Industrials
+삼성FN리츠,448730,부동산,Financials
+YG PLUS,037270,방송과엔터테인먼트,Consumer Discretionary
+조광피혁,004700,"섬유,의류,신발,호화품",Consumer Discretionary
+코람코라이프인프라리츠,357120,부동산,Financials
+아주IB투자,027360,창업투자,Financials
+제주항공,089590,항공사,Industrials
+유바이오로직스,206650,생물공학,Health Care
+슈어소프트테크,298830,소프트웨어,Information Technology
+티로보틱스,117730,기계,Industrials
+동화기업,025900,건축자재,Industrials
+나이벡,138610,건강관리장비와용품,Health Care
+아이티켐,309710,제약,Health Care
+농심홀딩스,072710,식품,Consumer Staples
+기가비스,420770,반도체와반도체장비,Information Technology
+테라뷰,950250,반도체와반도체장비,Information Technology
+샘씨엔에스,252990,반도체와반도체장비,Information Technology
+KCC글라스,344820,건축자재,Industrials
+에스에이엠티,031330,전자장비와기기,Information Technology
+프로텍,053610,반도체와반도체장비,Information Technology
+한중엔시에스,107640,전기장비,Utilities
+스맥,099440,기계,Industrials
+칩스앤미디어,094360,반도체와반도체장비,Information Technology
+DI동일,001530,"섬유,의류,신발,호화품",Consumer Discretionary
+동국제강,460860,철강,Materials
+스틱인베스트먼트,026890,창업투자,Financials
+예스티,122640,반도체와반도체장비,Information Technology
+두산2우B,000157,복합기업,Industrials
+네패스,033640,반도체와반도체장비,Information Technology
+HL홀딩스,060980,자동차부품,Consumer Discretionary
+쏘카,403550,도로와철도운송,Industrials
+월덱스,101160,반도체와반도체장비,Information Technology
+컴투스,078340,게임엔터테인먼트,Communication Services
+티웨이항공,091810,항공사,Industrials
+큐리오시스,494120,생명과학도구및서비스,Health Care
+코세스,089890,반도체와반도체장비,Information Technology
+우진,105840,기계,Industrials
+나라스페이스테크놀로지,478340,우주항공과국방,Industrials
+SAMG엔터,419530,방송과엔터테인먼트,Consumer Discretionary
+바이오다인,314930,건강관리장비와용품,Health Care
+데브시스터즈,194480,게임엔터테인먼트,Communication Services
+신세계인터내셔날,031430,"섬유,의류,신발,호화품",Consumer Discretionary
+국일제지,078130,종이와목재,Materials
+흥아해운,003280,해운사,Industrials
+한스바이오메드,042520,건강관리장비와용품,Health Care
+지씨셀,144510,건강관리업체및서비스,Health Care
+INVENI,015360,가스유틸리티,Energy
+티앤엘,340570,건강관리장비와용품,Health Care
+케이씨,029460,반도체와반도체장비,Information Technology
+파트론,091700,핸드셋,Information Technology
+삼양바이오팜,0120G0,건강관리장비와용품,Health Care
+피노,033790,전기제품,Utilities
+콜마비앤에이치,200130,건강관리업체및서비스,Health Care
+NH투자증권우,005945,증권,Financials
+부광약품,003000,제약,Health Care
+뉴로메카,348340,기계,Industrials
+대한광통신,010170,통신장비,Information Technology
+서희건설,035890,건설,Industrials
+서울반도체,046890,디스플레이장비및부품,Information Technology
+강원에너지,114190,전자장비와기기,Information Technology
+한텍,098070,에너지장비및서비스,Energy
+BGF,027410,화학,Materials
+씨메스,475400,기계,Industrials
+갤럭시아머니트리,094480,IT서비스,Information Technology
+한솔아이원스,114810,반도체와반도체장비,Information Technology
+TCC스틸,002710,철강,Materials
+펨트론,168360,전자장비와기기,Information Technology
+더본코리아,475560,"호텔,레스토랑,레저",Consumer Discretionary
+오리엔탈정공,014940,조선,Industrials
+한국철강,104700,철강,Materials
+하이록코리아,013030,기계,Industrials
+티엠씨,217590,조선,Industrials
+더핑크퐁컴퍼니,403850,방송과엔터테인먼트,Consumer Discretionary
+코람코더원리츠,417310,부동산,Financials
+PS일렉트로닉스,332570,핸드셋,Information Technology
+영진약품,003520,제약,Health Care
+삼성전기우,009155,전자장비와기기,Information Technology
+일진홀딩스,015860,전기장비,Utilities
+한양디지텍,078350,반도체와반도체장비,Information Technology
+진에어,272450,항공사,Industrials
+KISCO홀딩스,001940,철강,Materials
+유진투자증권,001200,증권,Financials
+삼아알미늄,006110,비철금속,Materials
+KB스타리츠,432320,부동산,Financials
+에이스침대,003800,가구,Consumer Discretionary
+석경에이티,357550,화학,Materials
+애경산업,018250,화장품,Consumer Discretionary
+덕산테코피아,317330,반도체와반도체장비,Information Technology
+와이바이오로직스,338840,생물공학,Health Care
+골프존,215000,"호텔,레스토랑,레저",Consumer Discretionary
+나무가,190510,핸드셋,Information Technology
+한전산업,130660,전기유틸리티,Utilities
+서연이화,200880,자동차부품,Consumer Discretionary
+유니셈,036200,반도체와반도체장비,Information Technology
+KG케미칼,001390,자동차,Consumer Discretionary
+SBS,034120,방송과엔터테인먼트,Consumer Discretionary
+제이에스코퍼레이션,194370,"섬유,의류,신발,호화품",Consumer Discretionary
+대명에너지,389260,에너지장비및서비스,Energy
+솔트룩스,304100,IT서비스,Information Technology
+한섬,020000,"섬유,의류,신발,호화품",Consumer Discretionary
+신성이엔지,011930,반도체와반도체장비,Information Technology
+대덕,008060,전자장비와기기,Information Technology
+현대퓨처넷,126560,화장품,Consumer Discretionary
+한국비엔씨,256840,건강관리장비와용품,Health Care
+오픈엣지테크놀로지,394280,반도체와반도체장비,Information Technology
+바이오니아,064550,생물공학,Health Care
+디아이티,110990,디스플레이장비및부품,Information Technology
+이노스페이스,462350,우주항공과국방,Industrials
+미래나노텍,095500,디스플레이장비및부품,Information Technology
+사조대림,003960,식품,Consumer Staples
+에이비온,203400,제약,Health Care
+대상홀딩스,084690,식품,Consumer Staples
+셀바스AI,108860,건강관리장비와용품,Health Care
+에이팩트,200470,반도체와반도체장비,Information Technology
+콜마홀딩스,024720,화장품,Consumer Discretionary
+HEM파마,376270,건강관리업체및서비스,Health Care
+세아제강,306200,철강,Materials
+인탑스,049070,핸드셋,Information Technology
+남해화학,025860,화학,Materials
+휴온스,243070,제약,Health Care
+에스오에스랩,464080,전자장비와기기,Information Technology
+SK증권,001510,증권,Financials
+우주일렉트로,065680,핸드셋,Information Technology
+DS단석,017860,화학,Materials
+에코아이,448280,상업서비스와공급품,Industrials
+SIMPAC,009160,비철금속,Materials
+DB,012030,IT서비스,Information Technology
+에이직랜드,445090,반도체와반도체장비,Information Technology
+대화제약,067080,제약,Health Care
+뷰노,338220,건강관리기술,Health Care
+하림,136480,식품,Consumer Staples
+넥센,005720,자동차부품,Consumer Discretionary
+바이오플러스,099430,건강관리장비와용품,Health Care
+사피엔반도체,452430,반도체와반도체장비,Information Technology
+대성산업,128820,석유와가스,Energy
+매커스,093520,반도체와반도체장비,Information Technology
+한국피아이엠,448900,자동차부품,Consumer Discretionary
+SGC에너지,005090,에너지장비및서비스,Energy
+바디텍메드,206640,생명과학도구및서비스,Health Care
+아세아제지,002310,포장재,Materials
+유나이티드제약,033270,제약,Health Care
+AP시스템,265520,디스플레이장비및부품,Information Technology
+에코앤드림,101360,화학,Materials
+수산인더스트리,126720,에너지장비및서비스,Energy
+제이브이엠,054950,건강관리장비와용품,Health Care
+삼화콘덴서,001820,전기제품,Utilities
+한국토지신탁,034830,부동산,Financials
+에스엔시스,0008Z0,조선,Industrials
+광동제약,009290,제약,Health Care
+디앤디플랫폼리츠,377190,부동산,Financials
+쿠콘,294570,IT서비스,Information Technology
+CJ프레시웨이,051500,식품과기본식료품소매,Consumer Staples
+서울가스,017390,가스유틸리티,Energy
+진성티이씨,036890,기계,Industrials
+케이프,064820,증권,Financials
+글로벌텍스프리,204620,기타금융,Financials
+코오롱ENP,138490,화학,Materials
+KPX홀딩스,092230,화학,Materials
+남양유업,003920,식품,Consumer Staples
+그래피,318060,건강관리장비와용품,Health Care
+에이유브랜즈,481070,"섬유,의류,신발,호화품",Consumer Discretionary
+신성에스티,416180,전기제품,Utilities
+한진,002320,항공화물운송과물류,Industrials
+국도화학,007690,화학,Materials
+화승엔터프라이즈,241590,"섬유,의류,신발,호화품",Consumer Discretionary
+한국자산신탁,123890,부동산,Financials
+GRT,900290,화학,Materials
+이지홀딩스,035810,식품,Consumer Staples
+엘앤케이바이오,156100,건강관리장비와용품,Health Care
+이지스밸류플러스리츠,334890,부동산,Financials
+바텍,043150,건강관리장비와용품,Health Care
+대원전선,006340,전기장비,Utilities
+한국정보통신,025770,IT서비스,Information Technology
+에스투더블유,488280,IT서비스,Information Technology
+덕산하이메탈,077360,반도체와반도체장비,Information Technology
+유니테스트,086390,반도체와반도체장비,Information Technology
+HLB이노베이션,024850,반도체와반도체장비,Information Technology
+이리츠코크렙,088260,부동산,Financials
+롯데이노베이트,286940,IT서비스,Information Technology
+삼영무역,002810,화학,Materials
+슈프리마,236200,전자장비와기기,Information Technology
+더즌,462860,IT서비스,Information Technology
+대아티아이,045390,IT서비스,Information Technology
+헬릭스미스,084990,생물공학,Health Care
+네오팜,092730,화장품,Consumer Discretionary
+엘브이엠씨홀딩스,900140,자동차,Consumer Discretionary
+삼목에스폼,018310,건축제품,Materials
+한라IMS,092460,조선,Industrials
+현대약품,004310,제약,Health Care
+현대코퍼레이션,011760,무역회사와판매업체,Consumer Discretionary
+모토닉,009680,자동차부품,Consumer Discretionary
+화신,010690,자동차부품,Consumer Discretionary
+나우로보틱스,459510,기계,Industrials
+TYM,002900,기계,Industrials
+셀비온,308430,제약,Health Care
+일성아이에스,003120,제약,Health Care
+KG이니시스,035600,IT서비스,Information Technology
+HLB테라퓨틱스,115450,제약,Health Care
+켄코아에어로스페이스,274090,우주항공과국방,Industrials
+에스엠벡셀,010580,자동차부품,Consumer Discretionary
+도우인시스,484120,디스플레이장비및부품,Information Technology
+삼양엔씨켐,482630,반도체와반도체장비,Information Technology
+LS네트웍스,000680,증권,Financials
+노루홀딩스,000320,건축자재,Industrials
+SJG세종,033530,자동차부품,Consumer Discretionary
+세나테크놀로지,061090,통신장비,Information Technology
+유진기업,023410,건축자재,Industrials
+LS증권,078020,증권,Financials
+중앙첨단소재,051980,통신장비,Information Technology
+대신밸류리츠,0030R0,부동산,Financials
+서호전기,065710,운송인프라,Industrials
+사조산업,007160,식품,Consumer Staples
+보성파워텍,006910,전기장비,Utilities
+뉴로핏,380550,건강관리기술,Health Care
+일신방직,003200,"섬유,의류,신발,호화품",Consumer Discretionary
+필에너지,378340,전기제품,Utilities
+대원강업,000430,자동차부품,Consumer Discretionary
+해성산업,034810,종이와목재,Materials
+한국정보인증,053300,IT서비스,Information Technology
+세방,004360,항공화물운송과물류,Industrials
+KG에코솔루션,151860,자동차,Consumer Discretionary
+대원산업,005710,자동차부품,Consumer Discretionary
+CMG제약,058820,제약,Health Care
+지누스,013890,가구,Consumer Discretionary
+삼지전자,037460,통신장비,Information Technology
+삼성SDI우,006405,전기제품,Utilities
+KH바텍,060720,핸드셋,Information Technology
+엔케이맥스,182400,생명과학도구및서비스,Health Care
+에이블씨엔씨,078520,화장품,Consumer Discretionary
+백산,035150,"섬유,의류,신발,호화품",Consumer Discretionary
+대원제약,003220,제약,Health Care
+유니슨,018000,에너지장비및서비스,Energy
+코난테크놀로지,402030,소프트웨어,Information Technology
+매일유업,267980,식품,Consumer Staples
+아이마켓코리아,122900,상업서비스와공급품,Industrials
+JW홀딩스,096760,제약,Health Care
+듀켐바이오,176750,제약,Health Care
+노바렉스,194700,건강관리업체및서비스,Health Care
+케이티알파,036030,인터넷과카탈로그소매,Information Technology
+삼진제약,005500,제약,Health Care
+노머스,473980,방송과엔터테인먼트,Consumer Discretionary
+BYC,001460,"섬유,의류,신발,호화품",Consumer Discretionary
+에브리봇,270660,가정용기기와용품,Consumer Discretionary
+LB세미콘,061970,반도체와반도체장비,Information Technology
+풍원정밀,371950,디스플레이장비및부품,Information Technology
+플리토,300080,양방향미디어와서비스,Communication Services
+피아이이,452450,IT서비스,Information Technology
+자람테크놀로지,389020,통신장비,Information Technology
+SG,255220,건축자재,Industrials
+비덴트,121800,디스플레이패널,Information Technology
+대양전기공업,108380,조선,Industrials
+대동,000490,기계,Industrials
+아이패밀리에스씨,114840,화장품,Consumer Discretionary
+메카로,241770,반도체와반도체장비,Information Technology
+LX하우시스,108670,건축자재,Industrials
+넥스틸,092790,철강,Materials
+아크릴,0007C0,IT서비스,Information Technology
+원익,032940,화장품,Consumer Discretionary
+엘오티베큠,083310,반도체와반도체장비,Information Technology
+대한제강,084010,철강,Materials
+위니아에이드,377460,상업서비스와공급품,Industrials
+무학,033920,음료,Consumer Staples
+한국캐피탈,023760,기타금융,Financials
+그린광학,0015G0,우주항공과국방,Industrials
+링크솔루션,474650,기계,Industrials
+잇츠한불,226320,화장품,Consumer Discretionary
+상아프론테크,089980,전자장비와기기,Information Technology
+인트로메딕,150840,건강관리장비와용품,Health Care
+한화갤러리아,452260,백화점과일반상점,Consumer Discretionary
+케이엔알시스템,199430,기계,Industrials
+뉴파워프라즈마,144960,반도체와반도체장비,Information Technology
+광주신세계,037710,백화점과일반상점,Consumer Discretionary
+일양약품,007570,제약,Health Care
+나이스정보통신,036800,상업서비스와공급품,Industrials
+대한제당,001790,식품,Consumer Staples
+동원개발,013120,건설,Industrials
+하이비젼시스템,126700,핸드셋,Information Technology
+한양증권,001750,증권,Financials
+PKC,001340,화학,Materials
+미래반도체,254490,반도체와반도체장비,Information Technology
+SK디앤디,210980,부동산,Financials
+오로스테크놀로지,322310,반도체와반도체장비,Information Technology
+넵튠,217270,게임엔터테인먼트,Communication Services
+비츠로테크,042370,전기제품,Utilities
+한농화성,011500,화학,Materials
+텔레칩스,054450,반도체와반도체장비,Information Technology
+서흥,008490,제약,Health Care
+제테마,216080,건강관리장비와용품,Health Care
+압타바이오,293780,건강관리업체및서비스,Health Care
+토비스,051360,디스플레이장비및부품,Information Technology
+클리오,237880,화장품,Consumer Discretionary
+대한제분,001130,식품,Consumer Staples
+티엑스알로보틱스,484810,기계,Industrials
+오가노이드사이언스,476040,생물공학,Health Care
+마녀공장,439090,화장품,Consumer Discretionary
+엘티씨,170920,반도체와반도체장비,Information Technology
+LG생활건강우,051905,화장품,Consumer Discretionary
+아스트,067390,우주항공과국방,Industrials
+지놈앤컴퍼니,314130,제약,Health Care
+모트렉스,118990,자동차부품,Consumer Discretionary
+에이프로젠,007460,제약,Health Care
+이노테크,469610,디스플레이장비및부품,Information Technology
+헥토파이낸셜,234340,IT서비스,Information Technology
+경방,000050,"섬유,의류,신발,호화품",Consumer Discretionary
+엠아이텍,179290,건강관리장비와용품,Health Care
+제일약품,271980,제약,Health Care
+비보존 제약,082800,제약,Health Care
+범한퓨얼셀,382900,전기제품,Utilities
+인터플렉스,051370,전자장비와기기,Information Technology
+프레스티지바이오로직스,334970,제약,Health Care
+피에이치에이,043370,자동차부품,Consumer Discretionary
+디오,039840,건강관리장비와용품,Health Care
+파멥신,208340,생물공학,Health Care
+폴라리스오피스,041020,자동차부품,Consumer Discretionary
+스카이라이프,053210,방송과엔터테인먼트,Consumer Discretionary
+동아지질,028100,건설,Industrials
+킵스파마,256940,비철금속,Materials
+KZ정밀,036560,기계,Industrials
+성신양회,004980,건축자재,Industrials
+윤성에프앤씨,372170,전자장비와기기,Information Technology
+엑시콘,092870,반도체와반도체장비,Information Technology
+계양전기,012200,자동차부품,Consumer Discretionary
+오킨스전자,080580,반도체와반도체장비,Information Technology
+켐트로스,220260,화학,Materials
+흥국화재,000540,손해보험,Financials
+엑스게이트,356680,소프트웨어,Information Technology
+종근당홀딩스,001630,제약,Health Care
+BGF에코머티리얼즈,126600,화학,Materials
+제이오,418550,건설,Industrials
+어보브반도체,102120,반도체와반도체장비,Information Technology
+휴스틸,005010,철강,Materials
+하이트진로홀딩스,000140,음료,Consumer Staples
+포스코스틸리온,058430,비철금속,Materials
+코오롱글로벌,003070,건설,Industrials
+신세계 I&C,035510,IT서비스,Information Technology
+삼성물산우B,02826K,복합기업,Industrials
+동국홀딩스,001230,철강,Materials
+박셀바이오,323990,제약,Health Care
+아이씨티케이,456010,통신장비,Information Technology
+잉글우드랩,950140,화장품,Consumer Discretionary
+소룩스,290690,디스플레이장비및부품,Information Technology
+삼일제약,000520,제약,Health Care
+네패스아크,330860,반도체와반도체장비,Information Technology
+CR홀딩스,000480,비철금속,Materials
+아이스크림미디어,461300,교육서비스,Industrials
+선진,136490,식품,Consumer Staples
+노바텍,285490,핸드셋,Information Technology
+메디아나,041920,건강관리장비와용품,Health Care
+한국화장품제조,003350,화장품,Consumer Discretionary
+코리아에프티,123410,자동차부품,Consumer Discretionary
+제일일렉트릭,199820,전기장비,Utilities
+메드팩토,235980,제약,Health Care
+대성에너지,117580,가스유틸리티,Energy
+방림,003610,"섬유,의류,신발,호화품",Consumer Discretionary
+에스비비테크,389500,기계,Industrials
+한국알콜,017890,화학,Materials
+하나기술,299030,전자장비와기기,Information Technology
+와이씨켐,112290,반도체와반도체장비,Information Technology
+아이티엠반도체,084850,전자장비와기기,Information Technology
+서연,007860,자동차부품,Consumer Discretionary
+에이스테크,088800,통신장비,Information Technology
+AP위성,211270,통신장비,Information Technology
+네오위즈홀딩스,042420,게임엔터테인먼트,Communication Services
+다올투자증권,030210,증권,Financials
+이수화학,005950,화학,Materials
+와이엠티,251370,화학,Materials
+헥토이노베이션,214180,IT서비스,Information Technology
+더블유씨피,393890,전기제품,Utilities
+미창석유,003650,화학,Materials
+리파인,377450,상업서비스와공급품,Industrials
+푸른소나무,057880,건강관리업체및서비스,Health Care
+송원산업,004430,화학,Materials
+이월드,084680,"섬유,의류,신발,호화품",Consumer Discretionary
+나노엔텍,039860,생명과학도구및서비스,Health Care
+이수앱지스,086890,제약,Health Care
+신한서부티엔디리츠,404990,부동산,Financials
+이랜텍,054210,핸드셋,Information Technology
+싸이닉솔루션,234030,반도체와반도체장비,Information Technology
+미래에셋증권우,006805,증권,Financials
+루미르,474170,우주항공과국방,Industrials
+HDC랩스,039570,건설,Industrials
+마이크로디지탈,305090,건강관리장비와용품,Health Care
+HS효성,487570,복합기업,Industrials
+제넥신,095700,생물공학,Health Care
+삼영,003720,화학,Materials
+미원화학,134380,화학,Materials
+시너지이노베이션,048870,건강관리장비와용품,Health Care
+디엔에프,092070,반도체와반도체장비,Information Technology
+디지털대성,068930,교육서비스,Industrials
+AJ네트웍스,095570,도로와철도운송,Industrials
+교촌에프앤비,339770,식품,Consumer Staples
+알루코,001780,비철금속,Materials
+퀄리타스반도체,432720,반도체와반도체장비,Information Technology
+동성케미컬,102260,화학,Materials
+동양,001520,건축자재,Industrials
+아나패스,123860,디스플레이장비및부품,Information Technology
+삼영전자,005680,전기제품,Utilities
+토니모리,214420,화장품,Consumer Discretionary
+에이플러스에셋,244920,손해보험,Financials
+CJ우,001045,복합기업,Industrials
+큐알티,405100,반도체와반도체장비,Information Technology
+도화엔지니어링,002150,건설,Industrials
+피에스텍,002230,전기제품,Utilities
+삼화전기,009470,전기제품,Utilities
+삼익THK,004380,기계,Industrials
+엘케이켐,489500,반도체와반도체장비,Information Technology
+이구산업,025820,비철금속,Materials
+RF머트리얼즈,327260,우주항공과국방,Industrials
+DSC인베스트먼트,241520,창업투자,Financials
+강스템바이오텍,217730,생물공학,Health Care
+퍼스텍,010820,우주항공과국방,Industrials
+티앤알바이오팹,246710,생물공학,Health Care
+싸이토젠,217330,건강관리업체및서비스,Health Care
+이랜시스,264850,전자장비와기기,Information Technology
+JW생명과학,234080,제약,Health Care
+이연제약,102460,제약,Health Care
+KSS해운,044450,해운사,Industrials
+컨텍,451760,우주항공과국방,Industrials
+아바코,083930,전기제품,Utilities
+인포바인,115310,IT서비스,Information Technology
+에어부산,298690,항공사,Industrials
+한국공항,005430,운송인프라,Industrials
+바이젠셀,308080,제약,Health Care
+대신증권2우B,003547,증권,Financials
