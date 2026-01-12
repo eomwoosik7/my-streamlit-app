@@ -248,13 +248,103 @@ def run_screener(top_n=50, use_us=True, use_kr=True):
                        'upper_closes', 'lower_closes', 'sector', 'sector_trend',
                        'ma20', 'ma50', 'ma200', 'break_20high', 'close_d', 'close']
 
-        # ... (중기/단기/매도 스크리닝 코드 동일) ...
-        # (기존 코드 그대로 사용)
+        # ========================================
+        # ✅ 단기 스크리닝
+        # ========================================
+        print("\n단기 스크리닝 시작...")
+        short_conditions = (
+            # OBV 상승 크로스
+            (df_filtered['obv_latest'] > df_filtered['signal_obv_9_latest']) &
+            (df_filtered['obv_1ago'] <= df_filtered['signal_obv_9_1ago']) &
+            # 거래대금 급증
+            (df_filtered['today_trading_value'] >= 2.0 * df_filtered['avg_trading_value_20d']) &
+            # 돌파
+            ((df_filtered['break_20high'] == 1) | 
+             ((df_filtered['close_today'] > df_filtered['ma20_today']) & 
+              (df_filtered['close_yesterday'] <= df_filtered['ma20_yesterday'])))
+        )
+
+        short_results = df_filtered[short_conditions].copy()
+        short_results = add_close_price(short_results)
+
+        if not short_results.empty:
+            short_results = short_results.sort_values('market_cap', ascending=False).head(top_n)
+            short_results_save = short_results[save_columns].copy()
+            short_file = os.path.join(SHORT_FOLDER, f'{today_str}_short.csv')
+            short_results_save.to_csv(short_file, index=False, encoding='utf-8-sig')
+            print(f"✅ 단기 결과: {len(short_results)}개 → {short_file}")
+        else:
+            print("⚠️ 단기 조건 만족 종목 없음")
+
+        # ========================================
+        # ✅ 중기 스크리닝
+        # ========================================
+        print("\n중기 스크리닝 시작...")
+        mid_conditions = (
+            # RSI 상승 (40~60)
+            (df_filtered['rsi_d_2ago'] < df_filtered['rsi_d_1ago']) &
+            (df_filtered['rsi_d_1ago'] < df_filtered['rsi_d_latest']) &
+            (df_filtered['rsi_d_latest'] >= 40) &
+            (df_filtered['rsi_d_latest'] <= 60) &
+            # OBV 우상향/크로스
+            (df_filtered['obv_latest'] > df_filtered['signal_obv_20_latest']) &
+            (
+                (df_filtered['signal_obv_20_latest'] > df_filtered['signal_obv_20_3ago']) |
+                ((df_filtered['obv_2ago'] <= df_filtered['signal_obv_20_2ago']) & 
+                 (df_filtered['obv_latest'] > df_filtered['signal_obv_20_latest'])) |
+                ((df_filtered['obv_1ago'] <= df_filtered['signal_obv_20_1ago']) & 
+                 (df_filtered['obv_latest'] > df_filtered['signal_obv_20_latest']))
+            ) &
+            # 골든크로스
+            (df_filtered['ma50_today'] > df_filtered['ma200_today']) &
+            # 거래대금
+            (df_filtered['today_trading_value'] >= df_filtered['avg_trading_value_20d'])
+        )
+
+        mid_results = df_filtered[mid_conditions].copy()
+        mid_results = add_close_price(mid_results)
+
+        if not mid_results.empty:
+            mid_results = mid_results.sort_values('market_cap', ascending=False).head(top_n)
+            mid_results_save = mid_results[save_columns].copy()
+            mid_file = os.path.join(MID_FOLDER, f'{today_str}_mid.csv')
+            mid_results_save.to_csv(mid_file, index=False, encoding='utf-8-sig')
+            print(f"✅ 중기 결과: {len(mid_results)}개 → {mid_file}")
+        else:
+            print("⚠️ 중기 조건 만족 종목 없음")
+
+        # ========================================
+        # ✅ 매도 스크리닝
+        # ========================================
+        print("\n매도 스크리닝 시작...")
+        sell_conditions = (
+            # RSI 과열
+            (df_filtered['rsi_d_latest'] >= 70) |
+            # OBV 하락 크로스
+            ((df_filtered['obv_latest'] < df_filtered['signal_obv_9_latest']) &
+             (df_filtered['obv_1ago'] >= df_filtered['signal_obv_9_1ago'])) |
+            # RSI 하강
+            ((df_filtered['rsi_d_2ago'] > df_filtered['rsi_d_1ago']) &
+             (df_filtered['rsi_d_1ago'] > df_filtered['rsi_d_latest']) &
+             (df_filtered['rsi_d_latest'] <= 50))
+        )
+
+        sell_results = df_filtered[sell_conditions].copy()
+        sell_results = add_close_price(sell_results)
+
+        if not sell_results.empty:
+            sell_results = sell_results.sort_values('market_cap', ascending=False).head(top_n)
+            sell_results_save = sell_results[save_columns].copy()
+            sell_file = os.path.join(SELL_FOLDER, f'{today_str}_sell_signals.csv')
+            sell_results_save.to_csv(sell_file, index=False, encoding='utf-8-sig')
+            print(f"✅ 매도 결과: {len(sell_results)}개 → {sell_file}")
+        else:
+            print("⚠️ 매도 조건 만족 종목 없음")
 
         # 백테스팅 DB 생성
         create_backtest_db()
 
-        return pd.DataFrame()  # 또는 mid_results
+        return pd.DataFrame()
 
     except Exception as e:
         print(f"스크리너 에러: {e}")
@@ -380,7 +470,7 @@ def create_backtest_db():
             symbol_key = str(symbol)
         
         # ✅ 핵심 데이터로 중복 체크 (symbol, market, type, base_date)
-        check_key = f"{symbol_key}_{market}_{result_type}_{base_date_str}"  # ← 문자열로 통일
+        check_key = f"{symbol_key}_{market}_{result_type}_{base_date_str}"
 
         if is_completed and check_key in existing_completed_set:
             already_completed_count += 1
@@ -512,7 +602,7 @@ def create_backtest_db():
             combined = combined.drop_duplicates(subset=['symbol', 'market', 'type', 'base_date'], keep='last')
             
             # ✅ 엑셀에서도 0이 유지되도록 저장
-            combined.to_csv(completed_csv_path, index=False, encoding='utf-8-sig', quoting=1)  # quoting=1: QUOTE_ALL
+            combined.to_csv(completed_csv_path, index=False, encoding='utf-8-sig', quoting=1)
             
             print(f"\n✅ 백테스트 완료: {len(completed_df)}개 종목 추가 (총 {len(combined)}개)")
             print(f"   (기존 {len(existing_completed)}개 + 신규 {len(completed_df)}개 = 병합 후 {len(combined)}개)")
