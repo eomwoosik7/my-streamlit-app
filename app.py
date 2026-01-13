@@ -1078,6 +1078,24 @@ def show_chart(symbol, market, chart_type):
         st.warning("데이터 없음")
         return
     
+    # ✅ 기간에 따라 데이터 필터링
+    period = st.session_state.chart_period
+    if period != '전체':
+        from datetime import datetime, timedelta
+        
+        # 기간별 일수 계산
+        days_map = {
+            '1개월': 30,
+            '3개월': 90,
+            '6개월': 180,
+            '1년': 365
+        }
+        
+        days = days_map.get(period, 180)
+        cutoff_date = datetime.now() - timedelta(days=days)
+        df_chart = df_chart[df_chart.index >= cutoff_date]
+    
+    # ✅ 최소 데이터 체크 제거 (차트별로 개별 처리)
     close_col = 'Close'
     vol_col = 'Volume'
     
@@ -1085,6 +1103,11 @@ def show_chart(symbol, market, chart_type):
         df_chart[close_col] = df_chart[close_col].round(2)
     
     if chart_type == "종가":
+        # ✅ 종가는 데이터만 있으면 OK
+        if df_chart.empty:
+            st.warning("데이터가 없습니다.")
+            return
+            
         fig = px.line(df_chart, x=df_chart.index, y=close_col, title=f"{symbol} Close")
         fig.update_traces(name='Close', showlegend=True, line=dict(color='#2563eb', width=2))
         fig.update_layout(
@@ -1094,11 +1117,25 @@ def show_chart(symbol, market, chart_type):
         st.plotly_chart(fig, width='stretch', config={'displayModeBar': False}, theme="streamlit")
         
     elif chart_type == "MACD":
+        # ✅ MACD는 최소 40일 필요
+        if len(df_chart) < 40:
+            st.warning(f"MACD 계산에는 최소 40일의 데이터가 필요합니다 (현재: {len(df_chart)}일). 더 긴 기간을 선택하세요.")
+            return
+            
         macd_df = ta.macd(df_chart[close_col], fast=12, slow=26)
+        
+        if macd_df is None or macd_df.empty:
+            st.warning("MACD 계산에 실패했습니다. 더 긴 기간을 선택하세요.")
+            return
+        
         macd = macd_df['MACD_12_26_9']
         signal = macd_df['MACDs_12_26_9']
         hist = macd_df['MACDh_12_26_9']
         df_macd = pd.DataFrame({'Date': df_chart.index, 'MACD': macd, 'Signal': signal, 'Hist': hist}).dropna()
+        
+        if df_macd.empty:
+            st.warning("MACD 데이터가 부족합니다. 더 긴 기간을 선택하세요.")
+            return
         
         fig = go.Figure()
         fig.add_trace(go.Scatter(x=df_macd['Date'], y=df_macd['MACD'], name='MACD', line=dict(color='#2563eb', width=2)))
@@ -1112,9 +1149,18 @@ def show_chart(symbol, market, chart_type):
         st.plotly_chart(fig, width='stretch', config={'displayModeBar': False}, theme="streamlit")
         
     elif chart_type == "OBV":
+        # ✅ OBV는 15일 정도면 충분
+        if len(df_chart) < 15:
+            st.warning(f"OBV 계산에는 최소 15일의 데이터가 필요합니다 (현재: {len(df_chart)}일). 더 긴 기간을 선택하세요.")
+            return
+            
         obv = ta.obv(df_chart[close_col], df_chart[vol_col])
         obv_signal = ta.sma(obv, length=9)
         df_obv = pd.DataFrame({'Date': df_chart.index, 'OBV': obv, 'OBV_SIGNAL': obv_signal}).dropna()
+        
+        if df_obv.empty:
+            st.warning("OBV 데이터가 부족합니다. 더 긴 기간을 선택하세요.")
+            return
         
         fig = go.Figure()
         fig.add_trace(go.Scatter(x=df_obv['Date'], y=df_obv['OBV'], name='OBV', line=dict(color='#059669', width=2)))
@@ -1127,8 +1173,17 @@ def show_chart(symbol, market, chart_type):
         st.plotly_chart(fig, width='stretch', config={'displayModeBar': False}, theme="streamlit")
         
     elif chart_type == "RSI":
+        # ✅ RSI는 14일이면 충분 (20일 → 14일로 변경)
+        if len(df_chart) < 14:
+            st.warning(f"RSI 계산에는 최소 14일의 데이터가 필요합니다 (현재: {len(df_chart)}일). 더 긴 기간을 선택하세요.")
+            return
+            
         rsi = ta.rsi(df_chart[close_col], length=14)
         df_rsi = pd.DataFrame({'Date': df_chart.index, 'RSI': rsi}).dropna()
+        
+        if df_rsi.empty:
+            st.warning("RSI 데이터가 부족합니다. 더 긴 기간을 선택하세요.")
+            return
         
         fig = px.line(df_rsi, x='Date', y='RSI', title="RSI")
         fig.add_hline(y=30, line_dash="dot", line_color="#dc2626", annotation_text="OverSold (30)", annotation_position="bottom right")
@@ -1215,6 +1270,10 @@ if 'kr_editor_state' not in st.session_state:
     st.session_state.kr_editor_state = None
 if 'us_editor_state' not in st.session_state:
     st.session_state.us_editor_state = None
+# ✅✅✅ 여기 추가 ✅✅✅
+if 'chart_period' not in st.session_state:
+    st.session_state.chart_period = '6개월'
+# ✅✅✅ 여기까지 추가 ✅✅✅
 
 # 세션 상태 초기화 (기존 코드에 추가)
 if 'backtest_short' not in st.session_state:
@@ -3632,7 +3691,20 @@ with col_right:
                             )
                 
                 st.markdown("---")
-                
+
+                st.markdown("#### 📊 차트 기간 선택")
+                chart_period = st.radio(
+                    "차트 기간",
+                    ["1개월", "3개월", "6개월", "1년", "전체"],
+                    index=2,  # ✅ 0=1개월, 1=3개월, 2=6개월 (디폴트)
+                    horizontal=True,
+                    label_visibility="collapsed",
+                    key="chart_period_selector"
+                )
+
+                if chart_period != st.session_state.chart_period:
+                    st.session_state.chart_period = chart_period
+
                 # 차트 탭
                 chart_tab1, chart_tab2, chart_tab3, chart_tab4 = st.tabs(["종가", "MACD", "OBV", "RSI"])
                 
