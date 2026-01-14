@@ -3630,6 +3630,17 @@ with col_right:
                             f"</div>",
                             unsafe_allow_html=True
                         )
+                    
+                    # ✅✅✅ format_value 함수를 여기서 먼저 정의 ✅✅✅
+                    def format_value(val):
+                        """순매수 값을 색상으로 포맷팅"""
+                        if val > 0:
+                            return f"<span style='color: #dc2626;'>{val:,}</span>"
+                        elif val < 0:
+                            return f"<span style='color: #2563eb;'>{val:,}</span>"
+                        else:
+                            return f"{val:,}"
+                    
                     # ✅ 외국인 순매수 5일치 + 합산
                     if market == 'KR':
                         # 외국인
@@ -3644,15 +3655,6 @@ with col_right:
                             f1 = int(row['외국인순매수_1일전 (주)'])
                             f_sum = int(row['외국인순매수_합산 (주)'])
                             
-                            def format_value(val):
-                                if val > 0:
-                                    return f"<span style='color: #dc2626;'>{val:,}</span>"
-                                elif val < 0:
-                                    return f"<span style='color: #2563eb;'>{val:,}</span>"
-                                else:
-                                    return f"{val:,}"
-                            
-                            # ✅ 제목과 값을 붙여서 표시
                             st.markdown(
                                 f"<div style='margin-bottom: 1rem;'>"
                                 f"<div style='font-weight: 600; font-size: 0.875rem; margin-bottom: 0.25rem;'>외국인 순매수(5일)</div>"
@@ -3663,11 +3665,7 @@ with col_right:
                                 unsafe_allow_html=True
                             )
                         
-                        # ✅ 기관 순매수 5일치 + 합산 추가
-                        institutional_cols = ['기관순매수_5일전', '기관순매수_4일전', '기관순매수_3일전',
-                                            '기관순매수_2일전', '기관순매수_1일전', '기관순매수_합산']
-                        
-                        # 메타에서 기관 순매수 데이터 가져오기
+                        # ✅ 기관 순매수 5일치 + 합산
                         meta = load_meta()
                         meta_dict = meta.get(market, {}).get(symbol, {})
                         institutional_data = meta_dict.get('institutional_net_buy', [0, 0, 0, 0, 0])
@@ -3679,7 +3677,6 @@ with col_right:
                             i5 = institutional_data[4]  # 5일전
                             i_sum = sum(institutional_data)
                             
-                            # ✅ 제목과 값을 붙여서 표시
                             st.markdown(
                                 f"<div style='margin-bottom: 1rem;'>"
                                 f"<div style='font-weight: 600; font-size: 0.875rem; margin-bottom: 0.25rem;'>기관 순매수(5일)</div>"
