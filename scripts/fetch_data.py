@@ -129,7 +129,7 @@ def fetch_kr_single(ticker, start_date):
         # ✅ FDR은 datetime 객체 사용
         start_dt = datetime.strptime(start_date, '%Y-%m-%d')
         
-        # ✅ DataReader로 일봉 조회
+        # ✅ FinanceDataReader로 일봉 조회 (yfinance 아님!)
         data = fdr.DataReader(ticker, start=start_dt, end=today)
         
         if data.empty:
@@ -146,14 +146,21 @@ def fetch_kr_single(ticker, start_date):
         })
         
         # Open, High, Low, Close, Volume만 저장
-        data = data[['Open', 'High', 'Low', 'Close', 'Volume']]
+        required_cols = ['Open', 'High', 'Low', 'Close', 'Volume']
+        available_cols = [col for col in required_cols if col in data.columns]
+        
+        if not available_cols:
+            print(f"⚠️ {ticker} 필수 컬럼 없음")
+            return
+            
+        data = data[available_cols]
         
         daily_dir = os.path.join(DATA_DIR, 'kr_daily')
         os.makedirs(daily_dir, exist_ok=True)
         data.to_csv(os.path.join(daily_dir, f"{ticker}.csv"), encoding='utf-8-sig')
         
     except Exception as e:
-        print(f"❌ {ticker} 오류: {e}")
+        print(f"⚠️ {ticker} 다운로드 실패: {e}")
 
 def get_kr_meta_single(ticker, df_kr):
     """✅ KR 메타 정보 추출 (FinanceDataReader 기반)"""
