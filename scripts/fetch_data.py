@@ -123,9 +123,15 @@ def fetch_us_single(symbol, start_date):
     except Exception as e:
         print(f"❌ {symbol} 오류: {e}")
 
+# ✅✅✅ 핵심 수정 부분 ✅✅✅
 def fetch_kr_single(ticker, start_date):
-    """✅ FinanceDataReader로 KR 일봉 다운로드"""
+    """✅ FinanceDataReader로 KR 일봉 다운로드 - 에러 처리 강화"""
     try:
+        # ✅ 티커 코드 유효성 검증 추가
+        if not ticker or len(ticker) != 6 or not ticker.isdigit():
+            print(f"⚠️ 잘못된 티커 형식: {ticker}")
+            return False
+        
         # ✅ FDR은 datetime 객체 사용
         start_dt = datetime.strptime(start_date, '%Y-%m-%d')
         
@@ -134,7 +140,7 @@ def fetch_kr_single(ticker, start_date):
         
         if data.empty:
             print(f"⚠️ {ticker} 데이터 없음")
-            return
+            return False
         
         # 컬럼명을 영문으로 통일 (기존 코드와 호환)
         data = data.rename(columns={
@@ -151,7 +157,7 @@ def fetch_kr_single(ticker, start_date):
         
         if not available_cols:
             print(f"⚠️ {ticker} 필수 컬럼 없음")
-            return
+            return False
             
         data = data[available_cols]
         
@@ -159,8 +165,11 @@ def fetch_kr_single(ticker, start_date):
         os.makedirs(daily_dir, exist_ok=True)
         data.to_csv(os.path.join(daily_dir, f"{ticker}.csv"), encoding='utf-8-sig')
         
+        return True  # ✅ 성공 여부 반환
+        
     except Exception as e:
         print(f"⚠️ {ticker} 다운로드 실패: {e}")
+        return False
 
 def get_kr_meta_single(ticker, df_kr):
     """✅ KR 메타 정보 추출 (FinanceDataReader 기반)"""
@@ -275,15 +284,37 @@ if __name__ == '__main__':
         with Pool(4) as pool:
             pool.starmap(fetch_us_single, [(s, start_date) for s in us_symbols])
 
-    # KR 일봉 다운로드
+    # ✅✅✅ KR 일봉 다운로드 - 진행상황 출력 개선 ✅✅✅
     if kr_tickers:
         print("\n📥 KR 일봉 다운로드 시작")
+        print(f"총 {len(kr_tickers)}개 종목 처리 예정")
+        
+        success_count = 0
+        fail_count = 0
+        
+        # ✅ 100개씩 배치 처리 (병렬 처리 없이 순차 처리로 변경)
         for i in range(0, len(kr_tickers), 100):
             batch = kr_tickers[i:i+100]
-            with Pool(4) as pool:
-                pool.starmap(fetch_kr_single, [(t, start_date) for t in batch])
-            print(f"진행: {min(i+100, len(kr_tickers))}/{len(kr_tickers)}")
-            time.sleep(2)  # API 부하 방지
+            batch_success = 0
+            
+            print(f"\n배치 {i//100 + 1}: {i}~{min(i+100, len(kr_tickers))} 처리 중...")
+            
+            # ✅ 순차 처리로 변경 (Pool 대신)
+            for ticker in batch:
+                if fetch_kr_single(ticker, start_date):
+                    batch_success += 1
+                    success_count += 1
+                else:
+                    fail_count += 1
+                
+                # 10개마다 진행상황 출력
+                if (success_count + fail_count) % 10 == 0:
+                    print(f"진행: {success_count + fail_count}/{len(kr_tickers)} (성공: {success_count}, 실패: {fail_count})")
+            
+            print(f"✅ 배치 완료: {batch_success}/{len(batch)} 성공")
+            time.sleep(3)  # ✅ API 부하 방지 (2초 → 3초로 증가)
+        
+        print(f"\n✅ KR 일봉 다운로드 완료: 성공 {success_count}개, 실패 {fail_count}개")
     
     # KR 메타 업데이트
     kr_meta = old_meta.get('KR', {})
