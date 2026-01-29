@@ -2164,36 +2164,6 @@ elif period == "백데이터":
                 df_back = df_back[df_back['market'] == 'US']
             
             df_back['symbol'] = df_back.apply(lambda row: str(row['symbol']).zfill(6) if row['market'] == 'KR' else str(row['symbol']), axis=1)
-            
-            # 매도 신호 추가
-            use_us_sell = market in ["모두", "US"]
-            use_kr_sell = market in ["모두", "KR"]
-            df_sell = run_screener_query(con, "sell", use_us=use_us_sell, use_kr=use_kr_sell)
-
-            if not df_sell.empty:
-                df_sell = add_foreign_net_buy(df_sell)
-                df_sell = calculate_buy_signals(df_sell)
-                
-                sell_dict = {}
-                for idx, row in df_sell.iterrows():
-                    symbol = row['symbol']
-                    score = row.get('매도신호', 0)
-                    sell_dict[symbol] = score
-                
-                def get_sell_signal(symbol):
-                    if symbol in sell_dict:
-                        score = sell_dict[symbol]
-                        if score <= 2:
-                            return f'🟢 {score}점'
-                        elif score <= 4:
-                            return f'🟡 {score}점'
-                        else:
-                            return f'🔴 {score}점'
-                    return '⚪ 0점'
-                
-                df_back['매도신호'] = df_back['symbol'].apply(get_sell_signal)
-            else:
-                df_back['매도신호'] = '⚪ 0점'
 
             # 타입 한글 변환
             if 'type' in df_back.columns:
@@ -2322,37 +2292,7 @@ elif period == "백데이터":
                         'short+mid': '단기+중기'
                     }
                     df_completed['type'] = df_completed['type'].map(type_mapping).fillna(df_completed['type'])
-                
-                # 매도 신호 추가
-                use_us_sell = market in ["모두", "US"]
-                use_kr_sell = market in ["모두", "KR"]
-                df_sell = run_screener_query(con, "sell", use_us=use_us_sell, use_kr=use_kr_sell)
-
-                if not df_sell.empty:
-                    df_sell = add_foreign_net_buy(df_sell)
-                    df_sell = calculate_buy_signals(df_sell)
-                    
-                    sell_dict = {}
-                    for idx, row in df_sell.iterrows():
-                        symbol_key = row['symbol']
-                        score = row.get('매도신호', 0)
-                        sell_dict[symbol_key] = score
-                    
-                    def get_sell_signal(symbol_val):
-                        if symbol_val in sell_dict:
-                            score = sell_dict[symbol_val]
-                            if score <= 2:
-                                return f'🟢 {score}점'
-                            elif score <= 4:
-                                return f'🟡 {score}점'
-                            else:
-                                return f'🔴 {score}점'
-                        return '⚪ 0점'
-                    
-                    df_completed['매도신호'] = df_completed['symbol'].apply(get_sell_signal)
-                else:
-                    df_completed['매도신호'] = '⚪ 0점'
-                
+                              
                 # 외국인/기관 순매수 추가
                 df_completed = add_foreign_net_buy(df_completed)
                 df_completed = add_institutional_net_buy(df_completed)
@@ -2540,9 +2480,9 @@ def _display_backtest_table(df_filtered, tab_type, apply_btn, foreign_apply, ins
     
     # ✅ 완료 탭일 경우 '기준일', '목표일' 컬럼 추가
     if tab_type == "completed":
-        back_cols = ['업데이트', '타입', '기준일', '목표일', '최신종가', '최신업데이트', '변동율%', '매도신호']
+        back_cols = ['업데이트', '타입', '기준일', '목표일', '최신종가', '최신업데이트', '변동율%']
     else:
-        back_cols = ['업데이트', '타입', '최신종가', '최신업데이트', '변동율%', '매도신호']
+        back_cols = ['업데이트', '타입', '최신종가', '최신업데이트', '변동율%']
     
     for col in back_cols:
         if col in df_filtered.columns:
@@ -2676,24 +2616,46 @@ def _display_backtest_table(df_filtered, tab_type, apply_btn, foreign_apply, ins
                 else:
                     styles.append('')
             return styles
-        
-        styled_kr = df_kr_display.style.apply(apply_kr_row_style, axis=1)
-        
-        # 숫자 포맷
+
+        # ✅ 변동율% 색상 함수 추가
+        def apply_change_rate_color(val):
+            """변동율% 값에 따라 색상 반환"""
+            if pd.isna(val):
+                return ''
+            try:
+                num_val = float(val)
+                if num_val > 0:
+                    return 'color: #dc2626; font-weight: 700'  # 빨간색
+                elif num_val < 0:
+                    return 'color: #2563eb; font-weight: 700'  # 파란색
+                else:
+                    return ''
+            except:
+                return ''
+
+        styled_kr = df_kr_display.style.apply(apply_kr_row_style, axis=1)  # ✅ 수정!
+
+        # 숫자 포맷 (변동율% 제외)
         format_dict = {}
-        for col in df_kr_display.columns:
-            if df_kr_display[col].dtype in ['int64', 'float64']:
-                if col == '종가 (KRW)':
-                    format_dict[col] = '{:,.0f}'
+        for col in df_kr_display.columns:  # ✅ 수정!
+            if df_kr_display[col].dtype in ['int64', 'float64']:  # ✅ 수정!
+                if col == '종가 (KRW)':  # ✅ 수정!
+                    format_dict[col] = '{:,.0f}'  # ✅ 수정!
                 elif '시가총액' in col:
                     format_dict[col] = '{:,.2f}'
                 elif col == '변동율%':
-                    format_dict[col] = '{:.2f}'
+                    continue  # ✅ 변동율%는 포맷에서 제외
                 else:
                     format_dict[col] = '{:,.2f}'
-        
+
         if format_dict:
-            styled_kr = styled_kr.format(format_dict, na_rep='')
+            styled_kr = styled_kr.format(format_dict, na_rep='')  # ✅ 수정!
+
+        # ✅ 변동율% 색상 적용 (format 이후에)
+        if '변동율%' in df_kr_display.columns:  # ✅ 수정!
+            styled_kr = styled_kr.map(apply_change_rate_color, subset=['변동율%'])  # ✅ 수정!
+            # ✅ 변동율% 소수점 2자리 포맷 추가
+            styled_kr = styled_kr.format('{:.2f}', subset=['변동율%'])  # ✅ 수정!
         
         # 데이터프레임 표시
         event_kr = st.dataframe(
@@ -2832,7 +2794,7 @@ def _display_backtest_table(df_filtered, tab_type, apply_btn, foreign_apply, ins
         
         us_key = f"us_back_{tab_type}_df"
         
-        # 스타일
+        # 스타일 적용
         def apply_us_row_style(row):
             styles = []
             bg_color = None
@@ -2846,9 +2808,25 @@ def _display_backtest_table(df_filtered, tab_type, apply_btn, foreign_apply, ins
                     styles.append('')
             return styles
         
+        # ✅ 변동율% 색상 함수 추가
+        def apply_change_rate_color(val):
+            """변동율% 값에 따라 색상 반환"""
+            if pd.isna(val):
+                return ''
+            try:
+                num_val = float(val)
+                if num_val > 0:
+                    return 'color: #dc2626; font-weight: 700'  # 빨간색
+                elif num_val < 0:
+                    return 'color: #2563eb; font-weight: 700'  # 파란색
+                else:
+                    return ''
+            except:
+                return ''
+        
         styled_us = df_us_display.style.apply(apply_us_row_style, axis=1)
         
-        # 숫자 포맷
+        # 숫자 포맷 (변동율% 제외)
         format_dict = {}
         for col in df_us_display.columns:
             if df_us_display[col].dtype in ['int64', 'float64']:
@@ -2857,12 +2835,18 @@ def _display_backtest_table(df_filtered, tab_type, apply_btn, foreign_apply, ins
                 elif '시가총액' in col:
                     format_dict[col] = '{:,.2f}'
                 elif col == '변동율%':
-                    format_dict[col] = '{:.2f}'
+                    continue  # ✅ 변동율%는 포맷에서 제외
                 else:
                     format_dict[col] = '{:,.2f}'
         
         if format_dict:
             styled_us = styled_us.format(format_dict, na_rep='')
+        
+        # ✅ 변동율% 색상 적용 (format 이후에)
+        if '변동율%' in df_us_display.columns:
+            styled_us = styled_us.map(apply_change_rate_color, subset=['변동율%'])
+            # ✅ 변동율% 소수점 2자리 포맷 추가
+            styled_us = styled_us.format('{:.2f}', subset=['변동율%'])
         
         # 데이터프레임 표시
         event_us = st.dataframe(
@@ -3181,24 +3165,46 @@ with col_left:
                         else:
                             styles.append('')
                     return styles
-                
-                styled_kr = df_kr_display.style.apply(apply_kr_row_style, axis=1)
-                
-                # 숫자 포맷 설정
+
+                # ✅ 변동율% 색상 함수 추가
+                def apply_change_rate_color(val):
+                    """변동율% 값에 따라 색상 반환"""
+                    if pd.isna(val):
+                        return ''
+                    try:
+                        num_val = float(val)
+                        if num_val > 0:
+                            return 'color: #dc2626; font-weight: 700'  # 빨간색
+                        elif num_val < 0:
+                            return 'color: #2563eb; font-weight: 700'  # 파란색
+                        else:
+                            return ''
+                    except:
+                        return ''
+
+                styled_kr = df_kr_display.style.apply(apply_kr_row_style, axis=1)  # ✅ 수정!
+
+                # 숫자 포맷 (변동율% 제외)
                 format_dict = {}
-                for col in df_kr_display.columns:
-                    if df_kr_display[col].dtype in ['int64', 'float64']:
-                        if col == '종가 (KRW)':
-                            format_dict[col] = '{:,.0f}'
+                for col in df_kr_display.columns:  # ✅ 수정!
+                    if df_kr_display[col].dtype in ['int64', 'float64']:  # ✅ 수정!
+                        if col == '종가 (KRW)':  # ✅ 수정!
+                            format_dict[col] = '{:,.0f}'  # ✅ 수정!
                         elif '시가총액' in col:
                             format_dict[col] = '{:,.2f}'
                         elif col == '변동율%':
-                            format_dict[col] = '{:.2f}'
+                            continue  # ✅ 변동율%는 포맷에서 제외
                         else:
                             format_dict[col] = '{:,.2f}'
-                
+
                 if format_dict:
-                    styled_kr = styled_kr.format(format_dict, na_rep='')
+                    styled_kr = styled_kr.format(format_dict, na_rep='')  # ✅ 수정!
+
+                # ✅ 변동율% 색상 적용 (format 이후에)
+                if '변동율%' in df_kr_display.columns:  # ✅ 수정!
+                    styled_kr = styled_kr.map(apply_change_rate_color, subset=['변동율%'])  # ✅ 수정!
+                    # ✅ 변동율% 소수점 2자리 포맷 추가
+                    styled_kr = styled_kr.format('{:.2f}', subset=['변동율%'])  # ✅ 수정!
                 
                 # 데이터프레임 표시
                 event_kr = st.dataframe(
@@ -3407,9 +3413,25 @@ with col_left:
                             styles.append('')
                     return styles
                 
+                # ✅ 변동율% 색상 함수 추가
+                def apply_change_rate_color(val):
+                    """변동율% 값에 따라 색상 반환"""
+                    if pd.isna(val):
+                        return ''
+                    try:
+                        num_val = float(val)
+                        if num_val > 0:
+                            return 'color: #dc2626; font-weight: 700'  # 빨간색
+                        elif num_val < 0:
+                            return 'color: #2563eb; font-weight: 700'  # 파란색
+                        else:
+                            return ''
+                    except:
+                        return ''
+                
                 styled_us = df_us_display.style.apply(apply_us_row_style, axis=1)
                 
-                # 숫자 포맷 설정
+                # 숫자 포맷 (변동율% 제외)
                 format_dict = {}
                 for col in df_us_display.columns:
                     if df_us_display[col].dtype in ['int64', 'float64']:
@@ -3418,12 +3440,18 @@ with col_left:
                         elif '시가총액' in col:
                             format_dict[col] = '{:,.2f}'
                         elif col == '변동율%':
-                            format_dict[col] = '{:.2f}'
+                            continue  # ✅ 변동율%는 포맷에서 제외
                         else:
                             format_dict[col] = '{:,.2f}'
                 
                 if format_dict:
                     styled_us = styled_us.format(format_dict, na_rep='')
+                
+                # ✅ 변동율% 색상 적용 (format 이후에)
+                if '변동율%' in df_us_display.columns:
+                    styled_us = styled_us.map(apply_change_rate_color, subset=['변동율%'])
+                    # ✅ 변동율% 소수점 2자리 포맷 추가
+                    styled_us = styled_us.format('{:.2f}', subset=['변동율%'])
                 
                 # 데이터프레임 표시
                 event_us = st.dataframe(
