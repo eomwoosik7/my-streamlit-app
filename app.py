@@ -13,6 +13,7 @@ import yfinance as yf
 from datetime import datetime, timedelta
 import numpy as np
 import warnings
+import pkg_resources
 
 def get_sector_trend_color(trend_text):
     """
