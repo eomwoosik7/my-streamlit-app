@@ -1281,8 +1281,10 @@ if 'backtest_short' not in st.session_state:
     st.session_state.backtest_short = pd.DataFrame()
 if 'backtest_mid' not in st.session_state:
     st.session_state.backtest_mid = pd.DataFrame()
-if 'backtest_completed' not in st.session_state:  # ✅ 추가
+if 'backtest_completed' not in st.session_state:
     st.session_state.backtest_completed = pd.DataFrame()
+if 'backtest_test' not in st.session_state:  # ✅ 테스트 탭 추가
+    st.session_state.backtest_test = pd.DataFrame()
 if 'backtest_tab' not in st.session_state:
     st.session_state.backtest_tab = 0  # 0: 단기, 1: 중기
 
@@ -2149,7 +2151,8 @@ elif period == "매도":
 
 elif period == "백데이터":
     BACKTEST_DB_PATH = "data/meta/backtest.db"
-    BACKTEST_COMPLETED_CSV = "data/backtest_completed.csv"  # ✅ 추가
+    BACKTEST_COMPLETED_CSV = "data/backtest_completed.csv"
+    BACKTEST_TEST_CSV = "data/backtest_test.csv"  # ✅ 테스트 탭
     if not os.path.exists(BACKTEST_DB_PATH):
         st.warning("백테스팅 DB 없음 – 배치 실행하세요.")
         df_display = pd.DataFrame()
@@ -2375,6 +2378,62 @@ elif period == "백데이터":
         else:
             st.session_state.backtest_completed = pd.DataFrame()
 
+    # ✅ 테스트 탭 데이터 로드 (backtest_test.csv)
+    if os.path.exists(BACKTEST_TEST_CSV):
+        df_test = pd.read_csv(BACKTEST_TEST_CSV, dtype={'symbol': str})
+
+        if not df_test.empty:
+            # 시장 필터
+            if market == "KR":
+                df_test = df_test[df_test['market'] == 'KR']
+            elif market == "US":
+                df_test = df_test[df_test['market'] == 'US']
+
+            # symbol 6자리 통일
+            df_test['symbol'] = df_test.apply(
+                lambda row: str(row['symbol']).zfill(6) if row['market'] == 'KR' else str(row['symbol']),
+                axis=1
+            )
+
+            # 타입 한글 변환
+            if 'type' in df_test.columns:
+                type_mapping = {'short': '단기', 'mid': '중기'}
+                df_test['type'] = df_test['type'].map(type_mapping).fillna(df_test['type'])
+
+            # is_completed 한글 변환
+            if 'is_completed' in df_test.columns:
+                df_test['is_completed'] = df_test['is_completed'].apply(
+                    lambda x: '완료' if int(x) == 1 else '대기'
+                )
+
+            # rename
+            rename_test = {
+                'symbol': '종목코드',
+                'market': '시장',
+                'name': '회사명',
+                'sector': '업종',
+                'type': '타입',
+                'base_date': '기준일',
+                'target_date': '목표일',
+                'base_close': '기준가',
+                'date_5pct': '+5% 달성일',
+                'date_10pct': '+10% 달성일',
+                'final_close': '최종종가',
+                'final_change_rate': '최종수익률%',
+                'is_completed': '완료여부',
+            }
+            df_test = df_test.rename(columns=rename_test)
+
+            # 기준일 최신순 정렬
+            if '기준일' in df_test.columns:
+                df_test = df_test.sort_values('기준일', ascending=False)
+
+            st.session_state.backtest_test = df_test
+        else:
+            st.session_state.backtest_test = pd.DataFrame()
+    else:
+        st.session_state.backtest_test = pd.DataFrame()
+
 # 배치 날짜 로드
 log_time_file = "logs/batch_time.txt"
 batch_time = ""
@@ -2499,7 +2558,44 @@ def _display_backtest_table(df_filtered, tab_type, apply_btn, foreign_apply, ins
             display_cols.append('캔들')
     
     display_cols = [col for col in display_cols if col in df_filtered.columns]
-    
+
+    # ✅ 통계 요약 박스 (테스트 탭과 동일한 스타일)
+    total_cnt = len(df_filtered)
+    if '변동율%' in df_filtered.columns:
+        numeric_rates = pd.to_numeric(df_filtered['변동율%'], errors='coerce').dropna()
+        up_cnt   = (numeric_rates > 0).sum()
+        down_cnt = (numeric_rates < 0).sum()
+        avg_rate = numeric_rates.mean() if len(numeric_rates) > 0 else 0.0
+        win_rate = up_cnt / len(numeric_rates) * 100 if len(numeric_rates) > 0 else 0.0
+    else:
+        up_cnt = down_cnt = 0
+        avg_rate = win_rate = 0.0
+
+    avg_color = "#dc2626" if avg_rate >= 0 else "#2563eb"
+
+    if tab_type == "completed":
+        # 완료 탭: 기준일/목표일 있으므로 타입별 분류도 표시
+        short_cnt = len(df_filtered[df_filtered['타입'] == '단기']) if '타입' in df_filtered.columns else 0
+        mid_cnt   = len(df_filtered[df_filtered['타입'] == '중기']) if '타입' in df_filtered.columns else 0
+        st.markdown(f"""
+<div style='background:var(--secondary-background-color);padding:12px 18px;border-radius:14px;
+            border:1px solid rgba(128,128,128,.15);margin-bottom:12px;display:flex;gap:32px;flex-wrap:wrap;'>
+    <span>📋 전체 <b>{total_cnt}</b></span>
+    <span>단기 <b>{short_cnt}</b> · 중기 <b>{mid_cnt}</b></span>
+    <span>📈 상승 <b style='color:#dc2626'>{up_cnt}</b> · 📉 하락 <b style='color:#2563eb'>{down_cnt}</b></span>
+    <span>평균수익률 <b style='color:{avg_color}'>{avg_rate:+.2f}%</b></span>
+    <span>승률 <b>{win_rate:.1f}%</b></span>
+</div>""", unsafe_allow_html=True)
+    else:
+        st.markdown(f"""
+<div style='background:var(--secondary-background-color);padding:12px 18px;border-radius:14px;
+            border:1px solid rgba(128,128,128,.15);margin-bottom:12px;display:flex;gap:32px;flex-wrap:wrap;'>
+    <span>📋 전체 <b>{total_cnt}</b></span>
+    <span>📈 상승 <b style='color:#dc2626'>{up_cnt}</b> · 📉 하락 <b style='color:#2563eb'>{down_cnt}</b></span>
+    <span>평균수익률 <b style='color:{avg_color}'>{avg_rate:+.2f}%</b></span>
+    <span>승률 <b>{win_rate:.1f}%</b></span>
+</div>""", unsafe_allow_html=True)
+
     # KR/US 분리
     df_kr_filtered = df_filtered[df_filtered['시장'] == 'KR'] if '시장' in df_filtered.columns else pd.DataFrame()
     df_us_filtered = df_filtered[df_filtered['시장'] == 'US'] if '시장' in df_filtered.columns else pd.DataFrame()
@@ -2902,7 +2998,7 @@ with col_left:
     if not df_display.empty:
         # ✅ 백데이터일 경우 탭으로 분리
         if period == "백데이터":
-            back_tab1, back_tab2, back_tab3 = st.tabs(["단기", "중기", "완료"])  # ✅ 탭 3개로 변경
+            back_tab1, back_tab2, back_tab3, back_tab4 = st.tabs(["단기", "중기", "완료", "테스트"])  # ✅ 탭 4개로 변경
             
             with back_tab1:
                 df_to_show = st.session_state.backtest_short
@@ -2955,6 +3051,154 @@ with col_left:
                     _display_backtest_table(df_filtered, "completed", apply_btn, foreign_apply, institutional_apply, candle_apply)
                 else:
                     st.info("완료된 백테스트 종목이 없습니다.")
+            
+            # ✅ 테스트 탭 (back_tab4)
+            with back_tab4:
+                df_to_show = st.session_state.backtest_test
+                if not df_to_show.empty:
+                    # 검색 기능
+                    search_term_test = st.text_input(
+                        "🔍 종목 검색", placeholder="코드 또는 회사명 입력", key="back_search_test"
+                    )
+
+                    if search_term_test:
+                        mask = (
+                            df_to_show['종목코드'].astype(str).str.contains(search_term_test, case=False, na=False) |
+                            df_to_show['회사명'].astype(str).str.contains(search_term_test, case=False, na=False)
+                        )
+                        df_test_filtered = df_to_show[mask].copy()
+                    else:
+                        df_test_filtered = df_to_show.copy()
+
+                    if not df_test_filtered.empty:
+                        # ─── 통계 계산 ───
+                        completed_rows = df_test_filtered[df_test_filtered['완료여부'] == '완료'].copy()
+                        pending_rows   = df_test_filtered[df_test_filtered['완료여부'] == '대기'].copy()
+                        total_cnt      = len(df_test_filtered)
+                        done_cnt       = len(completed_rows)
+                        pending_cnt    = len(pending_rows)
+
+                        # +5% / +10% 달성 건수
+                        cnt_5pct  = completed_rows['+5% 달성일'].apply(lambda x: x not in ['', None] and pd.notna(x)).sum() if done_cnt > 0 else 0
+                        cnt_10pct = completed_rows['+10% 달성일'].apply(lambda x: x not in ['', None] and pd.notna(x)).sum() if done_cnt > 0 else 0
+
+                        # 평균 수익률 / 승률 (완료 항목만)
+                        if done_cnt > 0 and '최종수익률%' in completed_rows.columns:
+                            numeric_rates = pd.to_numeric(completed_rows['최종수익률%'], errors='coerce').dropna()
+                            avg_rate = numeric_rates.mean() if len(numeric_rates) > 0 else 0.0
+                            win_rate = (numeric_rates > 0).sum() / len(numeric_rates) * 100 if len(numeric_rates) > 0 else 0.0
+                        else:
+                            avg_rate = 0.0
+                            win_rate = 0.0
+
+                        # ─── 통계 요약 박스 ───
+                        pct5_ratio  = f"{cnt_5pct}/{done_cnt}" if done_cnt > 0 else "-"
+                        pct10_ratio = f"{cnt_10pct}/{done_cnt}" if done_cnt > 0 else "-"
+                        st.markdown(f"""
+<div style='background:var(--secondary-background-color);padding:12px 18px;border-radius:14px;
+            border:1px solid rgba(128,128,128,.15);margin-bottom:12px;display:flex;gap:32px;flex-wrap:wrap;'>
+    <span>📋 전체 <b>{total_cnt}</b></span>
+    <span>✅ 완료 <b>{done_cnt}</b> · ⏳ 대기 <b>{pending_cnt}</b></span>
+    <span>+5% 달성 <b style='color:#dc2626'>{pct5_ratio}</b></span>
+    <span>+10% 달성 <b style='color:#dc2626'>{pct10_ratio}</b></span>
+    <span>평균수익률 <b style='color:{"#dc2626" if avg_rate >= 0 else "#2563eb"}'>{avg_rate:+.2f}%</b></span>
+    <span>승률 <b>{win_rate:.1f}%</b></span>
+</div>""", unsafe_allow_html=True)
+
+                        # ─── CSV 다운로드 버튼 ───
+                        test_display_cols = ['종목코드', '시장', '회사명', '업종', '타입',
+                                             '기준일', '목표일', '기준가',
+                                             '+5% 달성일', '+10% 달성일',
+                                             '최종종가', '최종수익률%', '완료여부']
+                        test_display_cols = [c for c in test_display_cols if c in df_test_filtered.columns]
+
+                        col_t_h1, col_t_h2 = st.columns([5, 0.8])
+                        with col_t_h1:
+                            st.markdown("#### 📊 +5% / +10% 달성일 추적")
+                        with col_t_h2:
+                            csv_test = df_test_filtered[test_display_cols].to_csv(index=False).encode('utf-8-sig')
+                            st.download_button(
+                                label="💾CSV",
+                                data=csv_test,
+                                file_name='backtest_test.csv',
+                                mime='text/csv',
+                                key="download_backtest_test",
+                                width='stretch'
+                            )
+
+                        # ─── 테이블 표시 ───
+                        df_test_display = df_test_filtered[test_display_cols].copy().reset_index(drop=True)
+
+                        # 완료여부에 따른 행 색상
+                        def apply_test_row_style(row):
+                            val = row.get('완료여부', '')
+                            if val == '완료':
+                                bg = 'rgba(5, 150, 105, 0.08)'   # 연한 초록
+                            else:
+                                bg = ''
+                            return [f'background-color: {bg}' if bg else '' for _ in row.index]
+
+                        # 최종수익률% 색상
+                        def color_rate(val):
+                            if pd.isna(val) or val == '':
+                                return ''
+                            try:
+                                v = float(val)
+                                if v > 0:
+                                    return 'color: #dc2626; font-weight: 700'
+                                elif v < 0:
+                                    return 'color: #2563eb; font-weight: 700'
+                            except:
+                                pass
+                            return ''
+
+                        styled_test = df_test_display.style.apply(apply_test_row_style, axis=1)
+
+                        # 숫자 포맷
+                        fmt = {}
+                        if '기준가' in df_test_display.columns and df_test_display['기준가'].dtype in ['int64', 'float64']:
+                            fmt['기준가'] = '{:,.0f}'
+                        if '최종종가' in df_test_display.columns and df_test_display['최종종가'].dtype in ['int64', 'float64']:
+                            fmt['최종종가'] = '{:,.0f}'
+                        if fmt:
+                            styled_test = styled_test.format(fmt, na_rep='')
+
+                        if '최종수익률%' in df_test_display.columns:
+                            styled_test = styled_test.map(color_rate, subset=['최종수익률%'])
+                            styled_test = styled_test.format(
+                                lambda x: f'{float(x):+.2f}' if x not in ['', None] and pd.notna(x) else '',
+                                subset=['최종수익률%'],
+                                na_rep=''
+                            )
+
+                        test_height = min(len(df_test_display), 15) * 30 + 35
+
+                        st.dataframe(
+                            styled_test,
+                            hide_index=True,
+                            width='stretch',
+                            height=test_height,
+                            key="test_df",
+                            column_config={
+                                "종목코드":    st.column_config.Column(width=55),
+                                "시장":        st.column_config.Column(width=40),
+                                "회사명":      st.column_config.Column(width="small"),
+                                "업종":        st.column_config.Column(width="small"),
+                                "타입":        st.column_config.Column(width=40),
+                                "기준일":      st.column_config.Column(width=60),
+                                "목표일":      st.column_config.Column(width=60),
+                                "기준가":      st.column_config.Column(width=65),
+                                "+5% 달성일":  st.column_config.Column(width=70),
+                                "+10% 달성일": st.column_config.Column(width=70),
+                                "최종종가":    st.column_config.Column(width=65),
+                                "최종수익률%": st.column_config.Column(width=55),
+                                "완료여부":    st.column_config.Column(width=45),
+                            }
+                        )
+                    else:
+                        st.info("검색 결과가 없습니다.")
+                else:
+                    st.info("테스트 데이터가 없습니다. 배치 실행 후 backtest_test.csv를 확인하세요.")
         
         else:
             # 기간별 표시 컬럼 설정
