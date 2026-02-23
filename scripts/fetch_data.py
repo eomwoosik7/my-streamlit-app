@@ -42,18 +42,15 @@ def get_kr_tickers():
     try:
         print("📊 KRX 종목 리스트 조회 중...")
         
-        # ✅ KRX 전체 종목 (KOSPI + KOSDAQ + KONEX)
         df_krx = fdr.StockListing('KRX')
         
         if df_krx.empty:
             print("🚨 KRX 데이터 조회 실패")
             return [], pd.DataFrame(), None
         
-        # ✅ 디버깅: 컬럼명 확인
         print(f"📋 실제 컬럼명: {df_krx.columns.tolist()}")
         print(f"📊 샘플 데이터:\n{df_krx.head(3)}")
         
-        # ✅ 시가총액 컬럼명 찾기 (여러 가능성 확인)
         cap_col = None
         possible_names = ['MarketCap', 'Market Cap', 'Marcap', '시가총액', 'CapSize']
         
@@ -64,13 +61,10 @@ def get_kr_tickers():
                 break
         
         if cap_col is None:
-            print("⚠️ 시가총액 컬럼 없음 - Stocks(스톡스) 컬럼으로 정렬 시도")
-            # 시가총액이 없으면 종목코드 순으로 상위 1000개
+            print("⚠️ 시가총액 컬럼 없음 - 종목코드 순으로 상위 1000개")
             df_kr = df_krx.head(1000)
         else:
-            # 시가총액 정리
             df_krx[cap_col] = pd.to_numeric(df_krx[cap_col], errors='coerce').fillna(0)
-            # 상위 1000개 종목
             df_kr = df_krx.sort_values(cap_col, ascending=False).head(1000)
         
         kr_tickers = df_kr['Code'].tolist()
@@ -88,7 +82,7 @@ def get_kr_tickers():
         return [], pd.DataFrame(), None
 
 def get_us_symbols():
-    """US Russell 1000 종목 조회 (기존 코드 유지)"""
+    """US Russell 1000 종목 조회"""
     url = 'https://en.wikipedia.org/wiki/Russell_1000_Index'
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
     try:
@@ -111,7 +105,7 @@ def get_us_symbols():
         return [], pd.DataFrame()
 
 def fetch_us_single(symbol, start_date):
-    """US 일봉 다운로드 (기존 코드 유지)"""
+    """US 일봉 다운로드"""
     try:
         ticker = yf.Ticker(symbol)
         data = ticker.history(start=start_date, end=today, interval="1d")
@@ -123,35 +117,25 @@ def fetch_us_single(symbol, start_date):
     except Exception as e:
         print(f"❌ {symbol} 오류: {e}")
 
-# ✅✅✅ 핵심 수정 부분 ✅✅✅
 def fetch_kr_single(ticker, start_date):
-    """✅ FinanceDataReader로 KR 일봉 다운로드 - 에러 처리 강화"""
+    """FinanceDataReader로 KR 일봉 다운로드"""
     try:
-        # ✅ 티커 코드 유효성 검증 추가
         if not ticker or len(ticker) != 6 or not ticker.isdigit():
             print(f"⚠️ 잘못된 티커 형식: {ticker}")
             return False
         
-        # ✅ FDR은 datetime 객체 사용
         start_dt = datetime.strptime(start_date, '%Y-%m-%d')
-        
-        # ✅ FinanceDataReader로 일봉 조회 (yfinance 아님!)
         data = fdr.DataReader(ticker, start=start_dt, end=today)
         
         if data.empty:
             print(f"⚠️ {ticker} 데이터 없음")
             return False
         
-        # 컬럼명을 영문으로 통일 (기존 코드와 호환)
         data = data.rename(columns={
-            '시가': 'Open',
-            '고가': 'High', 
-            '저가': 'Low',
-            '종가': 'Close',
-            '거래량': 'Volume'
+            '시가': 'Open', '고가': 'High', '저가': 'Low',
+            '종가': 'Close', '거래량': 'Volume'
         })
         
-        # Open, High, Low, Close, Volume만 저장
         required_cols = ['Open', 'High', 'Low', 'Close', 'Volume']
         available_cols = [col for col in required_cols if col in data.columns]
         
@@ -165,29 +149,26 @@ def fetch_kr_single(ticker, start_date):
         os.makedirs(daily_dir, exist_ok=True)
         data.to_csv(os.path.join(daily_dir, f"{ticker}.csv"), encoding='utf-8-sig')
         
-        return True  # ✅ 성공 여부 반환
+        return True
         
     except Exception as e:
         print(f"⚠️ {ticker} 다운로드 실패: {e}")
         return False
 
 def get_kr_meta_single(ticker, df_kr):
-    """✅ KR 메타 정보 추출 (FinanceDataReader 기반)"""
+    """KR 메타 정보 추출 (FinanceDataReader 기반)"""
     cap = 0.0
     name = "N/A"
-    per = 0.0  # ⚠️ FDR은 PER/EPS 미제공 → 0으로 설정
+    per = 0.0
     eps = 0.0
     close_price = 0.0
-    cap_status = "N/A"
     
     try:
-        # df_kr에서 종목 정보 추출
         if ticker in df_kr['Code'].values:
             row = df_kr[df_kr['Code'] == ticker].iloc[0]
             
             name = row.get('Name', 'N/A')
             
-            # ✅ 시가총액 컬럼명 동적 탐색
             cap_col = None
             for col_name in ['MarketCap', 'Market Cap', 'Marcap', '시가총액', 'CapSize']:
                 if col_name in df_kr.columns:
@@ -197,20 +178,16 @@ def get_kr_meta_single(ticker, df_kr):
             if cap_col:
                 cap = float(row.get(cap_col, 0))
             
-            if cap > 0:
-                cap_status = today.strftime('%Y-%m-%d')
-            
-            # ✅ 종가는 df_kr의 Close 컬럼에서 직접 가져오기 (API 재호출 불필요!)
             if 'Close' in df_kr.columns:
                 close_price = float(row.get('Close', 0))
                 
     except Exception as e:
         print(f"⚠️ {ticker} 메타 추출 실패: {e}")
     
-    return ticker, cap, name, per, eps, close_price, cap_status
+    return ticker, cap, name, per, eps, close_price
 
 def get_us_meta_single(symbol, df_us):
-    """US 메타 정보 추출 (기존 코드 유지)"""
+    """US 메타 정보 추출"""
     cap = 0.0
     name = "N/A"
     per = 0.0
@@ -265,14 +242,22 @@ if __name__ == '__main__':
         print("📝 기존 meta.json 없음 → 새로 생성")
     
     start_date = (today - timedelta(days=730)).strftime('%Y-%m-%d')
+    today_str = today.strftime('%Y-%m-%d')
+
+    # ✅ 시가총액 미수집 종목 기록용 리스트
+    cap_failed_list = []
     
-    # ✅ KR 데이터 수집
+    # ====================================================
+    # KR 데이터 수집
+    # ====================================================
     print("\n" + "="*50)
     print("🇰🇷 KR 데이터 수집 시작")
     print("="*50)
     kr_tickers, df_kr, kr_date_str = get_kr_tickers()
     
-    # ✅ US 데이터 수집
+    # ====================================================
+    # US 데이터 수집
+    # ====================================================
     print("\n" + "="*50)
     print("🇺🇸 US 데이터 수집 시작")
     print("="*50)
@@ -284,7 +269,7 @@ if __name__ == '__main__':
         with Pool(4) as pool:
             pool.starmap(fetch_us_single, [(s, start_date) for s in us_symbols])
 
-    # ✅✅✅ KR 일봉 다운로드 - 진행상황 출력 개선 ✅✅✅
+    # KR 일봉 다운로드
     if kr_tickers:
         print("\n📥 KR 일봉 다운로드 시작")
         print(f"총 {len(kr_tickers)}개 종목 처리 예정")
@@ -292,14 +277,12 @@ if __name__ == '__main__':
         success_count = 0
         fail_count = 0
         
-        # ✅ 100개씩 배치 처리 (병렬 처리 없이 순차 처리로 변경)
         for i in range(0, len(kr_tickers), 100):
             batch = kr_tickers[i:i+100]
             batch_success = 0
             
             print(f"\n배치 {i//100 + 1}: {i}~{min(i+100, len(kr_tickers))} 처리 중...")
             
-            # ✅ 순차 처리로 변경 (Pool 대신)
             for ticker in batch:
                 if fetch_kr_single(ticker, start_date):
                     batch_success += 1
@@ -307,44 +290,55 @@ if __name__ == '__main__':
                 else:
                     fail_count += 1
                 
-                # 10개마다 진행상황 출력
                 if (success_count + fail_count) % 10 == 0:
                     print(f"진행: {success_count + fail_count}/{len(kr_tickers)} (성공: {success_count}, 실패: {fail_count})")
             
             print(f"✅ 배치 완료: {batch_success}/{len(batch)} 성공")
-            time.sleep(3)  # ✅ API 부하 방지 (2초 → 3초로 증가)
+            time.sleep(3)
         
         print(f"\n✅ KR 일봉 다운로드 완료: 성공 {success_count}개, 실패 {fail_count}개")
     
+    # ====================================================
     # KR 메타 업데이트
+    # ====================================================
     kr_meta = old_meta.get('KR', {})
     if kr_tickers and not df_kr.empty:
         print("\n📊 KR 메타 수집 시작")
-        print("⚠️ 주의: PER/EPS는 FinanceDataReader에서 제공하지 않아 0으로 설정됩니다")
         
         batch_size = 200
         for i in tqdm(range(0, len(kr_tickers), batch_size)):
             batch_tickers = kr_tickers[i:i+batch_size]
             with ThreadPoolExecutor(max_workers=5) as executor:
                 results = executor.map(
-                    lambda t: get_kr_meta_single(t, df_kr), 
+                    lambda t: get_kr_meta_single(t, df_kr),
                     batch_tickers
                 )
-            for ticker, cap, name, per, eps, close_price, cap_status in results:
+            for ticker, cap, name, per, eps, close_price in results:
                 old_data = kr_meta.get(ticker, {})
-                kr_meta[ticker] = {
-                    'name': name if name != "N/A" else old_data.get('name', "N/A"),
-                    'cap': cap if cap > 0 else old_data.get('cap', 0.0),
-                    'cap_status': cap_status if cap > 0 else old_data.get('cap_status', "N/A"),
-                    'per': per,  # ⚠️ FDR은 0
-                    'eps': eps,  # ⚠️ FDR은 0
-                    'close': close_price if close_price > 0 else old_data.get('close', 0.0)
-                }
-            time.sleep(5)  # API 부하 방지
 
+                # ✅ 시가총액 미수집 기록
+                if cap == 0:
+                    cap_failed_list.append({
+                        'market': 'KR',
+                        'symbol': ticker,
+                        'name': name if name != "N/A" else old_data.get('name', "N/A"),
+                        'date': today_str
+                    })
+
+                kr_meta[ticker] = {
+                    'name':       name if name != "N/A" else old_data.get('name', "N/A"),
+                    'cap':        cap if cap > 0 else old_data.get('cap', 0.0),
+                    'cap_status': today_str,  # ✅ 항상 오늘 날짜
+                    'per':        per,
+                    'eps':        eps,
+                    'close':      close_price if close_price > 0 else old_data.get('close', 0.0)
+                }
+            time.sleep(5)
+
+    # ====================================================
     # US 메타 업데이트
+    # ====================================================
     us_meta = old_meta.get('US', {})
-    us_cap_date = today.strftime('%Y-%m-%d')
     if us_symbols:
         print("\n📊 US 메타 수집 시작")
         batch_size = 200
@@ -354,18 +348,42 @@ if __name__ == '__main__':
                 results = executor.map(lambda s: get_us_meta_single(s, df_us), batch_symbols)
             for symbol, new_cap, name, per, eps, close_price, sector in results:
                 old_data = us_meta.get(symbol, {})
+
+                # ✅ 시가총액 미수집 기록
+                if new_cap == 0:
+                    cap_failed_list.append({
+                        'market': 'US',
+                        'symbol': symbol,
+                        'name': name if name != "N/A" else old_data.get('name', "N/A"),
+                        'date': today_str
+                    })
+
                 us_meta[symbol] = {
-                    'name': name if name != "N/A" else old_data.get('name', "N/A"),
-                    'cap': new_cap if new_cap > 0 else old_data.get('cap', 0.0),
-                    'cap_status': us_cap_date if new_cap > 0 else old_data.get('cap_status', "N/A"),
-                    'per': per if per != 0.0 else old_data.get('per', 0.0),
-                    'eps': eps if eps != 0.0 else old_data.get('eps', 0.0),
-                    'close': close_price if close_price > 0 else old_data.get('close', 0.0),
-                    'sector': sector if sector != "N/A" else old_data.get('sector', "N/A")
+                    'name':       name if name != "N/A" else old_data.get('name', "N/A"),
+                    'cap':        new_cap if new_cap > 0 else old_data.get('cap', 0.0),
+                    'cap_status': today_str,  # ✅ 항상 오늘 날짜
+                    'per':        per if per != 0.0 else old_data.get('per', 0.0),
+                    'eps':        eps if eps != 0.0 else old_data.get('eps', 0.0),
+                    'close':      close_price if close_price > 0 else old_data.get('close', 0.0),
+                    'sector':     sector if sector != "N/A" else old_data.get('sector', "N/A")
                 }
             time.sleep(30)
 
+    # ====================================================
+    # ✅ 시가총액 미수집 종목 CSV 저장
+    # ====================================================
+    if cap_failed_list:
+        df_failed = pd.DataFrame(cap_failed_list)
+        failed_path = os.path.join(DATA_DIR, 'cap_failed.csv')
+        df_failed.to_csv(failed_path, index=False, encoding='utf-8-sig')
+        print(f"\n⚠️ 시가총액 미수집 종목: {len(cap_failed_list)}개 → {failed_path}")
+        print(f"   KR: {len(df_failed[df_failed['market']=='KR'])}개 | US: {len(df_failed[df_failed['market']=='US'])}개")
+    else:
+        print("\n✅ 시가총액 미수집 종목 없음")
+
+    # ====================================================
     # JSON 저장
+    # ====================================================
     def convert_np(obj):
         if isinstance(obj, (np.integer, np.floating)):
             return float(obj)
