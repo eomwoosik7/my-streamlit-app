@@ -5,7 +5,6 @@ import os
 import json
 import requests
 from bs4 import BeautifulSoup
-from pykrx import stock
 from datetime import datetime
 from io import StringIO
 import yfinance as yf

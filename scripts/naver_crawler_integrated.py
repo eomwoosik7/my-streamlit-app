@@ -5,7 +5,7 @@ import requests
 from bs4 import BeautifulSoup
 import time
 from tqdm import tqdm
-import FinanceDataReader as fdr
+
 import json
 import yfinance as yf
 from datetime import timedelta
@@ -227,16 +227,80 @@ print("📊 네이버 증권 통합 크롤링 시작")
 print("수집 항목: PER, EPS, PBR, 업종, 외국인 순매수(5일)")
 print("="*60)
 
-# 1. 상위 1000개 종목 조회
-print("\n📋 KRX 종목 리스트 조회 중...")
-df_krx = fdr.StockListing('KRX')
+# 1. 상위 1000개 종목 조회 (네이버 금융 시가총액 순위)
+print("\n📋 KRX 종목 리스트 조회 중 (네이버 금융)...")
 
-if df_krx.empty:
+_headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+    'Referer': 'https://finance.naver.com/'
+}
+_all_stocks = []
+
+for _sosok in [0, 1]:
+    _market_name = 'KOSPI' if _sosok == 0 else 'KOSDAQ'
+    _page = 1
+    while True:
+        _url = f'https://finance.naver.com/sise/sise_market_sum.naver?sosok={_sosok}&page={_page}'
+        _res = requests.get(_url, headers=_headers, timeout=10)
+        _res.encoding = 'euc-kr'
+        _soup = BeautifulSoup(_res.text, 'html.parser')
+
+        _pager = _soup.find('td', class_='pgRR')
+        if _pager is None:
+            break
+        _last_page = int(_pager.find('a')['href'].split('page=')[-1])
+
+        _table = _soup.find('table', class_='type_2')
+        if _table is None:
+            break
+
+        for _row in _table.find_all('tr'):
+            _link = _row.find('a', class_='tltle')
+            if _link is None:
+                continue
+            _href = _link.get('href', '')
+            if 'code=' not in _href:
+                continue
+            _code = _href.split('code=')[-1]
+            _name = _link.text.strip()
+            _tds = _row.find_all('td')
+            _cap = 0
+            if len(_tds) >= 7:
+                try:
+                    _cap_text = _tds[6].text.strip().replace(',', '')
+                    _cap = int(_cap_text) if _cap_text.isdigit() else 0
+                except:
+                    _cap = 0
+            if _code and len(_code) == 6 and _code.isdigit():
+                # ETF/ETN 제외 필터 (개별 기업만 수집)
+                _etf_prefixes = (
+                    'KODEX', 'TIGER', 'RISE', 'ACE', 'SOL', 'PLUS',
+                    'KIWOOM', 'HANARO', 'TIME', 'KoAct', 'ARIRANG',
+                    'FOCUS', 'SMART', 'TREX', 'BNK', 'NEXT', 'KOSEF',
+                    'TIMEFOLIO', 'KTOP', '1Q', 'N2 ', 'KB KIS',
+                    '삼성 레버리지', '미래에셋 레버리지', '신한 레버리지',
+                    '한투 KIS', '키움 CD', '키움 레버리지', '하나 CD',
+                    '하나 레버리지',
+                )
+                if _name.startswith(_etf_prefixes) or 'ETN' in _name or 'ETF' in _name:
+                    continue
+                _all_stocks.append({'Code': _code, 'Name': _name, 'Marcap': _cap})
+
+        if _page >= _last_page:
+            break
+        _page += 1
+        time.sleep(0.3)
+
+    print(f"  ✅ {_market_name} 수집 완료")
+
+if not _all_stocks:
     print("🚨 KRX 데이터 조회 실패")
     exit()
 
+df_krx = pd.DataFrame(_all_stocks)
 df_krx['Marcap'] = pd.to_numeric(df_krx['Marcap'], errors='coerce').fillna(0)
-df_top1000 = df_krx.sort_values('Marcap', ascending=False).head(1000)
+df_krx = df_krx.drop_duplicates('Code')
+df_top1000 = df_krx.sort_values('Marcap', ascending=False).head(1000).reset_index(drop=True)
 print(f"✅ 상위 1000개 종목 조회 완료")
 
 # 2. 크롤링 실행
@@ -327,13 +391,38 @@ trading_dates = sorted(df_trading['날짜'].unique(), reverse=True)
 print(f"✅ 외국인/기관 순매수: {trading_path}")
 print(f"   수집 날짜: {trading_dates}")
 
-# 섹터 저장
-df_sector = pd.DataFrame(sector_results)
+# 섹터 저장 (누적 방식 - 기존 종목 유지, 신규 종목 추가, N/A였던 종목 업데이트)
+df_sector_new = pd.DataFrame(sector_results)
 sector_path = os.path.join(data_dir, 'kr_stock_sectors.csv')
+
+if os.path.exists(sector_path):
+    df_sector_existing = pd.read_csv(sector_path, encoding='utf-8-sig', dtype={'종목코드': str})
+    df_sector_existing['종목코드'] = df_sector_existing['종목코드'].str.zfill(6)
+    df_sector_new['종목코드'] = df_sector_new['종목코드'].astype(str).str.zfill(6)
+
+    # 기존 데이터에서 오늘 새로 수집한 코드 제거 후 신규 데이터로 교체
+    # (N/A였던 항목도 오늘 수집된 값으로 업데이트)
+    existing_codes = set(df_sector_new['종목코드'].tolist())
+    df_sector_keep = df_sector_existing[~df_sector_existing['종목코드'].isin(existing_codes)]
+
+    df_sector = pd.concat([df_sector_keep, df_sector_new], ignore_index=True)
+    df_sector = df_sector.drop_duplicates(subset='종목코드', keep='last')
+    df_sector = df_sector.sort_values('종목코드').reset_index(drop=True)
+
+    added = len(df_sector) - len(df_sector_existing)
+    updated = len(df_sector_new)
+    print(f"   기존 종목 수: {len(df_sector_existing)}개")
+    print(f"   오늘 수집: {updated}개 (업데이트/신규 포함)")
+    print(f"   누적 종목 수: {len(df_sector)}개 (신규 추가: {max(added,0)}개)")
+else:
+    df_sector_new['종목코드'] = df_sector_new['종목코드'].astype(str).str.zfill(6)
+    df_sector = df_sector_new
+    print(f"   신규 파일 생성: {len(df_sector)}개")
+
 df_sector.to_csv(sector_path, encoding='utf-8-sig', index=False)
 sector_success = len(df_sector[df_sector['업종'] != 'N/A'])
 print(f"✅ 섹터: {sector_path}")
-print(f"   성공: {sector_success}/{len(df_sector)} ({sector_success/len(df_sector)*100:.1f}%)")
+print(f"   업종 매핑 성공: {sector_success}/{len(df_sector)} ({sector_success/len(df_sector)*100:.1f}%)")
 
 # ============================================
 # 5. 섹터 ETF 트렌드 수집

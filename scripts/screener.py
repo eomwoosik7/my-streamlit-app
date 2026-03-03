@@ -3,7 +3,6 @@ import pandas as pd
 import os
 import json
 import numpy as np
-from pykrx import stock
 import yfinance as yf
 import sys
 from datetime import datetime, timedelta
