@@ -17,6 +17,7 @@ DL,000210,화학,Materials
 삼화페인트,000390,건축자재,Industrials
 롯데손해보험,000400,손해보험,Financials
 대원강업,000430,자동차부품,Consumer Discretionary
+중앙에너비스,000440,석유와가스,Energy
 CR홀딩스,000480,비철금속,Materials
 대동,000490,기계,Industrials
 가온전선,000500,전기장비,Utilities
@@ -242,6 +243,7 @@ DB,012030,IT서비스,Information Technology
 삼양바이오팜,0120G0,건강관리장비와용품,Health Care
 계양전기,012200,자동차부품,Consumer Discretionary
 삼미금속,012210,기계,Industrials
+경동인베스트,012320,비철금속,Materials
 현대모비스,012330,자동차부품,Consumer Discretionary
 한화에어로스페이스,012450,우주항공과국방,Industrials
 더존비즈온,012510,소프트웨어,Information Technology
@@ -253,6 +255,7 @@ HDC,012630,건설,Industrials
 동원개발,013120,건설,Industrials
 계룡건설,013580,건설,Industrials
 지누스,013890,가구,Consumer Discretionary
+극동유화,014530,석유와가스,Energy
 성광벤드,014620,기계,Industrials
 한솔케미칼,014680,화학,Materials
 동원시스템즈,014820,포장재,Materials
@@ -334,6 +337,7 @@ KT,030200,다각화된통신서비스,Communication Services
 다우데이타,032190,증권,Financials
 롯데관광개발,032350,"호텔,레스토랑,레저",Consumer Discretionary
 케이엠더블유,032500,통신장비,Information Technology
+유비케어,032620,건강관리기술,Health Care
 LG유플러스,032640,무선통신서비스,Communication Services
 우리기술,032820,우주항공과국방,Industrials
 삼성생명,032830,생명보험,Financials
@@ -368,6 +372,7 @@ CJ ENM,035760,방송과엔터테인먼트,Consumer Discretionary
 서희건설,035890,건설,Industrials
 JYP Ent.,035900,방송과엔터테인먼트,Consumer Discretionary
 케이티알파,036030,인터넷과카탈로그소매,Information Technology
+금화피에스시,036190,건설,Industrials
 유니셈,036200,반도체와반도체장비,Information Technology
 한국가스공사,036460,가스유틸리티,Energy
 SNT홀딩스,036530,자동차부품,Consumer Discretionary
@@ -418,6 +423,7 @@ KSS해운,044450,해운사,Industrials
 한국항공우주,047810,우주항공과국방,Industrials
 HLB제약,047920,제약,Health Care
 현대바이오,048410,화장품,Consumer Discretionary
+인트론바이오,048530,생명과학도구및서비스,Health Care
 시너지이노베이션,048870,건강관리장비와용품,Health Care
 인탑스,049070,핸드셋,Information Technology
 재영솔루텍,049630,핸드셋,Information Technology
@@ -644,6 +650,7 @@ HLB테라퓨틱스,115450,제약,Health Care
 대성에너지,117580,가스유틸리티,Energy
 티로보틱스,117730,기계,Industrials
 모트렉스,118990,자동차부품,Consumer Discretionary
+인터로조,119610,건강관리장비와용품,Health Care
 지엔씨에너지,119850,전기장비,Utilities
 코오롱인더,120110,화학,Materials
 골프존홀딩스,121440,레저용장비와제품,Consumer Discretionary
@@ -751,6 +758,7 @@ SK디앤디,210980,부동산,Financials
 인카금융서비스,211050,손해보험,Financials
 AP위성,211270,통신장비,Information Technology
 덕산네오룩스,213420,디스플레이장비및부품,Information Technology
+한솔제지,213500,종이와목재,Materials
 클래시스,214150,건강관리장비와용품,Health Care
 헥토이노베이션,214180,IT서비스,Information Technology
 이노션,214320,광고,Communication Services
@@ -1019,6 +1027,7 @@ OCI,456040,화학,Materials
 프로티나,468530,생물공학,Health Care
 이노테크,469610,디스플레이장비및부품,Information Technology
 폰드그룹,472850,"섬유,의류,신발,호화품",Consumer Discretionary
+HK 종합채권(AA-이상)액티브,472920,N/A,N/A
 노머스,473980,방송과엔터테인먼트,Consumer Discretionary
 루미르,474170,우주항공과국방,Industrials
 링크솔루션,474650,기계,Industrials
@@ -1048,6 +1057,7 @@ HS효성,487570,복합기업,Industrials
 세미파이브,490470,반도체와반도체장비,Information Technology
 리브스메드,491000,건강관리장비와용품,Health Care
 큐리오시스,494120,생명과학도구및서비스,Health Care
+WON 전단채플러스액티브,496020,N/A,N/A
 GS피앤엘,499790,"호텔,레스토랑,레저",Consumer Discretionary
 엘브이엠씨홀딩스,900140,자동차,Consumer Discretionary
 GRT,900290,화학,Materials
