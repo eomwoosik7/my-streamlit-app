@@ -84,8 +84,18 @@ def get_kr_tickers():
                     code = href.split('code=')[-1]
                     name = link.text.strip()
 
-                    # 시가총액: td 7번째 열
                     tds = row.find_all('td')
+
+                    # ✅ 현재가(종가) 수집 - tds[2] (tds[0]=순위, tds[1]=종목명, tds[2]=현재가)
+                    close = 0
+                    if len(tds) >= 3:
+                        try:
+                            close_text = tds[2].text.strip().replace(',', '')
+                            close = int(close_text) if close_text.isdigit() else 0
+                        except:
+                            close = 0
+
+                    # 시가총액 수집 - tds[6]
                     cap = 0
                     if len(tds) >= 7:
                         try:
@@ -107,7 +117,7 @@ def get_kr_tickers():
                         )
                         if name.startswith(etf_prefixes) or 'ETN' in name or 'ETF' in name:
                             continue
-                        all_stocks.append({'Code': code, 'Name': name, 'MarketCap': cap})
+                        all_stocks.append({'Code': code, 'Name': name, 'MarketCap': cap, 'Close': close})
 
                 print(f"  {market_name} {page}/{last_page} 페이지 수집 중...")
 
@@ -125,6 +135,7 @@ def get_kr_tickers():
 
         df_all = pd.DataFrame(all_stocks)
         df_all['MarketCap'] = pd.to_numeric(df_all['MarketCap'], errors='coerce').fillna(0)
+        df_all['Close'] = pd.to_numeric(df_all['Close'], errors='coerce').fillna(0)
         df_all = df_all.drop_duplicates('Code')
         df_all = df_all.sort_values('MarketCap', ascending=False).head(1000).reset_index(drop=True)
 
@@ -251,6 +262,7 @@ def fetch_kr_single(ticker, start_date):
 
 
 def get_kr_meta_single(ticker, df_kr):
+    """KR 메타 정보 추출 (네이버 금융 기반)"""
     cap = 0.0
     name = "N/A"
     per = 0.0
@@ -269,7 +281,7 @@ def get_kr_meta_single(ticker, df_kr):
                     break
 
             if cap_col:
-                cap = float(row.get(cap_col, 0)) * 1e8  # ← 이 줄만 변경 (억원 → 원 변환)
+                cap = float(row.get(cap_col, 0))
 
             if 'Close' in df_kr.columns:
                 close_price = float(row.get('Close', 0))
@@ -339,7 +351,6 @@ if __name__ == '__main__':
     start_date = (today - timedelta(days=730)).strftime('%Y-%m-%d')
     today_str = today.strftime('%Y-%m-%d')
 
-    # ✅ 시가총액 미수집 종목 기록용 리스트
     cap_failed_list = []
 
     # ====================================================
@@ -411,7 +422,6 @@ if __name__ == '__main__':
             for ticker, cap, name, per, eps, close_price in results:
                 old_data = kr_meta.get(ticker, {})
 
-                # ✅ 시가총액 미수집 기록
                 if cap == 0:
                     cap_failed_list.append({
                         'market': 'KR',
@@ -444,7 +454,6 @@ if __name__ == '__main__':
             for symbol, new_cap, name, per, eps, close_price, sector in results:
                 old_data = us_meta.get(symbol, {})
 
-                # ✅ 시가총액 미수집 기록
                 if new_cap == 0:
                     cap_failed_list.append({
                         'market': 'US',
@@ -465,7 +474,7 @@ if __name__ == '__main__':
             time.sleep(30)
 
     # ====================================================
-    # ✅ 시가총액 미수집 종목 CSV 저장
+    # 시가총액 미수집 종목 CSV 저장
     # ====================================================
     if cap_failed_list:
         df_failed = pd.DataFrame(cap_failed_list)
