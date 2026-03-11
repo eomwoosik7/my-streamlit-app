@@ -652,7 +652,7 @@ def run_screener_query(con, filter_condition="all", use_us=True, use_kr=True, to
         condition = "1=1"
 
     liquidity = """
-    AND market_cap >= CASE WHEN market = 'US' THEN 2000000000.0 ELSE 200000000000.0 END
+    AND market_cap >= CASE WHEN market = 'US' THEN 2000000000.0 ELSE 2000.0 END
     """
 
     additional_condition = ""
@@ -1370,7 +1370,7 @@ if period == "전체":
             market_filter = "market = 'US'" if use_us and not use_kr else "market = 'KR'" if use_kr and not use_us else "market IN ('US', 'KR')"
 
             liquidity = """
-            AND market_cap >= CASE WHEN market = 'US' THEN 2000000000.0 ELSE 200000000000.0 END
+            AND market_cap >= CASE WHEN market = 'US' THEN 2000000000.0 ELSE 2000.0 END
             """
 
             additional_condition = ""
