@@ -418,6 +418,7 @@ KSS해운,044450,해운사,Industrials
 태웅,044490,에너지장비및서비스,Energy
 한양이엔지,045100,반도체와반도체장비,Information Technology
 대아티아이,045390,IT서비스,Information Technology
+오르비텍,046120,에너지장비및서비스,Energy
 서울반도체,046890,디스플레이장비및부품,Information Technology
 대우건설,047040,건설,Industrials
 포스코인터내셔널,047050,무역회사와판매업체,Consumer Discretionary
@@ -957,12 +958,14 @@ HEM파마,376270,건강관리업체및서비스,Health Care
 위니아에이드,377460,상업서비스와공급품,Industrials
 바이오노트,377740,건강관리장비와용품,Health Care
 필에너지,378340,전기제품,Utilities
+옵티코어,380540,통신장비,Information Technology
 뉴로핏,380550,건강관리기술,Health Care
 케이카,381970,자동차,Consumer Discretionary
 범한퓨얼셀,382900,전기제품,Utilities
 F&F,383220,"섬유,의류,신발,호화품",Consumer Discretionary
 에코프로에이치엔,383310,상업서비스와공급품,Industrials
 LX홀딩스,383800,무역회사와판매업체,Consumer Discretionary
+지투파워,388050,전기장비,Utilities
 씨엠티엑스,388210,반도체와반도체장비,Information Technology
 유일로보틱스,388720,기계,Industrials
 자람테크놀로지,389020,통신장비,Information Technology
@@ -1013,6 +1016,7 @@ HD현대마린솔루션,443060,조선,Industrials
 컨텍,451760,우주항공과국방,Industrials
 한화리츠,451800,부동산,Financials
 한화갤러리아,452260,백화점과일반상점,Consumer Discretionary
+한선엔지니어링,452280,기계,Industrials
 사피엔반도체,452430,반도체와반도체장비,Information Technology
 피아이이,452450,IT서비스,Information Technology
 현대그린푸드,453340,식품,Consumer Staples
