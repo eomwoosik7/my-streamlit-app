@@ -782,11 +782,12 @@ def format_dataframe(df, market_type):
     def safe_float(x):
         return float(x) if pd.notna(x) else 0.0
 
+    # 수정 후
     if '시가총액 (KRW 억원)' in df.columns or '시가총액 (USD M)' in df.columns:
         col_name = df.columns[df.columns.str.startswith('시가총액 (')][0]
         df[col_name] = df[col_name].apply(safe_float)
         if market_type == 'KR':
-            df[col_name] = df[col_name] / 1e8
+            pass  # 이미 억원 단위
         else:
             df[col_name] = df[col_name] / 1e6
 
@@ -872,7 +873,12 @@ def show_chart(symbol, market, chart_type):
         from datetime import datetime, timedelta
         days_map = {'1개월': 30, '3개월': 90, '6개월': 180, '1년': 365}
         days = days_map.get(period, 180)
+        # 수정 후
         cutoff_date = datetime.now() - timedelta(days=days)
+
+        # timezone 혼재 문제 해결: utc=True로 변환 후 timezone 완전 제거
+        df_chart.index = pd.to_datetime(df_chart.index, utc=True).tz_localize(None)
+
         df_chart = df_chart[df_chart.index >= cutoff_date]
 
     close_col = 'Close'

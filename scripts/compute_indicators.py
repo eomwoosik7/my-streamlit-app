@@ -138,7 +138,11 @@ def compute_indicators(symbol, market='US'):
         df_daily['TradingValue'] = df_daily[close_col] * df_daily[vol_col]
         avg_20d = df_daily['TradingValue'].tail(20).mean()
         today_trading = df_daily['TradingValue'].iloc[-1]
-        turnover = today_trading / market_cap if market_cap > 0 else 0
+        # 수정 후
+        if market == 'KR':
+            turnover = today_trading / (market_cap * 1e8) if market_cap > 0 else 0  # 억원 → 원 변환
+        else:
+            turnover = today_trading / market_cap if market_cap > 0 else 0  # US는 둘 다 USD
         
         # 캔들 위치 계산 (최근 5일 상단/하단 마감 반복)
         n = 5
