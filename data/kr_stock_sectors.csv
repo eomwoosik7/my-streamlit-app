@@ -168,6 +168,7 @@ DB손해보험,005830,손해보험,Financials
 NH투자증권,005940,증권,Financials
 NH투자증권우,005945,증권,Financials
 이수화학,005950,화학,Materials
+동부건설,005960,건설,Industrials
 동원산업,006040,식품,Consumer Staples
 삼아알미늄,006110,비철금속,Materials
 SK디스커버리,006120,석유와가스,Energy
@@ -271,6 +272,7 @@ KG스틸,016380,철강,Materials
 신대양제지,016590,포장재,Materials
 DB증권,016610,증권,Financials
 퍼시스,016800,가구,Consumer Discretionary
+웅진,016880,출판,Other
 서울가스,017390,가스유틸리티,Energy
 SK텔레콤,017670,무선통신서비스,Communication Services
 현대엘리베이터,017800,기계,Industrials
@@ -474,6 +476,7 @@ HL홀딩스,060980,자동차부품,Consumer Discretionary
 LB세미콘,061970,반도체와반도체장비,Information Technology
 산일전기,062040,전기장비,Utilities
 다날,064260,IT서비스,Information Technology
+인텍플러스,064290,반도체와반도체장비,Information Technology
 현대로템,064350,우주항공과국방,Industrials
 LG씨엔에스,064400,IT서비스,Information Technology
 바이오니아,064550,생물공학,Health Care
@@ -704,6 +707,7 @@ iM금융지주,139130,은행,Financials
 휴젤,145020,생물공학,Health Care
 덴티움,145720,건강관리장비와용품,Health Care
 삼양사,145990,식품,Consumer Staples
+비씨엔씨,146320,반도체와반도체장비,Information Technology
 인트로메딕,150840,건강관리장비와용품,Health Care
 KG에코솔루션,151860,자동차,Consumer Discretionary
 엘앤케이바이오,156100,건강관리장비와용품,Health Care
