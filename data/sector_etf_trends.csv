@@ -1,23 +1,23 @@
 ﻿sector,market,trend_display
-Information Technology,US,하락(-3.00%) XLK
-Information Technology,KR,상승(+6.32%) TIGER 200 IT
-Consumer Discretionary,US,하락(-7.15%) XLY
-Consumer Discretionary,KR,하락(-4.63%) TIGER 200 경기소비재
-Communication Services,US,하락(-1.90%) XLC
-Communication Services,KR,하락(-12.78%) TIGER 미디어컨텐츠
-Health Care,US,하락(-7.65%) XLV
-Health Care,KR,하락(-5.49%) TIGER 헬스케어
-Consumer Staples,US,하락(-7.83%) XLP
-Consumer Staples,KR,하락(-2.18%) KODEX 필수소비재
-Financials,US,하락(-5.98%) XLF
-Financials,KR,하락(-10.14%) TIGER 200 금융
-Energy,US,상승(+10.34%) XLE
-Energy,KR,하락(-6.00%) KODEX 에너지화학
-Industrials,US,하락(-7.66%) XLI
-Industrials,KR,상승(+22.37%) KODEX 산업재
-Materials,US,하락(-10.85%) XLB
-Materials,KR,하락(-2.42%) KODEX 소재산업
-Utilities,US,하락(-3.73%) XLU
-Utilities,KR,하락(-1.09%) TIGER KRX 기후변화솔루션
-Real Estate,US,하락(-7.62%) XLRE
-Real Estate,KR,상승(+0.65%) TIGER 리츠부동산인프라
+Information Technology,US,하락(-3.41%) XLK
+Information Technology,KR,하락(-2.38%) TIGER 200 IT
+Consumer Discretionary,US,하락(-6.02%) XLY
+Consumer Discretionary,KR,하락(-10.59%) TIGER 200 경기소비재
+Communication Services,US,하락(-1.98%) XLC
+Communication Services,KR,하락(-19.72%) TIGER 미디어컨텐츠
+Health Care,US,하락(-8.47%) XLV
+Health Care,KR,하락(-11.17%) TIGER 헬스케어
+Consumer Staples,US,하락(-6.95%) XLP
+Consumer Staples,KR,하락(-8.59%) KODEX 필수소비재
+Financials,US,하락(-6.08%) XLF
+Financials,KR,하락(-15.25%) TIGER 200 금융
+Energy,US,상승(+11.50%) XLE
+Energy,KR,하락(-11.10%) KODEX 에너지화학
+Industrials,US,하락(-6.47%) XLI
+Industrials,KR,상승(+15.47%) KODEX 산업재
+Materials,US,하락(-8.90%) XLB
+Materials,KR,하락(-5.89%) KODEX 소재산업
+Utilities,US,하락(-0.50%) XLU
+Utilities,KR,하락(-7.96%) TIGER KRX 기후변화솔루션
+Real Estate,US,하락(-6.24%) XLRE
+Real Estate,KR,하락(-0.87%) TIGER 리츠부동산인프라
