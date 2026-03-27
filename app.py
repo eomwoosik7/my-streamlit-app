@@ -782,12 +782,11 @@ def format_dataframe(df, market_type):
     def safe_float(x):
         return float(x) if pd.notna(x) else 0.0
 
-    # 수정 후
     if '시가총액 (KRW 억원)' in df.columns or '시가총액 (USD M)' in df.columns:
         col_name = df.columns[df.columns.str.startswith('시가총액 (')][0]
         df[col_name] = df[col_name].apply(safe_float)
         if market_type == 'KR':
-            pass  # 이미 억원 단위
+            pass  # 억원 단위 유지 (호출 전 변환 완료)
         else:
             df[col_name] = df[col_name] / 1e6
 
@@ -873,12 +872,8 @@ def show_chart(symbol, market, chart_type):
         from datetime import datetime, timedelta
         days_map = {'1개월': 30, '3개월': 90, '6개월': 180, '1년': 365}
         days = days_map.get(period, 180)
-        # 수정 후
         cutoff_date = datetime.now() - timedelta(days=days)
-
-        # timezone 혼재 문제 해결: utc=True로 변환 후 timezone 완전 제거
         df_chart.index = pd.to_datetime(df_chart.index, utc=True).tz_localize(None)
-
         df_chart = df_chart[df_chart.index >= cutoff_date]
 
     close_col = 'Close'
@@ -1234,8 +1229,8 @@ with st.sidebar:
     5. 중기매수점수(8점)  
     - 중기 필터 각 → 1+점(4)
     - 외국인 순매도 +, 캔들 상승, 섹터 강세 → 각 +1점(4)
-    - 🟣 8점 : 매수 고려  
-    - 🔵 7점 : 안정
+    - 🟣 8점 : 매수 강력 고려  
+    - 🔵 7점 : 매수 고려
     - 🟢 5~6점 : 관심      
 
     ---
@@ -1895,11 +1890,16 @@ elif period == "백데이터":
                 df_mid_kr = df_mid[df_mid['시장'] == 'KR'].copy() if '시장' in df_mid.columns else pd.DataFrame()
                 df_mid_us = df_mid[df_mid['시장'] == 'US'].copy() if '시장' in df_mid.columns else pd.DataFrame()
 
+                # ✅ [수정] KR 시가총액 원→억원 변환 (backtest DB는 원 단위로 저장됨)
                 if not df_short_kr.empty:
+                    if '시가총액' in df_short_kr.columns:
+                        df_short_kr['시가총액'] = df_short_kr['시가총액'].apply(lambda x: float(x) if pd.notna(x) else 0.0) / 1e8
                     df_short_kr = format_dataframe(df_short_kr, 'KR')
                 if not df_short_us.empty:
                     df_short_us = format_dataframe(df_short_us, 'US')
                 if not df_mid_kr.empty:
+                    if '시가총액' in df_mid_kr.columns:
+                        df_mid_kr['시가총액'] = df_mid_kr['시가총액'].apply(lambda x: float(x) if pd.notna(x) else 0.0) / 1e8
                     df_mid_kr = format_dataframe(df_mid_kr, 'KR')
                 if not df_mid_us.empty:
                     df_mid_us = format_dataframe(df_mid_us, 'US')
@@ -1968,7 +1968,10 @@ elif period == "백데이터":
                     df_completed_kr = df_completed[df_completed['시장'] == 'KR'].copy() if '시장' in df_completed.columns else pd.DataFrame()
                     df_completed_us = df_completed[df_completed['시장'] == 'US'].copy() if '시장' in df_completed.columns else pd.DataFrame()
 
+                    # ✅ [수정] KR 시가총액 원→억원 변환 (CSV도 원 단위로 저장됨)
                     if not df_completed_kr.empty:
+                        if '시가총액' in df_completed_kr.columns:
+                            df_completed_kr['시가총액'] = df_completed_kr['시가총액'].apply(lambda x: float(x) if pd.notna(x) else 0.0) / 1e8
                         df_completed_kr = format_dataframe(df_completed_kr, 'KR')
                     if not df_completed_us.empty:
                         df_completed_us = format_dataframe(df_completed_us, 'US')
@@ -2142,7 +2145,6 @@ def _display_backtest_table(df_filtered, tab_type, apply_btn, foreign_apply, ins
     df_kr_filtered = df_filtered[df_filtered['시장'] == 'KR'] if '시장' in df_filtered.columns else pd.DataFrame()
     df_us_filtered = df_filtered[df_filtered['시장'] == 'US'] if '시장' in df_filtered.columns else pd.DataFrame()
 
-    # ✅ 통계 계산 헬퍼 함수
     def _calc_stats(df_sub):
         cnt = len(df_sub)
         if '변동율%' in df_sub.columns and cnt > 0:
@@ -2164,7 +2166,6 @@ def _display_backtest_table(df_filtered, tab_type, apply_btn, foreign_apply, ins
     # ============================================================
     if not df_kr_filtered.empty:
 
-        # ✅ KR 통계 박스 (KR 테이블 바로 위)
         kr_avg_color = "#dc2626" if kr_avg >= 0 else "#2563eb"
         if tab_type == "completed":
             kr_short = len(df_kr_filtered[df_kr_filtered['타입'] == '단기']) if '타입' in df_kr_filtered.columns else 0
@@ -2185,7 +2186,6 @@ def _display_backtest_table(df_filtered, tab_type, apply_btn, foreign_apply, ins
         )
         st.markdown(kr_box_html, unsafe_allow_html=True)
 
-        # CSV
         csv_columns_kr = display_cols.copy()
         df_kr_csv = df_kr_filtered[csv_columns_kr]
         csv_kr = df_kr_csv.to_csv(index=False).encode('utf-8-sig')
@@ -2326,7 +2326,9 @@ def _display_backtest_table(df_filtered, tab_type, apply_btn, foreign_apply, ins
                 "회사명": st.column_config.Column(width="small"),
                 "업종": st.column_config.Column(width="small"),
                 "종가 (KRW)": st.column_config.Column(width="small"),
+                "종가 (USD)": st.column_config.Column(width="small"),        # ✅ 추가
                 "시가총액 (KRW 억원)": st.column_config.Column(width="small"),
+                "시가총액 (USD M)": st.column_config.Column(width="small"),  # ✅ 추가
                 "업데이트": st.column_config.Column(width=60),
                 "타입": st.column_config.Column(width=50),
                 "최신종가": st.column_config.Column(width=60),
@@ -2352,7 +2354,6 @@ def _display_backtest_table(df_filtered, tab_type, apply_btn, foreign_apply, ins
     # ============================================================
     if not df_us_filtered.empty:
 
-        # ✅ US 통계 박스 (US 테이블 바로 위)
         us_avg_color = "#dc2626" if us_avg >= 0 else "#2563eb"
         if tab_type == "completed":
             us_short = len(df_us_filtered[df_us_filtered['타입'] == '단기']) if '타입' in df_us_filtered.columns else 0
@@ -2373,7 +2374,6 @@ def _display_backtest_table(df_filtered, tab_type, apply_btn, foreign_apply, ins
         )
         st.markdown(us_box_html, unsafe_allow_html=True)
 
-        # CSV
         csv_columns_us = display_cols.copy()
         df_us_csv = df_us_filtered[csv_columns_us]
         csv_us = df_us_csv.to_csv(index=False).encode('utf-8-sig')
@@ -2513,8 +2513,10 @@ def _display_backtest_table(df_filtered, tab_type, apply_btn, foreign_apply, ins
                 "시장": st.column_config.Column(width=40),
                 "회사명": st.column_config.Column(width="small"),
                 "업종": st.column_config.Column(width="small"),
-                "종가 (USD)": st.column_config.Column(width="small"),
-                "시가총액 (USD M)": st.column_config.Column(width="small"),
+                "종가 (KRW)": st.column_config.Column(width="small"),
+                "종가 (USD)": st.column_config.Column(width="small"),        # ✅ 추가
+                "시가총액 (KRW 억원)": st.column_config.Column(width="small"),
+                "시가총액 (USD M)": st.column_config.Column(width="small"),  # ✅ 추가
                 "업데이트": st.column_config.Column(width=60),
                 "타입": st.column_config.Column(width=50),
                 "최신종가": st.column_config.Column(width=60),
