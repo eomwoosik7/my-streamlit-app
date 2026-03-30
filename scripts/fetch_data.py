@@ -331,12 +331,17 @@ if __name__ == '__main__':
     for folder in ['kr_daily', 'us_daily']:
         path = os.path.join(DATA_DIR, folder)
         if os.path.exists(path):
+<<<<<<< HEAD
             try:
                 shutil.rmtree(path)
                 print(f"🗑️ {folder} 폴더 삭제 완료")
             except PermissionError as e:
                 print(f"⚠️ {folder} 폴더 삭제 실패 (점유 중): {e}")
                 print(f"   → 기존 파일 유지하고 계속 진행합니다")
+=======
+            shutil.rmtree(path)
+            print(f"🗑️ {folder} 폴더 삭제 완료")
+>>>>>>> e40495d3d647e32871b6a6b3afb030b7b636fd21
         os.makedirs(path, exist_ok=True)
 
     # 메타 파일 로드

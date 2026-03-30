@@ -1,4 +1,5 @@
 ﻿market,symbol,name,date
+<<<<<<< HEAD
 US,CCC,CCC Intelligent Solutions Holdings Inc.,2026-03-30
 US,CFLT,"Confluent, Inc.",2026-03-30
 US,EXAS,Exact Sciences Corp,2026-03-30
@@ -220,3 +221,232 @@ US,ZTS,Zoetis Inc.,2026-03-30
 US,ZM,"Zoom Communications, Inc.",2026-03-30
 US,GTM,ZoomInfo Technologies Inc.,2026-03-30
 US,ZS,"Zscaler, Inc.",2026-03-30
+=======
+US,CCC,CCC Intelligent Solutions Holdings Inc.,2026-03-27
+US,CFLT,"Confluent, Inc.",2026-03-27
+US,ROKU,"Roku, Inc.",2026-03-27
+US,ROL,"Rollins, Inc.",2026-03-27
+US,ROP,"Roper Technologies, Inc.",2026-03-27
+US,ROST,"Ross Stores, Inc.",2026-03-27
+US,RCL,Royal Caribbean Cruises Ltd.,2026-03-27
+US,RGLD,"Royal Gold, Inc.",2026-03-27
+US,RPRX,Royalty Pharma plc,2026-03-27
+US,RPM,RPM International Inc.,2026-03-27
+US,RTX,RTX Corporation,2026-03-27
+US,RBRK,"Rubrik, Inc.",2026-03-27
+US,RYAN,"Ryan Specialty Holdings, Inc.",2026-03-27
+US,R,"Ryder System, Inc.",2026-03-27
+US,SPGI,S&P Global Inc.,2026-03-27
+US,SAIA,"Saia, Inc.",2026-03-27
+US,SAIL,"SailPoint, Inc.",2026-03-27
+US,SAIC,Science Applications International Corporation,2026-03-27
+US,CRM,"Salesforce, Inc.",2026-03-27
+US,SLM,SLM Corporation,2026-03-27
+US,IOT,Samsara Inc.,2026-03-27
+US,SNDK,Sandisk Corporation,2026-03-27
+US,SRPT,"Sarepta Therapeutics, Inc.",2026-03-27
+US,SBAC,SBA Communications Corporation,2026-03-27
+US,HSIC,"Henry Schein, Inc.",2026-03-27
+US,SLB,SLB N.V.,2026-03-27
+US,SNDR,"Schneider National, Inc.",2026-03-27
+US,SMG,The Scotts Miracle-Gro Company,2026-03-27
+US,SEB,Seaboard Corporation,2026-03-27
+US,SEE,Sealed Air Corporation,2026-03-27
+US,SEIC,SEI Investments Company,2026-03-27
+US,SRE,Sempra,2026-03-27
+US,ST,Sensata Technologies Holding plc,2026-03-27
+US,S,"SentinelOne, Inc.",2026-03-27
+US,SCI,Service Corporation International,2026-03-27
+US,NOW,"ServiceNow, Inc.",2026-03-27
+US,SN,"SharkNinja, Inc.",2026-03-27
+US,SHW,The Sherwin-Williams Company,2026-03-27
+US,FOUR,"Shift4 Payments, Inc.",2026-03-27
+US,SLGN,Silgan Holdings Inc.,2026-03-27
+US,SPG,"Simon Property Group, Inc.",2026-03-27
+US,SSD,"Simpson Manufacturing Co., Inc.",2026-03-27
+US,SIRI,Sirius XM Holdings Inc.,2026-03-27
+US,SITE,"SiteOne Landscape Supply, Inc.",2026-03-27
+US,SWKS,"Skyworks Solutions, Inc.",2026-03-27
+US,SFD,"Smithfield Foods, Inc.",2026-03-27
+US,SJM,The J. M. Smucker Company,2026-03-27
+US,SW,Smurfit Westrock Plc,2026-03-27
+US,SNA,Snap-on Incorporated,2026-03-27
+US,SNOW,Snowflake Inc.,2026-03-27
+US,SOFI,"SoFi Technologies, Inc.",2026-03-27
+US,SOLS,"Solstice Advanced Materials, Inc.",2026-03-27
+US,SOLV,Solventum Corporation,2026-03-27
+US,SGI,Somnigroup International Inc.,2026-03-27
+US,SON,Sonoco Products Company,2026-03-27
+US,SHC,Sotera Health Company,2026-03-27
+US,SO,The Southern Company,2026-03-27
+US,SCCO,Southern Copper Corporation,2026-03-27
+US,SSB,SouthState Bank Corporation,2026-03-27
+US,LUV,Southwest Airlines Co.,2026-03-27
+US,SPOT,Spotify Technology S.A.,2026-03-27
+US,SFM,"Sprouts Farmers Market, Inc.",2026-03-27
+US,SSNC,"SS&C Technologies Holdings, Inc.",2026-03-27
+US,STAG,"STAG Industrial, Inc.",2026-03-27
+US,SARO,"StandardAero, Inc.",2026-03-27
+US,SWK,"Stanley Black & Decker, Inc.",2026-03-27
+US,SBUX,Starbucks Corporation,2026-03-27
+US,STWD,"Starwood Property Trust, Inc.",2026-03-27
+US,STT,State Street Corporation,2026-03-27
+US,STLD,"Steel Dynamics, Inc.",2026-03-27
+US,STE,STERIS plc,2026-03-27
+US,SF,Stifel Financial Corp.,2026-03-27
+US,SYK,Stryker Corporation,2026-03-27
+US,SMMT,Summit Therapeutics Inc.,2026-03-27
+US,SUI,"Sun Communities, Inc.",2026-03-27
+US,SMCI,"Super Micro Computer, Inc.",2026-03-27
+US,SYF,Synchrony Financial,2026-03-27
+US,SNPS,"Synopsys, Inc.",2026-03-27
+US,SYY,Sysco Corporation,2026-03-27
+US,TMUS,"T-Mobile US, Inc.",2026-03-27
+US,TTWO,"Take-Two Interactive Software, Inc.",2026-03-27
+US,TLN,Talen Energy Corporation,2026-03-27
+US,TPR,"Tapestry, Inc.",2026-03-27
+US,TRGP,Targa Resources Corp.,2026-03-27
+US,TGT,Target Corporation,2026-03-27
+US,SNX,TD SYNNEX Corporation,2026-03-27
+US,FTI,TechnipFMC plc,2026-03-27
+US,TDY,Teledyne Technologies Incorporated,2026-03-27
+US,TFX,Teleflex Incorporated,2026-03-27
+US,TEM,"Tempus AI, Inc.",2026-03-27
+US,THC,Tenet Healthcare Corporation,2026-03-27
+US,TDC,Teradata Corporation,2026-03-27
+US,TER,"Teradyne, Inc.",2026-03-27
+US,TSLA,"Tesla, Inc.",2026-03-27
+US,TTEK,"Tetra Tech, Inc.",2026-03-27
+US,TXN,Texas Instruments Incorporated,2026-03-27
+US,TPL,Texas Pacific Land Corporation,2026-03-27
+US,TXRH,"Texas Roadhouse, Inc.",2026-03-27
+US,TXT,Textron Inc.,2026-03-27
+US,TMO,Thermo Fisher Scientific Inc.,2026-03-27
+US,TFSL,TFS Financial Corporation,2026-03-27
+US,THO,"THOR Industries, Inc.",2026-03-27
+US,TKR,The Timken Company,2026-03-27
+US,TJX,"The TJX Companies, Inc.",2026-03-27
+US,TKO,"TKO Group Holdings, Inc.",2026-03-27
+US,TOST,"Toast, Inc.",2026-03-27
+US,TOL,"Toll Brothers, Inc.",2026-03-27
+US,BLD,TopBuild Corp.,2026-03-27
+US,TTC,The Toro Company,2026-03-27
+US,TPG,TPG Inc.,2026-03-27
+US,TSCO,Tractor Supply Company,2026-03-27
+US,TTD,"The Trade Desk, Inc.",2026-03-27
+US,TW,Tradeweb Markets Inc.,2026-03-27
+US,TT,Trane Technologies plc,2026-03-27
+US,TDG,TransDigm Group Incorporated,2026-03-27
+US,TRU,TransUnion,2026-03-27
+US,TNL,Travel + Leisure Co.,2026-03-27
+US,TRV,"The Travelers Companies, Inc.",2026-03-27
+US,TREX,"Trex Company, Inc.",2026-03-27
+US,TRMB,Trimble Inc.,2026-03-27
+US,TFC,Truist Financial Corporation,2026-03-27
+US,DJT,Trump Media & Technology Group Corp.,2026-03-27
+US,TWLO,Twilio Inc.,2026-03-27
+US,TYL,"Tyler Technologies, Inc.",2026-03-27
+US,TSN,"Tyson Foods, Inc.",2026-03-27
+US,UHAL,U-Haul Holding Company,2026-03-27
+US,UHAL-B,U-Haul Holding Company,2026-03-27
+US,USB,U.S. Bancorp,2026-03-27
+US,UBER,"Uber Technologies, Inc.",2026-03-27
+US,UI,Ubiquiti Inc.,2026-03-27
+US,UDR,"UDR, Inc.",2026-03-27
+US,UGI,UGI Corporation,2026-03-27
+US,PATH,"UiPath, Inc.",2026-03-27
+US,ULTA,"Ulta Beauty, Inc.",2026-03-27
+US,RARE,Ultragenyx Pharmaceutical Inc.,2026-03-27
+US,UAA,"Under Armour, Inc.",2026-03-27
+US,UA,"Under Armour, Inc.",2026-03-27
+US,UNP,Union Pacific Corporation,2026-03-27
+US,UAL,"United Airlines Holdings, Inc.",2026-03-27
+US,UPS,"United Parcel Service, Inc.",2026-03-27
+US,URI,"United Rentals, Inc.",2026-03-27
+US,UTHR,United Therapeutics Corporation,2026-03-27
+US,UWMC,UWM Holdings Corporation,2026-03-27
+US,UNH,UnitedHealth Group Incorporated,2026-03-27
+US,U,Unity Software Inc.,2026-03-27
+US,OLED,Universal Display Corporation,2026-03-27
+US,UHS,"Universal Health Services, Inc.",2026-03-27
+US,UNM,Unum Group,2026-03-27
+US,USFD,US Foods Holding Corp.,2026-03-27
+US,MTN,"Vail Resorts, Inc.",2026-03-27
+US,VLO,Valero Energy Corporation,2026-03-27
+US,VMI,"Valmont Industries, Inc.",2026-03-27
+US,VVV,Valvoline Inc.,2026-03-27
+US,VEEV,Veeva Systems Inc.,2026-03-27
+US,VTR,"Ventas, Inc.",2026-03-27
+US,VLTO,Veralto Corporation,2026-03-27
+US,VRSN,"VeriSign, Inc.",2026-03-27
+US,VRSK,"Verisk Analytics, Inc.",2026-03-27
+US,VZ,Verizon Communications Inc.,2026-03-27
+US,VSNT,"Versant Media Group, Inc.",2026-03-27
+US,VRTX,Vertex Pharmaceuticals Incorporated,2026-03-27
+US,VRT,Vertiv Holdings Co,2026-03-27
+US,VFC,V.F. Corporation,2026-03-27
+US,VTRS,Viatris Inc.,2026-03-27
+US,VICI,VICI Properties Inc.,2026-03-27
+US,VIK,Viking Holdings Ltd,2026-03-27
+US,VKTX,"Viking Therapeutics, Inc.",2026-03-27
+US,VNOM,"Viper Energy, Inc.",2026-03-27
+US,VIRT,"Virtu Financial, Inc.",2026-03-27
+US,V,Visa Inc.,2026-03-27
+US,VST,Vistra Corp.,2026-03-27
+US,VNT,Vontier Corporation,2026-03-27
+US,VNO,Vornado Realty Trust,2026-03-27
+US,VOYA,"Voya Financial, Inc.",2026-03-27
+US,VMC,Vulcan Materials Company,2026-03-27
+US,WPC,W. P. Carey Inc.,2026-03-27
+US,WRB,W. R. Berkley Corporation,2026-03-27
+US,GWW,"W.W. Grainger, Inc.",2026-03-27
+US,WAB,Westinghouse Air Brake Technologies Corporation,2026-03-27
+US,WMT,Walmart Inc.,2026-03-27
+US,DIS,The Walt Disney Company,2026-03-27
+US,WBD,"Warner Bros. Discovery, Inc.",2026-03-27
+US,WM,"Waste Management, Inc.",2026-03-27
+US,WAT,Waters Corporation,2026-03-27
+US,WSO,"Watsco, Inc.",2026-03-27
+US,W,Wayfair Inc.,2026-03-27
+US,WFRD,Weatherford International plc,2026-03-27
+US,WBS,Webster Financial Corporation,2026-03-27
+US,WEC,"WEC Energy Group, Inc.",2026-03-27
+US,WFC,Wells Fargo & Company,2026-03-27
+US,WELL,Welltower Inc.,2026-03-27
+US,WEN,The Wendy's Company,2026-03-27
+US,WCC,"WESCO International, Inc.",2026-03-27
+US,WST,"West Pharmaceutical Services, Inc.",2026-03-27
+US,WAL,Western Alliance Bancorporation,2026-03-27
+US,WDC,Western Digital Corporation,2026-03-27
+US,WU,The Western Union Company,2026-03-27
+US,WLK,Westlake Corporation,2026-03-27
+US,WEX,WEX Inc.,2026-03-27
+US,WY,Weyerhaeuser Company,2026-03-27
+US,WHR,Whirlpool Corporation,2026-03-27
+US,WTM,"White Mountains Insurance Group, Ltd.",2026-03-27
+US,WMB,"The Williams Companies, Inc.",2026-03-27
+US,WSM,"Williams-Sonoma, Inc.",2026-03-27
+US,WTW,Willis Towers Watson Public Limited Company,2026-03-27
+US,WSC,WillScot Holdings Corporation,2026-03-27
+US,WING,Wingstop Inc.,2026-03-27
+US,WTFC,Wintrust Financial Corporation,2026-03-27
+US,WWD,"Woodward, Inc.",2026-03-27
+US,WDAY,"Workday, Inc.",2026-03-27
+US,WH,"Wyndham Hotels & Resorts, Inc.",2026-03-27
+US,WYNN,"Wynn Resorts, Limited",2026-03-27
+US,XEL,Xcel Energy Inc.,2026-03-27
+US,XP,XP Inc.,2026-03-27
+US,XPO,"XPO, Inc.",2026-03-27
+US,XYL,Xylem Inc.,2026-03-27
+US,YETI,"YETI Holdings, Inc.",2026-03-27
+US,YUM,"Yum! Brands, Inc.",2026-03-27
+US,ZBRA,Zebra Technologies Corporation,2026-03-27
+US,ZG,"Zillow Group, Inc.",2026-03-27
+US,Z,"Zillow Group, Inc.",2026-03-27
+US,ZBH,"Zimmer Biomet Holdings, Inc.",2026-03-27
+US,ZION,"Zions Bancorporation, National Association",2026-03-27
+US,ZTS,Zoetis Inc.,2026-03-27
+US,ZM,"Zoom Communications, Inc.",2026-03-27
+US,GTM,ZoomInfo Technologies Inc.,2026-03-27
+US,ZS,"Zscaler, Inc.",2026-03-27
+>>>>>>> e40495d3d647e32871b6a6b3afb030b7b636fd21
