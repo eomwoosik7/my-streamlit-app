@@ -63,6 +63,14 @@ def get_sector_check(trend_text):
             return '❌'
     return '❌'
 
+# ✅ [수정] KR 시가총액 단위 자동 판별 함수
+# 1e6(백만) 이상이면 원 단위 → /1e8 변환, 미만이면 이미 억원 단위 → 그대로 유지
+def _safe_market_cap_to_억원(val):
+    v = float(val) if pd.notna(val) else 0.0
+    if v >= 1e6:
+        return v / 1e8
+    return v
+
 st.set_page_config(page_title="Trading Copilot 🚀", layout="wide", initial_sidebar_state="expanded")
 
 st.markdown("""
@@ -1890,16 +1898,16 @@ elif period == "백데이터":
                 df_mid_kr = df_mid[df_mid['시장'] == 'KR'].copy() if '시장' in df_mid.columns else pd.DataFrame()
                 df_mid_us = df_mid[df_mid['시장'] == 'US'].copy() if '시장' in df_mid.columns else pd.DataFrame()
 
-                # ✅ [수정] KR 시가총액 원→억원 변환 (backtest DB는 원 단위로 저장됨)
+                # ✅ [수정] KR 시가총액 단위 자동 판별: 1e6 이상이면 원 단위 → /1e8, 미만이면 이미 억원
                 if not df_short_kr.empty:
                     if '시가총액' in df_short_kr.columns:
-                        df_short_kr['시가총액'] = df_short_kr['시가총액'].apply(lambda x: float(x) if pd.notna(x) else 0.0) / 1e8
+                        df_short_kr['시가총액'] = df_short_kr['시가총액'].apply(_safe_market_cap_to_억원)
                     df_short_kr = format_dataframe(df_short_kr, 'KR')
                 if not df_short_us.empty:
                     df_short_us = format_dataframe(df_short_us, 'US')
                 if not df_mid_kr.empty:
                     if '시가총액' in df_mid_kr.columns:
-                        df_mid_kr['시가총액'] = df_mid_kr['시가총액'].apply(lambda x: float(x) if pd.notna(x) else 0.0) / 1e8
+                        df_mid_kr['시가총액'] = df_mid_kr['시가총액'].apply(_safe_market_cap_to_억원)
                     df_mid_kr = format_dataframe(df_mid_kr, 'KR')
                 if not df_mid_us.empty:
                     df_mid_us = format_dataframe(df_mid_us, 'US')
@@ -1968,10 +1976,10 @@ elif period == "백데이터":
                     df_completed_kr = df_completed[df_completed['시장'] == 'KR'].copy() if '시장' in df_completed.columns else pd.DataFrame()
                     df_completed_us = df_completed[df_completed['시장'] == 'US'].copy() if '시장' in df_completed.columns else pd.DataFrame()
 
-                    # ✅ [수정] KR 시가총액 원→억원 변환 (CSV도 원 단위로 저장됨)
+                    # ✅ [수정] KR 시가총액 단위 자동 판별: 1e6 이상이면 원 단위 → /1e8, 미만이면 이미 억원
                     if not df_completed_kr.empty:
                         if '시가총액' in df_completed_kr.columns:
-                            df_completed_kr['시가총액'] = df_completed_kr['시가총액'].apply(lambda x: float(x) if pd.notna(x) else 0.0) / 1e8
+                            df_completed_kr['시가총액'] = df_completed_kr['시가총액'].apply(_safe_market_cap_to_억원)
                         df_completed_kr = format_dataframe(df_completed_kr, 'KR')
                     if not df_completed_us.empty:
                         df_completed_us = format_dataframe(df_completed_us, 'US')
@@ -2326,9 +2334,9 @@ def _display_backtest_table(df_filtered, tab_type, apply_btn, foreign_apply, ins
                 "회사명": st.column_config.Column(width="small"),
                 "업종": st.column_config.Column(width="small"),
                 "종가 (KRW)": st.column_config.Column(width="small"),
-                "종가 (USD)": st.column_config.Column(width="small"),        # ✅ 추가
+                "종가 (USD)": st.column_config.Column(width="small"),
                 "시가총액 (KRW 억원)": st.column_config.Column(width="small"),
-                "시가총액 (USD M)": st.column_config.Column(width="small"),  # ✅ 추가
+                "시가총액 (USD M)": st.column_config.Column(width="small"),
                 "업데이트": st.column_config.Column(width=60),
                 "타입": st.column_config.Column(width=50),
                 "최신종가": st.column_config.Column(width=60),
@@ -2514,9 +2522,9 @@ def _display_backtest_table(df_filtered, tab_type, apply_btn, foreign_apply, ins
                 "회사명": st.column_config.Column(width="small"),
                 "업종": st.column_config.Column(width="small"),
                 "종가 (KRW)": st.column_config.Column(width="small"),
-                "종가 (USD)": st.column_config.Column(width="small"),        # ✅ 추가
+                "종가 (USD)": st.column_config.Column(width="small"),
                 "시가총액 (KRW 억원)": st.column_config.Column(width="small"),
-                "시가총액 (USD M)": st.column_config.Column(width="small"),  # ✅ 추가
+                "시가총액 (USD M)": st.column_config.Column(width="small"),
                 "업데이트": st.column_config.Column(width=60),
                 "타입": st.column_config.Column(width=50),
                 "최신종가": st.column_config.Column(width=60),

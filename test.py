@@ -1,3 +1,10 @@
-from pykrx import stock
-tickers = stock.get_market_ticker_list('20260228', market='KOSPI')
-print(len(tickers), tickers[:3])
+import duckdb
+con = duckdb.connect("data/meta/backtest.db", read_only=True)
+df = con.execute("""
+    SELECT symbol, market, market_cap 
+    FROM backtest 
+    WHERE market = 'KR' 
+    LIMIT 5
+""").fetchdf()
+print(df)
+con.close()
