@@ -2010,7 +2010,7 @@ elif period == "백데이터":
                 df_test['type'] = df_test['type'].map(type_mapping).fillna(df_test['type'])
 
             if 'is_completed' in df_test.columns:
-                df_test['is_completed'] = df_test['is_completed'].apply(lambda x: '완료' if int(x) == 1 else '대기')
+                df_test['is_completed'] = df_test['is_completed'].apply(lambda x: '완료' if pd.notna(x) and int(x) == 1 else '대기')
 
             rename_test = {
                 'symbol': '종목코드', 'market': '시장', 'name': '회사명', 'sector': '업종',

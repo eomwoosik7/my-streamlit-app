@@ -5,6 +5,8 @@ import requests
 from bs4 import BeautifulSoup
 import time
 from tqdm import tqdm
+from concurrent.futures import ThreadPoolExecutor, as_completed
+import threading
 
 import json
 import yfinance as yf
@@ -303,65 +305,81 @@ df_krx = df_krx.drop_duplicates('Code')
 df_top1000 = df_krx.sort_values('Marcap', ascending=False).head(1000).reset_index(drop=True)
 print(f"✅ 상위 1000개 종목 조회 완료")
 
-# 2. 크롤링 실행
-print("\n🕷️ 네이버 증권 크롤링 시작")
-print("⏱️ 예상 시간: 약 10-12분 (종목당 0.5초 대기)")
+# ============================================
+# 2. 크롤링 실행 (멀티스레딩)
+# ============================================
+print("\n🕷️ 네이버 증권 크롤링 시작 (멀티스레딩 x5)")
+print("⏱️ 예상 시간: 약 2~3분")
 print()
 
 per_eps_results = []
 foreign_results = []
 sector_results = []
 
-for idx, row in tqdm(df_top1000.iterrows(), total=len(df_top1000), desc="크롤링 진행"):
+# 결과 저장용 딕셔너리 (순서 보장)
+results_dict = {}
+lock = threading.Lock()
+
+def crawl_one(args):
+    idx, row = args
     code = row['Code']
     name = row['Name']
-    
-    # 크롤링 실행
     data = crawl_naver_stock_data(code)
+    time.sleep(0.2)  # 서버 부하 방지 (0.5 → 0.2)
+    return idx, code, name, data
+
+rows = list(df_top1000.iterrows())
+
+with ThreadPoolExecutor(max_workers=5) as executor:
+    futures = {executor.submit(crawl_one, (idx, row)): idx for idx, row in rows}
     
-    # PER/EPS/PBR 결과 저장
-    per_eps_results.append({
-        '티커': code,
-        '종목명': name,
-        'PER': data['per'] if data['per'] is not None else '-',
-        'EPS': data['eps'] if data['eps'] is not None else '-',
-        'PBR': data['pbr'] if data['pbr'] is not None else '-',
-        '외국인보유율': data['foreign_ownership'] if data['foreign_ownership'] is not None else '-',
-        '날짜': today.strftime('%Y%m%d')
-    })
-    
-    # 섹터 결과 저장 (업종만 - 나머지는 빈칸)
-    sector_results.append({
-        '회사명': name,
-        '종목코드': code,
-        '업종': data['sector']
-    })
-    
-    # 외국인/기관 순매수 결과 저장 (실제 날짜 사용)
-    for day_idx in range(5):
-        foreign_net_buy = data['foreign_net_buy'][day_idx] if day_idx < len(data['foreign_net_buy']) else 0
-        inst_net_buy = data['institutional_net_buy'][day_idx] if day_idx < len(data['institutional_net_buy']) else 0
-        date_str = data['foreign_dates'][day_idx] if day_idx < len(data['foreign_dates']) else 'N/A'
-        
-        # 날짜가 유효한 경우에만 저장 (하나의 행에 외국인+기관)
-        if date_str != 'N/A':
-            foreign_results.append({
-                '티커': code,
-                '종목명': name,
-                '날짜': date_str,
-                '외국인순매수': foreign_net_buy,
-                '기관순매수': inst_net_buy
-            })
-    
-    # 서버 부하 방지
-    time.sleep(0.5)
-    
-    # 100개마다 중간 결과 출력
-    if (idx + 1) % 100 == 0:
-        per_success = sum(1 for r in per_eps_results if r['PER'] != '-')
-        sector_success = sum(1 for r in sector_results if r['업종'] != 'N/A')
-        trading_success = len([r for r in foreign_results if r['외국인순매수'] != 0 or r['기관순매수'] != 0])
-        print(f"\n📊 진행: {idx + 1}/1000 | PER: {per_success}개 | 업종: {sector_success}개 | 매매: {trading_success}건")
+    completed_count = 0
+    for future in tqdm(as_completed(futures), total=len(futures), desc="크롤링 진행"):
+        try:
+            idx, code, name, data = future.result()
+        except Exception as e:
+            print(f"❌ 에러: {e}")
+            continue
+
+        # PER/EPS/PBR 결과 저장
+        per_eps_results.append({
+            '티커': code,
+            '종목명': name,
+            'PER': data['per'] if data['per'] is not None else '-',
+            'EPS': data['eps'] if data['eps'] is not None else '-',
+            'PBR': data['pbr'] if data['pbr'] is not None else '-',
+            '외국인보유율': data['foreign_ownership'] if data['foreign_ownership'] is not None else '-',
+            '날짜': today.strftime('%Y%m%d')
+        })
+
+        # 섹터 결과 저장
+        sector_results.append({
+            '회사명': name,
+            '종목코드': code,
+            '업종': data['sector']
+        })
+
+        # 외국인/기관 순매수 결과 저장
+        for day_idx in range(5):
+            foreign_net_buy = data['foreign_net_buy'][day_idx] if day_idx < len(data['foreign_net_buy']) else 0
+            inst_net_buy = data['institutional_net_buy'][day_idx] if day_idx < len(data['institutional_net_buy']) else 0
+            date_str = data['foreign_dates'][day_idx] if day_idx < len(data['foreign_dates']) else 'N/A'
+
+            if date_str != 'N/A':
+                foreign_results.append({
+                    '티커': code,
+                    '종목명': name,
+                    '날짜': date_str,
+                    '외국인순매수': foreign_net_buy,
+                    '기관순매수': inst_net_buy
+                })
+
+        completed_count += 1
+        if completed_count % 100 == 0:
+            per_success = sum(1 for r in per_eps_results if r['PER'] != '-')
+            sector_success = sum(1 for r in sector_results if r['업종'] != 'N/A')
+            trading_success = len([r for r in foreign_results if r['외국인순매수'] != 0 or r['기관순매수'] != 0])
+            print(f"\n📊 진행: {completed_count}/1000 | PER: {per_success}개 | 업종: {sector_success}개 | 매매: {trading_success}건")
 
 # ============================================
 # 3. 결과 저장
@@ -384,7 +402,7 @@ df_trading = pd.DataFrame(foreign_results)
 # ✅ 시가총액 순으로 정렬하기 위해 df_top1000과 조인
 df_trading = df_trading.merge(df_top1000[['Code', 'Marcap']], left_on='티커', right_on='Code', how='left')
 df_trading = df_trading.sort_values(by=['날짜', 'Marcap'], ascending=[False, False])
-df_trading = df_trading.drop(columns=['Code', 'Marcap'])  # 불필요한 컬럼 제거
+df_trading = df_trading.drop(columns=['Code', 'Marcap'])
 trading_path = os.path.join(data_dir, 'foreign_institutional_net_buy_daily_top_1000.csv')
 df_trading.to_csv(trading_path, encoding='utf-8-sig', index=False)
 trading_dates = sorted(df_trading['날짜'].unique(), reverse=True)
@@ -400,8 +418,6 @@ if os.path.exists(sector_path):
     df_sector_existing['종목코드'] = df_sector_existing['종목코드'].str.zfill(6)
     df_sector_new['종목코드'] = df_sector_new['종목코드'].astype(str).str.zfill(6)
 
-    # 기존 데이터에서 오늘 새로 수집한 코드 제거 후 신규 데이터로 교체
-    # (N/A였던 항목도 오늘 수집된 값으로 업데이트)
     existing_codes = set(df_sector_new['종목코드'].tolist())
     df_sector_keep = df_sector_existing[~df_sector_existing['종목코드'].isin(existing_codes)]
 
@@ -425,7 +441,7 @@ print(f"✅ 섹터: {sector_path}")
 print(f"   업종 매핑 성공: {sector_success}/{len(df_sector)} ({sector_success/len(df_sector)*100:.1f}%)")
 
 # ============================================
-# 5. 섹터 ETF 트렌드 수집
+# 4. 섹터 ETF 트렌드 수집
 # ============================================
 print("\n📈 섹터 ETF 트렌드 수집 중...")
 
@@ -486,7 +502,6 @@ def get_us_etf_trend(ticker):
         trend = '상승' if change_rate > 0 else '하락'
         return f"{trend}({change_rate:+.2f}%) {ticker}"
     except Exception as e:
-        # 에러 출력 (디버깅용)
         print(f"      US {ticker} 에러: {type(e).__name__} - {str(e)[:50]}")
         return None
 
@@ -518,7 +533,7 @@ for sector, etfs in sector_etfs.items():
     else:
         print(f"    KR: ❌ 실패")
     
-    time.sleep(0.3)  # 서버 부하 방지
+    time.sleep(0.3)
 
 df_sector_trends = pd.DataFrame(sector_trends)
 sector_trend_path = os.path.join(data_dir, 'sector_etf_trends.csv')
@@ -527,7 +542,7 @@ print(f"\n✅ 섹터 트렌드: {sector_trend_path}")
 print(f"   수집: {len(df_sector_trends)}개 (US: {len(df_sector_trends[df_sector_trends['market']=='US'])}개, KR: {len(df_sector_trends[df_sector_trends['market']=='KR'])}개)")
 
 # ============================================
-# 4. 샘플 출력
+# 5. 샘플 출력
 # ============================================
 
 print("\n" + "="*60)
