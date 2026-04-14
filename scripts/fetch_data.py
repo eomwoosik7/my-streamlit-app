@@ -1,10 +1,8 @@
-import yfinance as yf
 import pandas as pd
 import os
 import requests
 from bs4 import BeautifulSoup
 from datetime import datetime, timedelta
-from multiprocessing import Pool
 from concurrent.futures import ThreadPoolExecutor
 from tqdm import tqdm
 import json
@@ -19,6 +17,9 @@ os.makedirs(DATA_DIR, exist_ok=True)
 META_DIR = os.path.join(DATA_DIR, 'meta')
 DB_PATH = os.path.join(META_DIR, 'universe.db')
 RESULTS_PATH = os.path.join(META_DIR, 'backtest.db')
+
+SHORT_FOLDER = os.path.join(DATA_DIR, 'short_term_results')
+MID_FOLDER = os.path.join(DATA_DIR, 'screener_results')
 
 if os.path.exists(DB_PATH):
     os.remove(DB_PATH)
@@ -49,7 +50,6 @@ def get_kr_tickers():
 
         all_stocks = []
 
-        # KOSPI(sosok=0) + KOSDAQ(sosok=1) 순서로 수집
         for sosok in [0, 1]:
             market_name = 'KOSPI' if sosok == 0 else 'KOSDAQ'
             page = 1
@@ -60,14 +60,12 @@ def get_kr_tickers():
                 res.encoding = 'euc-kr'
                 soup = BeautifulSoup(res.text, 'html.parser')
 
-                # 마지막 페이지 번호 확인
                 pager = soup.find('td', class_='pgRR')
                 if pager is None:
                     break
 
                 last_page = int(pager.find('a')['href'].split('page=')[-1])
 
-                # 종목 테이블 파싱
                 table = soup.find('table', class_='type_2')
                 if table is None:
                     break
@@ -86,7 +84,6 @@ def get_kr_tickers():
 
                     tds = row.find_all('td')
 
-                    # ✅ 현재가(종가) 수집 - tds[2] (tds[0]=순위, tds[1]=종목명, tds[2]=현재가)
                     close = 0
                     if len(tds) >= 3:
                         try:
@@ -95,7 +92,6 @@ def get_kr_tickers():
                         except:
                             close = 0
 
-                    # 시가총액 수집 - tds[6]
                     cap = 0
                     if len(tds) >= 7:
                         try:
@@ -105,7 +101,6 @@ def get_kr_tickers():
                             cap = 0
 
                     if code and len(code) == 6 and code.isdigit():
-                        # ETF/ETN 제외 필터 (개별 기업만 수집)
                         etf_prefixes = (
                             'KODEX', 'TIGER', 'RISE', 'ACE', 'SOL', 'PLUS',
                             'KIWOOM', 'HANARO', 'TIME', 'KoAct', 'ARIRANG',
@@ -154,44 +149,6 @@ def get_kr_tickers():
         return [], pd.DataFrame(), None
 
 
-def get_us_symbols():
-    """US Russell 1000 종목 조회"""
-    url = 'https://en.wikipedia.org/wiki/Russell_1000_Index'
-    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
-    try:
-        response = requests.get(url, headers=headers)
-        response.raise_for_status()
-        soup = BeautifulSoup(response.text, 'html.parser')
-        tables = soup.find_all('table')
-
-        for table in tables:
-            if 'Symbol' in str(table):
-                df_us = pd.read_html(str(table))[0]
-                us_symbols = df_us['Symbol'].str.replace('.', '-', regex=False).tolist()
-                print(f"✅ US 상위 {len(us_symbols)}개 로드 (Russell 1000)")
-                return us_symbols, df_us
-
-        print("❌ US 테이블 찾기 실패")
-        return [], pd.DataFrame()
-    except Exception as e:
-        print(f"❌ US 심볼 로드 실패: {e}")
-        return [], pd.DataFrame()
-
-
-def fetch_us_single(symbol, start_date):
-    """US 일봉 다운로드"""
-    try:
-        ticker = yf.Ticker(symbol)
-        data = ticker.history(start=start_date, end=today, interval="1d")
-        if data.empty:
-            return
-        daily_dir = os.path.join(DATA_DIR, 'us_daily')
-        os.makedirs(daily_dir, exist_ok=True)
-        data.to_csv(os.path.join(daily_dir, f"{symbol}.csv"), encoding='utf-8-sig')
-    except Exception as e:
-        print(f"❌ {symbol} 오류: {e}")
-
-
 def fetch_kr_single(ticker, start_date):
     """네이버 금융 siseJson API로 KR 일봉 다운로드 (수정주가 기준)"""
     try:
@@ -231,7 +188,7 @@ def fetch_kr_single(ticker, start_date):
             try:
                 date_str_item = str(item[0])
                 if len(date_str_item) != 8 or not date_str_item.isdigit():
-                    continue  # 헤더행 ['날짜','시가',...] 건너뜀
+                    continue
                 rows.append({
                     'Date':   pd.to_datetime(date_str_item, format='%Y%m%d'),
                     'Open':   int(item[1]) if item[1] is not None else None,
@@ -292,43 +249,164 @@ def get_kr_meta_single(ticker, df_kr):
     return ticker, cap, name, per, eps, close_price
 
 
-def get_us_meta_single(symbol, df_us):
-    """US 메타 정보 추출"""
-    cap = 0.0
-    name = "N/A"
-    per = 0.0
-    eps = 0.0
-    close_price = 0.0
-    sector = "N/A"
+# ====================================================
+# ✅ 백테스트 누락 종목 보완 함수
+# ====================================================
+
+def get_backtest_symbols():
+    """
+    short_term_results, screener_results 폴더에서
+    백테스트 대상 KR 종목 symbol 전체 목록 추출
+    """
+    symbols = set()
+    for folder in [SHORT_FOLDER, MID_FOLDER]:
+        if not os.path.exists(folder):
+            continue
+        for file in os.listdir(folder):
+            if not file.endswith('.csv'):
+                continue
+            try:
+                df = pd.read_csv(
+                    os.path.join(folder, file),
+                    dtype={'symbol': str},
+                    usecols=['symbol', 'market']
+                )
+                kr_df = df[df['market'] == 'KR']
+                for sym in kr_df['symbol'].tolist():
+                    symbols.add(str(sym).zfill(6))
+            except Exception as e:
+                print(f"⚠️ {file} 읽기 실패: {e}")
+    return list(symbols)
+
+
+def get_naver_stock_info(ticker):
+    """
+    네이버 금융에서 종목명, 현재가, 시가총액 크롤링
+    1000위 밖 종목의 메타 보완용
+    """
+    result = {'name': 'N/A', 'close': 0.0, 'cap': 0.0}
     try:
-        ticker = yf.Ticker(symbol)
-        info = ticker.info
-        name = info.get('longName') or info.get('shortName') or "N/A"
-        per = round(info.get('trailingPE') or info.get('forwardPE') or 0.0, 2)
-        eps = round(info.get('trailingEps') or info.get('forwardEps') or 0.0, 2)
+        import re
+        url = f"https://finance.naver.com/item/main.nhn?code={ticker}"
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+            'Referer': 'https://finance.naver.com/'
+        }
+        res = requests.get(url, headers=headers, timeout=5)
+        res.raise_for_status()
+        soup = BeautifulSoup(res.text, 'html.parser')
 
-        shares = info.get('sharesOutstanding')
-        if shares and shares > 0:
-            hist = ticker.history(start=today - timedelta(days=5), end=today)
-            if not hist.empty:
-                cap = shares * hist['Close'].iloc[-1]
-                close_price = hist['Close'].iloc[-1]
+        # 종목명
+        title_tag = soup.find('title')
+        if title_tag:
+            title_text = title_tag.text.strip()
+            name_part = title_text.split(':')[0].strip()
+            if name_part:
+                result['name'] = name_part
 
-        symbol_dot = symbol.replace('-', '.')
-        if 'Symbol' in df_us.columns and 'GICS Sector' in df_us.columns:
-            matching = df_us[df_us['Symbol'] == symbol_dot]
-            if not matching.empty:
-                sector = matching['GICS Sector'].iloc[0]
-    except:
-        pass
-    return symbol, float(cap), name, per, eps, float(close_price), sector
+        # 현재가
+        price_tag = soup.find('p', class_='no_today')
+        if price_tag:
+            blind_tag = price_tag.find('span', class_='blind')
+            if blind_tag:
+                try:
+                    result['close'] = float(blind_tag.text.strip().replace(',', ''))
+                except:
+                    pass
+
+        # 시가총액 (억원 단위)
+        text = soup.get_text()
+        cap_match = re.search(r'시가총액\s*([\d,]+)\s*억원', text)
+        if cap_match:
+            try:
+                result['cap'] = float(cap_match.group(1).replace(',', ''))
+            except:
+                pass
+
+    except Exception as e:
+        print(f"⚠️ {ticker} 네이버 크롤링 실패: {e}")
+
+    return result
+
+
+def supplement_backtest_symbols(kr_tickers_set, kr_meta, start_date, today_str):
+    """
+    백테스트 대상 종목 중 오늘 1000위 밖으로 밀려난 종목을
+    찾아서 일봉 다운로드 + 메타 보완
+    """
+    print("\n" + "="*50)
+    print("🔍 백테스트 누락 종목 보완 시작")
+    print("="*50)
+
+    # 1. 백테스트 대상 전체 종목 추출
+    backtest_symbols = get_backtest_symbols()
+    if not backtest_symbols:
+        print("⚠️ 백테스트 대상 종목 없음 (스킵)")
+        return kr_meta
+
+    print(f"📋 백테스트 대상 종목: {len(backtest_symbols)}개")
+
+    # 2. 오늘 1000위 밖으로 밀려난 종목 특정
+    missing_symbols = [s for s in backtest_symbols if s not in kr_tickers_set]
+
+    if not missing_symbols:
+        print("✅ 누락 종목 없음 (모두 1000위 이내)")
+        return kr_meta
+
+    print(f"⚠️ 1000위 밖 누락 종목: {len(missing_symbols)}개")
+    for s in missing_symbols:
+        name = kr_meta.get(s, {}).get('name', 'N/A')
+        print(f"   - {s} ({name})")
+
+    # 3. 누락 종목 일봉 다운로드
+    print(f"\n📥 누락 종목 일봉 다운로드 시작...")
+    dl_success = 0
+    dl_fail = 0
+    for symbol in missing_symbols:
+        if fetch_kr_single(symbol, start_date):
+            dl_success += 1
+            print(f"   ✅ {symbol} 다운로드 완료")
+        else:
+            dl_fail += 1
+            print(f"   ❌ {symbol} 다운로드 실패")
+        time.sleep(0.3)
+
+    print(f"\n✅ 일봉 다운로드 완료: 성공 {dl_success}개 / 실패 {dl_fail}개")
+
+    # 4. 누락 종목 메타 보완 (네이버 크롤링)
+    print(f"\n📊 누락 종목 메타 보완 시작...")
+    for symbol in missing_symbols:
+        old_data = kr_meta.get(symbol, {})
+
+        # 이미 메타에 오늘 날짜로 있으면 스킵
+        if old_data.get('cap_status') == today_str and old_data.get('cap', 0) > 0:
+            print(f"   ⏭️ {symbol} 메타 이미 최신 (스킵)")
+            continue
+
+        info = get_naver_stock_info(symbol)
+        print(f"   📌 {symbol} → 종목명: {info['name']}, 종가: {info['close']:,.0f}, 시총: {info['cap']:,.0f}억")
+
+        kr_meta[symbol] = {
+            'name':         info['name'] if info['name'] != 'N/A' else old_data.get('name', 'N/A'),
+            'cap':          info['cap'] if info['cap'] > 0 else old_data.get('cap', 0.0),
+            'cap_status':   today_str,
+            'per':          old_data.get('per', 0.0),
+            'eps':          old_data.get('eps', 0.0),
+            'close':        info['close'] if info['close'] > 0 else old_data.get('close', 0.0),
+            'sector':       old_data.get('sector', 'N/A'),
+            'sector_trend': old_data.get('sector_trend', 'N/A'),
+        }
+        time.sleep(0.3)
+
+    print(f"\n✅ 백테스트 누락 종목 보완 완료!")
+    return kr_meta
 
 
 if __name__ == '__main__':
     print(f"🗓️ 작업 기준일: {today.strftime('%Y-%m-%d %A')}")
 
     # 기존 데이터 삭제
-    for folder in ['kr_daily', 'us_daily']:
+    for folder in ['kr_daily']:
         path = os.path.join(DATA_DIR, folder)
         if os.path.exists(path):
             try:
@@ -349,7 +427,7 @@ if __name__ == '__main__':
             old_meta = json.load(f)
         print("📂 기존 meta.json 로드 완료")
     else:
-        old_meta = {'KR': {}, 'US': {}}
+        old_meta = {'KR': {}}
         print("📝 기존 meta.json 없음 → 새로 생성")
 
     start_date = (today - timedelta(days=730)).strftime('%Y-%m-%d')
@@ -364,20 +442,6 @@ if __name__ == '__main__':
     print("🇰🇷 KR 데이터 수집 시작")
     print("="*50)
     kr_tickers, df_kr, kr_date_str = get_kr_tickers()
-
-    # ====================================================
-    # US 데이터 수집
-    # ====================================================
-    print("\n" + "="*50)
-    print("🇺🇸 US 데이터 수집 시작")
-    print("="*50)
-    us_symbols, df_us = get_us_symbols()
-
-    # US 일봉 다운로드
-    if us_symbols:
-        print("\n📥 US 일봉 다운로드 시작")
-        with Pool(4) as pool:
-            pool.starmap(fetch_us_single, [(s, start_date) for s in us_symbols])
 
     # KR 일봉 다운로드
     if kr_tickers:
@@ -445,37 +509,10 @@ if __name__ == '__main__':
             time.sleep(5)
 
     # ====================================================
-    # US 메타 업데이트
+    # ✅ 백테스트 누락 종목 보완 (1000위 밖으로 밀려난 종목)
     # ====================================================
-    us_meta = old_meta.get('US', {})
-    if us_symbols:
-        print("\n📊 US 메타 수집 시작")
-        batch_size = 200
-        for i in tqdm(range(0, len(us_symbols), batch_size)):
-            batch_symbols = us_symbols[i:i+batch_size]
-            with ThreadPoolExecutor(max_workers=5) as executor:
-                results = executor.map(lambda s: get_us_meta_single(s, df_us), batch_symbols)
-            for symbol, new_cap, name, per, eps, close_price, sector in results:
-                old_data = us_meta.get(symbol, {})
-
-                if new_cap == 0:
-                    cap_failed_list.append({
-                        'market': 'US',
-                        'symbol': symbol,
-                        'name': name if name != "N/A" else old_data.get('name', "N/A"),
-                        'date': today_str
-                    })
-
-                us_meta[symbol] = {
-                    'name':       name if name != "N/A" else old_data.get('name', "N/A"),
-                    'cap':        new_cap if new_cap > 0 else old_data.get('cap', 0.0),
-                    'cap_status': today_str,
-                    'per':        per if per != 0.0 else old_data.get('per', 0.0),
-                    'eps':        eps if eps != 0.0 else old_data.get('eps', 0.0),
-                    'close':      close_price if close_price > 0 else old_data.get('close', 0.0),
-                    'sector':     sector if sector != "N/A" else old_data.get('sector', "N/A")
-                }
-            time.sleep(30)
+    kr_tickers_set = set(str(t).zfill(6) for t in kr_tickers)
+    kr_meta = supplement_backtest_symbols(kr_tickers_set, kr_meta, start_date, today_str)
 
     # ====================================================
     # 시가총액 미수집 종목 CSV 저장
@@ -485,7 +522,6 @@ if __name__ == '__main__':
         failed_path = os.path.join(DATA_DIR, 'cap_failed.csv')
         df_failed.to_csv(failed_path, index=False, encoding='utf-8-sig')
         print(f"\n⚠️ 시가총액 미수집 종목: {len(cap_failed_list)}개 → {failed_path}")
-        print(f"   KR: {len(df_failed[df_failed['market']=='KR'])}개 | US: {len(df_failed[df_failed['market']=='US'])}개")
     else:
         print("\n✅ 시가총액 미수집 종목 없음")
 
@@ -502,17 +538,12 @@ if __name__ == '__main__':
         return obj
 
     kr_meta = convert_np(kr_meta)
-    us_meta = convert_np(us_meta)
 
     with open(meta_file, 'w', encoding='utf-8') as f:
-        json.dump({'KR': kr_meta, 'US': us_meta}, f, ensure_ascii=False, indent=2)
+        json.dump({'KR': kr_meta}, f, ensure_ascii=False, indent=2)
 
     print("\n" + "="*50)
     print("✅ 모든 작업 완료!")
     print(f"📁 저장 위치: {meta_file}")
-    print(f"📊 KR: {len(kr_meta)}개 | US: {len(us_meta)}개")
+    print(f"📊 KR: {len(kr_meta)}개")
     print("="*50)
-    print("\n⚠️ 중요 알림:")
-    print("1. PER/EPS는 네이버 금융에서 제공하지 않습니다")
-    print("2. 외국인 순매수 데이터도 수집 불가능합니다")
-    print("3. 섹터 정보는 별도 처리가 필요합니다")

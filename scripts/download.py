@@ -28,7 +28,6 @@ print(f"  섹터: {len(df_sectors)}개")
 # ============================================
 try:
     df_sector_trend = pd.read_csv(sector_trend_path, encoding='utf-8-sig')
-    # {('Information Technology', 'US'): '상승(+2.5%) XLK', ...}
     sector_trend_dict = {}
     for _, row in df_sector_trend.iterrows():
         key = (row['sector'], row['market'])
@@ -70,14 +69,13 @@ df_foreign_inst = df_foreign_inst.sort_values(by=['종목명', '날짜'], ascend
 foreign_inst_dict = {}
 for name, group in df_foreign_inst.groupby('종목명'):
     name = str(name).strip()
-    # 최근 5일치 (없으면 0 패딩)
     foreign_list = group['외국인순매수'].tolist()[:5]
     inst_list = group['기관순매수'].tolist()[:5]
-    
+
     # 5개 미만이면 0으로 패딩
     foreign_list += [0] * (5 - len(foreign_list))
     inst_list += [0] * (5 - len(inst_list))
-    
+
     foreign_inst_dict[name] = {
         'foreign_net_buy': foreign_list,
         'institutional_net_buy': inst_list
@@ -92,14 +90,13 @@ with open(json_path, 'r', encoding='utf-8') as f:
     meta = json.load(f)
 
 kr_updated = 0
-us_updated = 0
 
 # ============================================
 # 4-1. KR 종목 업데이트
 # ============================================
 for code, info in meta.get("KR", {}).items():
     meta_name = info.get("name", "").strip()
-    
+
     # PER/EPS/기관외국인보유율 업데이트
     if meta_name in per_eps_dict:
         data = per_eps_dict[meta_name]
@@ -119,44 +116,26 @@ for code, info in meta.get("KR", {}).items():
             except:
                 pass
         kr_updated += 1
-    
+
     # 섹터 업데이트
     if meta_name in sector_dict:
         info['sector'] = sector_dict[meta_name]
-    
+
     # 외국인/기관 순매수 업데이트
     if meta_name in foreign_inst_dict:
         data = foreign_inst_dict[meta_name]
         info['foreign_net_buy'] = data['foreign_net_buy']
         info['institutional_net_buy'] = data['institutional_net_buy']
     else:
-        # 데이터 없으면 0으로 초기화
         info['foreign_net_buy'] = [0, 0, 0, 0, 0]
         info['institutional_net_buy'] = [0, 0, 0, 0, 0]
-    
+
     # 섹터 트렌드 추가
     sector_val = info.get('sector', 'N/A')
     if sector_val != 'N/A' and (sector_val, 'KR') in sector_trend_dict:
         info['sector_trend'] = sector_trend_dict[(sector_val, 'KR')]
     else:
         info['sector_trend'] = 'N/A'
-
-# ============================================
-# 4-2. US 종목 업데이트
-# ============================================
-for code, info in meta.get("US", {}).items():
-    # 외국인/기관 순매수 = 0으로 초기화
-    info['foreign_net_buy'] = [0, 0, 0, 0, 0]
-    info['institutional_net_buy'] = [0, 0, 0, 0, 0]
-    
-    # 섹터 트렌드 추가
-    sector_val = info.get('sector', 'N/A')
-    if sector_val != 'N/A' and (sector_val, 'US') in sector_trend_dict:
-        info['sector_trend'] = sector_trend_dict[(sector_val, 'US')]
-    else:
-        info['sector_trend'] = 'N/A'
-    
-    us_updated += 1
 
 # ============================================
 # 5. JSON 저장
@@ -176,9 +155,4 @@ print("  - Sector")
 print("  - 외국인 순매수 (5일치)")
 print("  - 기관 순매수 (5일치)")
 print("  - Sector 트렌드")
-
-print(f"\n📌 US 종목 ({us_updated}개 업데이트)")
-print("  - 외국인/기관 순매수 = [0,0,0,0,0]")
-print("  - Sector 트렌드")
-
 print(f"\n💾 저장 위치: {json_path}")

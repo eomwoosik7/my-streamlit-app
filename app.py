@@ -8,12 +8,9 @@ import os
 import json
 import subprocess
 import pandas_ta as ta
-from pykrx import stock
-import yfinance as yf
 from datetime import datetime, timedelta
 import numpy as np
 import warnings
-import pkg_resources
 
 def get_sector_trend_color(trend_text):
     import re
@@ -386,7 +383,7 @@ def load_meta():
     if os.path.exists(META_FILE):
         with open(META_FILE, 'r', encoding='utf-8') as f:
             return json.load(f)
-    return {'KR': {}, 'US': {}}
+    return {'KR': {}}
 
 @st.cache_data(ttl=3600)
 def add_foreign_net_buy(df):
@@ -629,14 +626,14 @@ def format_buy_signal(score, signal_type):
 
     return str(score)
 
-def run_screener_query(con, filter_condition="all", use_us=True, use_kr=True, top_n=None, additional_filters=None):
+def run_screener_query(con, filter_condition="all", top_n=None, additional_filters=None):
     try:
         con.execute("SELECT 1").fetchone()
     except:
         con = get_db_connection()
         st.session_state.con = con
 
-    market_filter = "market = 'US'" if use_us and not use_kr else "market = 'KR'" if use_kr and not use_us else "market IN ('US', 'KR')"
+    market_filter = "market = 'KR'"
 
     if filter_condition == "short_term":
         condition = """(obv_latest > signal_obv_9_latest AND obv_1ago <= signal_obv_9_1ago) 
@@ -659,9 +656,7 @@ def run_screener_query(con, filter_condition="all", use_us=True, use_kr=True, to
     else:
         condition = "1=1"
 
-    liquidity = """
-    AND market_cap >= CASE WHEN market = 'US' THEN 2000000000.0 ELSE 2000.0 END
-    """
+    liquidity = "AND market_cap >= 2000.0"
 
     additional_condition = ""
     if additional_filters:
@@ -763,56 +758,20 @@ def format_dataframe(df, market_type):
             'sector': '업종',
             'sector_trend': '업종트렌드',
         })
-    elif market_type == 'US':
-        df = df.rename(columns={
-            '시가총액': '시가총액 (USD M)',
-            '20일평균거래대금': '20일평균거래대금 (USD M)',
-            '오늘거래대금': '오늘거래대금 (USD M)',
-            '회전율': '회전율 (%)',
-            'PER_TTM': 'PER_TTM (x)',
-            '종가': '종가 (USD)',
-            '외국인순매수_5일전': '외국인순매수_5일전 (N/A)',
-            '외국인순매수_4일전': '외국인순매수_4일전 (N/A)',
-            '외국인순매수_3일전': '외국인순매수_3일전 (N/A)',
-            '외국인순매수_2일전': '외국인순매수_2일전 (N/A)',
-            '외국인순매수_1일전': '외국인순매수_1일전 (N/A)',
-            '외국인순매수_합산': '외국인순매수_합산 (N/A)',
-            'institutional_net_buy_5ago': '기관순매수_5일전 (N/A)',
-            'institutional_net_buy_4ago': '기관순매수_4일전 (N/A)',
-            'institutional_net_buy_3ago': '기관순매수_3일전 (N/A)',
-            'institutional_net_buy_2ago': '기관순매수_2일전 (N/A)',
-            'institutional_net_buy_1ago': '기관순매수_1일전 (N/A)',
-            'institutional_net_buy_sum': '기관순매수_합산 (N/A)',
-            'sector': '업종',
-            'sector_trend': '업종트렌드',
-        })
 
     def safe_float(x):
         return float(x) if pd.notna(x) else 0.0
 
-    if '시가총액 (KRW 억원)' in df.columns or '시가총액 (USD M)' in df.columns:
-        col_name = df.columns[df.columns.str.startswith('시가총액 (')][0]
-        df[col_name] = df[col_name].apply(safe_float)
-        if market_type == 'KR':
-            pass  # 억원 단위 유지 (호출 전 변환 완료)
-        else:
-            df[col_name] = df[col_name] / 1e6
+    if '시가총액 (KRW 억원)' in df.columns:
+        df['시가총액 (KRW 억원)'] = df['시가총액 (KRW 억원)'].apply(safe_float)
 
-    if '20일평균거래대금 (KRW 억원)' in df.columns or '20일평균거래대금 (USD M)' in df.columns:
-        col_name = df.columns[df.columns.str.startswith('20일평균거래대금 (')][0]
-        df[col_name] = df[col_name].apply(safe_float)
-        if market_type == 'KR':
-            df[col_name] = df[col_name] / 1e8
-        else:
-            df[col_name] = df[col_name] / 1e6
+    if '20일평균거래대금 (KRW 억원)' in df.columns:
+        df['20일평균거래대금 (KRW 억원)'] = df['20일평균거래대금 (KRW 억원)'].apply(safe_float)
+        df['20일평균거래대금 (KRW 억원)'] = df['20일평균거래대금 (KRW 억원)'] / 1e8
 
-    if '오늘거래대금 (KRW 억원)' in df.columns or '오늘거래대금 (USD M)' in df.columns:
-        col_name = df.columns[df.columns.str.startswith('오늘거래대금 (')][0]
-        df[col_name] = df[col_name].apply(safe_float)
-        if market_type == 'KR':
-            df[col_name] = df[col_name] / 1e8
-        else:
-            df[col_name] = df[col_name] / 1e6
+    if '오늘거래대금 (KRW 억원)' in df.columns:
+        df['오늘거래대금 (KRW 억원)'] = df['오늘거래대금 (KRW 억원)'].apply(safe_float)
+        df['오늘거래대금 (KRW 억원)'] = df['오늘거래대금 (KRW 억원)'] / 1e8
 
     if '회전율 (%)' in df.columns:
         df['회전율 (%)'] = df['회전율 (%)'].apply(safe_float) * 100
@@ -832,9 +791,8 @@ def format_dataframe(df, market_type):
     if 'RSI_3일_latest' in df.columns:
         df['RSI_3일_latest'] = df['RSI_3일_latest'].apply(safe_float)
 
-    if '종가 (KRW)' in df.columns or '종가 (USD)' in df.columns:
-        col_name = df.columns[df.columns.str.startswith('종가 (')][0]
-        df[col_name] = df[col_name].apply(safe_float)
+    if '종가 (KRW)' in df.columns:
+        df['종가 (KRW)'] = df['종가 (KRW)'].apply(safe_float)
 
     foreign_cols = [col for col in df.columns if col.startswith('외국인순매수_')]
     for col in foreign_cols:
@@ -861,12 +819,11 @@ def format_dataframe(df, market_type):
 @st.cache_data(ttl=3600)
 def load_daily_data(symbol, market):
     base_dir = "data"
-    daily_path = os.path.join(base_dir, ('us_daily' if market == 'US' else 'kr_daily'), f"{symbol}.csv")
+    daily_path = os.path.join(base_dir, 'kr_daily', f"{symbol}.csv")
     if not os.path.exists(daily_path):
         return None
     df = pd.read_csv(daily_path, index_col=0, parse_dates=True)
-    if market == 'KR':
-        df = df.rename(columns={'시가': 'Open', '고가': 'High', '저가': 'Low', '종가': 'Close', '거래량': 'Volume'})
+    df = df.rename(columns={'시가': 'Open', '고가': 'High', '저가': 'Low', '종가': 'Close', '거래량': 'Volume'})
     return df
 
 def show_chart(symbol, market, chart_type):
@@ -1088,7 +1045,8 @@ with st.sidebar:
     st.markdown("---")
 
     st.markdown("#### 시장 · 기간")
-    market = st.selectbox("시장", ["모두", "KR", "US"], label_visibility="collapsed")
+    market = "KR"
+    st.markdown("**🇰🇷 국내 (KR)**")
 
     period = st.radio(
         "기간",
@@ -1336,9 +1294,6 @@ if period == "전체":
             st.session_state.us_page = 0
             st.rerun()
         else:
-            use_us = market in ["모두", "US"]
-            use_kr = market in ["모두", "KR"]
-
             filter_parts = []
 
             if st.session_state.short_obv:
@@ -1376,11 +1331,8 @@ if period == "전체":
                 con = get_db_connection()
                 st.session_state.con = con
 
-            market_filter = "market = 'US'" if use_us and not use_kr else "market = 'KR'" if use_kr and not use_us else "market IN ('US', 'KR')"
-
-            liquidity = """
-            AND market_cap >= CASE WHEN market = 'US' THEN 2000000000.0 ELSE 2000.0 END
-            """
+            market_filter = "market = 'KR'"
+            liquidity = "AND market_cap >= 2000.0"
 
             additional_condition = ""
             if additional_filters:
@@ -1558,14 +1510,11 @@ if period == "전체":
                 df_filter = df_filter.sort_values('시가총액', ascending=False)
 
                 df_kr = df_filter[df_filter['시장'] == 'KR'].copy() if '시장' in df_filter.columns else pd.DataFrame()
-                df_us = df_filter[df_filter['시장'] == 'US'].copy() if '시장' in df_filter.columns else pd.DataFrame()
 
                 if not df_kr.empty:
                     df_kr = format_dataframe(df_kr, 'KR')
-                if not df_us.empty:
-                    df_us = format_dataframe(df_us, 'US')
 
-                st.session_state.filter_results = pd.concat([df_kr, df_us], ignore_index=True)
+                st.session_state.filter_results = df_kr
             else:
                 st.session_state.filter_results = pd.DataFrame()
                 st.session_state.kr_page = 0
@@ -1574,9 +1523,7 @@ if period == "전체":
     df_display = st.session_state.filter_results
 
 elif period == "단기":
-    use_us = market in ["모두", "US"]
-    use_kr = market in ["모두", "KR"]
-    df_result = run_screener_query(con, "short_term", use_us=use_us, use_kr=use_kr)
+    df_result = run_screener_query(con, "short_term")
     df_result = add_names(df_result)
     df_result = add_foreign_net_buy(df_result)
     df_result = add_close_price(df_result)
@@ -1648,21 +1595,16 @@ elif period == "단기":
         df_result = df_result.sort_values('시가총액', ascending=False)
 
         df_kr = df_result[df_result['시장'] == 'KR'].copy() if '시장' in df_result.columns else pd.DataFrame()
-        df_us = df_result[df_result['시장'] == 'US'].copy() if '시장' in df_result.columns else pd.DataFrame()
 
         if not df_kr.empty:
             df_kr = format_dataframe(df_kr, 'KR')
-        if not df_us.empty:
-            df_us = format_dataframe(df_us, 'US')
 
-        df_display = pd.concat([df_kr, df_us], ignore_index=True)
+        df_display = df_kr
     else:
         df_display = pd.DataFrame()
 
 elif period == "중기":
-    use_us = market in ["모두", "US"]
-    use_kr = market in ["모두", "KR"]
-    df_result = run_screener_query(con, "mid_term", use_us=use_us, use_kr=use_kr)
+    df_result = run_screener_query(con, "mid_term")
     df_result = add_names(df_result)
     df_result = add_foreign_net_buy(df_result)
     df_result = add_close_price(df_result)
@@ -1729,21 +1671,16 @@ elif period == "중기":
         df_result = df_result.sort_values('시가총액', ascending=False)
 
         df_kr = df_result[df_result['시장'] == 'KR'].copy() if '시장' in df_result.columns else pd.DataFrame()
-        df_us = df_result[df_result['시장'] == 'US'].copy() if '시장' in df_result.columns else pd.DataFrame()
 
         if not df_kr.empty:
             df_kr = format_dataframe(df_kr, 'KR')
-        if not df_us.empty:
-            df_us = format_dataframe(df_us, 'US')
 
-        df_display = pd.concat([df_kr, df_us], ignore_index=True)
+        df_display = df_kr
     else:
         df_display = pd.DataFrame()
 
 elif period == "매도":
-    use_us = market in ["모두", "US"]
-    use_kr = market in ["모두", "KR"]
-    df_result = run_screener_query(con, "sell", use_us=use_us, use_kr=use_kr)
+    df_result = run_screener_query(con, "sell")
     df_result = add_names(df_result)
     df_result = add_foreign_net_buy(df_result)
     df_result = add_close_price(df_result)
@@ -1819,14 +1756,11 @@ elif period == "매도":
         df_result = df_result.sort_values('시가총액', ascending=False)
 
         df_kr = df_result[df_result['시장'] == 'KR'].copy() if '시장' in df_result.columns else pd.DataFrame()
-        df_us = df_result[df_result['시장'] == 'US'].copy() if '시장' in df_result.columns else pd.DataFrame()
 
         if not df_kr.empty:
             df_kr = format_dataframe(df_kr, 'KR')
-        if not df_us.empty:
-            df_us = format_dataframe(df_us, 'US')
 
-        df_display = pd.concat([df_kr, df_us], ignore_index=True)
+        df_display = df_kr
     else:
         df_display = pd.DataFrame()
 
@@ -1843,12 +1777,8 @@ elif period == "백데이터":
         con_back.close()
 
         if not df_back.empty:
-            if market == "KR":
-                df_back = df_back[df_back['market'] == 'KR']
-            elif market == "US":
-                df_back = df_back[df_back['market'] == 'US']
-
-            df_back['symbol'] = df_back.apply(lambda row: str(row['symbol']).zfill(6) if row['market'] == 'KR' else str(row['symbol']), axis=1)
+            df_back = df_back[df_back['market'] == 'KR']
+            df_back['symbol'] = df_back['symbol'].astype(str).str.zfill(6)
 
             if 'type' in df_back.columns:
                 type_mapping = {'short': '단기', 'mid': '중기', 'short_mid': '단기+중기', 'short+mid': '단기+중기'}
@@ -1893,27 +1823,20 @@ elif period == "백데이터":
                 df_short = df_back[df_back['타입'].isin(['단기', '단기+중기'])].copy()
                 df_mid = df_back[df_back['타입'].isin(['중기', '단기+중기'])].copy()
 
-                df_short_kr = df_short[df_short['시장'] == 'KR'].copy() if '시장' in df_short.columns else pd.DataFrame()
-                df_short_us = df_short[df_short['시장'] == 'US'].copy() if '시장' in df_short.columns else pd.DataFrame()
-                df_mid_kr = df_mid[df_mid['시장'] == 'KR'].copy() if '시장' in df_mid.columns else pd.DataFrame()
-                df_mid_us = df_mid[df_mid['시장'] == 'US'].copy() if '시장' in df_mid.columns else pd.DataFrame()
+                df_short_kr = df_short.copy() if not df_short.empty else pd.DataFrame()
+                df_mid_kr = df_mid.copy() if not df_mid.empty else pd.DataFrame()
 
-                # ✅ [수정] KR 시가총액 단위 자동 판별: 1e6 이상이면 원 단위 → /1e8, 미만이면 이미 억원
                 if not df_short_kr.empty:
                     if '시가총액' in df_short_kr.columns:
                         df_short_kr['시가총액'] = df_short_kr['시가총액'].apply(_safe_market_cap_to_억원)
                     df_short_kr = format_dataframe(df_short_kr, 'KR')
-                if not df_short_us.empty:
-                    df_short_us = format_dataframe(df_short_us, 'US')
                 if not df_mid_kr.empty:
                     if '시가총액' in df_mid_kr.columns:
                         df_mid_kr['시가총액'] = df_mid_kr['시가총액'].apply(_safe_market_cap_to_억원)
                     df_mid_kr = format_dataframe(df_mid_kr, 'KR')
-                if not df_mid_us.empty:
-                    df_mid_us = format_dataframe(df_mid_us, 'US')
 
-                st.session_state.backtest_short = pd.concat([df_short_kr, df_short_us], ignore_index=True)
-                st.session_state.backtest_mid = pd.concat([df_mid_kr, df_mid_us], ignore_index=True)
+                st.session_state.backtest_short = df_short_kr
+                st.session_state.backtest_mid = df_mid_kr
 
                 df_display = df_back
             else:
@@ -1925,14 +1848,8 @@ elif period == "백데이터":
             df_completed = pd.read_csv(BACKTEST_COMPLETED_CSV, dtype={'symbol': str})
 
             if not df_completed.empty:
-                if market == "KR":
-                    df_completed = df_completed[df_completed['market'] == 'KR']
-                elif market == "US":
-                    df_completed = df_completed[df_completed['market'] == 'US']
-
-                df_completed['symbol'] = df_completed.apply(
-                    lambda row: str(row['symbol']).zfill(6) if row['market'] == 'KR' else str(row['symbol']), axis=1
-                )
+                df_completed = df_completed[df_completed['market'] == 'KR']
+                df_completed['symbol'] = df_completed['symbol'].astype(str).str.zfill(6)
 
                 if 'type' in df_completed.columns:
                     type_mapping = {'short': '단기', 'mid': '중기', 'short_mid': '단기+중기', 'short+mid': '단기+중기'}
@@ -1973,18 +1890,14 @@ elif period == "백데이터":
                     df_completed = df_completed.rename(columns=rename_dict)
                     df_completed = df_completed.sort_values('최신업데이트', ascending=False)
 
-                    df_completed_kr = df_completed[df_completed['시장'] == 'KR'].copy() if '시장' in df_completed.columns else pd.DataFrame()
-                    df_completed_us = df_completed[df_completed['시장'] == 'US'].copy() if '시장' in df_completed.columns else pd.DataFrame()
+                    df_completed_kr = df_completed.copy()
 
-                    # ✅ [수정] KR 시가총액 단위 자동 판별: 1e6 이상이면 원 단위 → /1e8, 미만이면 이미 억원
                     if not df_completed_kr.empty:
                         if '시가총액' in df_completed_kr.columns:
                             df_completed_kr['시가총액'] = df_completed_kr['시가총액'].apply(_safe_market_cap_to_억원)
                         df_completed_kr = format_dataframe(df_completed_kr, 'KR')
-                    if not df_completed_us.empty:
-                        df_completed_us = format_dataframe(df_completed_us, 'US')
 
-                    st.session_state.backtest_completed = pd.concat([df_completed_kr, df_completed_us], ignore_index=True)
+                    st.session_state.backtest_completed = df_completed_kr
                 else:
                     st.session_state.backtest_completed = pd.DataFrame()
             else:
@@ -1996,14 +1909,8 @@ elif period == "백데이터":
         df_test = pd.read_csv(BACKTEST_TEST_CSV, dtype={'symbol': str})
 
         if not df_test.empty:
-            if market == "KR":
-                df_test = df_test[df_test['market'] == 'KR']
-            elif market == "US":
-                df_test = df_test[df_test['market'] == 'US']
-
-            df_test['symbol'] = df_test.apply(
-                lambda row: str(row['symbol']).zfill(6) if row['market'] == 'KR' else str(row['symbol']), axis=1
-            )
+            df_test = df_test[df_test['market'] == 'KR']
+            df_test['symbol'] = df_test['symbol'].astype(str).str.zfill(6)
 
             if 'type' in df_test.columns:
                 type_mapping = {'short': '단기', 'mid': '중기'}
@@ -2121,10 +2028,6 @@ def _display_backtest_table(df_filtered, tab_type, apply_btn, foreign_apply, ins
         st.session_state[f'back_{tab_type}_kr_sort_column'] = '시가총액 (KRW 억원)'
     if f'back_{tab_type}_kr_sort_ascending' not in st.session_state:
         st.session_state[f'back_{tab_type}_kr_sort_ascending'] = False
-    if f'back_{tab_type}_us_sort_column' not in st.session_state:
-        st.session_state[f'back_{tab_type}_us_sort_column'] = '시가총액 (USD M)'
-    if f'back_{tab_type}_us_sort_ascending' not in st.session_state:
-        st.session_state[f'back_{tab_type}_us_sort_ascending'] = False
 
     display_cols = ['종목코드', '시장', '회사명', '업종', '업종트렌드']
     for col in ['종가 (KRW)', '종가 (USD)', '시가총액 (KRW 억원)', '시가총액 (USD M)']:
@@ -2151,7 +2054,6 @@ def _display_backtest_table(df_filtered, tab_type, apply_btn, foreign_apply, ins
     display_cols = [col for col in display_cols if col in df_filtered.columns]
 
     df_kr_filtered = df_filtered[df_filtered['시장'] == 'KR'] if '시장' in df_filtered.columns else pd.DataFrame()
-    df_us_filtered = df_filtered[df_filtered['시장'] == 'US'] if '시장' in df_filtered.columns else pd.DataFrame()
 
     def _calc_stats(df_sub):
         cnt = len(df_sub)
@@ -2167,7 +2069,6 @@ def _display_backtest_table(df_filtered, tab_type, apply_btn, foreign_apply, ins
         return cnt, up, down, avg, wr
 
     kr_cnt, kr_up, kr_down, kr_avg, kr_wr = _calc_stats(df_kr_filtered)
-    us_cnt, us_up, us_down, us_avg, us_wr = _calc_stats(df_us_filtered)
 
     # ============================================================
     # ✅ KR 테이블
@@ -2357,205 +2258,14 @@ def _display_backtest_table(df_filtered, tab_type, apply_btn, foreign_apply, ins
                 st.session_state.selected_market = 'KR'
                 st.rerun()
 
-    # ============================================================
-    # ✅ US 테이블
-    # ============================================================
-    if not df_us_filtered.empty:
-
-        us_avg_color = "#dc2626" if us_avg >= 0 else "#2563eb"
-        if tab_type == "completed":
-            us_short = len(df_us_filtered[df_us_filtered['타입'] == '단기']) if '타입' in df_us_filtered.columns else 0
-            us_mid   = len(df_us_filtered[df_us_filtered['타입'] == '중기']) if '타입' in df_us_filtered.columns else 0
-            us_extra = f"&nbsp;단기 <b>{us_short}</b> · 중기 <b>{us_mid}</b>"
-        else:
-            us_extra = ""
-
-        us_box_html = (
-            "<div style='background:var(--secondary-background-color);padding:12px 18px;border-radius:14px;"
-            "border:1px solid rgba(128,128,128,.15);margin-bottom:12px;display:flex;gap:0;flex-wrap:wrap;align-items:center;'>"
-            f"<span style='font-weight:700;margin-right:16px;'>🌐 해외</span>"
-            f"<span style='margin-right:12px;'>📋 <b>{us_cnt}</b></span>"
-            f"<span style='margin-right:12px;'>📈 <b style='color:#dc2626'>{us_up}</b> · 📉 <b style='color:#2563eb'>{us_down}</b></span>"
-            f"<span style='margin-right:12px;'>평균 <b style='color:{us_avg_color}'>{us_avg:+.2f}%</b></span>"
-            f"<span>승률 <b>{us_wr:.1f}%</b>{us_extra}</span>"
-            "</div>"
-        )
-        st.markdown(us_box_html, unsafe_allow_html=True)
-
-        csv_columns_us = display_cols.copy()
-        df_us_csv = df_us_filtered[csv_columns_us]
-        csv_us = df_us_csv.to_csv(index=False).encode('utf-8-sig')
-
-        col_us_h1, col_us_h3, col_us_h4, col_us_h5 = st.columns([2, 2, 0.45, 0.7])
-
-        with col_us_h1:
-            st.markdown("#### 해외 (US)")
-
-        with col_us_h3:
-            us_display_cols = [col for col in display_cols if '(KRW' not in col and '(주)' not in col]
-            sort_options = [col for col in us_display_cols if col not in ['종목코드', '시장', '회사명', '업종', '업종트렌드']]
-            if not sort_options:
-                sort_options = ['시가총액 (USD M)']
-
-            if st.session_state[f'back_{tab_type}_us_sort_column'] not in sort_options:
-                st.session_state[f'back_{tab_type}_us_sort_column'] = '시가총액 (USD M)' if '시가총액 (USD M)' in sort_options else sort_options[0]
-
-            selected_sort = st.selectbox(
-                "정렬",
-                options=sort_options,
-                index=sort_options.index(st.session_state[f'back_{tab_type}_us_sort_column']) if st.session_state[f'back_{tab_type}_us_sort_column'] in sort_options else 0,
-                key=f"back_{tab_type}_us_sort_col",
-                label_visibility="collapsed"
-            )
-
-            if selected_sort != st.session_state[f'back_{tab_type}_us_sort_column']:
-                st.session_state[f'back_{tab_type}_us_sort_column'] = selected_sort
-                st.rerun()
-
-        with col_us_h4:
-            sort_icon = "🔼" if st.session_state[f'back_{tab_type}_us_sort_ascending'] else "🔽"
-            if st.button(sort_icon, key=f"back_{tab_type}_us_sort_dir", width='stretch'):
-                st.session_state[f'back_{tab_type}_us_sort_ascending'] = not st.session_state[f'back_{tab_type}_us_sort_ascending']
-                st.rerun()
-
-        with col_us_h5:
-            st.download_button(
-                label="💾CSV",
-                data=csv_us,
-                file_name=f'us_backtest_{tab_type}.csv',
-                mime='text/csv',
-                key=f"download_us_back_{tab_type}",
-                width='stretch'
-            )
-
-        sort_by = [st.session_state[f'back_{tab_type}_us_sort_column']]
-        ascending = [st.session_state[f'back_{tab_type}_us_sort_ascending']]
-
-        score_columns = ['매도신호']
-        if st.session_state[f'back_{tab_type}_us_sort_column'] in score_columns and st.session_state[f'back_{tab_type}_us_sort_column'] in df_us_filtered.columns:
-            try:
-                df_us_filtered = df_us_filtered.copy()
-                df_us_filtered['_정렬용_점수'] = df_us_filtered[st.session_state[f'back_{tab_type}_us_sort_column']].str.extract(r'(\d+)점')[0].astype(float)
-                sort_by = ['_정렬용_점수']
-            except:
-                pass
-
-        if st.session_state[f'back_{tab_type}_us_sort_column'] != '시가총액 (USD M)' and '시가총액 (USD M)' in df_us_filtered.columns:
-            sort_by.append('시가총액 (USD M)')
-            ascending.append(False)
-
-        if all(col in df_us_filtered.columns for col in sort_by):
-            df_us_sorted = df_us_filtered.sort_values(by=sort_by, ascending=ascending)
-        else:
-            df_us_sorted = df_us_filtered
-
-        us_display_cols = [col for col in display_cols if '(KRW' not in col and '(주)' not in col]
-
-        us_count = len(df_us_sorted)
-        us_height = min(us_count, 10) * 30 + 30
-
-        df_us_display_full = df_us_sorted[us_display_cols].copy().reset_index(drop=True)
-        us_sector_trends = df_us_display_full['업종트렌드'].copy() if '업종트렌드' in df_us_display_full.columns else None
-        df_us_display = df_us_display_full.drop(columns=['업종트렌드'], errors='ignore')
-
-        us_key = f"us_back_{tab_type}_df"
-
-        def apply_us_row_style(row):
-            styles = []
-            bg_color = None
-            if us_sector_trends is not None and row.name < len(us_sector_trends):
-                if pd.notna(us_sector_trends.iloc[row.name]):
-                    bg_color = get_sector_trend_color(us_sector_trends.iloc[row.name])
-            for _ in row.index:
-                if bg_color:
-                    styles.append(f'background-color: {bg_color}')
-                else:
-                    styles.append('')
-            return styles
-
-        def apply_change_rate_color(val):
-            if pd.isna(val):
-                return ''
-            try:
-                num_val = float(val)
-                if num_val > 0:
-                    return 'color: #dc2626; font-weight: 700'
-                elif num_val < 0:
-                    return 'color: #2563eb; font-weight: 700'
-                else:
-                    return ''
-            except:
-                return ''
-
-        styled_us = df_us_display.style.apply(apply_us_row_style, axis=1)
-
-        format_dict = {}
-        for col in df_us_display.columns:
-            if df_us_display[col].dtype in ['int64', 'float64']:
-                if col == '종가 (USD)':
-                    format_dict[col] = '${:,.2f}'
-                elif '시가총액' in col:
-                    format_dict[col] = '{:,.2f}'
-                elif col == '변동율%':
-                    continue
-                else:
-                    format_dict[col] = '{:,.2f}'
-
-        if format_dict:
-            styled_us = styled_us.format(format_dict, na_rep='')
-
-        if '변동율%' in df_us_display.columns:
-            styled_us = styled_us.map(apply_change_rate_color, subset=['변동율%'])
-            styled_us = styled_us.format('{:.2f}', subset=['변동율%'])
-
-        event_us = st.dataframe(
-            styled_us,
-            on_select="rerun",
-            selection_mode="single-row",
-            hide_index=True,
-            width='stretch',
-            height=us_height,
-            key=us_key,
-            column_config={
-                "종목코드": st.column_config.Column(width=50),
-                "시장": st.column_config.Column(width=40),
-                "회사명": st.column_config.Column(width="small"),
-                "업종": st.column_config.Column(width="small"),
-                "종가 (KRW)": st.column_config.Column(width="small"),
-                "종가 (USD)": st.column_config.Column(width="small"),
-                "시가총액 (KRW 억원)": st.column_config.Column(width="small"),
-                "시가총액 (USD M)": st.column_config.Column(width="small"),
-                "업데이트": st.column_config.Column(width=60),
-                "타입": st.column_config.Column(width=50),
-                "최신종가": st.column_config.Column(width=60),
-                "최신업데이트": st.column_config.Column(width=60),
-                "변동율%": st.column_config.Column(width=40),
-                "매도신호": st.column_config.Column(width=60),
-                "외국인 순매수": st.column_config.Column(width=40),
-                "기관 순매수": st.column_config.Column(width=40),
-                "캔들": st.column_config.Column(width=40),
-            }
-        )
-
-        if event_us.selection.rows:
-            selected_idx = event_us.selection.rows[0]
-            new_symbol = df_us_sorted.iloc[selected_idx]['종목코드']
-            if new_symbol != st.session_state.selected_symbol or st.session_state.selected_market != 'US':
-                st.session_state.selected_symbol = new_symbol
-                st.session_state.selected_market = 'US'
-                st.rerun()
-
 
 with col_left:
     st.markdown("### 결과 리스트")
 
     if st.session_state.last_period != period:
         st.session_state.kr_page = 0
-        st.session_state.us_page = 0
         st.session_state.kr_sort_column = '시가총액 (KRW 억원)'
         st.session_state.kr_sort_ascending = False
-        st.session_state.us_sort_column = '시가총액 (USD M)'
-        st.session_state.us_sort_ascending = False
         st.session_state.last_period = period
 
     if not df_display.empty:
@@ -2811,7 +2521,6 @@ with col_left:
                 df_filtered = df_display
 
             df_kr_filtered = df_filtered[df_filtered['시장'] == 'KR'] if '시장' in df_filtered.columns else pd.DataFrame()
-            df_us_filtered = df_filtered[df_filtered['시장'] == 'US'] if '시장' in df_filtered.columns else pd.DataFrame()
 
             # ========== KR 테이블 ==========
             if not df_kr_filtered.empty:
@@ -3028,222 +2737,7 @@ with col_left:
                         st.session_state.selected_market = 'KR'
                         st.rerun()
 
-            # ========== US 테이블 ==========
-            if not df_us_filtered.empty:
-                ITEMS_PER_PAGE = 100
-                us_total = len(df_us_filtered)
-                us_total_pages = (us_total + ITEMS_PER_PAGE - 1) // ITEMS_PER_PAGE
-
-                us_stats = f"총 종목수: {us_total}"
-
-                csv_columns_us = display_cols.copy()
-                df_us_csv = df_us_filtered[csv_columns_us]
-                csv_us = df_us_csv.to_csv(index=False).encode('utf-8-sig')
-
-                col_us_header1, col_us_header2, col_us_header3, col_us_header4, col_us_header5 = st.columns([1, 2, 2, 0.45, 0.7])
-
-                with col_us_header1:
-                    st.markdown("#### 해외 (US)")
-
-                with col_us_header2:
-                    st.markdown(f"**{us_stats}**")
-
-                with col_us_header3:
-                    us_display_cols = [col for col in display_cols if '(KRW' not in col]
-                    sort_options = [col for col in us_display_cols if col not in ['종목코드', '시장', '회사명', '업종', '업종트렌드']]
-                    if not sort_options:
-                        sort_options = ['시가총액 (USD M)']
-
-                    if st.session_state.us_sort_column not in sort_options:
-                        st.session_state.us_sort_column = '시가총액 (USD M)' if '시가총액 (USD M)' in sort_options else sort_options[0]
-
-                    selected_sort = st.selectbox(
-                        "정렬",
-                        options=sort_options,
-                        index=sort_options.index(st.session_state.us_sort_column) if st.session_state.us_sort_column in sort_options else 0,
-                        key=f"us_sort_col_{period}",
-                        label_visibility="collapsed"
-                    )
-
-                    if selected_sort != st.session_state.us_sort_column:
-                        st.session_state.us_sort_column = selected_sort
-                        st.session_state.us_page = 0
-                        st.rerun()
-
-                with col_us_header4:
-                    sort_icon = "🔼" if st.session_state.us_sort_ascending else "🔽"
-                    if st.button(sort_icon, key=f"us_sort_dir_{period}", width='stretch'):
-                        st.session_state.us_sort_ascending = not st.session_state.us_sort_ascending
-                        st.session_state.us_page = 0
-                        st.rerun()
-
-                with col_us_header5:
-                    st.download_button(
-                        label="💾CSV",
-                        data=csv_us,
-                        file_name=f'us_stocks_{period}.csv',
-                        mime='text/csv',
-                        key=f"download_us_{period}",
-                        width='stretch'
-                    )
-
-                sort_by = [st.session_state.us_sort_column]
-                ascending = [st.session_state.us_sort_ascending]
-
-                score_columns = ['단기신호', '중기신호', '단기매수신호', '중기매수신호', '매도신호']
-                if st.session_state.us_sort_column in score_columns and st.session_state.us_sort_column in df_us_filtered.columns:
-                    try:
-                        df_us_filtered['_정렬용_점수'] = df_us_filtered[st.session_state.us_sort_column].str.extract(r'(\d+)점')[0].astype(float)
-                        sort_by = ['_정렬용_점수']
-                    except:
-                        pass
-
-                if st.session_state.us_sort_column != '시가총액 (USD M)' and '시가총액 (USD M)' in df_us_filtered.columns:
-                    sort_by.append('시가총액 (USD M)')
-                    ascending.append(False)
-
-                if all(col in df_us_filtered.columns for col in sort_by):
-                    df_us_filtered = df_us_filtered.sort_values(by=sort_by, ascending=ascending)
-
-                start_idx = st.session_state.us_page * ITEMS_PER_PAGE
-                end_idx = min(start_idx + ITEMS_PER_PAGE, us_total)
-                df_us_page = df_us_filtered.iloc[start_idx:end_idx].copy()
-
-                us_display_cols = [col for col in display_cols if '(KRW' not in col and '(주)' not in col]
-
-                us_count = len(df_us_filtered)
-                us_height = min(us_count, 10) * 30 + 30
-
-                df_us_display_full = df_us_page[us_display_cols].copy().reset_index(drop=True)
-                us_sector_trends = df_us_display_full['업종트렌드'].copy() if '업종트렌드' in df_us_display_full.columns else None
-                df_us_display = df_us_display_full.drop(columns=['업종트렌드'], errors='ignore')
-
-                us_key = f"us_dataframe_{period}_page_{st.session_state.us_page}"
-
-                def apply_us_row_style(row):
-                    styles = []
-                    bg_color = None
-                    if us_sector_trends is not None and row.name < len(us_sector_trends):
-                        if pd.notna(us_sector_trends.iloc[row.name]):
-                            bg_color = get_sector_trend_color(us_sector_trends.iloc[row.name])
-                    for _ in row.index:
-                        if bg_color:
-                            styles.append(f'background-color: {bg_color}')
-                        else:
-                            styles.append('')
-                    return styles
-
-                def apply_change_rate_color(val):
-                    if pd.isna(val):
-                        return ''
-                    try:
-                        num_val = float(val)
-                        if num_val > 0:
-                            return 'color: #dc2626; font-weight: 700'
-                        elif num_val < 0:
-                            return 'color: #2563eb; font-weight: 700'
-                        else:
-                            return ''
-                    except:
-                        return ''
-
-                styled_us = df_us_display.style.apply(apply_us_row_style, axis=1)
-
-                format_dict = {}
-                for col in df_us_display.columns:
-                    if df_us_display[col].dtype in ['int64', 'float64']:
-                        if col == '종가 (USD)':
-                            format_dict[col] = '${:,.2f}'
-                        elif '시가총액' in col:
-                            format_dict[col] = '{:,.2f}'
-                        elif col == '변동율%':
-                            continue
-                        else:
-                            format_dict[col] = '{:,.2f}'
-
-                if format_dict:
-                    styled_us = styled_us.format(format_dict, na_rep='')
-
-                if '변동율%' in df_us_display.columns:
-                    styled_us = styled_us.map(apply_change_rate_color, subset=['변동율%'])
-                    styled_us = styled_us.format('{:.2f}', subset=['변동율%'])
-
-                event_us = st.dataframe(
-                    styled_us,
-                    on_select="rerun",
-                    selection_mode="single-row",
-                    hide_index=True,
-                    width='stretch',
-                    height=us_height,
-                    key=us_key,
-                    column_config={
-                        "종목코드": st.column_config.Column(width=50),
-                        "시장": st.column_config.Column(width=40),
-                        "회사명": st.column_config.Column(width="small"),
-                        "업종": st.column_config.Column(width="small"),
-                        "업종트렌드": st.column_config.Column(width="small"),
-                        "종가 (USD)": st.column_config.Column(width="small"),
-                        "시가총액 (USD M)": st.column_config.Column(width="small"),
-                        "단기매수신호": st.column_config.Column(width=60),
-                        "중기매수신호": st.column_config.Column(width=60),
-                        "단기신호": st.column_config.Column(width=60),
-                        "중기신호": st.column_config.Column(width=60),
-                        "OBV 상승 크로스": st.column_config.Column(width=40),
-                        "거래대금 급증(20일평균2배)": st.column_config.Column(width=40),
-                        "돌파(20일 고가 or MA20 상향)": st.column_config.Column(width=40),
-                        "RSI 상승": st.column_config.Column(width=40),
-                        "OBV 우상향/크로스": st.column_config.Column(width=40),
-                        "50MA > 200MA": st.column_config.Column(width=40),
-                        "거래대금(20평균이상)": st.column_config.Column(width=40),
-                        "RSI 과열(70 이상)": st.column_config.Column(width=40),
-                        "RSI 하강 지속": st.column_config.Column(width=40),
-                        "OBV 하락 크로스": st.column_config.Column(width=40),
-                        "외국인 순매수(리버스)": st.column_config.Column(width=40),
-                        "기관 순매수(리버스)": st.column_config.Column(width=40),
-                        "캔들(리버스)": st.column_config.Column(width=40),
-                        "섹터(리버스)": st.column_config.Column(width=40),
-                        "외국인 순매수": st.column_config.Column(width=40),
-                        "기관 순매수": st.column_config.Column(width=40),
-                        "캔들": st.column_config.Column(width=40),
-                        "섹터": st.column_config.Column(width=40),
-                        "업데이트": st.column_config.Column(width=60),
-                        "타입": st.column_config.Column(width=50),
-                        "최신종가": st.column_config.Column(width=60),
-                        "최신업데이트": st.column_config.Column(width=60),
-                        "변동율%": st.column_config.Column(width=40),
-                        "매도신호": st.column_config.Column(width=60),
-                    }
-                )
-
-                if us_total_pages > 1:
-                    col_prev, col_page_info, col_next = st.columns([0.4, 3, 0.4])
-                    with col_prev:
-                        if st.button("◀ 이전", key=f"us_prev_{period}", disabled=st.session_state.us_page == 0, width='stretch'):
-                            st.session_state.us_page -= 1
-                            st.rerun()
-                    with col_page_info:
-                        st.markdown(
-                            f"<div style='text-align: center; padding: 8px; font-weight: 600;'>"
-                            f"{st.session_state.us_page + 1} / {us_total_pages} "
-                            f"({start_idx + 1}-{end_idx} / {us_total})"
-                            f"</div>",
-                            unsafe_allow_html=True
-                        )
-                    with col_next:
-                        if st.button("다음 ▶", key=f"us_next_{period}", disabled=st.session_state.us_page >= us_total_pages - 1, width='stretch'):
-                            st.session_state.us_page += 1
-                            st.rerun()
-
-                if event_us.selection.rows:
-                    selected_idx = event_us.selection.rows[0]
-                    actual_idx = start_idx + selected_idx
-                    new_symbol = df_us_filtered.iloc[actual_idx]['종목코드']
-                    if new_symbol != st.session_state.selected_symbol or st.session_state.selected_market != 'US':
-                        st.session_state.selected_symbol = new_symbol
-                        st.session_state.selected_market = 'US'
-                        st.rerun()
-
-            if df_kr_filtered.empty and df_us_filtered.empty:
+            if df_kr_filtered.empty:
                 st.info("조건에 맞는 종목이 없습니다.")
     else:
         st.info("조건에 맞는 종목이 없습니다.")
@@ -3324,21 +2818,14 @@ with col_right:
                             st.metric("MA20 / MA200", f"{ind_data['ma20_latest']:.2f} / {ind_data['ma200_latest']:.2f}")
 
                 with kpi_col2:
-                    if market == 'KR':
-                        if all(k in row for k in ['20일평균거래대금 (KRW 억원)', '오늘거래대금 (KRW 억원)', '회전율 (%)']):
-                            avg_val = f"{row['20일평균거래대금 (KRW 억원)']:,.0f}억원"
-                            today_val = f"{row['오늘거래대금 (KRW 억원)']:,.0f}억원"
-                            turnover_val = f"{row['회전율 (%)']:.2f}%"
-                            st.metric(
-                                "20일평균 / 오늘 / 회전율",
-                                f"{avg_val} / {today_val} / {turnover_val}"
-                            )
-                    else:
-                        if all(k in row for k in ['20일평균거래대금 (USD M)', '오늘거래대금 (USD M)', '회전율 (%)']):
-                            st.metric(
-                                "20일평균 / 오늘 / 회전율",
-                                f"${row['20일평균거래대금 (USD M)']:,.2f}M / ${row['오늘거래대금 (USD M)']:,.2f}M / {row['회전율 (%)']:.2f}%"
-                            )
+                    if all(k in row for k in ['20일평균거래대금 (KRW 억원)', '오늘거래대금 (KRW 억원)', '회전율 (%)']):
+                        avg_val = f"{row['20일평균거래대금 (KRW 억원)']:,.0f}억원"
+                        today_val = f"{row['오늘거래대금 (KRW 억원)']:,.0f}억원"
+                        turnover_val = f"{row['회전율 (%)']:.2f}%"
+                        st.metric(
+                            "20일평균 / 오늘 / 회전율",
+                            f"{avg_val} / {today_val} / {turnover_val}"
+                        )
 
                     if '캔들(상단)' in row and '캔들(하단)' in row:
                         upper = int(row['캔들(상단)'])
