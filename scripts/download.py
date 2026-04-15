@@ -2,13 +2,17 @@ import warnings
 warnings.filterwarnings('ignore', category=UserWarning, module='openpyxl')
 import pandas as pd
 import json
+import os
+
+DATA_DIR = os.getenv('DATA_DIR', './data')
+data_dir = DATA_DIR
 
 # 경로 설정
-per_eps_path = r'C:\Users\ws\Desktop\Python\Project_Hermes5\data\per_eps_top_1000.csv'
-foreign_institutional_path = r'C:\Users\ws\Desktop\Python\Project_Hermes5\data\foreign_institutional_net_buy_daily_top_1000.csv'
-sector_path = r'C:\Users\ws\Desktop\Python\Project_Hermes5\data\kr_stock_sectors.csv'
-sector_trend_path = r'C:\Users\ws\Desktop\Python\Project_Hermes5\data\sector_etf_trends.csv'
-json_path = r'C:\Users\ws\Desktop\Python\Project_Hermes5\data\meta\tickers_meta.json'
+per_eps_path = os.path.join(data_dir, 'per_eps_all.csv')
+foreign_institutional_path = os.path.join(data_dir, 'foreign_institutional_net_buy_daily_all.csv')
+sector_path = os.path.join(data_dir, 'kr_stock_sectors.csv')
+sector_trend_path = os.path.join(data_dir, 'sector_etf_trends.csv')
+json_path = os.path.join(data_dir, 'meta', 'tickers_meta.json')
 
 # ============================================
 # 1. CSV 로드
@@ -89,53 +93,79 @@ print("\n📝 메타 데이터 업데이트 중...")
 with open(json_path, 'r', encoding='utf-8') as f:
     meta = json.load(f)
 
-kr_updated = 0
+kospi_updated = 0
+kosdaq_updated = 0
+
+def update_market_meta(market_dict, market_name):
+    """KOSPI 또는 KOSDAQ 메타 딕셔너리 업데이트"""
+    updated = 0
+    for code, info in market_dict.items():
+        meta_name = info.get("name", "").strip()
+
+        # PER/EPS/기관외국인보유율 업데이트
+        if meta_name in per_eps_dict:
+            data = per_eps_dict[meta_name]
+            if data['per'] is not None:
+                try:
+                    info['per'] = float(data['per'])
+                except:
+                    pass
+            if data['eps'] is not None:
+                try:
+                    info['eps'] = float(data['eps'])
+                except:
+                    pass
+            if data['ownership_foreign_institution'] is not None:
+                try:
+                    info['ownership_foreign_institution'] = float(data['ownership_foreign_institution'])
+                except:
+                    pass
+            updated += 1
+
+        # 섹터 업데이트
+        if meta_name in sector_dict:
+            info['sector'] = sector_dict[meta_name]
+
+        # 외국인/기관 순매수 업데이트
+        if meta_name in foreign_inst_dict:
+            data = foreign_inst_dict[meta_name]
+            info['foreign_net_buy'] = data['foreign_net_buy']
+            info['institutional_net_buy'] = data['institutional_net_buy']
+        else:
+            info['foreign_net_buy'] = [0, 0, 0, 0, 0]
+            info['institutional_net_buy'] = [0, 0, 0, 0, 0]
+
+        # 섹터 트렌드 추가
+        sector_val = info.get('sector', 'N/A')
+        if sector_val not in ('N/A', 'ETF') and (sector_val, 'KR') in sector_trend_dict:
+            info['sector_trend'] = sector_trend_dict[(sector_val, 'KR')]
+        else:
+            info['sector_trend'] = 'N/A'
+
+    return updated
 
 # ============================================
-# 4-1. KR 종목 업데이트
+# 4-1. KOSPI 종목 업데이트
 # ============================================
-for code, info in meta.get("KR", {}).items():
-    meta_name = info.get("name", "").strip()
+if 'KOSPI' in meta:
+    kospi_updated = update_market_meta(meta['KOSPI'], 'KOSPI')
+    print(f"  KOSPI: {kospi_updated}개 업데이트")
+else:
+    print("⚠️ 메타에 KOSPI 키 없음 (스킵)")
 
-    # PER/EPS/기관외국인보유율 업데이트
-    if meta_name in per_eps_dict:
-        data = per_eps_dict[meta_name]
-        if data['per'] is not None:
-            try:
-                info['per'] = float(data['per'])
-            except:
-                pass
-        if data['eps'] is not None:
-            try:
-                info['eps'] = float(data['eps'])
-            except:
-                pass
-        if data['ownership_foreign_institution'] is not None:
-            try:
-                info['ownership_foreign_institution'] = float(data['ownership_foreign_institution'])
-            except:
-                pass
-        kr_updated += 1
+# ============================================
+# 4-2. KOSDAQ 종목 업데이트
+# ============================================
+if 'KOSDAQ' in meta:
+    kosdaq_updated = update_market_meta(meta['KOSDAQ'], 'KOSDAQ')
+    print(f"  KOSDAQ: {kosdaq_updated}개 업데이트")
+else:
+    print("⚠️ 메타에 KOSDAQ 키 없음 (스킵)")
 
-    # 섹터 업데이트
-    if meta_name in sector_dict:
-        info['sector'] = sector_dict[meta_name]
-
-    # 외국인/기관 순매수 업데이트
-    if meta_name in foreign_inst_dict:
-        data = foreign_inst_dict[meta_name]
-        info['foreign_net_buy'] = data['foreign_net_buy']
-        info['institutional_net_buy'] = data['institutional_net_buy']
-    else:
-        info['foreign_net_buy'] = [0, 0, 0, 0, 0]
-        info['institutional_net_buy'] = [0, 0, 0, 0, 0]
-
-    # 섹터 트렌드 추가
-    sector_val = info.get('sector', 'N/A')
-    if sector_val != 'N/A' and (sector_val, 'KR') in sector_trend_dict:
-        info['sector_trend'] = sector_trend_dict[(sector_val, 'KR')]
-    else:
-        info['sector_trend'] = 'N/A'
+# 기존 KR 키 호환 처리 (구버전 메타 파일 대응)
+if 'KR' in meta:
+    kr_updated = update_market_meta(meta['KR'], 'KR')
+    print(f"  KR (구버전 호환): {kr_updated}개 업데이트")
 
 # ============================================
 # 5. JSON 저장
@@ -149,7 +179,9 @@ with open(json_path, 'w', encoding='utf-8') as f:
 print("\n" + "="*60)
 print("✅ 메타 데이터 업데이트 완료!")
 print("="*60)
-print(f"\n📌 KR 종목 ({kr_updated}개 업데이트)")
+print(f"\n📌 KOSPI 종목 ({kospi_updated}개 업데이트)")
+print(f"📌 KOSDAQ 종목 ({kosdaq_updated}개 업데이트)")
+print(f"📌 전체 ({kospi_updated + kosdaq_updated}개 업데이트)")
 print("  - PER, EPS, 기관+외국인 보유율")
 print("  - Sector")
 print("  - 외국인 순매수 (5일치)")

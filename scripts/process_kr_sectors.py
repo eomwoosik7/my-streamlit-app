@@ -1,8 +1,10 @@
 import pandas as pd
 import os
 
+DATA_DIR = os.getenv('DATA_DIR', './data')
+data_dir = DATA_DIR
+
 # 파일 경로
-data_dir = r"C:\Users\ws\Desktop\Python\Project_Hermes5\data"
 file_path = os.path.join(data_dir, 'kr_stock_sectors.csv')
 
 # CSV 로드
@@ -13,9 +15,11 @@ df['업종'] = df['업종'].fillna('N/A')
 
 print(f"총 {len(df)}개 종목")
 print(f"업종 N/A: {len(df[df['업종'] == 'N/A'])}개")
+print(f"업종 ETF: {len(df[df['업종'] == 'ETF'])}개")
 
 # ============================================
 # 1. N/A 종목 중 리츠/인프라 처리
+#    (ETF는 건드리지 않음)
 # ============================================
 print("\n[리츠/인프라 종목 처리]")
 rits_infra = df[df['회사명'].str.contains('리츠|인프라', na=False)]
@@ -24,31 +28,35 @@ for idx, row in rits_infra.iterrows():
     print(f"  {row['회사명']:30s} 업종: {row['업종']}")
 
 def classify_na_sector(row):
-    """N/A 종목의 업종 분류"""
+    """N/A 종목의 업종 분류 (ETF는 그대로 유지)"""
+    # ETF는 건드리지 않음
+    if row['업종'] == 'ETF':
+        return 'ETF'
+
     if row['업종'] != 'N/A':
         return row['업종']
-    
+
     name = row['회사명']
-    
+
     # 리츠와 인프라 둘 다 포함 → 마지막 단어 기준
     if '리츠' in name and '인프라' in name:
         if name.endswith('리츠'):
             return '부동산'
         elif name.endswith('인프라'):
             return '금융'
-    
+
     # 리츠만 포함
     if '리츠' in name:
         return '부동산'
-    
+
     # 인프라만 포함
     if '인프라' in name:
         return '금융'
-    
+
     # 맵스리얼티 (부동산)
     if '리얼티' in name or '맵스리얼티' in name:
         return '부동산'
-    
+
     return 'N/A'
 
 df['업종'] = df.apply(classify_na_sector, axis=1)
@@ -144,17 +152,20 @@ sectors = {
 
 def map_sector(upjong):
     """업종 → Sector 매핑"""
-    # NaN 또는 'N/A' 체크
     if pd.isna(upjong) or upjong == 'N/A' or str(upjong).strip() == '':
         return 'N/A'
-    
+
+    # ETF는 그대로 ETF로 유지
+    if upjong == 'ETF':
+        return 'ETF'
+
     upjong_str = str(upjong).lower()
-    
+
     for sector, keywords in sectors.items():
         for keyword in keywords:
             if keyword.lower() in upjong_str:
                 return sector
-    
+
     return 'Other'
 
 df['Sector'] = df['업종'].apply(map_sector)
@@ -184,7 +195,8 @@ for sector, count in sector_counts.items():
     print(f"{sector:30s} {count:4d}개 ({percentage:5.1f}%)")
 
 print(f"\n총 {len(df)}개 종목")
-print(f"매핑 성공: {len(df[df['Sector'] != 'N/A'])}개")
+print(f"ETF: {len(df[df['Sector'] == 'ETF'])}개")
+print(f"매핑 성공: {len(df[~df['Sector'].isin(['N/A', 'ETF', 'Other'])])}개")
 print(f"매핑 실패 (N/A): {len(df[df['Sector'] == 'N/A'])}개")
 print(f"기타 (Other): {len(df[df['Sector'] == 'Other'])}개")
 

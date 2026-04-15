@@ -1,18 +1,31 @@
 ﻿회사명,종목코드,업종,Sector
+동화약품,000020,제약,Health Care
+KR모터스,000040,자동차,Consumer Discretionary
 경방,000050,"섬유,의류,신발,호화품",Consumer Discretionary
 삼양홀딩스,000070,화학,Materials
 하이트진로,000080,음료,Consumer Staples
+하이트진로2우B,000087,음료,Consumer Staples
 유한양행,000100,제약,Health Care
+유한양행우,000105,제약,Health Care
 CJ대한통운,000120,항공화물운송과물류,Industrials
 하이트진로홀딩스,000140,음료,Consumer Staples
+하이트진로홀딩스우,000145,음료,Consumer Staples
 두산,000150,복합기업,Industrials
 두산우,000155,복합기업,Industrials
 두산2우B,000157,복합기업,Industrials
+성창기업지주,000180,종이와목재,Materials
 DL,000210,화학,Materials
+DL우,000215,화학,Materials
+유유제약,000220,제약,Health Care
+유유제약1우,000225,제약,Health Care
+유유제약2우B,000227,제약,Health Care
+일동홀딩스,000230,제약,Health Care
 한국앤컴퍼니,000240,자동차부품,Consumer Discretionary
 삼천당제약,000250,제약,Health Care
 기아,000270,자동차,Consumer Discretionary
+DH오토넥스,000300,자동차부품,Consumer Discretionary
 노루홀딩스,000320,건축자재,Industrials
+노루홀딩스우,000325,건축자재,Industrials
 한화손해보험,000370,손해보험,Financials
 삼화페인트,000390,건축자재,Industrials
 롯데손해보험,000400,손해보험,Financials
@@ -21,76 +34,149 @@ DL,000210,화학,Materials
 CR홀딩스,000480,비철금속,Materials
 대동,000490,기계,Industrials
 가온전선,000500,전기장비,Utilities
-,000520,제약,Health Care
+삼일제약,000520,제약,Health Care
 흥국화재,000540,손해보험,Financials
+흥국화재우,000545,손해보험,Financials
+CS홀딩스,000590,철강,Materials
 동아쏘시오홀딩스,000640,제약,Health Care
 천일고속,000650,도로와철도운송,Industrials
 SK하이닉스,000660,반도체와반도체장비,Information Technology
 영풍,000670,핸드셋,Information Technology
 LS네트웍스,000680,증권,Financials
+유수홀딩스,000700,항공화물운송과물류,Industrials
 현대건설,000720,건설,Industrials
+현대건설우,000725,건설,Industrials
+이화산업,000760,화학,Materials
 아크릴,0007C0,IT서비스,Information Technology
 삼성화재,000810,손해보험,Financials
 삼성화재우,000815,손해보험,Financials
+화천기공,000850,기계,Industrials
 강남제비스코,000860,건축자재,Industrials
 한화,000880,복합기업,Industrials
-,00088K,복합기업,Industrials
+한화3우B,00088K,복합기업,Industrials
+보해양조,000890,음료,Consumer Staples
 에스엔시스,0008Z0,조선,Industrials
+유니온,000910,건축자재,Industrials
+전방,000950,"섬유,의류,신발,호화품",Consumer Discretionary
+한국주철관,000970,철강,Materials
 DB하이텍,000990,반도체와반도체장비,Information Technology
 에임드바이오,0009K0,생물공학,Health Care
+신라섬유,001000,부동산,Financials
+페이퍼코리아,001020,종이와목재,Materials
 CJ,001040,복합기업,Industrials
-,001045,복합기업,Industrials
-,00104K,복합기업,Industrials
+CJ우,001045,복합기업,Industrials
+CJ4우(전환),00104K,복합기업,Industrials
 JW중외제약,001060,제약,Health Care
+JW중외제약우,001065,제약,Health Care
+JW중외제약2우B,001067,제약,Health Care
+대한방직,001070,"섬유,의류,신발,호화품",Consumer Discretionary
 만호제강,001080,철강,Materials
 LX인터내셔널,001120,무역회사와판매업체,Consumer Discretionary
 대한제분,001130,식품,Consumer Staples
 유진투자증권,001200,증권,Financials
+금호전기,001210,디스플레이장비및부품,Information Technology
 동국홀딩스,001230,철강,Materials
 GS글로벌,001250,무역회사와판매업체,Consumer Discretionary
+남광토건,001260,건설,Industrials
 부국증권,001270,증권,Financials
+부국증권우,001275,증권,Financials
+상상인증권,001290,증권,Financials
 PKC,001340,화학,Materials
+삼성제약,001360,제약,Health Care
+SG글로벌,001380,자동차부품,Consumer Discretionary
 KG케미칼,001390,자동차,Consumer Discretionary
+태원물산,001420,자동차부품,Consumer Discretionary
 세아베스틸지주,001430,철강,Materials
 대한전선,001440,전기장비,Utilities
 현대해상,001450,손해보험,Financials
 BYC,001460,"섬유,의류,신발,호화품",Consumer Discretionary
+BYC우,001465,"섬유,의류,신발,호화품",Consumer Discretionary
+삼부토건,001470,건설,Industrials
 현대차증권,001500,증권,Financials
 SK증권,001510,증권,Financials
+SK증권우,001515,증권,Financials
 동양,001520,건축자재,Industrials
 DI동일,001530,"섬유,의류,신발,호화품",Consumer Discretionary
+안국약품,001540,제약,Health Care
+조비,001550,화학,Materials
+제일연마,001560,비철금속,Materials
 금양,001570,화학,Materials
 그린광학,0015G0,우주항공과국방,Industrials
+케이비아이동국실업,001620,자동차부품,Consumer Discretionary
 종근당홀딩스,001630,제약,Health Care
 대상,001680,식품,Consumer Staples
+대상우,001685,식품,Consumer Staples
 신영증권,001720,증권,Financials
 SK네트웍스,001740,복합기업,Industrials
 한양증권,001750,증권,Financials
+한양증권우,001755,증권,Financials
+SHD,001770,철강,Materials
 알루코,001780,비철금속,Materials
 대한제당,001790,식품,Consumer Staples
+대한제당우,001795,식품,Consumer Staples
 오리온홀딩스,001800,식품,Consumer Staples
+무림SP,001810,종이와목재,Materials
 삼화콘덴서,001820,전기제품,Utilities
+이화공영,001840,건설,Industrials
 KISCO홀딩스,001940,철강,Materials
 코오롱,002020,복합기업,Industrials
+코오롱우,002025,복합기업,Industrials
 아세아,002030,건축자재,Industrials
+비비안,002070,"섬유,의류,신발,호화품",Consumer Discretionary
+경농,002100,화학,Materials
+고려산업,002140,식품,Consumer Staples
 도화엔지니어링,002150,건설,Industrials
+삼양통상,002170,"섬유,의류,신발,호화품",Consumer Discretionary
+한국수출포장,002200,포장재,Materials
+동성제약,002210,제약,Health Care
+한일철강,002220,철강,Materials
 피에스텍,002230,전기제품,Utilities
 고려제강,002240,철강,Materials
+삼일기업공사,002290,건설,Industrials
 아세아제지,002310,포장재,Materials
 한진,002320,항공화물운송과물류,Industrials
 넥센타이어,002350,자동차부품,Consumer Discretionary
+넥센타이어1우B,002355,자동차부품,Consumer Discretionary
+SH에너지화학,002360,화학,Materials
 KCC,002380,건축자재,Industrials
+한독,002390,제약,Health Care
+범양건영,002410,건설,Industrials
+세기상사,002420,전문소매,Other
+삼익악기,002450,레저용장비와제품,Consumer Discretionary
+HS화성,002460,건설,Industrials
+조흥,002600,식품,Consumer Staples
+제일파마홀딩스,002620,제약,Health Care
+오리엔트바이오,002630,생물공학,Health Care
+한탑,002680,식품,Consumer Staples
+동일제강,002690,철강,Materials
+신일전자,002700,가정용기기와용품,Consumer Discretionary
 TCC스틸,002710,철강,Materials
+국제약품,002720,제약,Health Care
+보락,002760,식품,Consumer Staples
+진흥기업,002780,건설,Industrials
 아모레퍼시픽홀딩스,002790,화장품,Consumer Discretionary
+아모레퍼시픽홀딩스우,002795,화장품,Consumer Discretionary
+신신제약,002800,제약,Health Care
 삼영무역,002810,화학,Materials
+SUN&L,002820,종이와목재,Materials
 미원상사,002840,화학,Materials
+신풍,002870,포장재,Materials
+디와이에이,002880,자동차부품,Consumer Discretionary
 TYM,002900,기계,Industrials
+유성기업,002920,자동차부품,Consumer Discretionary
 한국쉘석유,002960,화학,Materials
+금호건설,002990,건설,Industrials
+금호건설우,002995,건설,Industrials
 부광약품,003000,제약,Health Care
+혜인,003010,기계,Industrials
 세아제강지주,003030,철강,Materials
+에이프로젠바이오로직스,003060,제약,Health Care
 코오롱글로벌,003070,건설,Industrials
+코오롱글로벌우,003075,건설,Industrials
+SB성보,003080,화학,Materials
 대웅,003090,제약,Health Care
 대신밸류리츠,0030R0,부동산,Financials
+선광,003100,운송인프라,Industrials
 일성아이에스,003120,제약,Health Care
 디아이,003160,반도체와반도체장비,Information Technology
 일신방직,003200,"섬유,의류,신발,호화품",Consumer Discretionary
@@ -99,184 +185,400 @@ TYM,002900,기계,Industrials
 태광산업,003240,화학,Materials
 흥아해운,003280,해운사,Industrials
 한일홀딩스,003300,건축자재,Industrials
+대주산업,003310,식품,Consumer Staples
 한국화장품제조,003350,화장품,Consumer Discretionary
 하림지주,003380,식품,Consumer Staples
 유화증권,003460,증권,Financials
+유화증권우,003465,증권,Financials
 유안타증권,003470,증권,Financials
+유안타증권우,003475,증권,Financials
+한진중공업홀딩스,003480,가스유틸리티,Energy
 대한항공,003490,항공사,Industrials
+대한항공우,003495,항공사,Industrials
 영진약품,003520,제약,Health Care
 한화투자증권,003530,증권,Financials
+한화투자증권우,003535,증권,Financials
 대신증권,003540,증권,Financials
 대신증권우,003545,증권,Financials
 대신증권2우B,003547,증권,Financials
 LG,003550,복합기업,Industrials
-,003555,복합기업,Industrials
+LG우,003555,복합기업,Industrials
 SNT다이내믹스,003570,자동차부품,Consumer Discretionary
-,003610,"섬유,의류,신발,호화품",Consumer Discretionary
+HLB글로벌,003580,판매업체,Consumer Discretionary
+방림,003610,"섬유,의류,신발,호화품",Consumer Discretionary
 KG모빌리티,003620,자동차,Consumer Discretionary
 미창석유,003650,화학,Materials
 포스코퓨처엠,003670,화학,Materials
+한성기업,003680,식품,Consumer Staples
 코리안리,003690,손해보험,Financials
 삼영,003720,화학,Materials
+진양산업,003780,화학,Materials
 에이스침대,003800,가구,Consumer Discretionary
+대한화섬,003830,화학,Materials
 보령,003850,제약,Health Care
 남양유업,003920,식품,Consumer Staples
+남양유업우,003925,식품,Consumer Staples
 사조대림,003960,식품,Consumer Staples
 롯데정밀화학,004000,화학,Materials
 현대제철,004020,철강,Materials
+SG세계물산,004060,"섬유,의류,신발,호화품",Consumer Discretionary
+신흥,004080,건강관리장비와용품,Health Care
 한국석유,004090,화학,Materials
+태양금속,004100,자동차부품,Consumer Discretionary
+태양금속우,004105,자동차부품,Consumer Discretionary
+동방,004140,항공화물운송과물류,Industrials
+한솔홀딩스,004150,복합기업,Industrials
 신세계,004170,백화점과일반상점,Consumer Discretionary
+NPC,004250,포장재,Materials
+NPC우,004255,포장재,Materials
+남성,004270,전자장비와기기,Information Technology
 현대약품,004310,제약,Health Care
 세방,004360,항공화물운송과물류,Industrials
+세방우,004365,항공화물운송과물류,Industrials
 농심,004370,식품,Consumer Staples
 삼익THK,004380,기계,Industrials
+서울식품,004410,식품,Consumer Staples
 송원산업,004430,화학,Materials
+삼일씨엔에스,004440,건축자재,Industrials
+삼화왕관,004450,포장재,Materials
 세방전지,004490,자동차부품,Consumer Discretionary
+깨끗한나라,004540,종이와목재,Materials
+깨끗한나라우,004545,종이와목재,Materials
 현대비앤지스틸,004560,비철금속,Materials
+한국가구,004590,식품과기본식료품소매,Consumer Staples
+창해에탄올,004650,음료,Consumer Staples
 삼천리,004690,가스유틸리티,Energy
 조광피혁,004700,"섬유,의류,신발,호화품",Consumer Discretionary
 한솔테크닉스,004710,전자장비와기기,Information Technology
+팜젠사이언스,004720,제약,Health Care
+써니전자,004770,전자장비와기기,Information Technology
+대륙제관,004780,포장재,Materials
 효성,004800,복합기업,Industrials
+덕성,004830,"섬유,의류,신발,호화품",Consumer Discretionary
+덕성우,004835,"섬유,의류,신발,호화품",Consumer Discretionary
+DRB동일,004840,화학,Materials
+티웨이홀딩스,004870,건축자재,Industrials
+동일산업,004890,철강,Materials
+조광페인트,004910,건축자재,Industrials
+씨아이테크,004920,컴퓨터와주변기기,Information Technology
+한신공영,004960,건설,Industrials
+신라교역,004970,식품,Consumer Staples
 성신양회,004980,건축자재,Industrials
+성신양회우,004985,건축자재,Industrials
 롯데지주,004990,복합기업,Industrials
 휴스틸,005010,철강,Materials
+부산주공,005030,자동차부품,Consumer Discretionary
 코스모신소재,005070,화학,Materials
 SGC에너지,005090,에너지장비및서비스,Energy
+한창,005110,부동산,Financials
+동국산업,005160,철강,Materials
 빙그레,005180,식품,Consumer Staples
 녹십자홀딩스,005250,제약,Health Care
+녹십자홀딩스2우,005257,제약,Health Care
 동진쎄미켐,005290,반도체와반도체장비,Information Technology
 롯데칠성,005300,음료,Consumer Staples
+롯데칠성우,005305,음료,Consumer Staples
+온타이드,005320,"섬유,의류,신발,호화품",Consumer Discretionary
+모나미,005360,문구류,Other
 현대차,005380,자동차,Consumer Discretionary
 현대차우,005385,자동차,Consumer Discretionary
 현대차2우B,005387,자동차,Consumer Discretionary
 현대차3우B,005389,자동차,Consumer Discretionary
 코스모화학,005420,화학,Materials
-,005430,운송인프라,Industrials
+한국공항,005430,운송인프라,Industrials
 현대지에프홀딩스,005440,복합기업,Industrials
 POSCO홀딩스,005490,철강,Materials
 삼진제약,005500,제약,Health Care
 SPC삼립,005610,식품,Consumer Staples
+푸드웰,005670,식품,Consumer Staples
 삼영전자,005680,전기제품,Utilities
 파미셀,005690,화학,Materials
 대원산업,005710,자동차부품,Consumer Discretionary
 넥센,005720,자동차부품,Consumer Discretionary
+넥센우,005725,자동차부품,Consumer Discretionary
+크라운해태홀딩스,005740,식품,Consumer Staples
+크라운해태홀딩스우,005745,식품,Consumer Staples
+대림바스,005750,건축제품,Materials
+신영와코루,005800,"섬유,의류,신발,호화품",Consumer Discretionary
 풍산홀딩스,005810,비철금속,Materials
+원림,005820,포장재,Materials
 DB손해보험,005830,손해보험,Financials
 에스엘,005850,자동차부품,Consumer Discretionary
+한일사료,005860,식품,Consumer Staples
+휴니드,005870,우주항공과국방,Industrials
 대한해운,005880,해운사,Industrials
 삼성전자,005930,반도체와반도체장비,Information Technology
 삼성전자우,005935,반도체와반도체장비,Information Technology
 NH투자증권,005940,증권,Financials
 NH투자증권우,005945,증권,Financials
-,005950,화학,Materials
+이수화학,005950,화학,Materials
 동부건설,005960,건설,Industrials
+동부건설우,005965,건설,Industrials
+매일홀딩스,005990,식품,Consumer Staples
 동원산업,006040,식품,Consumer Staples
+국영지앤엠,006050,건축제품,Materials
+화승인더,006060,"섬유,의류,신발,호화품",Consumer Discretionary
+사조오양,006090,식품,Consumer Staples
 삼아알미늄,006110,비철금속,Materials
 SK디스커버리,006120,석유와가스,Energy
+SK디스커버리우,006125,석유와가스,Energy
+피제이전자,006140,건강관리장비와용품,Health Care
+한국전자홀딩스,006200,반도체와반도체장비,Information Technology
 제주은행,006220,은행,Financials
 LS,006260,전기장비,Utilities
 녹십자,006280,제약,Health Care
 대원전선,006340,전기장비,Utilities
+대원전선우,006345,전기장비,Utilities
 GS건설,006360,건설,Industrials
+대구백화점,006370,백화점과일반상점,Consumer Discretionary
 카프로,006380,화학,Materials
 삼성SDI,006400,전기제품,Utilities
 삼성SDI우,006405,전기제품,Utilities
+인스코비,006490,무선통신서비스,Communication Services
+대림통상,006570,건축제품,Materials
+동구바이오제약,006620,제약,Health Care
 대한유화,006650,화학,Materials
+삼성공조,006660,자동차부품,Consumer Discretionary
 서부T&D,006730,"호텔,레스토랑,레저",Consumer Discretionary
+블루산업개발,006740,종이와목재,Materials
 미래에셋증권,006800,증권,Financials
 미래에셋증권우,006805,증권,Financials
 미래에셋증권2우B,00680K,증권,Financials
+AK홀딩스,006840,화학,Materials
+신송홀딩스,006880,식품과기본식료품소매,Consumer Staples
+태경케미컬,006890,화학,Materials
 보성파워텍,006910,전기장비,Utilities
+모헨즈,006920,건축자재,Industrials
+우성,006980,식품,Consumer Staples
 GS리테일,007070,백화점과일반상점,Consumer Discretionary
+일신석재,007110,건축자재,Industrials
+미래아이앤지,007120,IT서비스,Information Technology
 사조산업,007160,식품,Consumer Staples
+벽산,007210,건축자재,Industrials
+한국특강,007280,철강,Materials
 오뚜기,007310,식품,Consumer Staples
+푸른저축은행,007330,기타금융,Financials
 DN오토모티브,007340,자동차부품,Consumer Discretionary
+진양제약,007370,제약,Health Care
 네이처셀,007390,생물공학,Health Care
-,007460,제약,Health Care
+에이프로젠,007460,제약,Health Care
+와이엠,007530,자동차부품,Consumer Discretionary
+샘표,007540,식품,Consumer Staples
 일양약품,007570,제약,Health Care
+일양약품우,007575,제약,Health Care
+동방아그로,007590,화학,Materials
+선도전기,007610,전기장비,Utilities
 이수페타시스,007660,전자장비와기기,Information Technology
+대원,007680,건설,Industrials
 국도화학,007690,화학,Materials
 F&F홀딩스,007700,"섬유,의류,신발,호화품",Consumer Discretionary
+소노스퀘어,007720,판매업체,Consumer Discretionary
+한일화학,007770,화학,Materials
 코리아써키트,007810,전자장비와기기,Information Technology
+코리아써우,007815,전자장비와기기,Information Technology
+에스엠코어,007820,기계,Industrials
 서연,007860,자동차부품,Consumer Discretionary
+TP,007980,"섬유,의류,신발,호화품",Consumer Discretionary
+사조동아원,008040,식품,Consumer Staples
 대덕,008060,전자장비와기기,Information Technology
+이건산업,008250,건축자재,Industrials
+NI스틸,008260,건축자재,Industrials
+원풍물산,008290,"섬유,의류,신발,호화품",Consumer Discretionary
 남선알미늄,008350,비철금속,Materials
+남선알미우,008355,비철금속,Materials
+원풍,008370,화학,Materials
+문배철강,008420,철강,Materials
+부스타,008470,기계,Industrials
 서흥,008490,제약,Health Care
+일정실업,008500,자동차부품,Consumer Discretionary
+윌비스,008600,"섬유,의류,신발,호화품",Consumer Discretionary
+아남전자,008700,전자제품,Information Technology
 율촌화학,008730,포장재,Materials
 호텔신라,008770,백화점과일반상점,Consumer Discretionary
+호텔신라우,008775,백화점과일반상점,Consumer Discretionary
+대동기어,008830,기계,Industrials
+금비,008870,포장재,Materials
 한미사이언스,008930,제약,Health Care
-,008970,철강,Materials
+KBI동양철관,008970,철강,Materials
 KCTC,009070,항공화물운송과물류,Industrials
+경인전자,009140,전자제품,Information Technology
 삼성전기,009150,전자장비와기기,Information Technology
 삼성전기우,009155,전자장비와기기,Information Technology
 SIMPAC,009160,비철금속,Materials
+한솔로지스틱스,009180,항공화물운송과물류,Industrials
+대양금속,009190,철강,Materials
+무림페이퍼,009200,종이와목재,Materials
 한샘,009240,가구,Consumer Discretionary
+신원,009270,"섬유,의류,신발,호화품",Consumer Discretionary
 광동제약,009290,제약,Health Care
+삼아제약,009300,제약,Health Care
+참엔지니어링,009310,디스플레이장비및부품,Information Technology
+아진전자부품,009320,자동차부품,Consumer Discretionary
 태영건설,009410,건설,Industrials
+태영건설우,009415,건설,Industrials
 한올바이오파마,009420,제약,Health Care
+KC그린홀딩스,009440,상업서비스와공급품,Industrials
 경동나비엔,009450,가정용기기와용품,Consumer Discretionary
+한창제지,009460,포장재,Materials
 삼화전기,009470,전기제품,Utilities
 포스코엠텍,009520,철강,Materials
 HD한국조선해양,009540,조선,Industrials
+무림P&P,009580,종이와목재,Materials
+삼보산업,009620,비철금속,Materials
 모토닉,009680,자동차부품,Consumer Discretionary
+이렘,009730,비철금속,Materials
+삼정펄프,009770,가정용품,Consumer Discretionary
+엠에스씨,009780,식품,Consumer Staples
+플레이그램,009810,판매업체,Consumer Discretionary
 한화솔루션,009830,에너지장비및서비스,Energy
+한화솔루션우,009835,에너지장비및서비스,Energy
 명신산업,009900,자동차부품,Consumer Discretionary
 영원무역홀딩스,009970,"섬유,의류,신발,호화품",Consumer Discretionary
+한국내화,010040,비철금속,Materials
 OCI홀딩스,010060,화학,Materials
+한국무브넥스,010100,자동차부품,Consumer Discretionary
 LS ELECTRIC,010120,전기장비,Utilities
 고려아연,010130,비철금속,Materials
 삼성중공업,010140,조선,Industrials
 대한광통신,010170,통신장비,Information Technology
+흥국,010240,기계,Industrials
+아이티센엔텍,010280,IT서비스,Information Technology
+우진아이엔에스,010400,건설,Industrials
+오리콤,010470,광고,Communication Services
 에스엠벡셀,010580,자동차부품,Consumer Discretionary
+진양폴리,010640,화학,Materials
+화천기계,010660,기계,Industrials
 화신,010690,자동차부품,Consumer Discretionary
+평화홀딩스,010770,자동차부품,Consumer Discretionary
 아이에스동서,010780,건설,Industrials
 퍼스텍,010820,우주항공과국방,Industrials
 S-Oil,010950,석유와가스,Energy
 S-Oil우,010955,석유와가스,Energy
+삼호개발,010960,건설,Industrials
+진원생명과학,011000,생물공학,Health Care
+경동제약,011040,제약,Health Care
 LG이노텍,011070,전자장비와기기,Information Technology
+형지I&C,011080,"섬유,의류,신발,호화품",Consumer Discretionary
+에넥스,011090,가구,Consumer Discretionary
+CJ씨푸드,011150,식품,Consumer Staples
 롯데케미칼,011170,화학,Materials
 HMM,011200,해운사,Industrials
 현대위아,011210,자동차부품,Consumer Discretionary
+삼화전자,011230,전자장비와기기,Information Technology
+태림포장,011280,포장재,Materials
+성안머티리얼스,011300,"섬유,의류,신발,호화품",Consumer Discretionary
+유니크,011320,자동차부품,Consumer Discretionary
+유니켐,011330,"섬유,의류,신발,호화품",Consumer Discretionary
+서한,011370,건설,Industrials
+부산산업,011390,건축자재,Industrials
+갤럭시아에스엠,011420,레저용장비와제품,Consumer Discretionary
 한농화성,011500,화학,Materials
+세보엠이씨,011560,건설,Industrials
 와이투솔루션,011690,전자장비와기기,Information Technology
+한신기계,011700,기계,Industrials
 현대코퍼레이션,011760,무역회사와판매업체,Consumer Discretionary
 금호석유화학,011780,화학,Materials
-,011785,화학,Materials
+금호석유화학우,011785,화학,Materials
 SKC,011790,화학,Materials
+STX,011810,무역회사와판매업체,Consumer Discretionary
 신성이엔지,011930,반도체와반도체장비,Information Technology
 DB,012030,IT서비스,Information Technology
 삼양바이오팜,0120G0,건강관리장비와용품,Health Care
-,012200,자동차부품,Consumer Discretionary
+영흥,012160,철강,Materials
+아센디오,012170,방송과엔터테인먼트,Consumer Discretionary
+계양전기,012200,자동차부품,Consumer Discretionary
+계양전기우,012205,자동차부품,Consumer Discretionary
 삼미금속,012210,기계,Industrials
+영화금속,012280,자동차부품,Consumer Discretionary
 경동인베스트,012320,비철금속,Materials
 현대모비스,012330,자동차부품,Consumer Discretionary
+뉴인텍,012340,전기제품,Utilities
 한화에어로스페이스,012450,우주항공과국방,Industrials
 더존비즈온,012510,소프트웨어,Information Technology
+경인양행,012610,화학,Materials
+원일특강,012620,철강,Materials
 HDC,012630,건설,Industrials
+모나리자,012690,가정용품,Consumer Discretionary
 삼성에피스홀딩스,0126Z0,제약,Health Care
+리드코프,012700,석유와가스,Energy
 에스원,012750,상업서비스와공급품,Industrials
+신일제약,012790,제약,Health Care
+대창,012800,비철금속,Materials
 모베이스전자,012860,자동차부품,Consumer Discretionary
+세우글로벌,013000,화학,Materials
 하이록코리아,013030,기계,Industrials
 동원개발,013120,건설,Industrials
+아진산업,013310,자동차부품,Consumer Discretionary
+일성건설,013360,건설,Industrials
+화승코퍼레이션,013520,자동차부품,Consumer Discretionary
+디와이,013570,자동차부품,Consumer Discretionary
 계룡건설,013580,건설,Industrials
+까뮤이앤씨,013700,건설,Industrials
+THE CUBE&,013720,자동차부품,Consumer Discretionary
+스페코,013810,건설,Industrials
+지엠비코리아,013870,자동차부품,Consumer Discretionary
 지누스,013890,가구,Consumer Discretionary
+아가방컴퍼니,013990,"섬유,의류,신발,호화품",Consumer Discretionary
+메디앙스,014100,화장품,Consumer Discretionary
+한익스프레스,014130,항공화물운송과물류,Industrials
+대영포장,014160,포장재,Materials
+원익큐브,014190,화학,Materials
+금강공업,014280,건축제품,Materials
+금강공업우,014285,건축제품,Materials
+영보화학,014440,화학,Materials
+부방,014470,가정용기기와용품,Consumer Discretionary
 극동유화,014530,석유와가스,Energy
+고려제약,014570,제약,Health Care
+태경비케이,014580,비철금속,Materials
 성광벤드,014620,기계,Industrials
 한솔케미칼,014680,화학,Materials
+사조씨푸드,014710,식품,Consumer Staples
+HL D&I,014790,건설,Industrials
 동원시스템즈,014820,포장재,Materials
+동원시스템즈우,014825,포장재,Materials
 유니드,014830,화학,Materials
+성문전자,014910,전기제품,Utilities
 오리엔탈정공,014940,조선,Industrials
+삼익제약,014950,제약,Health Care
+삼륭물산,014970,포장재,Materials
+인디에프,014990,"섬유,의류,신발,호화품",Consumer Discretionary
+이스타코,015020,부동산,Financials
+대창단조,015230,기계,Industrials
+에이엔피,015260,전자장비와기기,Information Technology
 INVENI,015360,가스유틸리티,Energy
+DKME,015590,기계,Industrials
+코콤,015710,통신장비,Information Technology
 성우하이텍,015750,자동차부품,Consumer Discretionary
 한국전력,015760,전기유틸리티,Utilities
 일진홀딩스,015860,전기장비,Utilities
+태경산업,015890,비철금속,Materials
+대현,016090,"섬유,의류,신발,호화품",Consumer Discretionary
+리더스코스메틱,016100,포장재,Materials
+SGC E&C,016250,건설,Industrials
 삼성증권,016360,증권,Financials
 KG스틸,016380,철강,Materials
+한세예스24홀딩스,016450,"섬유,의류,신발,호화품",Consumer Discretionary
+환인제약,016580,제약,Health Care
 신대양제지,016590,포장재,Materials
+큐캐피탈,016600,창업투자,Financials
 DB증권,016610,증권,Financials
+디모아,016670,소프트웨어,Information Technology
+대성홀딩스,016710,가스유틸리티,Energy
+두올,016740,자동차부품,Consumer Discretionary
+현대사료,016790,식품,Consumer Staples
 퍼시스,016800,가구,Consumer Discretionary
 웅진,016880,출판,Other
+카스,016920,전자장비와기기,Information Technology
+신원종합개발,017000,건설,Industrials
+광명전기,017040,전기장비,Utilities
+명문제약,017180,제약,Health Care
+인터엠,017250,전자장비와기기,Information Technology
+우신시스템,017370,자동차부품,Consumer Discretionary
 서울가스,017390,가스유틸리티,Energy
+삼현철강,017480,철강,Materials
+세명전기,017510,전기장비,Utilities
+수산세보틱스,017550,기계,Industrials
+대림제지,017650,포장재,Materials
 SK텔레콤,017670,무선통신서비스,Communication Services
 현대엘리베이터,017800,기계,Industrials
 풀무원,017810,식품,Consumer Staples
@@ -286,841 +588,3346 @@ DS단석,017860,화학,Materials
 E1,017940,가스유틸리티,Energy
 한국카본,017960,조선,Industrials
 유니슨,018000,에너지장비및서비스,Energy
+진로발효,018120,음료,Consumer Staples
 애경산업,018250,화장품,Consumer Discretionary
 삼성에스디에스,018260,IT서비스,Information Technology
 브이티,018290,화장품,Consumer Discretionary
 삼목에스폼,018310,건축제품,Materials
 조일알미늄,018470,비철금속,Materials
+동원금속,018500,자동차부품,Consumer Discretionary
+우진비앤지,018620,제약,Health Care
 SK가스,018670,가스유틸리티,Energy
+서울제약,018680,제약,Health Care
+바른손,018700,화장품,Consumer Discretionary
 한온시스템,018880,자동차부품,Consumer Discretionary
 베뉴지,019010,"호텔,레스토랑,레저",Consumer Discretionary
 신풍제약,019170,제약,Health Care
+신풍제약우,019175,제약,Health Care
+티에이치엔,019180,자동차부품,Consumer Discretionary
 와이지-원,019210,기계,Industrials
+엑시큐어하이트론,019490,통신장비,Information Technology
+일지테크,019540,자동차부품,Consumer Discretionary
+SBI인베스트먼트,019550,창업투자,Financials
+플루토스,019570,창업투자,Financials
+글로본,019660,판매업체,Consumer Discretionary
+대교,019680,교육서비스,Industrials
+대교우B,019685,교육서비스,Industrials
+서연탑메탈,019770,자동차부품,Consumer Discretionary
+에너토크,019990,기계,Industrials
 한섬,020000,"섬유,의류,신발,호화품",Consumer Discretionary
+키다리스튜디오,020120,양방향미디어와서비스,Communication Services
 롯데에너지머티리얼즈,020150,전자장비와기기,Information Technology
+대신정보통신,020180,IT서비스,Information Technology
+대동금속,020400,자동차부품,Consumer Discretionary
 아시아나항공,020560,항공사,Industrials
+시공테크,020710,"호텔,레스토랑,레저",Consumer Discretionary
+일진디스플,020760,디스플레이패널,Information Technology
+대호특수강,021040,철강,Materials
+서원,021050,비철금속,Materials
+에이티넘인베스트,021080,창업투자,Financials
 코웨이,021240,가정용기기와용품,Consumer Discretionary
+KCC건설,021320,건설,Industrials
+한국큐빅,021650,자동차부품,Consumer Discretionary
+세원정공,021820,자동차부품,Consumer Discretionary
+메이슨캐피탈,021880,기타금융,Financials
 포스코DX,022100,IT서비스,Information Technology
+티케이지애강,022220,건축제품,Materials
+삼원강재,023000,자동차부품,Consumer Discretionary
+MH에탄올,023150,음료,Consumer Staples
 태광,023160,기계,Industrials
+한국종합기술,023350,건설,Industrials
 유진기업,023410,건축자재,Industrials
+제이스코홀딩스,023440,철강,Materials
+동남합성,023450,화학,Materials
 롯데쇼핑,023530,백화점과일반상점,Consumer Discretionary
 다우기술,023590,증권,Financials
+삼보판지,023600,포장재,Materials
 한국캐피탈,023760,기타금융,Financials
+플레이위드,023770,게임엔터테인먼트,Communication Services
+동일스틸럭스,023790,철강,Materials
+인지컨트롤스,023800,자동차부품,Consumer Discretionary
+인팩,023810,자동차부품,Consumer Discretionary
+풍국주정,023900,화학,Materials
+대한약품,023910,제약,Health Care
+에쓰씨엔지니어링,023960,건설,Industrials
 흥구석유,024060,석유와가스,Energy
+WISCOM,024070,화학,Materials
+디씨엠,024090,비철금속,Materials
 기업은행,024110,은행,Financials
+KB오토시스,024120,자동차부품,Consumer Discretionary
 콜마홀딩스,024720,화장품,Consumer Discretionary
+한일단조,024740,자동차부품,Consumer Discretionary
+유성티엔에스,024800,도로와철도운송,Industrials
+세원물산,024830,자동차부품,Consumer Discretionary
+KBI메탈,024840,전기장비,Utilities
 HLB이노베이션,024850,반도체와반도체장비,Information Technology
+케이피에프,024880,기계,Industrials
+대원화성,024890,"섬유,의류,신발,호화품",Consumer Discretionary
+디와이덕양,024900,자동차부품,Consumer Discretionary
+경창산업,024910,자동차부품,Consumer Discretionary
+PN풍년,024940,가정용기기와용품,Consumer Discretionary
+삼천리자전거,024950,레저용장비와제품,Consumer Discretionary
 KPX케미칼,025000,화학,Materials
 시노펙스,025320,핸드셋,Information Technology
+DH오토웨어,025440,자동차부품,Consumer Discretionary
+SJM홀딩스,025530,자동차부품,Consumer Discretionary
 한국단자,025540,자동차부품,Consumer Discretionary
-,025620,화장품,Consumer Discretionary
+한국선재,025550,철강,Materials
+미래산업,025560,반도체와반도체장비,Information Technology
+차AI헬스케어,025620,화장품,Consumer Discretionary
+한솔홈데코,025750,건축자재,Industrials
 한국정보통신,025770,IT서비스,Information Technology
 이구산업,025820,비철금속,Materials
 남해화학,025860,화학,Materials
+신라에스지,025870,식품,Consumer Staples
+케이씨피드,025880,식품,Consumer Staples
+한국주강,025890,철강,Materials
 동화기업,025900,건축자재,Industrials
+동신건설,025950,건설,Industrials
 아난티,025980,"호텔,레스토랑,레저",Consumer Discretionary
+제이에스티나,026040,"섬유,의류,신발,호화품",Consumer Discretionary
+특수건설,026150,건설,Industrials
 스틱인베스트먼트,026890,창업투자,Financials
+광진실업,026910,철강,Materials
+부국철강,026940,철강,Materials
 동서,026960,식품,Consumer Staples
+서울전자통신,027040,전자장비와기기,Information Technology
+코리아나,027050,화장품,Consumer Discretionary
 아주IB투자,027360,창업투자,Financials
 BGF,027410,화학,Materials
+상보,027580,화학,Materials
+팜스토리,027710,식품,Consumer Staples
+마니커,027740,식품,Consumer Staples
+대성창투,027830,창업투자,Financials
+한국제지,027970,종이와목재,Materials
 삼성E&A,028050,건설,Industrials
+휴맥스홀딩스,028080,전자제품,Information Technology
 동아지질,028100,건설,Industrials
 삼성물산,028260,복합기업,Industrials
 삼성물산우B,02826K,복합기업,Industrials
 HLB,028300,건강관리장비와용품,Health Care
 팬오션,028670,해운사,Industrials
 케이씨,029460,반도체와반도체장비,Information Technology
+광무,029480,IT서비스,Information Technology
 신도리코,029530,사무용전자제품,Information Technology
 삼성카드,029780,카드,Financials
 제일기획,030000,광고,Communication Services
 NICE평가정보,030190,상업서비스와공급품,Industrials
 KT,030200,다각화된통신서비스,Communication Services
 다올투자증권,030210,증권,Financials
+드래곤플라이,030350,게임엔터테인먼트,Communication Services
 한글과컴퓨터,030520,소프트웨어,Information Technology
 원익홀딩스,030530,반도체와반도체장비,Information Technology
 교보증권,030610,증권,Financials
+동원수산,030720,식품,Consumer Staples
+양지사,030960,상업서비스와공급품,Industrials
 서울보증보험,031210,손해보험,Financials
+아이즈비전,031310,통신장비,Information Technology
 에스에이엠티,031330,전자장비와기기,Information Technology
 신세계인터내셔날,031430,"섬유,의류,신발,호화품",Consumer Discretionary
+신세계푸드,031440,"호텔,레스토랑,레저",Consumer Discretionary
+오스템,031510,자동차부품,Consumer Discretionary
+아이티센씨티에스,031820,IT서비스,Information Technology
+디에이치엑스컴퍼니,031860,컴퓨터와주변기기,Information Technology
 피에스케이홀딩스,031980,반도체와반도체장비,Information Technology
+아즈텍WB,032080,"섬유,의류,신발,호화품",Consumer Discretionary
 다우데이타,032190,증권,Financials
+삼일,032280,항공화물운송과물류,Industrials
+한국파마,032300,제약,Health Care
 롯데관광개발,032350,"호텔,레스토랑,레저",Consumer Discretionary
 케이엠더블유,032500,통신장비,Information Technology
+TJ미디어,032540,전자제품,Information Technology
+황금에스티,032560,비철금속,Materials
+피델릭스,032580,반도체와반도체장비,Information Technology
 GC메디아이,032620,건강관리기술,Health Care
 LG유플러스,032640,무선통신서비스,Communication Services
+소프트센,032680,IT서비스,Information Technology
+삼진,032750,전자제품,Information Technology
+엠젠솔루션,032790,컴퓨터와주변기기,Information Technology
+판타지오,032800,방송과엔터테인먼트,Consumer Discretionary
 우리기술,032820,우주항공과국방,Industrials
 삼성생명,032830,생명보험,Financials
+비트컴퓨터,032850,건강관리기술,Health Care
+더라미,032860,판매업체,Consumer Discretionary
 원익,032940,화장품,Consumer Discretionary
+동일기연,032960,전자장비와기기,Information Technology
+바이온,032980,조선,Industrials
+제이엠아이,033050,상업서비스와공급품,Industrials
 제룡전기,033100,전기장비,Utilities
+디지틀조선,033130,IT서비스,Information Technology
 엠케이전자,033160,반도체와반도체장비,Information Technology
+시그네틱스,033170,반도체와반도체장비,Information Technology
+모아텍,033200,전자장비와기기,Information Technology
+인성정보,033230,IT서비스,Information Technology
 자화전자,033240,통신장비,Information Technology
+체시스,033250,자동차부품,Consumer Discretionary
 유나이티드제약,033270,제약,Health Care
+로젠,033290,항공화물운송과물류,Industrials
+엠투엔,033310,자동차부품,Consumer Discretionary
+제이씨현시스템,033320,컴퓨터와주변기기,Information Technology
+좋은사람들,033340,"섬유,의류,신발,호화품",Consumer Discretionary
 동성화인텍,033500,화학,Materials
-,033530,자동차부품,Consumer Discretionary
+SJG세종,033530,자동차부품,Consumer Discretionary
+파라텍,033540,기계,Industrials
+블루콤,033560,부동산,Financials
 네패스,033640,반도체와반도체장비,Information Technology
 KT&G,033780,담배,Consumer Staples
 피노,033790,전기제품,Utilities
+티비씨,033830,방송과엔터테인먼트,Consumer Discretionary
 무학,033920,음료,Consumer Staples
 두산에너빌리티,034020,기계,Industrials
 SBS,034120,방송과엔터테인먼트,Consumer Discretionary
 LG디스플레이,034220,디스플레이패널,Information Technology
 파라다이스,034230,"호텔,레스토랑,레저",Consumer Discretionary
 NICE,034310,IT서비스,Information Technology
+인천도시가스,034590,가스유틸리티,Energy
 SK,034730,석유와가스,Energy
 해성산업,034810,종이와목재,Materials
 한국토지신탁,034830,부동산,Financials
+조아제약,034940,제약,Health Care
 한국기업평가,034950,상업서비스와공급품,Industrials
+HS애드,035000,광고,Communication Services
+그래디언트,035080,인터넷과카탈로그소매,Information Technology
 백산,035150,"섬유,의류,신발,호화품",Consumer Discretionary
+프럼파스트,035200,건축제품,Materials
 강원랜드,035250,"호텔,레스토랑,레저",Consumer Discretionary
+골드앤에스,035290,교육서비스,Industrials
 NAVER,035420,양방향미디어와서비스,Communication Services
+기산텔레콤,035460,우주항공과국방,Industrials
 신세계 I&C,035510,IT서비스,Information Technology
 KG이니시스,035600,IT서비스,Information Technology
+솔본,035610,건강관리기술,Health Care
+바른손이앤에이,035620,방송과엔터테인먼트,Consumer Discretionary
 카카오,035720,양방향미디어와서비스,Communication Services
 CJ ENM,035760,방송과엔터테인먼트,Consumer Discretionary
 이지홀딩스,035810,식품,Consumer Staples
 서희건설,035890,건설,Industrials
 JYP Ent.,035900,방송과엔터테인먼트,Consumer Discretionary
+예림당,036000,출판,Other
+아비코전자,036010,전기제품,Utilities
 케이티알파,036030,인터넷과카탈로그소매,Information Technology
+위지트,036090,디스플레이장비및부품,Information Technology
+서울평가정보,036120,상업서비스와공급품,Industrials
 에이치엠넥스,036170,디스플레이장비및부품,Information Technology
 금화피에스시,036190,건설,Industrials
 유니셈,036200,반도체와반도체장비,Information Technology
+오상헬스케어,036220,생명과학도구및서비스,Health Care
+콘텐트리중앙,036420,방송과엔터테인먼트,Consumer Discretionary
 한국가스공사,036460,가스유틸리티,Energy
+대성미생물,036480,제약,Health Care
 SNT홀딩스,036530,자동차부품,Consumer Discretionary
 SFA반도체,036540,반도체와반도체장비,Information Technology
 KZ정밀,036560,기계,Industrials
-엔씨소프트,036570,게임엔터테인먼트,Communication Services
+NC,036570,게임엔터테인먼트,Communication Services
+팜스코,036580,식품,Consumer Staples
 감성코퍼레이션,036620,"섬유,의류,신발,호화품",Consumer Discretionary
+세종텔레콤,036630,다각화된통신서비스,Communication Services
+HRS,036640,화학,Materials
+삼양케이씨아이,036670,화학,Materials
+코맥스,036690,통신장비,Information Technology
+심텍홀딩스,036710,전자장비와기기,Information Technology
 나이스정보통신,036800,상업서비스와공급품,Industrials
 에프에스티,036810,반도체와반도체장비,Information Technology
 솔브레인홀딩스,036830,전기제품,Utilities
 진성티이씨,036890,기계,Industrials
 주성엔지니어링,036930,반도체와반도체장비,Information Technology
+파워넷,037030,전기제품,Utilities
+파세코,037070,가정용기기와용품,Consumer Discretionary
+한국팩키지,037230,포장재,Materials
 YG PLUS,037270,방송과엔터테인먼트,Consumer Discretionary
+인지디스플레,037330,디스플레이장비및부품,Information Technology
+성도이엔지,037350,건설,Industrials
+EG,037370,비철금속,Materials
+우리엔터프라이즈,037400,디스플레이장비및부품,Information Technology
+희림,037440,건설,Industrials
 삼지전자,037460,통신장비,Information Technology
+LG헬로비전,037560,방송과엔터테인먼트,Consumer Discretionary
 광주신세계,037710,백화점과일반상점,Consumer Discretionary
+쎄니트,037760,철강,Materials
+엘컴텍,037950,핸드셋,Information Technology
+제일테크노스,038010,건축제품,Materials
+루멘스,038060,디스플레이장비및부품,Information Technology
+서린바이오,038070,생물공학,Health Care
+에코플라스틱,038110,자동차부품,Consumer Discretionary
+마크로젠,038290,생명과학도구및서비스,Health Care
+레드캡투어,038390,도로와철도운송,Industrials
+바이오스마트,038460,전자장비와기기,Information Technology
 삼표시멘트,038500,건축자재,Industrials
+케이바이오,038530,IT서비스,Information Technology
+상상인,038540,기타금융,Financials
+위즈코프,038620,운송인프라,Industrials
+에스넷,038680,IT서비스,Information Technology
+에코바이오,038870,에너지장비및서비스,Energy
+아이에이,038880,자동차부품,Consumer Discretionary
+파인디지털,038950,전자제품,Information Technology
+현대에이치티,039010,통신장비,Information Technology
+이건홀딩스,039020,건축자재,Industrials
 이오테크닉스,039030,반도체와반도체장비,Information Technology
 하나투어,039130,"호텔,레스토랑,레저",Consumer Discretionary
 오스코텍,039200,제약,Health Care
+경남스틸,039240,철강,Materials
+인포뱅크,039290,IT서비스,Information Technology
+세중,039310,소프트웨어,Information Technology
+한국경제TV,039340,방송과엔터테인먼트,Consumer Discretionary
+케이엘넷,039420,IT서비스,Information Technology
 에스티아이,039440,반도체와반도체장비,Information Technology
 키움증권,039490,증권,Financials
 다산네트웍스,039560,통신장비,Information Technology
 HDC랩스,039570,건설,Industrials
+화성밸브,039610,기계,Industrials
+한국정보공학,039740,판매업체,Consumer Discretionary
+오로라,039830,레저용장비와제품,Consumer Discretionary
 디오,039840,건강관리장비와용품,Health Care
 나노엔텍,039860,생명과학도구및서비스,Health Care
+폴라리스AI,039980,IT서비스,Information Technology
+누리플렉스,040160,소프트웨어,Information Technology
+YTN,040300,방송과엔터테인먼트,Consumer Discretionary
+크레오에스지,040350,IT서비스,Information Technology
+정상제이엘에스,040420,교육서비스,Industrials
+SG&G,040610,자동차부품,Consumer Discretionary
+아이씨디,040910,디스플레이장비및부품,Information Technology
 폴라리스오피스,041020,자동차부품,Consumer Discretionary
 우리기술투자,041190,창업투자,Financials
+현대에버다임,041440,기계,Industrials
+한국전자인증,041460,IT서비스,Information Technology
 에스엠,041510,방송과엔터테인먼트,Consumer Discretionary
+이엘씨,041520,반도체와반도체장비,Information Technology
+플래스크,041590,건설,Industrials
+상신브레이크,041650,자동차부품,Consumer Discretionary
 인바디,041830,건강관리장비와용품,Health Care
+폴라리스AI파마,041910,제약,Health Care
 메디아나,041920,건강관리장비와용품,Health Care
+동아화성,041930,자동차부품,Consumer Discretionary
 코미팜,041960,제약,Health Care
 카페24,042000,IT서비스,Information Technology
+케이피엠테크,042040,화학,Materials
+에스씨디,042110,전기제품,Utilities
 비츠로테크,042370,전기제품,Utilities
-,042420,게임엔터테인먼트,Communication Services
+네오위즈홀딩스,042420,게임엔터테인먼트,Communication Services
+링네트,042500,IT서비스,Information Technology
+라온시큐어,042510,소프트웨어,Information Technology
 한스바이오메드,042520,건강관리장비와용품,Health Care
 새로닉스,042600,가정용기기와용품,Consumer Discretionary
 한화오션,042660,조선,Industrials
 HD현대인프라코어,042670,기계,Industrials
 한미반도체,042700,반도체와반도체장비,Information Technology
+상지건설,042940,건설,Industrials
+알파AI,043100,건강관리장비와용품,Health Care
 바텍,043150,건강관리장비와용품,Health Care
+파루,043200,에너지장비및서비스,Energy
+티에스넥스젠,043220,기계,Industrials
 성호전자,043260,전기제품,Utilities
+에쎈테크,043340,기계,Industrials
+디지아이,043360,컴퓨터와주변기기,Information Technology
 피에이치에이,043370,자동차부품,Consumer Discretionary
+웰킵스하이텍,043590,전기제품,Utilities
+KT지니뮤직,043610,방송과엔터테인먼트,Consumer Discretionary
+국순당,043650,음료,Consumer Staples
+서울리거,043710,건강관리업체및서비스,Health Care
+자연과환경,043910,상업서비스와공급품,Industrials
+위닉스,044340,가정용기기와용품,Consumer Discretionary
+주연테크,044380,컴퓨터와주변기기,Information Technology
 KSS해운,044450,해운사,Industrials
+빌리언스,044480,방송과엔터테인먼트,Consumer Discretionary
 태웅,044490,에너지장비및서비스,Energy
+에이치케이,044780,기계,Industrials
+코스맥스비티아이,044820,건강관리업체및서비스,Health Care
+이글벳,044960,제약,Health Care
+에이치엔에스하이텍,044990,전자장비와기기,Information Technology
+오공,045060,화학,Materials
 한양이엔지,045100,반도체와반도체장비,Information Technology
+성우테크론,045300,반도체와반도체장비,Information Technology
+토탈소프트,045340,운송인프라,Industrials
 대아티아이,045390,IT서비스,Information Technology
+정원엔시스,045510,IT서비스,Information Technology
+크린앤사이언스,045520,전자장비와기기,Information Technology
+에이텍,045660,컴퓨터와주변기기,Information Technology
+코아시아,045970,핸드셋,Information Technology
+코다코,046070,자동차부품,Consumer Discretionary
 오르비텍,046120,에너지장비및서비스,Energy
+HLB파나진,046210,생명과학도구및서비스,Health Care
+백금T&A,046310,전자장비와기기,Information Technology
+삼화네트웍스,046390,방송과엔터테인먼트,Consumer Discretionary
+KG파이낸셜,046440,IT서비스,Information Technology
 서울반도체,046890,디스플레이장비및부품,Information Technology
+우원개발,046940,건설,Industrials
 우리로,046970,컴퓨터와주변기기,Information Technology
 대우건설,047040,건설,Industrials
 포스코인터내셔널,047050,무역회사와판매업체,Consumer Discretionary
-,047310,핸드셋,Information Technology
-,047560,소프트웨어,Information Technology
+한빛소프트,047080,게임엔터테인먼트,Communication Services
+파워로직스,047310,핸드셋,Information Technology
+유니온머티리얼,047400,자동차부품,Consumer Discretionary
+이스트소프트,047560,소프트웨어,Information Technology
+코데즈컴바인,047770,"섬유,의류,신발,호화품",Consumer Discretionary
 한국항공우주,047810,우주항공과국방,Industrials
+초록뱀미디어,047820,방송과엔터테인먼트,Consumer Discretionary
 HLB제약,047920,제약,Health Care
 현대바이오,048410,화장품,Consumer Discretionary
+유라테크,048430,자동차부품,Consumer Discretionary
+대동스틸,048470,철강,Materials
 인트론바이오,048530,생명과학도구및서비스,Health Care
+SM C&C,048550,광고,Communication Services
+TPC,048770,기계,Industrials
+엔피케이,048830,화학,Materials
 시너지이노베이션,048870,건강관리장비와용품,Health Care
+대원미디어,048910,방송과엔터테인먼트,Consumer Discretionary
 인탑스,049070,핸드셋,Information Technology
+기가레인,049080,통신장비,Information Technology
+파인디앤씨,049120,디스플레이장비및부품,Information Technology
+셀루메드,049180,건설,Industrials
+코메론,049430,기계,Industrials
+비트플래닛,049470,소프트웨어,Information Technology
+오픈베이스,049480,컴퓨터와주변기기,Information Technology
+유아이엘,049520,핸드셋,Information Technology
+잉크테크,049550,컴퓨터와주변기기,Information Technology
 재영솔루텍,049630,핸드셋,Information Technology
+고려신용정보,049720,상업서비스와공급품,Industrials
+우진플라임,049800,기계,Industrials
+승일,049830,포장재,Materials
+미래컴퍼니,049950,디스플레이장비및부품,Information Technology
+쎌바이오텍,049960,생물공학,Health Care
+비케이홀딩스,050090,광고,Communication Services
+캠시스,050110,핸드셋,Information Technology
+ES큐브,050120,레저용장비와제품,Consumer Discretionary
+에스폴리텍,050760,화학,Materials
+아세아텍,050860,기계,Industrials
 쏠리드,050890,통신장비,Information Technology
+수산아이앤티,050960,소프트웨어,Information Technology
+지어소프트,051160,판매업체,Consumer Discretionary
 토비스,051360,디스플레이장비및부품,Information Technology
 인터플렉스,051370,전자장비와기기,Information Technology
+피씨디렉트,051380,컴퓨터와주변기기,Information Technology
+YW,051390,판매업체,Consumer Discretionary
+나라엠앤디,051490,기계,Industrials
 CJ프레시웨이,051500,식품과기본식료품소매,Consumer Staples
 한전KPS,051600,전기유틸리티,Utilities
+진양화학,051630,화학,Materials
+큐로홀딩스,051780,식품,Consumer Staples
 LG생활건강,051900,화장품,Consumer Discretionary
 LG생활건강우,051905,화장품,Consumer Discretionary
 LG화학,051910,화학,Materials
 LG화학우,051915,화학,Materials
 중앙첨단소재,051980,통신장비,Information Technology
 에스티큐브,052020,판매업체,Consumer Discretionary
+iMBC,052220,방송과엔터테인먼트,Consumer Discretionary
+현대바이오랜드,052260,화장품,Consumer Discretionary
+오션인더블유,052300,건축제품,Materials
+코텍,052330,디스플레이패널,Information Technology
 코나아이,052400,IT서비스,Information Technology
+오성첨단소재,052420,디스플레이장비및부품,Information Technology
+아이크래프트,052460,통신장비,Information Technology
+한네트,052600,IT서비스,Information Technology
 한전기술,052690,전기유틸리티,Utilities
 아모텍,052710,핸드셋,Information Technology
+액토즈소프트,052790,게임엔터테인먼트,Communication Services
+아이앤씨,052860,반도체와반도체장비,Information Technology
+KX하이텍,052900,반도체와반도체장비,Information Technology
 바이넥스,053030,제약,Health Care
+지에스이,053050,가스유틸리티,Energy
+세동,053060,자동차부품,Consumer Discretionary
+케이엔솔,053080,기계,Industrials
+프리엠스,053160,기계,Industrials
 스카이라이프,053210,방송과엔터테인먼트,Consumer Discretionary
+금강철강,053260,철강,Materials
+구영테크,053270,자동차부품,Consumer Discretionary
+예스24,053280,인터넷과카탈로그소매,Information Technology
+NE능률,053290,교육서비스,Industrials
 한국정보인증,053300,IT서비스,Information Technology
+이니텍,053350,소프트웨어,Information Technology
+세코닉스,053450,전자장비와기기,Information Technology
+웹케시,053580,소프트웨어,Information Technology
 프로텍,053610,반도체와반도체장비,Information Technology
+태양,053620,가정용품,Consumer Discretionary
 한미글로벌,053690,건설,Industrials
+삼보모터스,053700,자동차부품,Consumer Discretionary
 안랩,053800,소프트웨어,Information Technology
+경남제약,053950,제약,Health Care
+오상자이엘,053980,소프트웨어,Information Technology
+한국컴퓨터,054040,디스플레이장비및부품,Information Technology
+농우바이오,054050,생물공학,Health Care
+삼진엘앤디,054090,전자장비와기기,Information Technology
+메디콕스,054180,조선,Industrials
 이랜텍,054210,핸드셋,Information Technology
-,054450,반도체와반도체장비,Information Technology
-,054540,조선,Industrials
+비츠로시스,054220,IT서비스,Information Technology
+팬스타엔터프라이즈,054300,해운사,Industrials
+케이피티유,054410,비철금속,Materials
+텔레칩스,054450,반도체와반도체장비,Information Technology
+삼영엠텍,054540,조선,Industrials
+APS,054620,반도체와반도체장비,Information Technology
+대한뉴팜,054670,제약,Health Care
+키이스트,054780,방송과엔터테인먼트,Consumer Discretionary
+아이디스홀딩스,054800,컴퓨터와주변기기,Information Technology
+한컴위드,054920,비철금속,Materials
+유신,054930,건설,Industrials
+엑사이엔씨,054940,반도체와반도체장비,Information Technology
 제이브이엠,054950,건강관리장비와용품,Health Care
+테이팩스,055490,전자장비와기기,Information Technology
 신한지주,055550,은행,Financials
 유진로봇,056080,기계,Industrials
 시지메드텍,056090,건강관리장비와용품,Health Care
 에스에프에이,056190,기계,Industrials
+코위버,056360,통신장비,Information Technology
+신화인터텍,056700,디스플레이장비및부품,Information Technology
+CNT85,056730,건설,Industrials
+YBM넷,057030,교육서비스,Industrials
 현대홈쇼핑,057050,인터넷과카탈로그소매,Information Technology
+옴니시스템,057540,전자장비와기기,Information Technology
+티사이언티픽,057680,IT서비스,Information Technology
 푸른소나무,057880,건강관리업체및서비스,Health Care
+멕아이씨에스,058110,건강관리장비와용품,Health Care
+KNN,058400,방송과엔터테인먼트,Consumer Discretionary
 포스코스틸리온,058430,비철금속,Materials
+한주에이알티,058450,방송과엔터테인먼트,Consumer Discretionary
 리노공업,058470,반도체와반도체장비,Information Technology
 에스피지,058610,전기제품,Utilities
+엠게임,058630,게임엔터테인먼트,Communication Services
 세아홀딩스,058650,철강,Materials
+다스코,058730,건축자재,Industrials
 CMG제약,058820,제약,Health Care
+KTcs,058850,상업서비스와공급품,Industrials
+KTis,058860,상업서비스와공급품,Industrials
 엠로,058970,소프트웨어,Information Technology
 미코,059090,반도체와반도체장비,Information Technology
+아이컴포넌트,059100,디스플레이장비및부품,Information Technology
+아진엑스텍,059120,반도체와반도체장비,Information Technology
+메타바이오메드,059210,건강관리장비와용품,Health Care
+해성에어로보틱스,059270,기계,Industrials
+인선이엔티,060150,상업서비스와공급품,Industrials
+제이케이시냅스,060230,전자장비와기기,Information Technology
+스타코링크,060240,조선,Industrials
 NHN KCP,060250,IT서비스,Information Technology
+뉴보텍,060260,건축제품,Materials
 큐렉소,060280,건강관리장비와용품,Health Care
+3S,060310,기계,Industrials
 LS마린솔루션,060370,건설,Industrials
+동양에스텍,060380,철강,Materials
+국일신동,060480,비철금속,Materials
+에스에이티,060540,핸드셋,Information Technology
+HC홈센타,060560,건축자재,Industrials
+드림어스컴퍼니,060570,방송과엔터테인먼트,Consumer Discretionary
+씨티씨바이오,060590,제약,Health Care
 KH바텍,060720,핸드셋,Information Technology
+영림원소프트랩,060850,소프트웨어,Information Technology
+에이전트AI,060900,에너지장비및서비스,Energy
 HL홀딩스,060980,자동차부품,Consumer Discretionary
+알에프텍,061040,핸드셋,Information Technology
 세나테크놀로지,061090,통신장비,Information Technology
+화일약품,061250,제약,Health Care
 LB세미콘,061970,반도체와반도체장비,Information Technology
 산일전기,062040,전기장비,Utilities
 한국첨단소재,062970,통신장비,Information Technology
+컴투스홀딩스,063080,게임엔터테인먼트,Communication Services
+종근당바이오,063160,제약,Health Care
+서울옥션,063170,판매업체,Consumer Discretionary
+SM Life Design,063440,방송과엔터테인먼트,Consumer Discretionary
+NICE인프라,063570,IT서비스,Information Technology
+이엘피,063760,디스플레이장비및부품,Information Technology
+인크레더블버즈,064090,판매업체,Consumer Discretionary
+홈캐스트,064240,전문소매,Other
 다날,064260,IT서비스,Information Technology
 인텍플러스,064290,반도체와반도체장비,Information Technology
 현대로템,064350,우주항공과국방,Industrials
 LG씨엔에스,064400,IT서비스,Information Technology
+브리지텍,064480,IT서비스,Information Technology
+테크엘,064520,반도체와반도체장비,Information Technology
 바이오니아,064550,생물공학,Health Care
 티씨케이,064760,반도체와반도체장비,Information Technology
+포니링크,064800,전문소매,Other
 케이프,064820,증권,Financials
 에프앤가이드,064850,IT서비스,Information Technology
 SNT모티브,064960,자동차부품,Consumer Discretionary
+지엔코,065060,"섬유,의류,신발,호화품",Consumer Discretionary
+탑엔지니어링,065130,핸드셋,Information Technology
+대산F&B,065150,식품,Consumer Staples
+비엘팜텍,065170,건강관리업체및서비스,Health Care
 신성델타테크,065350,가정용기기와용품,Consumer Discretionary
+위세아이텍,065370,소프트웨어,Information Technology
+에스아이리소스,065420,석유와가스,Energy
+이루온,065440,IT서비스,Information Technology
+빅텍,065450,우주항공과국방,Industrials
+오리엔트정공,065500,자동차부품,Consumer Discretionary
+휴비츠,065510,건강관리장비와용품,Health Care
+와이어블,065530,무선통신서비스,Communication Services
+삼영이엔씨,065570,조선,Industrials
+하이퍼코퍼레이션,065650,컴퓨터와주변기기,Information Technology
 안트로젠,065660,제약,Health Care
 우주일렉트로,065680,핸드셋,Information Technology
+파커스,065690,컴퓨터와주변기기,Information Technology
 서호전기,065710,운송인프라,Industrials
+CS,065770,통신장비,Information Technology
+웰크론,065950,건설,Industrials
+하츠,066130,가정용기기와용품,Consumer Discretionary
+큐에스아이,066310,반도체와반도체장비,Information Technology
+체리부로,066360,식품,Consumer Staples
+버킷스튜디오,066410,IT서비스,Information Technology
+아이로보틱스,066430,화학,Materials
 LG전자,066570,전자제품,Information Technology
 LG전자우,066575,전자제품,Information Technology
+스모트로닉,066590,자동차부품,Consumer Discretionary
+국보디자인,066620,건설,Industrials
+디티씨,066670,핸드셋,Information Technology
+테라젠이텍스,066700,제약,Health Care
+씨씨에스,066790,방송과엔터테인먼트,Consumer Discretionary
+디에이피,066900,전자장비와기기,Information Technology
+손오공,066910,레저용장비와제품,Consumer Discretionary
 엘앤에프,066970,전기제품,Utilities
+한성크린텍,066980,건설,Industrials
+조이시티,067000,게임엔터테인먼트,Communication Services
+이씨에스,067010,IT서비스,Information Technology
 대화제약,067080,제약,Health Care
 SOOP,067160,양방향미디어와서비스,Communication Services
+오텍,067170,가정용기기와용품,Consumer Discretionary
+멀티캠퍼스,067280,교육서비스,Industrials
+JW신약,067290,제약,Health Care
 하나마이크론,067310,반도체와반도체장비,Information Technology
+선바이오,067370,생물공학,Health Care
 아스트,067390,우주항공과국방,Industrials
+엔브이에이치코리아,067570,자동차부품,Consumer Discretionary
 HLB생명과학,067630,건강관리장비와용품,Health Care
+로지시스,067730,IT서비스,Information Technology
+세진티에스,067770,디스플레이장비및부품,Information Technology
+세이브존I&C,067830,백화점과일반상점,Consumer Discretionary
+와이엔텍,067900,해운사,Industrials
+이글루,067920,IT서비스,Information Technology
+도이치모터스,067990,자동차,Consumer Discretionary
+팬엔터테인먼트,068050,방송과엔터테인먼트,Consumer Discretionary
+케이웨더,068100,IT서비스,Information Technology
+다원시스,068240,기계,Industrials
 셀트리온,068270,제약,Health Care
+삼성출판사,068290,출판,Other
+일신바이오,068330,생명과학도구및서비스,Health Care
 셀트리온제약,068760,제약,Health Care
+DMS,068790,디스플레이장비및부품,Information Technology
 디지털대성,068930,교육서비스,Industrials
+셀피글로벌,068940,상업서비스와공급품,Industrials
 웹젠,069080,게임엔터테인먼트,Communication Services
+누리플랜,069140,건설,Industrials
 TKG휴켐스,069260,화학,Materials
+유아이디,069330,디스플레이장비및부품,Information Technology
+엔텔스,069410,IT서비스,Information Technology
+대호에이엘,069460,비철금속,Materials
+KODEX 200,069500,ETF,ETF
+에스텍,069510,전자장비와기기,Information Technology
 빛과전자,069540,통신장비,Information Technology
 대웅제약,069620,제약,Health Care
+한세엠케이,069640,"섬유,의류,신발,호화품",Consumer Discretionary
+KIWOOM 200,069660,ETF,ETF
+DSR제강,069730,철강,Materials
+엑시온그룹,069920,인터넷과카탈로그소매,Information Technology
 현대백화점,069960,백화점과일반상점,Consumer Discretionary
+엑스큐어,070300,핸드셋,Information Technology
+인티큐브,070590,IT서비스,Information Technology
+모나용평,070960,"호텔,레스토랑,레저",Consumer Discretionary
 한국금융지주,071050,증권,Financials
 한국금융지주우,071055,증권,Financials
+하이스틸,071090,철강,Materials
+인피니트헬스케어,071200,건강관리기술,Health Care
+로체시스템즈,071280,반도체와반도체장비,Information Technology
 지역난방공사,071320,복합유틸리티,Utilities
+에이테크솔루션,071670,기계,Industrials
+롯데하이마트,071840,N/A,N/A
+캐스텍코리아,071850,자동차부품,Consumer Discretionary
+코아스,071950,가구,Consumer Discretionary
 HD현대마린엔진,071970,조선,Industrials
+중앙백신,072020,제약,Health Care
+유엔젤,072130,IT서비스,Information Technology
+우리산업홀딩스,072470,자동차부품,Consumer Discretionary
 농심홀딩스,072710,식품,Consumer Staples
+멤레이비티,072770,IT서비스,Information Technology
+메가스터디,072870,교육서비스,Industrials
+빛샘전자,072950,전자장비와기기,Information Technology
+에이치시티,072990,전자장비와기기,Information Technology
+케이에스피,073010,조선,Industrials
+엘엠에스,073110,디스플레이장비및부품,Information Technology
+듀오백,073190,가구,Consumer Discretionary
 금호타이어,073240,자동차부품,Consumer Discretionary
-이노와이어리스,073490,통신장비,Information Technology
+LIG아큐버,073490,통신장비,Information Technology
+에프알텍,073540,통신장비,Information Technology
+우리손에프앤지,073560,식품,Consumer Staples
+리튬포어스,073570,핸드셋,Information Technology
+테라사이언스,073640,기계,Industrials
+아미노로직스,074430,제약,Health Care
 원익QnC,074600,반도체와반도체장비,Information Technology
+이엔플러스,074610,기계,Industrials
+플랜티넷,075130,소프트웨어,Information Technology
+새론오토모티브,075180,자동차부품,Consumer Discretionary
 세진중공업,075580,조선,Industrials
+동국알앤에스,075970,비철금속,Materials
+웰크론한텍,076080,건설,Industrials
+해성옵틱스,076610,핸드셋,Information Technology
 덕산하이메탈,077360,반도체와반도체장비,Information Technology
+유니퀘스트,077500,반도체와반도체장비,Information Technology
 STX엔진,077970,조선,Industrials
+텔코웨어,078000,소프트웨어,Information Technology
 LS증권,078020,증권,Financials
 유비쿼스홀딩스,078070,통신장비,Information Technology
 국일제지,078130,종이와목재,Materials
+대봉엘에스,078140,제약,Health Care
 HB테크놀러지,078150,디스플레이장비및부품,Information Technology
 메디포스트,078160,생물공학,Health Care
 컴투스,078340,게임엔터테인먼트,Communication Services
 한양디지텍,078350,반도체와반도체장비,Information Technology
 에이블씨엔씨,078520,화장품,Consumer Discretionary
+휴림에이텍,078590,자동차부품,Consumer Discretionary
 대주전자재료,078600,전자장비와기기,Information Technology
+스테이지원엔터,078860,방송과엔터테인먼트,Consumer Discretionary
+가온그룹,078890,전자제품,Information Technology
 GS,078930,석유와가스,Energy
+GS우,078935,석유와가스,Energy
+와토스코리아,079000,건축제품,Materials
 CJ CGV,079160,방송과엔터테인먼트,Consumer Discretionary
+한창산업,079170,비철금속,Materials
+케스피온,079190,핸드셋,Information Technology
 제우스,079370,반도체와반도체장비,Information Technology
+현대리바트,079430,가구,Consumer Discretionary
 LIG디펜스앤에어로스페이스,079550,우주항공과국방,Industrials
+서산,079650,건축자재,Industrials
+APS이노베이션,079810,전기제품,Utilities
 전진건설로봇,079900,기계,Industrials
 가비아,079940,IT서비스,Information Technology
+인베니아,079950,디스플레이장비및부품,Information Technology
 동양이엔피,079960,전기제품,Utilities
+휴비스,079980,"섬유,의류,신발,호화품",Consumer Discretionary
+이상네트웍스,080010,다각화된소비자서비스,Other
 모두투어,080160,"호텔,레스토랑,레저",Consumer Discretionary
 제주반도체,080220,반도체와반도체장비,Information Technology
+모다이노칩,080420,전문소매,Other
+성창오토텍,080470,자동차부품,Consumer Discretionary
+오디텍,080520,반도체와반도체장비,Information Technology
+코디,080530,화장품,Consumer Discretionary
 오킨스전자,080580,반도체와반도체장비,Information Technology
+한국유니온제약,080720,제약,Health Care
+일진다이아,081000,비철금속,Materials
+티플랙스,081150,비철금속,Materials
+쎄크,081180,전자장비와기기,Information Technology
+성우전자,081580,핸드셋,Information Technology
 미스토홀딩스,081660,"섬유,의류,신발,호화품",Consumer Discretionary
+옵트론텍,082210,전자장비와기기,Information Technology
 젬백스,082270,반도체와반도체장비,Information Technology
 동양생명,082640,생명보험,Financials
+코스나인,082660,화장품,Consumer Discretionary
 한화엔진,082740,조선,Industrials
-,082800,제약,Health Care
+비보존 제약,082800,제약,Health Care
+우리바이오,082850,디스플레이장비및부품,Information Technology
 비츠로셀,082920,전기제품,Utilities
 엘오티베큠,083310,반도체와반도체장비,Information Technology
+그린케미칼,083420,화학,Materials
 GST,083450,반도체와반도체장비,Information Technology
+이엠앤아이,083470,디스플레이장비및부품,Information Technology
+에프엔에스테크,083500,디스플레이장비및부품,Information Technology
+케이엠,083550,"섬유,의류,신발,호화품",Consumer Discretionary
+인콘,083640,전자장비와기기,Information Technology
 비에이치아이,083650,에너지장비및서비스,Energy
+CSA 코스믹,083660,화장품,Consumer Discretionary
+CG인바이츠,083790,생명과학도구및서비스,Health Care
 아바코,083930,전기제품,Utilities
 대한제강,084010,철강,Materials
 휴온스글로벌,084110,제약,Health Care
+수성웹툰,084180,출판,Other
 유진테크,084370,반도체와반도체장비,Information Technology
+유비온,084440,교육서비스,Industrials
+랩지노믹스,084650,생명과학도구및서비스,Health Care
+동양고속,084670,도로와철도운송,Industrials
 이월드,084680,"섬유,의류,신발,호화품",Consumer Discretionary
 대상홀딩스,084690,식품,Consumer Staples
+대상홀딩스우,084695,식품,Consumer Staples
+팅크웨어,084730,전자제품,Information Technology
 아이티엠반도체,084850,전자장비와기기,Information Technology
+TBH글로벌,084870,"섬유,의류,신발,호화품",Consumer Discretionary
 헬릭스미스,084990,생물공학,Health Care
+엔케이,085310,조선,Industrials
 미래에셋생명,085620,생명보험,Financials
 차바이오텍,085660,건강관리업체및서비스,Health Care
+뉴프렉스,085670,전자장비와기기,Information Technology
+알티캐스트,085810,건설,Industrials
 네오티스,085910,자동차부품,Consumer Discretionary
+바이오톡스텍,086040,생명과학도구및서비스,Health Care
+진바이오텍,086060,제약,Health Care
 현대글로비스,086280,항공화물운송과물류,Industrials
 유니테스트,086390,반도체와반도체장비,Information Technology
 동국제약,086450,제약,Health Care
 에코프로,086520,화학,Materials
+비엠티,086670,기계,Industrials
+선진뷰티사이언스,086710,화장품,Consumer Discretionary
 하나금융지주,086790,은행,Financials
 바이오솔루션,086820,생물공학,Health Care
-,086890,제약,Health Care
+이수앱지스,086890,제약,Health Care
 메디톡스,086900,생물공학,Health Care
+MDS테크,086960,소프트웨어,Information Technology
+쇼박스,086980,방송과엔터테인먼트,Consumer Discretionary
 펩트론,087010,생물공학,Health Care
+모바일어플라이언스,087260,자동차부품,Consumer Discretionary
+픽셀플러스,087600,반도체와반도체장비,Information Technology
+동아엘텍,088130,디스플레이장비및부품,Information Technology
 이리츠코크렙,088260,부동산,Financials
+쏘닉스,088280,핸드셋,Information Technology
+이원컴포텍,088290,자동차부품,Consumer Discretionary
+유라클,088340,소프트웨어,Information Technology
 한화생명,088350,생명보험,Financials
+이녹스,088390,레저용장비와제품,Consumer Discretionary
+진도,088790,"섬유,의류,신발,호화품",Consumer Discretionary
 에이스테크,088800,통신장비,Information Technology
+동우팜투테이블,088910,식품,Consumer Staples
 맥쿼리인프라,088980,금융,Financials
 켐트로닉스,089010,전자장비와기기,Information Technology
 테크윙,089030,반도체와반도체장비,Information Technology
+넥스턴앤롤코리아,089140,기계,Industrials
+케이씨티,089150,컴퓨터와주변기기,Information Technology
+THE E&M,089230,양방향미디어와서비스,Communication Services
+HDC현대EP,089470,자동차부품,Consumer Discretionary
 제주항공,089590,항공사,Industrials
+KT나스미디어,089600,광고,Communication Services
+제이티,089790,반도체와반도체장비,Information Technology
+유비벨록스,089850,전자제품,Information Technology
 롯데렌탈,089860,도로와철도운송,Industrials
 코세스,089890,반도체와반도체장비,Information Technology
 브이엠,089970,반도체와반도체장비,Information Technology
 상아프론테크,089980,전자장비와기기,Information Technology
+평화산업,090080,자동차부품,Consumer Discretionary
+아이윈,090150,자동차부품,Consumer Discretionary
+노루페인트,090350,건축자재,Industrials
+노루페인트우,090355,건축자재,Industrials
 로보스타,090360,기계,Industrials
+메타랩스,090370,상업서비스와공급품,Industrials
+덕신이피씨,090410,건축자재,Industrials
 아모레퍼시픽,090430,화장품,Consumer Discretionary
 아모레퍼시픽우,090435,화장품,Consumer Discretionary
 비에이치,090460,전자장비와기기,Information Technology
+제이스텍,090470,전자장비와기기,Information Technology
 휴림로봇,090710,기계,Industrials
+현대이지웰,090850,상업서비스와공급품,Industrials
+이엠텍,091120,핸드셋,Information Technology
+KODEX 반도체,091160,ETF,ETF
+KODEX 은행,091170,ETF,ETF
+KODEX 자동차,091180,ETF,ETF
+TIGER 은행,091220,ETF,ETF
+TIGER 반도체,091230,ETF,ETF
+S&K폴리텍,091340,전자장비와기기,Information Technology
+한울소재과학,091440,통신장비,Information Technology
 상신이디피,091580,전기제품,Utilities
+남화토건,091590,건설,Industrials
 파트론,091700,핸드셋,Information Technology
 티웨이항공,091810,항공사,Industrials
+나노캠텍,091970,화학,Materials
+아미코젠,092040,생물공학,Health Care
 디엔에프,092070,반도체와반도체장비,Information Technology
+이크레더블,092130,상업서비스와공급품,Industrials
+서울바이오시스,092190,디스플레이장비및부품,Information Technology
 디아이씨,092200,자동차부품,Consumer Discretionary
 KEC,092220,반도체와반도체장비,Information Technology
 KPX홀딩스,092230,화학,Materials
+현우산업,092300,전자장비와기기,Information Technology
+기신정기,092440,기계,Industrials
 한라IMS,092460,조선,Industrials
+앤씨앤,092600,전자제품,Information Technology
 네오팜,092730,화장품,Consumer Discretionary
+DYP,092780,자동차부품,Consumer Discretionary
 넥스틸,092790,철강,Materials
 엑시콘,092870,반도체와반도체장비,Information Technology
 LF,093050,"섬유,의류,신발,호화품",Consumer Discretionary
+빅솔론,093190,컴퓨터와주변기기,Information Technology
+형지엘리트,093240,"섬유,의류,신발,호화품",Consumer Discretionary
 케이아이엔엑스,093320,IT서비스,Information Technology
 후성,093370,화학,Materials
+풍강,093380,자동차부품,Consumer Discretionary
 매커스,093520,반도체와반도체장비,Information Technology
+케이알엠,093640,반도체와반도체장비,Information Technology
+서원인텍,093920,핸드셋,Information Technology
 동운아나텍,094170,반도체와반도체장비,Information Technology
+효성ITX,094280,상업서비스와공급품,Industrials
 칩스앤미디어,094360,반도체와반도체장비,Information Technology
 갤럭시아머니트리,094480,IT서비스,Information Technology
 맵스리얼티,094800,부동산,Financials
 일진파워,094820,건설,Industrials
+슈프리마에이치큐,094840,전자장비와기기,Information Technology
+참좋은여행,094850,"호텔,레스토랑,레저",Consumer Discretionary
+네오리진,094860,게임엔터테인먼트,Communication Services
+푸른기술,094940,컴퓨터와주변기기,Information Technology
+제이엠티,094970,디스플레이장비및부품,Information Technology
+이엠코리아,095190,기계,Industrials
+웨이브일렉트로,095270,우주항공과국방,Industrials
 ISC,095340,반도체와반도체장비,Information Technology
 미래나노텍,095500,디스플레이장비및부품,Information Technology
 AJ네트웍스,095570,도로와철도운송,Industrials
 테스,095610,반도체와반도체장비,Information Technology
 네오위즈,095660,게임엔터테인먼트,Communication Services
 제넥신,095700,생물공학,Health Care
+웅진씽크빅,095720,교육서비스,Industrials
+에스에너지,095910,에너지장비및서비스,Energy
+크레버스,096240,교육서비스,Industrials
+와이즈넛,096250,소프트웨어,Information Technology
+대창솔루션,096350,N/A,N/A
 씨젠,096530,생명과학도구및서비스,Health Care
+알에프세미,096610,반도체와반도체장비,Information Technology
+에스코넥,096630,핸드셋,Information Technology
+에이루트,096690,컴퓨터와주변기기,Information Technology
 JW홀딩스,096760,제약,Health Care
 SK이노베이션,096770,석유와가스,Energy
+SK이노베이션우,096775,석유와가스,Energy
+엘디티,096870,디스플레이장비및부품,Information Technology
 HJ중공업,097230,건설,Industrials
 엠씨넥스,097520,핸드셋,Information Technology
+에코볼트,097780,자동차부품,Consumer Discretionary
+윈팩,097800,반도체와반도체장비,Information Technology
+효성오앤비,097870,화학,Materials
 CJ제일제당,097950,식품,Consumer Staples
+CJ제일제당 우,097955,식품,Consumer Staples
 한텍,098070,에너지장비및서비스,Energy
 마이크로컨텍솔,098120,반도체와반도체장비,Information Technology
 고영,098460,전자장비와기기,Information Technology
+에스티오,098660,"섬유,의류,신발,호화품",Consumer Discretionary
+KODEX 차이나H,099140,ETF,ETF
 아이센스,099190,건강관리장비와용품,Health Care
+SDN,099220,에너지장비및서비스,Energy
 쎄트렉아이,099320,우주항공과국방,Industrials
+브레인즈컴퍼니,099390,소프트웨어,Information Technology
+동방선기,099410,조선,Industrials
 바이오플러스,099430,건강관리장비와용품,Health Care
 스맥,099440,기계,Industrials
+DGI,099520,통신장비,Information Technology
+이지케어텍,099750,건강관리기술,Health Care
+인지소프트,100030,소프트웨어,Information Technology
 SK오션플랜트,100090,에너지장비및서비스,Energy
 뷰웍스,100120,건강관리장비와용품,Health Care
+동국S&C,100130,에너지장비및서비스,Energy
+비상교육,100220,교육서비스,Industrials
+진양홀딩스,100250,자동차부품,Consumer Discretionary
+머큐리,100590,통신장비,Information Technology
+서암기계공업,100660,기계,Industrials
+세운메디칼,100700,건강관리장비와용품,Health Care
 미래에셋벤처투자,100790,창업투자,Financials
 SNT에너지,100840,에너지장비및서비스,Energy
+KIWOOM KRX100,100910,ETF,ETF
+KS인더스트리,101000,조선,Industrials
+인바이오젠,101140,전자장비와기기,Information Technology
 월덱스,101160,반도체와반도체장비,Information Technology
+우림피티에스,101170,기계,Industrials
+씨큐브,101240,화학,Materials
+KODEX 일본TOPIX100,101280,ETF,ETF
+모베이스,101330,자동차부품,Consumer Discretionary
 에코앤드림,101360,화학,Materials
+엔시트론,101400,반도체와반도체장비,Information Technology
 에스앤에스텍,101490,반도체와반도체장비,Information Technology
+해태제과식품,101530,식품,Consumer Staples
+하이드로리튬,101670,전기제품,Utilities
+한국정밀기계,101680,기계,Industrials
 위메이드맥스,101730,게임엔터테인먼트,Communication Services
 인화정공,101930,조선,Industrials
 우양에이치씨,101970,에너지장비및서비스,Energy
+TIGER 200,102110,ETF,ETF
 어보브반도체,102120,반도체와반도체장비,Information Technology
 동성케미컬,102260,화학,Materials
-,102460,제약,Health Care
+케이옥션,102370,판매업체,Consumer Discretionary
+이연제약,102460,제약,Health Care
 이엔에프테크놀로지,102710,반도체와반도체장비,Information Technology
+KODEX 삼성그룹,102780,ETF,ETF
 코오롱생명과학,102940,제약,Health Care
+KODEX 기계장비,102960,ETF,ETF
+KODEX 증권,102970,ETF,ETF
 풍산,103140,비철금속,Materials
+에스앤더블류,103230,조선,Industrials
 일진전기,103590,전기장비,Utilities
+우양,103840,식품,Consumer Staples
+대성파인텍,104040,자동차부품,Consumer Discretionary
+NHN벅스,104200,방송과엔터테인먼트,Consumer Discretionary
+디와이피엔에프,104460,기계,Industrials
 티케이케미칼,104480,화학,Materials
+KIWOOM 블루칩,104520,ETF,ETF
+KIWOOM 고배당,104530,ETF,ETF
+코렌텍,104540,건강관리장비와용품,Health Care
+노랑풍선,104620,"호텔,레스토랑,레저",Consumer Discretionary
 한국철강,104700,철강,Materials
 원익머트리얼즈,104830,화학,Materials
+TIGER 라틴35,105010,ETF,ETF
+ACE 200,105190,ETF,ETF
+케이엔더블유,105330,반도체와반도체장비,Information Technology
+엣지파운드리,105550,자동차부품,Consumer Discretionary
 KB금융,105560,은행,Financials
 한세실업,105630,"섬유,의류,신발,호화품",Consumer Discretionary
+디케이락,105740,기계,Industrials
+포스뱅크,105760,상업서비스와공급품,Industrials
+RISE 5대그룹주,105780,ETF,ETF
 우진,105840,기계,Industrials
+케이이엠텍,106080,핸드셋,Information Technology
 하이텍팜,106190,제약,Health Care
+파인테크닉스,106240,디스플레이장비및부품,Information Technology
+노블엠앤비,106520,전자장비와기기,Information Technology
+미원홀딩스,107590,화학,Materials
+새빗켐,107600,전기제품,Utilities
 한중엔시에스,107640,전기장비,Utilities
+톱텍,108230,디스플레이장비및부품,Information Technology
 LX세미콘,108320,디스플레이장비및부품,Information Technology
 대양전기공업,108380,조선,Industrials
+ACE 삼성그룹섹터가중,108450,ETF,ETF
 로보티즈,108490,기계,Industrials
+TREX 200,108590,ETF,ETF
 LX하우시스,108670,건축자재,Industrials
+LX하우시스우,108675,건축자재,Industrials
 셀바스AI,108860,건강관리장비와용품,Health Care
+주성코퍼레이션,109070,해운사,Industrials
+옵티시스,109080,통신장비,Information Technology
+에스와이,109610,건축자재,Industrials
+씨싸이트,109670,"섬유,의류,신발,호화품",Consumer Discretionary
+디에스케이,109740,전자장비와기기,Information Technology
+진매트릭스,109820,생물공학,Health Care
+동일금속,109860,기계,Industrials
+앱토크롬,109960,제약,Health Care
+전진바이오팜,110020,가정용품,Consumer Discretionary
+크리스에프앤씨,110790,"섬유,의류,신발,호화품",Consumer Discretionary
 디아이티,110990,디스플레이장비및부품,Information Technology
+호전실업,111110,"섬유,의류,신발,호화품",Consumer Discretionary
+동인기연,111380,"섬유,의류,신발,호화품",Consumer Discretionary
+남화산업,111710,"호텔,레스토랑,레저",Consumer Discretionary
 영원무역,111770,"섬유,의류,신발,호화품",Consumer Discretionary
 위메이드,112040,게임엔터테인먼트,Communication Services
 와이씨켐,112290,반도체와반도체장비,Information Technology
 씨에스윈드,112610,에너지장비및서비스,Energy
+디젠스,113810,자동차부품,Consumer Discretionary
 GKL,114090,"호텔,레스토랑,레저",Consumer Discretionary
+RISE 국고채3년,114100,ETF,ETF
 강원에너지,114190,전자장비와기기,Information Technology
+KODEX 국고채3년,114260,ETF,ETF
+그린생명과학,114450,제약,Health Care
+ACE 국고채3년,114460,ETF,ETF
+KIWOOM 국고채3년,114470,ETF,ETF
+폴라리스우노,114630,"섬유,의류,신발,호화품",Consumer Discretionary
+KODEX 인버스,114800,ETF,ETF
 한솔아이원스,114810,반도체와반도체장비,Information Technology
+TIGER 국채3년,114820,ETF,ETF
 아이패밀리에스씨,114840,화장품,Consumer Discretionary
+휴맥스,115160,전자제품,Information Technology
 큐리언트,115180,제약,Health Care
 인포바인,115310,IT서비스,Information Technology
+우리넷,115440,통신장비,Information Technology
 HLB테라퓨틱스,115450,제약,Health Care
+씨유메디칼,115480,건강관리장비와용품,Health Care
+케이씨에스,115500,IT서비스,Information Technology
+씨엔플러스,115530,디스플레이장비및부품,Information Technology
+스타플렉스,115570,화학,Materials
+이미지스,115610,핸드셋,Information Technology
+KODEX 에너지화학,117460,ETF,ETF
 대성에너지,117580,가스유틸리티,Energy
+알파칩스,117670,반도체와반도체장비,Information Technology
+KODEX 철강,117680,ETF,ETF
+TIGER 차이나항셍30,117690,ETF,ETF
+KODEX 건설,117700,ETF,ETF
 티로보틱스,117730,기계,Industrials
-,118990,자동차부품,Consumer Discretionary
+메타케어,118000,제약,Health Care
+모트렉스,118990,자동차부품,Consumer Discretionary
+포메탈,119500,기계,Industrials
 인터로조,119610,건강관리장비와용품,Health Care
+KC코트렐,119650,상업서비스와공급품,Industrials
 아이텍,119830,반도체와반도체장비,Information Technology
 지엔씨에너지,119850,전기장비,Utilities
+조선선재,120030,철강,Materials
 코오롱인더,120110,화학,Materials
+코오롱인더우,120115,화학,Materials
+대정화금,120240,화학,Materials
 골프존홀딩스,121440,레저용장비와제품,Consumer Discretionary
 나노신소재,121600,화학,Materials
 비덴트,121800,디스플레이패널,Information Technology
+코이즈,121850,디스플레이장비및부품,Information Technology
+에스디시스템,121890,운송인프라,Industrials
+PLUS 코스피50,122090,ETF,ETF
+KIWOOM 통안채1년,122260,ETF,ETF
+제노레이,122310,건강관리장비와용품,Health Care
+삼기,122350,자동차부품,Consumer Discretionary
+KX,122450,복합기업,Industrials
+KODEX 레버리지,122630,ETF,ETF
 예스티,122640,반도체와반도체장비,Information Technology
+서진오토모티브,122690,자동차부품,Consumer Discretionary
 와이지엔터테인먼트,122870,방송과엔터테인먼트,Consumer Discretionary
 아이마켓코리아,122900,상업서비스와공급품,Industrials
+와이솔,122990,핸드셋,Information Technology
+알엔티엑스,123010,핸드셋,Information Technology
+엠에스오토텍,123040,자동차부품,Consumer Discretionary
+TIGER 인버스,123310,ETF,ETF
+TIGER 레버리지,123320,ETF,ETF
 제닉,123330,화장품,Consumer Discretionary
-,123410,자동차부품,Consumer Discretionary
+코리아에프티,123410,자동차부품,Consumer Discretionary
+위메이드플레이,123420,게임엔터테인먼트,Communication Services
+이엠넷,123570,광고,Communication Services
+한국화장품,123690,화장품,Consumer Discretionary
+SJM,123700,자동차부품,Consumer Discretionary
+알톤,123750,레저용장비와제품,Consumer Discretionary
+뉴온,123840,건강관리업체및서비스,Health Care
 아나패스,123860,디스플레이장비및부품,Information Technology
 한국자산신탁,123890,부동산,Financials
 아이티센글로벌,124500,IT서비스,Information Technology
+태웅로직스,124560,해운사,Industrials
 티씨머티리얼즈,125020,전기장비,Utilities
+아모그린텍,125210,화학,Materials
 한라캐스트,125490,자동차부품,Consumer Discretionary
 비나텍,126340,전기장비,Utilities
 현대퓨처넷,126560,화장품,Consumer Discretionary
 BGF에코머티리얼즈,126600,화학,Materials
+화신정공,126640,자동차부품,Consumer Discretionary
 하이비젼시스템,126700,핸드셋,Information Technology
 수산인더스트리,126720,에너지장비및서비스,Energy
+코칩,126730,전기제품,Utilities
+제이엔케이글로벌,126880,석유와가스,Energy
 제이에스링크,127120,생명과학도구및서비스,Health Care
+아시아경제,127710,출판,Other
+화인써키트,127980,전자장비와기기,Information Technology
+에코캡,128540,자동차부품,Consumer Discretionary
+피제이메탈,128660,비철금속,Materials
 대성산업,128820,석유와가스,Energy
 한미약품,128940,제약,Health Care
+인터지스,129260,해운사,Industrials
+앱코,129890,컴퓨터와주변기기,Information Technology
+대성하이텍,129920,기계,Industrials
+GH신소재,130500,자동차부품,Consumer Discretionary
+나이스디앤비,130580,상업서비스와공급품,Industrials
 한전산업,130660,전기유틸리티,Utilities
+TIGER 원유선물Enhanced(H),130680,ETF,ETF
+KIWOOM 단기자금,130730,ETF,ETF
+티피씨글로벌,130740,자동차부품,Consumer Discretionary
 옵투스제약,131030,제약,Health Care
+시큐브,131090,소프트웨어,Information Technology
+티엔엔터테인먼트,131100,방송과엔터테인먼트,Consumer Discretionary
+딜리,131180,컴퓨터와주변기기,Information Technology
+대한과학,131220,생명과학도구및서비스,Health Care
 티에스이,131290,반도체와반도체장비,Information Technology
+알서포트,131370,소프트웨어,Information Technology
+이브이첨단소재,131400,전자장비와기기,Information Technology
+파인텍,131760,디스플레이장비및부품,Information Technology
+ACE 삼성그룹동일가중,131890,ETF,ETF
 두산테스나,131970,반도체와반도체장비,Information Technology
+KODEX 골드선물(H),132030,ETF,ETF
+TIGER 미국나스닥100,133690,ETF,ETF
+메가엠디,133750,교육서비스,Industrials
+화인베스틸,133820,철강,Materials
+이퓨쳐,134060,교육서비스,Industrials
 미원화학,134380,화학,Materials
+탑코미디어,134580,양방향미디어와서비스,Communication Services
+시디즈,134790,가구,Consumer Discretionary
+원일티엔아이,136150,에너지장비및서비스,Energy
+RISE 중기우량회사채,136340,ETF,ETF
+아셈스,136410,화학,Materials
 하림,136480,식품,Consumer Staples
 선진,136490,식품,Consumer Staples
+윈스테크넷,136540,소프트웨어,Information Technology
+나래나노텍,137080,디스플레이장비및부품,Information Technology
 에스디바이오센서,137310,건강관리장비와용품,Health Care
 피엔티,137400,전기제품,Utilities
+TIGER 농산물선물Enhanced(H),137610,ETF,ETF
+넥스트아이,137940,화장품,Consumer Discretionary
+제이씨케미칼,137950,에너지장비및서비스,Energy
 메리츠금융지주,138040,증권,Financials
+신진에스엠,138070,기계,Industrials
 오이솔루션,138080,통신장비,Information Technology
+KIWOOM 미국달러선물,138230,ETF,ETF
+앤로보틱스,138360,기계,Industrials
 코오롱ENP,138490,화학,Materials
+TIGER 삼성그룹,138520,ETF,ETF
+TIGER LG그룹플러스,138530,ETF,ETF
+TIGER 현대차그룹플러스,138540,ETF,ETF
 나이벡,138610,건강관리장비와용품,Health Care
-BNK금융지주,138930,은행,Financials
+KODEX 구리선물(H),138910,ETF,ETF
+KODEX 콩선물(H),138920,ETF,ETF
+BNK금융지주,138930,ETF,ETF
+BF랩스,139050,IT서비스,Information Technology
 iM금융지주,139130,은행,Financials
+TIGER 200 건설,139220,ETF,ETF
+TIGER 200 중공업,139230,ETF,ETF
+TIGER 200 철강소재,139240,ETF,ETF
+TIGER 200 에너지화학,139250,ETF,ETF
+TIGER 200 IT,139260,ETF,ETF
+TIGER 200 금융,139270,ETF,ETF
+TIGER 경기방어,139280,ETF,ETF
+TIGER 200 경기소비재,139290,ETF,ETF
+TIGER 금은선물(H),139320,ETF,ETF
 이마트,139480,백화점과일반상점,Consumer Discretionary
+KIWOOM 미국달러선물인버스,139660,ETF,ETF
+키네마스터,139670,소프트웨어,Information Technology
+아주스틸,139990,철강,Materials
+서플러스글로벌,140070,반도체와반도체장비,Information Technology
 메지온,140410,식품,Consumer Staples
+카티스,140430,통신장비,Information Technology
+대창스틸,140520,철강,Materials
+RISE 수출주,140570,ETF,ETF
+RISE 우량업종대표주,140580,ETF,ETF
 알에스오토메이션,140670,기계,Industrials
+KODEX 보험,140700,ETF,ETF
+KODEX 운송,140710,ETF,ETF
 파크시스템스,140860,전자장비와기기,Information Technology
+에이리츠,140910,부동산,Financials
+파워 코스피100,140950,N/A,N/A
+비아트론,141000,디스플레이장비및부품,Information Technology
 리가켐바이오,141080,제약,Health Care
+유니트론텍,142210,반도체와반도체장비,Information Technology
+녹십자엠에스,142280,건강관리장비와용품,Health Care
+모아라이프플러스,142760,제약,Health Care
+아이디스,143160,전자장비와기기,Information Technology
+핸즈코퍼레이션,143210,자동차부품,Consumer Discretionary
+사람인,143240,상업서비스와공급품,Industrials
+영우디에스피,143540,디스플레이장비및부품,Information Technology
+TIGER 미국S&P500선물(H),143850,ETF,ETF
+TIGER 헬스케어,143860,ETF,ETF
 지씨셀,144510,건강관리업체및서비스,Health Care
+KODEX 은선물(H),144600,ETF,ETF
 뉴파워프라즈마,144960,반도체와반도체장비,Information Technology
 휴젤,145020,생물공학,Health Care
+노브랜드,145170,"섬유,의류,신발,호화품",Consumer Discretionary
+다이나믹디자인,145210,자동차부품,Consumer Discretionary
+케이탑리츠,145270,부동산,Financials
+ACE 인버스,145670,ETF,ETF
 덴티움,145720,건강관리장비와용품,Health Care
+TREX 펀더멘탈 200,145850,ETF,ETF
 삼양사,145990,식품,Consumer Staples
+삼양사우,145995,식품,Consumer Staples
+율촌,146060,자동차부품,Consumer Discretionary
 비씨엔씨,146320,반도체와반도체장비,Information Technology
+피엠티,147760,반도체와반도체장비,Information Technology
+제룡산업,147830,전기장비,Utilities
+TIGER 모멘텀,147970,ETF,ETF
+RISE 200,148020,ETF,ETF
+KIWOOM 국고채10년,148070,ETF,ETF
+세경하이테크,148150,핸드셋,Information Technology
+알엔투테크놀로지,148250,통신장비,Information Technology
+비큐AI,148780,소프트웨어,Information Technology
+에이치와이티씨,148930,전기제품,Utilities
+아바텍,149950,디스플레이장비및부품,Information Technology
+하이로닉,149980,건강관리장비와용품,Health Care
+TIGER 중국소비테마,150460,ETF,ETF
 인트로메딕,150840,건강관리장비와용품,Health Care
+파수,150900,소프트웨어,Information Technology
 KG에코솔루션,151860,자동차,Consumer Discretionary
+PLUS 200,152100,ETF,ETF
+KODEX 국채선물10년,152380,ETF,ETF
+ACE 레버리지,152500,ETF,ETF
+한국ANKOR유전,152550,N/A,N/A
+파워 200,152870,N/A,N/A
+KODEX 단기채권,153130,ETF,ETF
+KIWOOM 코스피100,153270,ETF,ETF
+네이블,153460,소프트웨어,Information Technology
+우리이앤엘,153490,디스플레이장비및부품,Information Technology
+옵티팜,153710,제약,Health Care
+아시아종묘,154030,생물공학,Health Care
+다산솔루에타,154040,전자제품,Information Technology
+와이엠씨,155650,디스플레이장비및부품,Information Technology
+DSR,155660,비철금속,Materials
+KODEX MSCI Korea,156080,ETF,ETF
 엘앤케이바이오,156100,건강관리장비와용품,Health Care
+TIGER 단기통안채,157450,ETF,ETF
+TIGER 소프트웨어,157490,ETF,ETF
+TIGER 증권,157500,ETF,ETF
+아톤,158430,소프트웨어,Information Technology
+아스플로,159010,기계,Industrials
+제로투세븐,159580,화장품,Consumer Discretionary
+마이티 코스피100,159800,N/A,N/A
+에코글로우,159910,화장품,Consumer Discretionary
 하이젠알앤엠,160190,기계,Industrials
+NEW,160550,방송과엔터테인먼트,Consumer Discretionary
+TIGER 구리실물,160580,ETF,ETF
 싸이맥스,160980,반도체와반도체장비,Information Technology
 애경케미칼,161000,화학,Materials
 한국타이어앤테크놀로지,161390,자동차부품,Consumer Discretionary
+PLUS 고배당주,161510,ETF,ETF
 필옵틱스,161580,전자장비와기기,Information Technology
 한국콜마,161890,화장품,Consumer Discretionary
+신스틸,162300,철강,Materials
+에어레인,163280,화학,Materials
+동일고무벨트,163560,화학,Materials
+핑거,163730,IT서비스,Information Technology
 하나머티리얼즈,166090,반도체와반도체장비,Information Technology
+TIGER 200커버드콜OTM,166400,ETF,ETF
+코아스템켐온,166480,생물공학,Health Care
+KIWOOM 국고채10년레버리지,167860,ETF,ETF
+내츄럴엔도텍,168330,화장품,Consumer Discretionary
 펨트론,168360,전자장비와기기,Information Technology
+ACE 중국본토CSI300,168580,ETF,ETF
+엠브레인,169330,IT서비스,Information Technology
+KODEX 차이나A50,169950,ETF,ETF
+현대공업,170030,자동차부품,Consumer Discretionary
+파이오링크,170790,통신장비,Information Technology
 동아에스티,170900,제약,Health Care
 엘티씨,170920,반도체와반도체장비,Information Technology
+램테크놀러지,171010,반도체와반도체장비,Information Technology
 선익시스템,171090,디스플레이장비및부품,Information Technology
+라이온켐텍,171120,건축자재,Industrials
+에이엘티,172670,반도체와반도체장비,Information Technology
+오파스넷,173130,IT서비스,Information Technology
+에프엔씨엔터,173940,방송과엔터테인먼트,Consumer Discretionary
+TIGER 로우볼,174350,ETF,ETF
+RISE 중국본토대형주CSI100,174360,ETF,ETF
 앱클론,174900,생물공학,Health Care
+휴먼테크놀로지,175140,전자제품,Information Technology
+아이큐어,175250,화장품,Consumer Discretionary
 JB금융지주,175330,은행,Financials
 듀켐바이오,176750,제약,Health Care
+KODEX 국채선물10년인버스,176950,ETF,ETF
+베셀,177350,디스플레이장비및부품,Information Technology
+파버나인,177830,비철금속,Materials
+쓰리에이로직스,177900,통신장비,Information Technology
 서진시스템,178320,전기장비,Utilities
+일월지엠엘,178780,전문소매,Other
 PI첨단소재,178920,화학,Materials
 엠아이텍,179290,건강관리장비와용품,Health Care
+애드바이오텍,179530,제약,Health Care
 유티아이,179900,핸드셋,Information Technology
 DXVX,180400,건강관리업체및서비스,Health Care
 한진칼,180640,항공사,Industrials
+ACE 미국부동산리츠(합성 H),181480,ETF,ETF
 NHN,181710,IT서비스,Information Technology
+큐브엔터,182360,방송과엔터테인먼트,Consumer Discretionary
 엔케이젠바이오텍코리아,182400,생명과학도구및서비스,Health Care
+TIGER 미국MSCI리츠(합성 H),182480,ETF,ETF
+TIGER 단기선진하이일드(합성 H),182490,ETF,ETF
 아세아시멘트,183190,건축자재,Industrials
 코미코,183300,반도체와반도체장비,Information Technology
+엔지켐생명과학,183490,제약,Health Care
+RISE 채권혼합,183700,ETF,ETF
+RISE 주식혼합,183710,ETF,ETF
+SGA솔루션즈,184230,소프트웨어,Information Technology
+아이진,185490,생물공학,Health Care
+KODEX 미국S&P바이오(합성),185680,ETF,ETF
 종근당,185750,제약,Health Care
+그린플러스,186230,건축자재,Industrials
+디티앤씨,187220,전자장비와기기,Information Technology
+신화콘텍,187270,전기제품,Utilities
+HLB제넥스,187420,생물공학,Health Care
 페니트리움바이오,187660,제약,Health Care
+나노,187790,화학,Materials
+디바이스,187870,디스플레이장비및부품,Information Technology
+바이오포트,188040,식품,Consumer Staples
+세니젠,188260,건강관리장비와용품,Health Care
 인텔리안테크,189300,통신장비,Information Technology
+씨이랩,189330,IT서비스,Information Technology
+PLUS 글로벌MSCI(합성 H),189400,ETF,ETF
+포시에스,189690,소프트웨어,Information Technology
+서전기전,189860,전기장비,Utilities
+흥국에프엔비,189980,음료,Consumer Staples
 나무가,190510,핸드셋,Information Technology
+ACE 단기통안채,190620,ETF,ETF
+코리아에셋투자증권,190650,증권,Financials
+육일씨엔에쓰,191410,디스플레이패널,Information Technology
+테고사이언스,191420,생물공학,Health Care
 더블유게임즈,192080,게임엔터테인먼트,Communication Services
+TIGER 차이나CSI300,192090,ETF,ETF
+케이사인,192250,소프트웨어,Information Technology
+윈하이텍,192390,건축자재,Industrials
 쿠쿠홀딩스,192400,가정용기기와용품,Consumer Discretionary
+오늘이엔엠,192410,통신장비,Information Technology
+슈피겐코리아,192440,핸드셋,Information Technology
 드림텍,192650,핸드셋,Information Technology
+파워 고배당저변동성,192720,N/A,N/A
 코스맥스,192820,화장품,Consumer Discretionary
+링크드,193250,핸드셋,Information Technology
 제이에스코퍼레이션,194370,"섬유,의류,신발,호화품",Consumer Discretionary
 데브시스터즈,194480,게임엔터테인먼트,Communication Services
 노바렉스,194700,건강관리업체및서비스,Health Care
+마니커에프앤지,195500,식품,Consumer Staples
 해성디에스,195870,반도체와반도체장비,Information Technology
+TIGER 일본TOPIX(합성 H),195920,ETF,ETF
+TIGER 유로스탁스50(합성 H),195930,ETF,ETF
 HK이노엔,195940,제약,Health Care
+PLUS 선진국MSCI(합성 H),195970,ETF,ETF
+PLUS 신흥국MSCI(합성 H),195980,ETF,ETF
+에이비프로바이오,195990,기계,Industrials
+ACE 일본TOPIX레버리지(H),196030,ETF,ETF
 알테오젠,196170,생물공학,Health Care
+RISE 단기통안채,196230,ETF,ETF
+HLB펩,196300,생물공학,Health Care
+코아시아씨엠,196450,핸드셋,Information Technology
+디에이테크놀로지,196490,전기제품,Utilities
+웹스,196700,화학,Materials
+디지캡,197140,소프트웨어,Information Technology
+캐프,198080,핸드셋,Information Technology
+강동씨앤엘,198440,건축자재,Industrials
+한주라이트메탈,198940,자동차부품,Consumer Discretionary
 케이엔알시스템,199430,기계,Industrials
+뱅크웨어글로벌,199480,IT서비스,Information Technology
+레이저옵텍,199550,건강관리장비와용품,Health Care
+바이오인프라,199730,생명과학도구및서비스,Health Care
 툴젠,199800,생물공학,Health Care
 제일일렉트릭,199820,전기장비,Utilities
+KODEX 미국S&P500산업재(합성),200030,ETF,ETF
 콜마비앤에이치,200130,건강관리업체및서비스,Health Care
+텔콘RF제약,200230,제약,Health Care
+KIWOOM 인도Nifty50(합성),200250,ETF,ETF
+아티스트스튜디오,200350,방송과엔터테인먼트,Consumer Discretionary
 에이팩트,200470,반도체와반도체장비,Information Technology
 휴메딕스,200670,제약,Health Care
 에이디테크놀로지,200710,반도체와반도체장비,Information Technology
+비씨월드제약,200780,제약,Health Care
 서연이화,200880,자동차부품,Consumer Discretionary
+미투온,201490,게임엔터테인먼트,Communication Services
 에이비온,203400,제약,Health Care
+유니온바이오메트릭스,203450,전자장비와기기,Information Technology
+드림시큐리티,203650,상업서비스와공급품,Industrials
+아크솔루션스,203690,가정용품,Consumer Discretionary
+TIGER 미국나스닥바이오,203780,ETF,ETF
+그리티,204020,"섬유,의류,신발,호화품",Consumer Discretionary
+스타에스엠리츠,204210,부동산,Financials
 제이앤티씨,204270,핸드셋,Information Technology
 HL만도,204320,자동차부품,Consumer Discretionary
+KODEX 차이나H레버리지(H),204450,ETF,ETF
+TIGER 차이나CSI300레버리지(합성),204480,ETF,ETF
+티쓰리,204610,게임엔터테인먼트,Communication Services
 글로벌텍스프리,204620,기타금융,Financials
+지엘팜텍,204840,제약,Health Care
+엑셈,205100,소프트웨어,Information Technology
+휴마시스,205470,생명과학도구및서비스,Health Care
+넥써쓰,205500,게임엔터테인먼트,Communication Services
+ACE 일본TOPIX인버스(합성 H),205720,ETF,ETF
+베노티앤알,206400,건축제품,Materials
+덱스터,206560,방송과엔터테인먼트,Consumer Discretionary
 바디텍메드,206640,생명과학도구및서비스,Health Care
 유바이오로직스,206650,생물공학,Health Care
+미스터블루,207760,양방향미디어와서비스,Communication Services
 삼성바이오로직스,207940,제약,Health Care
+정다운,208140,식품,Consumer Staples
 파멥신,208340,생물공학,Health Care
+지란지교시큐리티,208350,소프트웨어,Information Technology
+셀바스헬스케어,208370,건강관리장비와용품,Health Care
+썸에이지,208640,게임엔터테인먼트,Communication Services
+포톤,208710,핸드셋,Information Technology
+다산디엠씨,208860,자동차부품,Consumer Discretionary
+와이제이링크,209640,전자장비와기기,Information Technology
+캔버스엔,210120,방송과엔터테인먼트,Consumer Discretionary
+디와이파워,210540,기계,Industrials
+TIGER 코스피고배당,210780,ETF,ETF
 SK디앤디,210980,부동산,Financials
 인카금융서비스,211050,손해보험,Financials
 AP위성,211270,통신장비,Information Technology
+TIGER 배당성장,211560,ETF,ETF
+KODEX 코리아배당성장,211900,ETF,ETF
+네오오토,212560,자동차부품,Consumer Discretionary
+아이에스티이,212710,반도체와반도체장비,Information Technology
 덕산네오룩스,213420,디스플레이장비및부품,Information Technology
 한솔제지,213500,종이와목재,Materials
+KODEX 삼성그룹밸류,213610,ETF,ETF
+PLUS 미국다우존스고배당주(합성 H),213630,ETF,ETF
 클래시스,214150,건강관리장비와용품,Health Care
 헥토이노베이션,214180,IT서비스,Information Technology
+라파스,214260,화장품,Consumer Discretionary
+FSN,214270,양방향미디어와서비스,Communication Services
 이노션,214320,광고,Communication Services
+금호에이치티,214330,자동차부품,Consumer Discretionary
 케어젠,214370,건강관리업체및서비스,Health Care
-,214420,화장품,Consumer Discretionary
+경보제약,214390,제약,Health Care
+토니모리,214420,화장품,Consumer Discretionary
 아이쓰리시스템,214430,우주항공과국방,Industrials
 파마리서치,214450,건강관리장비와용품,Health Care
+롤링스톤,214610,건강관리장비와용품,Health Care
+디알텍,214680,건강관리장비와용품,Health Care
+KODEX 단기채권PLUS,214980,ETF,ETF
 골프존,215000,"호텔,레스토랑,레저",Consumer Discretionary
+솔디펜스,215090,우주항공과국방,Industrials
+로보로보,215100,교육서비스,Industrials
 메가스터디교육,215200,교육서비스,Industrials
+우리산업,215360,자동차부품,Consumer Discretionary
+우정바이오,215380,생명과학도구및서비스,Health Care
+토박스코리아,215480,"섬유,의류,신발,호화품",Consumer Discretionary
 신라젠,215600,제약,Health Care
+HK S&P코리아로우볼,215620,N/A,N/A
+이노인스트루먼트,215790,통신장비,Information Technology
+인크로스,216050,광고,Communication Services
 제테마,216080,건강관리장비와용품,Health Care
+제너셈,217190,반도체와반도체장비,Information Technology
 넵튠,217270,게임엔터테인먼트,Communication Services
 싸이토젠,217330,건강관리업체및서비스,Health Care
+에스디생명공학,217480,화장품,Consumer Discretionary
+러셀,217500,반도체와반도체장비,Information Technology
 티엠씨,217590,조선,Industrials
+선샤인푸드,217620,"호텔,레스토랑,레저",Consumer Discretionary
 강스템바이오텍,217730,생물공학,Health Care
+TIGER 원유선물인버스(H),217770,ETF,ETF
+TIGER 차이나CSI300인버스(합성),217780,ETF,ETF
+원익피앤이,217820,전기제품,Utilities
+미래생명자원,218150,식품,Consumer Staples
 RFHIC,218410,통신장비,Information Technology
+KODEX 미국S&P500에너지(합성),218420,ETF,ETF
 타이거일렉,219130,반도체와반도체장비,Information Technology
+RISE 미국S&P원유생산기업(합성 H),219390,ETF,ETF
+링크제니시스,219420,소프트웨어,Information Technology
+KODEX 미국S&P500선물(H),219480,ETF,ETF
+디와이디,219550,화장품,Consumer Discretionary
+한국비티비,219750,건강관리장비와용품,Health Care
+ACE 중국본토CSI300레버리지(합성),219900,ETF,ETF
 퓨쳐켐,220100,제약,Health Care
+SOL 차이나강소기업CSI500(합성 H),220130,ETF,ETF
+핸디소프트,220180,소프트웨어,Information Technology
 켐트로스,220260,화학,Materials
 유투바이오,221800,건강관리업체및서비스,Health Care
+하이즈항공,221840,우주항공과국방,Industrials
+케이디켐,221980,화학,Materials
+코스맥스엔비티,222040,건강관리업체및서비스,Health Care
 씨아이에스,222080,전기제품,Utilities
+팬젠,222110,생물공학,Health Care
+NPX,222160,반도체와반도체장비,Information Technology
+쎄노텍,222420,화학,Materials
 심텍,222800,전자장비와기기,Information Technology
+한국맥널티,222980,식품,Consumer Staples
+KODEX 200가치저변동,223190,ETF,ETF
+드림씨아이에스,223250,제약,Health Care
+사토시홀딩스,223310,식품과기본식료품소매,Consumer Staples
+더코디,224060,건축자재,Industrials
+에이텍모빌리티,224110,컴퓨터와주변기기,Information Technology
+TIGER 미국S&P500선물인버스(H),225030,ETF,ETF
+TIGER 미국S&P500레버리지(합성 H),225040,ETF,ETF
+TIGER 유로스탁스레버리지(합성 H),225050,ETF,ETF
+TIGER 이머징마켓MSCI레버리지(합성 H),225060,ETF,ETF
+ACE 골드선물 레버리지(합성 H),225130,ETF,ETF
+LK삼양,225190,전자장비와기기,Information Technology
+제놀루션,225220,건강관리장비와용품,Health Care
+케이엠제약,225430,가정용품,Consumer Discretionary
+HC보광산업,225530,건축자재,Industrials
 넥슨게임즈,225570,게임엔터테인먼트,Communication Services
+패션플랫폼,225590,"섬유,의류,신발,호화품",Consumer Discretionary
+KIWOOM 미국달러선물레버리지,225800,ETF,ETF
 잇츠한불,226320,화장품,Consumer Discretionary
+신테카바이오,226330,건강관리업체및서비스,Health Care
+본느,226340,화장품,Consumer Discretionary
+ACE Fn성장소비주도주,226380,ETF,ETF
+오스테오닉,226400,건강관리장비와용품,Health Care
+KODEX 코스피,226490,ETF,ETF
 엠디바이스,226590,반도체와반도체장비,Information Technology
 올릭스,226950,생명과학도구및서비스,Health Care
+KODEX 200 중소형,226980,ETF,ETF
+프로브잇,227100,건설,Industrials
+TIGER 200 헬스케어,227540,ETF,ETF
+TIGER 200 산업재,227550,ETF,ETF
+TIGER 200 생활소비재,227560,ETF,ETF
+TIGER 우량가치,227570,ETF,ETF
+아우딘퓨쳐스,227610,화장품,Consumer Discretionary
+PLUS 코스피,227830,ETF,ETF
+현대코퍼레이션홀딩스,227840,식품과기본식료품소매,Consumer Staples
+엔투텍,227950,반도체와반도체장비,Information Technology
+동양파일,228340,건축자재,Industrials
+레이,228670,건강관리장비와용품,Health Care
 지노믹트리,228760,건강관리장비와용품,Health Care
+TIGER 화장품,228790,ETF,ETF
+TIGER 여행레저,228800,ETF,ETF
+TIGER 미디어컨텐츠,228810,ETF,ETF
+TIGER KTOP30,228820,ETF,ETF
+레이언스,228850,건강관리장비와용품,Health Care
+젠큐릭스,229000,건강관리장비와용품,Health Care
+KODEX 코스닥150,229200,ETF,ETF
 LS에코에너지,229640,전기장비,Utilities
+KODEX KTOP30,229720,ETF,ETF
 에치에프알,230240,통신장비,Information Technology
 에코마케팅,230360,"섬유,의류,신발,호화품",Consumer Discretionary
+KIWOOM 미국달러선물인버스2X,230480,ETF,ETF
+비유테크놀러지,230980,우주항공과국방,Industrials
+TIGER 코스닥150,232080,ETF,ETF
 와이씨,232140,반도체와반도체장비,Information Technology
-,232680,반도체와반도체장비,Information Technology
+라온로보틱스,232680,반도체와반도체장비,Information Technology
+아이티센피엔에스,232830,IT서비스,Information Technology
+TIGER 코스닥150 레버리지,233160,ETF,ETF
+KODEX 코스닥150레버리지,233740,ETF,ETF
 싸이닉솔루션,234030,반도체와반도체장비,Information Technology
 JW생명과학,234080,제약,Health Care
+폴라리스세원,234100,자동차부품,Consumer Discretionary
+에스트래픽,234300,IT서비스,Information Technology
+RISE V&S셀렉트밸류,234310,ETF,ETF
 헥토파이낸셜,234340,IT서비스,Information Technology
 녹십자웰빙,234690,제약,Health Care
-,235980,제약,Health Care
+자이글,234920,건강관리장비와용품,Health Care
+메드팩토,235980,제약,Health Care
 슈프리마,236200,전자장비와기기,Information Technology
+TIGER 인도니프티50레버리지(합성),236350,ETF,ETF
+엔비티,236810,광고,Communication Services
+KODEX 코스피100,237350,ETF,ETF
+KODEX 코리아배당성장채권혼합,237370,ETF,ETF
+TIGER 경기방어채권혼합,237440,ETF,ETF
 에스티팜,237690,제약,Health Care
+피앤씨테크,237750,전기장비,Utilities
+플레이디,237820,광고,Communication Services
 클리오,237880,화장품,Consumer Discretionary
+앤디포스,238090,핸드셋,Information Technology
+얼라인드,238120,생명과학도구및서비스,Health Care
+비피도,238200,건강관리업체및서비스,Health Care
+힘스,238490,디스플레이장비및부품,Information Technology
+PLUS 스마트베타Quality채권혼합,238670,ETF,ETF
+ACE 일본Nikkei225(H),238720,ETF,ETF
+이스트에이드,239340,양방향미디어와서비스,Communication Services
+에이치엘사이언스,239610,건강관리업체및서비스,Health Care
+PLUS 우량회사채50,239660,ETF,ETF
+피엔에이치테크,239890,디스플레이장비및부품,Information Technology
+동방메디컬,240550,건강관리장비와용품,Health Care
+유진테크놀로지,240600,전기제품,Utilities
 원익IPS,240810,반도체와반도체장비,Information Technology
+TIGER 일본니케이225,241180,ETF,ETF
+RISE V&S셀렉트밸류채권혼합,241390,ETF,ETF
 DSC인베스트먼트,241520,창업투자,Financials
 두산밥캣,241560,기계,Industrials
 화승엔터프라이즈,241590,"섬유,의류,신발,호화품",Consumer Discretionary
+유니테크노,241690,자동차부품,Consumer Discretionary
 코스메카코리아,241710,화장품,Consumer Discretionary
 메카로,241770,반도체와반도체장비,Information Technology
+티이엠씨씨엔에스,241790,반도체와반도체장비,Information Technology
+피씨엘,241820,생명과학도구및서비스,Health Care
+에이스토리,241840,방송과엔터테인먼트,Consumer Discretionary
 나무기술,242040,IT서비스,Information Technology
 휴온스,243070,제약,Health Care
 신흥에스이씨,243840,전기제품,Utilities
+TIGER 200IT레버리지,243880,ETF,ETF
+TIGER 200에너지화학레버리지,243890,ETF,ETF
+올리패스,244460,제약,Health Care
+KODEX 바이오,244580,ETF,ETF
+KODEX 모멘텀Plus,244620,ETF,ETF
+KODEX 퀄리티Plus,244660,ETF,ETF
+KODEX 밸류Plus,244670,ETF,ETF
 에이플러스에셋,244920,손해보험,Financials
+TIGER 미국다우존스30,245340,ETF,ETF
+TIGER 유로스탁스배당30,245350,ETF,ETF
+TIGER 차이나HSCEI,245360,ETF,ETF
+EDGC,245620,생명과학도구및서비스,Health Care
+ACE 베트남VN30(합성),245710,ETF,ETF
+에스엘에스바이오,246250,제약,Health Care
+TS인베스트먼트,246690,창업투자,Financials
 티앤알바이오팹,246710,생물공학,Health Care
+아스타,246720,건강관리장비와용품,Health Care
+SCL사이언스,246960,건강관리업체및서비스,Health Care
 에코프로비엠,247540,전기제품,Utilities
+나노씨엠에스,247660,화학,Materials
 솔루엠,248070,전자장비와기기,Information Technology
+샘표식품,248170,식품,Consumer Staples
+TIGER S&P글로벌헬스케어(합성),248270,ETF,ETF
 일동제약,249420,제약,Health Care
+보라티알,250000,식품과기본식료품소매,Consumer Staples
+모비스,250060,소프트웨어,Information Technology
+RISE 차이나HSCEI(H),250730,ETF,ETF
+TIGER 코스닥150선물인버스,250780,ETF,ETF
+예선테크,250930,디스플레이장비및부품,Information Technology
+바이오에프디엔씨,251120,생물공학,Health Care
 넷마블,251270,게임엔터테인먼트,Communication Services
+KODEX 코스닥150선물인버스,251340,ETF,ETF
+KODEX MSCI선진국,251350,ETF,ETF
 와이엠티,251370,화학,Materials
+PLUS 고배당저변동50,251590,ETF,ETF
+PLUS 고배당주채권혼합,251600,ETF,ETF
+브이원텍,251630,기계,Industrials
 펌텍코리아,251970,포장재,Materials
+TIGER 200동일가중,252000,ETF,ETF
+RISE 200선물레버리지,252400,ETF,ETF
+RISE 200선물인버스,252410,ETF,ETF
+RISE 200선물인버스2X,252420,ETF,ETF
+세화피앤씨,252500,화장품,Consumer Discretionary
+KODEX 200동일가중,252650,ETF,ETF
+KODEX 200선물인버스2X,252670,ETF,ETF
+TIGER 200선물인버스2X,252710,ETF,ETF
 샘씨엔에스,252990,반도체와반도체장비,Information Technology
+PLUS 200선물레버리지,253150,ETF,ETF
+KIWOOM 200선물레버리지,253250,ETF,ETF
+RISE 헬스케어,253280,ETF,ETF
+RISE 헬스케어채권혼합,253290,ETF,ETF
 스튜디오드래곤,253450,방송과엔터테인먼트,Consumer Discretionary
 네오셈,253590,반도체와반도체장비,Information Technology
+수젠텍,253840,건강관리장비와용품,Health Care
+자비스,254120,전자장비와기기,Information Technology
 미래반도체,254490,반도체와반도체장비,Information Technology
 SG,255220,건축자재,Industrials
+야스,255440,디스플레이장비및부품,Information Technology
+한독크린텍,256150,가정용기기와용품,Consumer Discretionary
+ACE MSCI인도네시아(합성),256440,ETF,ETF
+PLUS 심천차이넥스트(합성),256450,ETF,ETF
+포인트엔지니어링,256630,디스플레이장비및부품,Information Technology
+KODEX 차이나심천ChiNext(합성),256750,ETF,ETF
 한국비엔씨,256840,건강관리장비와용품,Health Care
-,256940,비철금속,Materials
+킵스파마,256940,비철금속,Materials
+피엔티엠에스,257370,전기제품,Utilities
 실리콘투,257720,인터넷과카탈로그소매,Information Technology
+케일럼,258610,핸드셋,Information Technology
+소프트캠프,258790,소프트웨어,Information Technology
+세종메디칼,258830,건강관리장비와용품,Health Care
+엠플러스,259630,전기제품,Utilities
 크래프톤,259960,게임엔터테인먼트,Communication Services
+알리코제약,260660,제약,Health Care
+씨티케이,260930,화장품,Consumer Discretionary
+에스앤디,260970,식품,Consumer Staples
+TIGER 코스닥150IT,261060,ETF,ETF
+TIGER 코스닥150바이오테크,261070,ETF,ETF
+TIGER 미국달러선물레버리지,261110,ETF,ETF
+TIGER 미국달러선물인버스2X,261120,ETF,ETF
+TIGER 우선주,261140,ETF,ETF
+덴티스,261200,건강관리장비와용품,Health Care
+KODEX WTI원유선물(H),261220,ETF,ETF
+KODEX 미국달러선물,261240,ETF,ETF
+KODEX 미국달러선물레버리지,261250,ETF,ETF
+KODEX 미국달러선물인버스2X,261260,ETF,ETF
+KODEX 미국달러선물인버스,261270,ETF,ETF
+이지스,261520,IT서비스,Information Technology
+차백신연구소,261780,제약,Health Care
+ACE MSCI필리핀(합성),261920,ETF,ETF
+에이프로,262260,전자장비와기기,Information Technology
+아이퀘스트,262840,소프트웨어,Information Technology
+디케이앤디,263020,"섬유,의류,신발,호화품",Consumer Discretionary
+유틸렉스,263050,생물공학,Health Care
+덕우전자,263600,핸드셋,Information Technology
+디알젬,263690,건강관리장비와용품,Health Care
+케어랩스,263700,건강관리업체및서비스,Health Care
+디앤씨미디어,263720,출판,Other
 펄어비스,263750,게임엔터테인먼트,Communication Services
+유에스티,263770,철강,Materials
+데이타솔루션,263800,IT서비스,Information Technology
+상신전자,263810,전자장비와기기,Information Technology
+지니언스,263860,소프트웨어,Information Technology
+휴엠앤씨,263920,포장재,Materials
 유비쿼스,264450,통신장비,Information Technology
-,264850,전자장비와기기,Information Technology
+씨앤지하이테크,264660,반도체와반도체장비,Information Technology
+이랜시스,264850,전자장비와기기,Information Technology
+크라운제과,264900,식품,Consumer Staples
 AP시스템,265520,디스플레이장비및부품,Information Technology
+영화테크,265560,자동차부품,Consumer Discretionary
+ACE 러시아MSCI(합성),265690,ETF,ETF
+엔에프씨,265740,화장품,Consumer Discretionary
+RISE 고배당,266160,ETF,ETF
+KODEX K콘텐츠,266360,ETF,ETF
+KODEX IT,266370,ETF,ETF
+KODEX 경기소비재,266390,ETF,ETF
+KODEX 필수소비재,266410,ETF,ETF
+KODEX 헬스케어,266420,ETF,ETF
+PLUS 중형주저변동50,266550,ETF,ETF
 HD현대,267250,조선,Industrials
 HD현대일렉트릭,267260,전기장비,Utilities
 HD건설기계,267270,기계,Industrials
+경동도시가스,267290,가스유틸리티,Energy
+나인테크,267320,전기제품,Utilities
+RISE 미국장기국채선물(H),267440,ETF,ETF
+RISE 미국장기국채선물인버스(H),267450,ETF,ETF
+RISE 미국장기국채선물레버리지(합성 H),267490,ETF,ETF
+TIGER 200선물레버리지,267770,ETF,ETF
+배럴,267790,"섬유,의류,신발,호화품",Consumer Discretionary
+아시아나IDT,267850,IT서비스,Information Technology
 매일유업,267980,식품,Consumer Staples
 미원에스씨,268280,화학,Materials
+TIGER S&P글로벌인프라(합성),269370,ETF,ETF
+KODEX S&P글로벌인프라(합성),269420,ETF,ETF
+PLUS S&P글로벌인프라,269530,ETF,ETF
+PLUS 미국S&P500(H),269540,ETF,ETF
+시스웍,269620,전자장비와기기,Information Technology
+앱튼,270520,에너지장비및서비스,Energy
 에브리봇,270660,가정용기기와용품,Consumer Discretionary
+RISE KQ고배당,270800,ETF,ETF
+RISE 코스닥150,270810,ETF,ETF
+뉴트리,270870,건강관리업체및서비스,Health Care
+KODEX WTI원유선물인버스(H),271050,ETF,ETF
+KODEX 3대농산물선물(H),271060,ETF,ETF
 오리온,271560,식품,Consumer Staples
+팸텍,271830,핸드셋,Information Technology
 일진하이솔루스,271940,자동차부품,Consumer Discretionary
-,271980,제약,Health Care
+제일약품,271980,제약,Health Care
 케이엔제이,272110,반도체와반도체장비,Information Technology
 한화시스템,272210,우주항공과국방,Industrials
 이녹스첨단소재,272290,디스플레이장비및부품,Information Technology
 진에어,272450,항공사,Industrials
 삼양패키징,272550,포장재,Materials
+RISE 단기국공채액티브,272560,ETF,ETF
+RISE 중장기국공채액티브,272570,ETF,ETF
+TIGER 단기채권액티브,272580,ETF,ETF
+ACE 중장기국공채액티브,272910,ETF,ETF
+와이즈버즈,273060,광고,Communication Services
+KODEX 종합채권(AA-이상)액티브,273130,ETF,ETF
+KODEX 단기변동금리부채권액티브,273140,ETF,ETF
+와이엠텍,273640,전기제품,Utilities
 켄코아에어로스페이스,274090,우주항공과국방,Industrials
+이노시뮬레이션,274400,소프트웨어,Information Technology
+KODEX 모멘텀주,275280,ETF,ETF
+KODEX 가치주,275290,ETF,ETF
+KODEX 우량주,275300,ETF,ETF
+에스에스알,275630,소프트웨어,Information Technology
+TIGER 글로벌4차산업혁신기술(합성 H),275980,ETF,ETF
+TIGER 글로벌자원생산기업(합성 H),276000,ETF,ETF
+RISE 글로벌테크놀로지(합성 H),276650,ETF,ETF
+한울앤제주,276730,음료,Consumer Staples
+KODEX 미국S&P500배당귀족커버드콜(합성 H),276970,ETF,ETF
+KODEX 글로벌로봇(합성),276990,ETF,ETF
+린드먼아시아,277070,창업투자,Financials
+인산가,277410,식품,Consumer Staples
+ACE 아시아TOP50,277540,ETF,ETF
+TIGER 코스피,277630,ETF,ETF
+TIGER 코스피대형주,277640,ETF,ETF
+TIGER 코스피중형주,277650,ETF,ETF
 레인보우로보틱스,277810,기계,Industrials
+티에스아이,277880,전자장비와기기,Information Technology
+RISE 코스닥150선물레버리지,278240,ETF,ETF
 천보,278280,전기제품,Utilities
 에이피알,278470,화장품,Consumer Discretionary
+KODEX 200TR,278530,ETF,ETF
+KODEX MSCI Korea TR,278540,ETF,ETF
+PLUS 단기채권액티브,278620,ETF,ETF
+HLB바이오스텝,278650,생명과학도구및서비스,Health Care
+KODEX 고배당주,279530,ETF,ETF
+KODEX 최소변동성,279540,ETF,ETF
 케이뱅크,279570,은행,Financials
+미디어젠,279600,IT서비스,Information Technology
+ACE 미국IT인터넷(합성 H),280320,ETF,ETF
 롯데웰푸드,280360,식품,Consumer Staples
+PLUS 주도업종,280920,ETF,ETF
+KODEX 미국러셀2000(H),280930,ETF,ETF
 레이크머티리얼즈,281740,화학,Materials
 케이씨텍,281820,반도체와반도체장비,Information Technology
+RISE 중소형고배당,281990,ETF,ETF
+RISE 국고채3년선물인버스,282000,ETF,ETF
 BGF리테일,282330,백화점과일반상점,Consumer Discretionary
-,282880,기계,Industrials
+금양그린파워,282720,에너지장비및서비스,Energy
+코윈테크,282880,기계,Industrials
+KODEX 차이나CSI300,283580,ETF,ETF
+KODEX 200미국채혼합,284430,ETF,ETF
+카이노스메드,284620,제약,Health Care
 쿠쿠홈시스,284740,가정용기기와용품,Consumer Discretionary
+RISE 200금융,284980,ETF,ETF
 SK케미칼,285130,화학,Materials
 노바텍,285490,핸드셋,Information Technology
+FOCUS ESG리더스,285690,ETF,ETF
+진영,285800,화학,Materials
+나노실리칸첨단소재,286750,화학,Materials
 롯데이노베이트,286940,IT서비스,Information Technology
+PLUS 미국나스닥테크,287180,ETF,ETF
 인투셀,287840,제약,Health Care
+파라택시스코리아,288330,제약,Health Care
+에스퓨얼셀,288620,전기제품,Utilities
+모아데이타,288980,소프트웨어,Information Technology
+아이스크림에듀,289010,교육서비스,Industrials
+KODEX MSCI KOREA ESG유니버설,289040,ETF,ETF
 SV인베스트먼트,289080,창업투자,Financials
+자이언트스텝,289220,양방향미디어와서비스,Communication Services
+TIGER MSCI KOREA ESG유니버설,289250,ETF,ETF
+TIGER MSCI KOREA ESG리더스,289260,ETF,ETF
+TIGER 200커버드콜,289480,ETF,ETF
+PLUS 국채선물10년,289670,ETF,ETF
 웨이비스,289930,우주항공과국방,Industrials
+RISE 200고배당커버드콜ATM,290080,ETF,ETF
+트윔,290090,소프트웨어,Information Technology
+DH오토리드,290120,자동차부품,Consumer Discretionary
+RISE ESG사회책임투자,290130,ETF,ETF
+휴네시온,290270,소프트웨어,Information Technology
+신도기연,290520,디스플레이장비및부품,Information Technology
 디케이티,290550,핸드셋,Information Technology
+파라택시스이더리움,290560,소프트웨어,Information Technology
 엘앤씨바이오,290650,건강관리장비와용품,Health Care
+네오펙트,290660,건강관리장비와용품,Health Care
+대보마그네틱,290670,전자장비와기기,Information Technology
 소룩스,290690,디스플레이장비및부품,Information Technology
-,290740,핸드셋,Information Technology
+푸드나무,290720,식품,Consumer Staples
+액트로,290740,핸드셋,Information Technology
+ACE MSCI멕시코(합성),291130,ETF,ETF
+엔피,291230,광고,Communication Services
+KIWOOM 코스닥150선물레버리지,291630,ETF,ETF
+압타머사이언스,291650,생물공학,Health Care
+RISE 차이나H선물인버스(H),291680,ETF,ETF
+핀텔,291810,소프트웨어,Information Technology
+KODEX MSCI EM선물(H),291890,ETF,ETF
+RISE KRX300,292050,ETF,ETF
+TIGER 코리아TOP10,292150,ETF,ETF
+TIGER KRX300,292160,ETF,ETF
+KODEX KRX300,292190,ETF,ETF
+SOL KRX300,292500,ETF,ETF
+TIGER 일본엔선물,292560,ETF,ETF
+KODEX 국채선물3년인버스,292770,ETF,ETF
+HANARO 200,293180,ETF,ETF
+하나제약,293480,제약,Health Care
 카카오게임즈,293490,게임엔터테인먼트,Communication Services
+나우IB,293580,창업투자,Financials
 압타바이오,293780,건강관리업체및서비스,Health Care
 신한알파리츠,293940,부동산,Financials
+이오플로우,294090,건강관리장비와용품,Health Care
+레몬,294140,화학,Materials
+KIWOOM 200TR,294400,ETF,ETF
 쿠콘,294570,IT서비스,Information Technology
+서남,294630,전기장비,Utilities
 IPARK현대산업개발,294870,건설,Industrials
+RISE 국채선물10년,295000,ETF,ETF
+RISE 국채선물10년인버스,295020,ETF,ETF
+SOL 200TR,295040,ETF,ETF
 에이치브이엠,295310,비철금속,Materials
+이노룰스,296640,소프트웨어,Information Technology
 씨에스베어링,297090,기계,Industrials
+알로이스,297570,전자제품,Information Technology
+HB솔루션,297890,디스플레이장비및부품,Information Technology
+효성화학,298000,화학,Materials
 효성티앤씨,298020,"섬유,의류,신발,호화품",Consumer Discretionary
 효성중공업,298040,전기장비,Utilities
 HS효성첨단소재,298050,화학,Materials
+에스씨엠생명과학,298060,생물공학,Health Care
+PLUS 국채선물3년,298340,ETF,ETF
 에이비엘바이오,298380,생물공학,Health Care
+더네이쳐홀딩스,298540,"섬유,의류,신발,호화품",Consumer Discretionary
 에어부산,298690,항공사,Industrials
+KODEX 한국대만IT프리미어,298770,ETF,ETF
 슈어소프트테크,298830,소프트웨어,Information Technology
-,299030,전자장비와기기,Information Technology
-,300080,양방향미디어와서비스,Communication Services
+하나기술,299030,전자장비와기기,Information Technology
+더블유에스아이,299170,제약,Health Care
+셀리드,299660,생물공학,Health Care
+위지윅스튜디오,299900,방송과엔터테인먼트,Consumer Discretionary
+플리토,300080,양방향미디어와서비스,Communication Services
+라온피플,300120,소프트웨어,Information Technology
+TIGER K게임,300610,ETF,ETF
+RISE 게임테마,300640,ETF,ETF
 한일시멘트,300720,건축자재,Industrials
+KODEX 게임산업,300950,ETF,ETF
+바이브컴퍼니,301300,소프트웨어,Information Technology
+PLUS 코스닥150,301400,ETF,ETF
+TIGER 중장기국채,302190,ETF,ETF
+이노메트리,302430,전기제품,Utilities
 SK바이오사이언스,302440,제약,Health Care
+RISE 코스피,302450,ETF,ETF
+리메드,302550,건강관리장비와용품,Health Care
+지니틱스,303030,반도체와반도체장비,Information Technology
+프로티아,303360,건강관리장비와용품,Health Care
+이노뎁,303530,IT서비스,Information Technology
+동국생명과학,303810,건강관리장비와용품,Health Care
 솔트룩스,304100,IT서비스,Information Technology
 에스바이오메딕스,304360,생물공학,Health Care
+KODEX 미국30년국채울트라선물(H),304660,ETF,ETF
+KODEX 미국30년국채울트라선물인버스(H),304670,ETF,ETF
+HANARO KRX300,304760,ETF,ETF
+HANARO 코스닥150,304770,ETF,ETF
+HANARO 200선물레버리지,304780,ETF,ETF
+피플바이오,304840,건강관리장비와용품,Health Care
+KODEX 미국나스닥100선물(H),304940,ETF,ETF
+ACE 코스피,305050,ETF,ETF
+TIGER 미국채10년선물,305080,ETF,ETF
 마이크로디지탈,305090,건강관리장비와용품,Health Care
+TIGER 2차전지테마,305540,ETF,ETF
+KODEX 2차전지산업,305720,ETF,ETF
+에스제이그룹,306040,"섬유,의류,신발,호화품",Consumer Discretionary
 세아제강,306200,철강,Materials
+HANARO 코스닥150선물레버리지,306530,ETF,ETF
+지아이에스,306620,반도체와반도체장비,Information Technology
+KODEX KRX300레버리지,306950,ETF,ETF
 아이엘,307180,디스플레이장비및부품,Information Technology
+원바이오젠,307280,건강관리장비와용품,Health Care
+TIGER 의료기기,307510,ETF,ETF
+TIGER 지주회사,307520,ETF,ETF
 국전약품,307750,제약,Health Care
+비투엔,307870,IT서비스,Information Technology
+컴퍼니케이,307930,창업투자,Financials
 현대오토에버,307950,IT서비스,Information Technology
 바이젠셀,308080,제약,Health Care
+형지글로벌,308100,"섬유,의류,신발,호화품",Consumer Discretionary
+씨티알모빌리티,308170,자동차부품,Consumer Discretionary
 셀비온,308430,제약,Health Care
+KODEX 미국10년국채선물,308620,ETF,ETF
+ACE 미국WideMoat동일가중,309230,ETF,ETF
 아이티켐,309710,제약,Health Care
+조이웍스앤코,309930,가구,Consumer Discretionary
+LB인베스트먼트,309960,창업투자,Financials
+RISE 중국MSCI China(H),310080,ETF,ETF
+애니플러스,310200,방송과엔터테인먼트,Consumer Discretionary
 보로노이,310210,제약,Health Care
+디와이씨,310870,자동차부품,Consumer Discretionary
+TIGER 200TR,310960,ETF,ETF
+TIGER MSCI Korea TR,310970,ETF,ETF
+지오엘리먼트,311320,반도체와반도체장비,Information Technology
+네오크레마,311390,식품과기본식료품소매,Consumer Staples
+CJ 바이오사이언스,311690,생명과학도구및서비스,Health Care
+에이에프더블류,312610,자동차부품,Consumer Discretionary
 지놈앤컴퍼니,314130,제약,Health Care
+알피바이오,314140,제약,Health Care
+KODEX 미국빅테크10(H),314250,ETF,ETF
+HANARO 농업융복합산업,314700,ETF,ETF
 바이오다인,314930,건강관리장비와용품,Health Care
+TIGER 200커뮤니케이션서비스,315270,ETF,ETF
+딥노이드,315640,IT서비스,Information Technology
+KODEX Top5PlusTR,315930,ETF,ETF
+RISE 대형고배당10TR,315960,ETF,ETF
 우리금융지주,316140,은행,Financials
+ACE 싱가포르리츠,316300,ETF,ETF
+KIWOOM 코스닥150,316670,ETF,ETF
+라닉스,317120,통신장비,Information Technology
+TS트릴리온,317240,가정용품,Consumer Discretionary
 덕산테코피아,317330,반도체와반도체장비,Information Technology
+자이에스앤디,317400,건설,Industrials
 명인제약,317450,제약,Health Care
+캐리소프트,317530,양방향미디어와서비스,Communication Services
+퀀타매트릭스,317690,생명과학도구및서비스,Health Care
+엑스페릭스,317770,전자장비와기기,Information Technology
+에스피시스템스,317830,기계,Industrials
+대모,317850,기계,Industrials
+엔바이오니아,317870,가정용기기와용품,Consumer Discretionary
+KBG,318000,화학,Materials
+팜스빌,318010,건강관리업체및서비스,Health Care
+포인트모바일,318020,전자장비와기기,Information Technology
 그래피,318060,건강관리장비와용품,Health Care
+셀바이오휴먼텍,318160,화장품,Consumer Discretionary
+비비씨,318410,가정용품,Consumer Discretionary
 현대무벡스,319400,기계,Industrials
+TIGER 골드선물(H),319640,ETF,ETF
 피에스케이,319660,반도체와반도체장비,Information Technology
+한울반도체,320000,전자장비와기기,Information Technology
+프로이천,321260,디스플레이장비및부품,Information Technology
 센서뷰,321370,통신장비,Information Technology
+KODEX 멀티에셋하이인컴(H),321410,ETF,ETF
 티움바이오,321550,제약,Health Care
+아티스트컴퍼니,321820,방송과엔터테인먼트,Consumer Discretionary
 HD현대에너지솔루션,322000,에너지장비및서비스,Energy
+LS티라유텍,322180,IT서비스,Information Technology
 오로스테크놀로지,322310,반도체와반도체장비,Information Technology
+HANARO e커머스,322400,ETF,ETF
+HANARO K고배당,322410,ETF,ETF
 제이엘케이,322510,건강관리기술,Health Care
+코퍼스코리아,322780,방송과엔터테인먼트,Consumer Discretionary
 태성,323280,전자장비와기기,Information Technology
+다원넥스뷰,323350,반도체와반도체장비,Information Technology
 카카오뱅크,323410,은행,Financials
-,323990,제약,Health Care
+박셀바이오,323990,제약,Health Care
+KODEX 성장주,325010,ETF,ETF
+KODEX 배당가치,325020,ETF,ETF
 SK바이오팜,326030,제약,Health Care
+RISE 내수주플러스,326230,ETF,ETF
+RISE IT플러스,326240,ETF,ETF
 RF머트리얼즈,327260,우주항공과국방,Industrials
 루닛,328130,건강관리기술,Health Care
+PLUS 코스피TR,328370,ETF,ETF
+솔트웨어,328380,IT서비스,Information Technology
 HD현대중공업,329180,조선,Industrials
+TIGER 리츠부동산인프라,329200,ETF,ETF
+KODEX TRF3070,329650,ETF,ETF
+KODEX TRF5050,329660,ETF,ETF
+KODEX TRF7030,329670,ETF,ETF
+TIGER 미국달러단기채권액티브,329750,ETF,ETF
+위더스제약,330350,제약,Health Care
 롯데리츠,330590,부동산,Financials
+스톤브릿지벤처스,330730,창업투자,Financials
 네패스아크,330860,반도체와반도체장비,Information Technology
+포커스에이아이,331380,전자장비와기기,Information Technology
+밸로프,331520,게임엔터테인먼트,Communication Services
+아우토크립트,331740,자동차부품,Consumer Discretionary
+셀레믹스,331920,생물공학,Health Care
+누보,332290,화학,Materials
+아이디피,332370,컴퓨터와주변기기,Information Technology
+ACE 200TR,332500,ETF,ETF
 PS일렉트로닉스,332570,핸드셋,Information Technology
-,333430,조선,Industrials
+PLUS 미국단기회사채(AAA~A),332610,ETF,ETF
+PLUS 미국장기우량회사채,332620,ETF,ETF
+HANARO 200TR,332930,ETF,ETF
+HANARO MSCI Korea TR,332940,ETF,ETF
+모코엠시스,333050,IT서비스,Information Technology
+일승,333430,조선,Industrials
+엔시스,333620,전자장비와기기,Information Technology
+RISE 팔라듐선물(H),334690,ETF,ETF
 이지스밸류플러스리츠,334890,부동산,Financials
 프레스티지바이오로직스,334970,제약,Health Care
+프리시젼바이오,335810,생명과학도구및서비스,Health Care
+윙스풋,335870,"섬유,의류,신발,호화품",Consumer Discretionary
+웨이버스,336060,IT서비스,Information Technology
+RISE 금융채액티브,336160,ETF,ETF
 두산퓨얼셀,336260,전기제품,Utilities
 솔루스첨단소재,336370,전자장비와기기,Information Technology
 원텍,336570,건강관리장비와용품,Health Care
+탑런토탈솔루션,336680,자동차부품,Consumer Discretionary
+KODEX 멀티팩터,337120,ETF,ETF
+KODEX 코스피대형주,337140,ETF,ETF
+KODEX 200exTOP,337150,ETF,ETF
+KODEX 200ESG,337160,ETF,ETF
+젝시믹스,337930,"섬유,의류,신발,호화품",Consumer Discretionary
+NH프라임리츠,338100,부동산,Financials
 뷰노,338220,건강관리기술,Health Care
 와이바이오로직스,338840,생물공학,Health Care
 교촌에프앤비,339770,식품,Consumer Staples
+아이비김영,339950,교육서비스,Industrials
+다보링크,340360,통신장비,Information Technology
+세림B&G,340440,포장재,Materials
+지씨지놈,340450,생명과학도구및서비스,Health Care
 티앤엘,340570,건강관리장비와용품,Health Care
+시선AI,340810,소프트웨어,Information Technology
+유일에너테크,340930,전자장비와기기,Information Technology
+TIGER 리츠부동산인프라채권,341850,ETF,ETF
+오아,342870,가정용기기와용품,Consumer Discretionary
 KCC글라스,344820,건축자재,Industrials
+이노진,344860,화장품,Consumer Discretionary
+센코,347000,전자장비와기기,Information Technology
 스피어,347700,우주항공과국방,Industrials
+피엔케이피부임상연구센타,347740,생명과학도구및서비스,Health Care
+핌스,347770,디스플레이장비및부품,Information Technology
 디앤디파마텍,347850,생물공학,Health Care
+알체라,347860,소프트웨어,Information Technology
+엠투아이,347890,전자장비와기기,Information Technology
+모비릭스,348030,게임엔터테인먼트,Communication Services
+큐라티스,348080,생물공학,Health Care
+고바이오랩,348150,건강관리업체및서비스,Health Care
 넥스틴,348210,반도체와반도체장비,Information Technology
 뉴로메카,348340,기계,Industrials
+위드텍,348350,반도체와반도체장비,Information Technology
 엔켐,348370,전기제품,Utilities
 제이알글로벌리츠,348950,부동산,Financials
+이지스레지던스리츠,350520,부동산,Financials
+넥사다이내믹스,351320,디스플레이장비및부품,Information Technology
+이삭엔지니어링,351330,IT서비스,Information Technology
+차이커뮤니케이션,351870,광고,Communication Services
+스톰테크,352090,가정용기기와용품,Consumer Discretionary
 씨앤씨인터내셔널,352480,화장품,Consumer Discretionary
+KODEX 일본부동산리츠(H),352540,ETF,ETF
+KODEX 미국부동산리츠(H),352560,ETF,ETF
+씨앤투스,352700,"섬유,의류,신발,호화품",Consumer Discretionary
+셀레스트라,352770,생물공학,Health Care
 하이브,352820,방송과엔터테인먼트,Consumer Discretionary
+오비고,352910,소프트웨어,Information Technology
+인바이오,352940,화학,Materials
+휴럼,353190,건강관리업체및서비스,Health Care
 대덕전자,353200,전자장비와기기,Information Technology
+오토앤,353590,자동차부품,Consumer Discretionary
 이지바이오,353810,식품,Consumer Staples
+엔젠바이오,354200,생명과학도구및서비스,Health Care
+RISE 미국고정배당우선증권,354240,ETF,ETF
 알멕,354320,자동차부품,Consumer Discretionary
+HANARO 글로벌럭셔리S&P(합성),354350,ETF,ETF
+ACE 코스닥150,354500,ETF,ETF
+코스텍시스,355150,반도체와반도체장비,Information Technology
+크라우드웍스,355390,IT서비스,Information Technology
+에이텀,355690,전자장비와기기,Information Technology
+ACE 종합채권(AA-이상)액티브,356540,ETF,ETF
 엑스게이트,356680,소프트웨어,Information Technology
 티엘비,356860,반도체와반도체장비,Information Technology
+싸이버원,356890,IT서비스,Information Technology
 코람코라이프인프라리츠,357120,부동산,Financials
+에이치피오,357230,건강관리업체및서비스,Health Care
+미래에셋맵스리츠,357250,부동산,Financials
+마스턴프리미어리츠,357430,부동산,Financials
 석경에이티,357550,화학,Materials
 아모센스,357580,핸드셋,Information Technology
 솔브레인,357780,반도체와반도체장비,Information Technology
+TIGER CD금리투자KIS(합성),357870,ETF,ETF
 SKAI,357880,IT서비스,Information Technology
 지아이이노베이션,358570,생물공학,Health Care
+씨엔알리서치,359090,제약,Health Care
+KODEX 코스피TR,359210,ETF,ETF
+탑머티리얼,360070,전자장비와기기,Information Technology
+KODEX 200롱코스닥150숏선물,360140,ETF,ETF
+KODEX 코스닥150롱코스피200숏선물,360150,ETF,ETF
+ACE 미국S&P500,360200,ETF,ETF
+코셈,360350,전자장비와기기,Information Technology
+TIGER 미국S&P500,360750,ETF,ETF
 제노코,361390,우주항공과국방,Industrials
+알비더블유,361570,방송과엔터테인먼트,Consumer Discretionary
+RISE 200TR,361580,ETF,ETF
 SK아이이테크놀로지,361610,전기제품,Utilities
+삼영에스앤씨,361670,전자장비와기기,Information Technology
+청담글로벌,362320,인터넷과카탈로그소매,Information Technology
+드림인사이트,362990,광고,Communication Services
+진시스템,363250,건강관리장비와용품,Health Care
+모비데이즈,363260,광고,Communication Services
+티와이홀딩스,363280,"호텔,레스토랑,레저",Consumer Discretionary
+SOL KIS단기통안채,363510,ETF,ETF
+KODEX 장기종합채권(AA-이상)액티브,363570,ETF,ETF
+KODEX 200IT TR,363580,ETF,ETF
+KODEX 혁신기술테마액티브,364690,ETF,ETF
+에이아이코리아,364950,전자장비와기기,Information Technology
+TIGER BBIG,364960,ETF,ETF
+TIGER 바이오TOP10,364970,ETF,ETF
+TIGER 2차전지TOP10,364980,ETF,ETF
+TIGER 게임TOP10,364990,ETF,ETF
+TIGER 인터넷TOP10,365000,ETF,ETF
+TIGER AI코리아그로스액티브,365040,ETF,ETF
 큐라클,365270,제약,Health Care
+에스와이스틸텍,365330,건축자재,Industrials
 성일하이텍,365340,전기제품,Utilities
 ESR켄달스퀘어리츠,365550,부동산,Financials
+하이딥,365590,반도체와반도체장비,Information Technology
+ACE 국고채10년,365780,ETF,ETF
+브이씨,365900,레저용장비와제품,Consumer Discretionary
+공구우먼,366030,"섬유,의류,신발,호화품",Consumer Discretionary
+플래티어,367000,IT서비스,Information Technology
+ACE 미국나스닥100,367380,ETF,ETF
+HANARO Fn5G산업,367740,ETF,ETF
+RISE 네트워크인프라,367760,ETF,ETF
+RISE 수소경제테마,367770,ETF,ETF
+HANARO Fn K-뉴딜디지털플러스,368190,ETF,ETF
+RISE 미국나스닥100,368590,ETF,ETF
+아이씨에이치,368600,전자장비와기기,Information Technology
+KODEX K-뉴딜디지털플러스,368680,ETF,ETF
 파이버프로,368770,전자장비와기기,Information Technology
+오에스피,368970,식품,Consumer Staples
+블리츠웨이엔터테인먼트,369370,방송과엔터테인먼트,Consumer Discretionary
+퓨런티어,370090,전자장비와기기,Information Technology
+RISE 차이나항셍테크,371150,ETF,ETF
+TIGER 차이나항셍테크,371160,ETF,ETF
+TIGER 글로벌클라우드컴퓨팅INDXX,371450,ETF,ETF
+TIGER 차이나전기차SOLACTIVE,371460,ETF,ETF
+TIGER 차이나바이오테크SOLACTIVE,371470,ETF,ETF
+ACE 차이나항셍테크,371870,ETF,ETF
 풍원정밀,371950,디스플레이장비및부품,Information Technology
 윤성에프앤씨,372170,전자장비와기기,Information Technology
 큐로셀,372320,생물공학,Health Care
+KODEX 차이나항셍테크,372330,ETF,ETF
+아이티아이즈,372800,IT서비스,Information Technology
+한컴라이프케어,372910,건강관리장비와용품,Health Care
+엑셀세라퓨틱스,373110,생물공학,Health Care
+데이원컴퍼니,373160,교육서비스,Industrials
+엠아이큐브솔루션,373170,IT서비스,Information Technology
+엑스플러스,373200,핸드셋,Information Technology
 LG에너지솔루션,373220,전기제품,Utilities
+KODEX 코리아혁신성장액티브,373490,ETF,ETF
+KIWOOM 미국방어배당성장나스닥,373790,ETF,ETF
+RISE 글로벌데이터센터리츠(합성),375270,ETF,ETF
 DL이앤씨,375500,건설,Industrials
+HANARO 탄소효율그린뉴딜,375760,ETF,ETF
+KODEX 탄소효율그린뉴딜,375770,ETF,ETF
+피코그램,376180,가정용기기와용품,Consumer Discretionary
 HEM파마,376270,건강관리업체및서비스,Health Care
+씨유테크,376290,핸드셋,Information Technology
 디어유,376300,양방향미디어와서비스,Communication Services
+TIGER 탄소효율그린뉴딜,376410,ETF,ETF
 로킷헬스케어,376900,건강관리장비와용품,Health Care
+노을,376930,건강관리장비와용품,Health Care
+원티드랩,376980,상업서비스와공급품,Industrials
+비트맥스,377030,IT서비스,Information Technology
 디앤디플랫폼리츠,377190,부동산,Financials
+프롬바이오,377220,건강관리업체및서비스,Health Care
 카카오페이,377300,IT서비스,Information Technology
+이지트로닉스,377330,전기제품,Utilities
 리파인,377450,상업서비스와공급품,Industrials
 위니아에이드,377460,상업서비스와공급품,Industrials
+마음AI,377480,IT서비스,Information Technology
 바이오노트,377740,건강관리장비와용품,Health Care
+TIGER Fn신재생에너지,377990,ETF,ETF
 필에너지,378340,전기제품,Utilities
+샤페론,378800,제약,Health Care
+화승알앤에이,378850,자동차부품,Consumer Discretionary
+RISE 미국S&P500,379780,ETF,ETF
+RISE 유로스탁스50(H),379790,ETF,ETF
+KODEX 미국S&P500,379800,ETF,ETF
+KODEX 미국나스닥100,379810,ETF,ETF
+ACE 코리아AI테크핵심산업,380340,ETF,ETF
 옵티코어,380540,통신장비,Information Technology
 뉴로핏,380550,건강관리기술,Health Care
+TIGER 미국테크TOP10 INDXX,381170,ETF,ETF
+TIGER 미국필라델피아반도체나스닥,381180,ETF,ETF
+HANARO Fn전기&수소차,381560,ETF,ETF
+HANARO Fn친환경에너지,381570,ETF,ETF
+제닉스로보틱스,381620,기계,Industrials
 케이카,381970,자동차,Consumer Discretionary
+온코크로스,382150,생명과학도구및서비스,Health Care
+지아이텍,382480,전기제품,Utilities
 지앤비에스 에코,382800,반도체와반도체장비,Information Technology
+원준,382840,전기제품,Utilities
 범한퓨얼셀,382900,전기제품,Utilities
 F&F,383220,"섬유,의류,신발,호화품",Consumer Discretionary
 에코프로에이치엔,383310,상업서비스와공급품,Industrials
 LX홀딩스,383800,무역회사와판매업체,Consumer Discretionary
+디티앤씨알오,383930,생명과학도구및서비스,Health Care
+코어라인소프트,384470,건강관리기술,Health Care
+KODEX 신재생에너지액티브,385510,ETF,ETF
+KODEX 자율주행액티브,385520,ETF,ETF
+RISE 종합채권(A-이상)액티브,385540,ETF,ETF
+RISE 단기채권알파액티브,385550,ETF,ETF
+RISE KIS국고채30년Enhanced,385560,ETF,ETF
+ACE ESG액티브,385590,ETF,ETF
+ACE 2차전지&친환경차액티브,385600,ETF,ETF
+TIME K이노베이션액티브,385710,ETF,ETF
+TIME 코스피액티브,385720,ETF,ETF
+TIGER 글로벌이노베이션액티브,387270,ETF,ETF
+TIGER 퓨처모빌리티액티브,387280,ETF,ETF
+파인메딕스,387570,건강관리장비와용품,Health Care
 지투파워,388050,전기장비,Utilities
 씨엠티엑스,388210,반도체와반도체장비,Information Technology
+RISE K엔터&여행레저,388280,ETF,ETF
+RISE 비메모리반도체액티브,388420,ETF,ETF
+지에프씨생명과학,388610,생물공학,Health Care
 유일로보틱스,388720,기계,Industrials
 라이콤,388790,통신장비,Information Technology
+파로스아이바이오,388870,생물공학,Health Care
 자람테크놀로지,389020,통신장비,Information Technology
+지니너스,389030,생물공학,Health Care
+포바이포,389140,방송과엔터테인먼트,Consumer Discretionary
 대명에너지,389260,에너지장비및서비스,Energy
 인벤티지랩,389470,제약,Health Care
 에스비비테크,389500,기계,Industrials
 넥스트바이오메디컬,389650,건강관리장비와용품,Health Care
+유디엠텍,389680,IT서비스,Information Technology
+KODEX 미국반도체,390390,ETF,ETF
+KODEX 미국스마트모빌리티S&P,390400,ETF,ETF
+ACE 미국친환경그린테마,391600,ETF,ETF
+HK 베스트일레븐액티브,391670,N/A,N/A
+코닉오토메이션,391710,IT서비스,Information Technology
+토마토시스템,393210,IT서비스,Information Technology
 더블유씨피,393890,전기제품,Utilities
+대진첨단소재,393970,전기제품,Utilities
 오픈엣지테크놀로지,394280,반도체와반도체장비,Information Technology
 리센스메디컬,394420,건강관리장비와용품,Health Care
+TIGER 글로벌자율주행&전기차SOLACTIVE,394660,ETF,ETF
+TIGER 글로벌리튬&2차전지SOLACTIVE(합성),394670,ETF,ETF
 쓰리빌리언,394800,건강관리기술,Health Care
+KODEX 웹툰&드라마,395150,ETF,ETF
+KODEX AI반도체,395160,ETF,ETF
+KODEX Top10동일가중,395170,ETF,ETF
+HANARO Fn K-반도체,395270,ETF,ETF
+HANARO Fn K-게임,395280,ETF,ETF
+HANARO Fn K-POP&미디어,395290,ETF,ETF
 SK리츠,395400,부동산,Financials
+PLUS ESG가치주액티브,395750,ETF,ETF
+PLUS ESG성장주액티브,395760,ETF,ETF
+넥스트칩,396270,반도체와반도체장비,Information Technology
+세아메카닉스,396300,전자장비와기기,Information Technology
+워트,396470,반도체와반도체장비,Information Technology
+TIGER 반도체TOP10,396500,ETF,ETF
+TIGER 차이나클린에너지SOLACTIVE,396510,ETF,ETF
+TIGER 차이나반도체FACTSET,396520,ETF,ETF
+미래에셋글로벌리츠,396690,부동산,Financials
 에이프릴바이오,397030,제약,Health Care
+RISE 국채선물5년추종,397420,ETF,ETF
+애드포러스,397810,광고,Communication Services
+에스지헬스케어,398120,건강관리장비와용품,Health Care
+SOL 미국S&P500ESG,399110,ETF,ETF
+RISE 글로벌클린에너지,399580,ETF,ETF
 가온칩스,399720,반도체와반도체장비,Information Technology
+KODEX 유럽탄소배출권선물ICE(H),400570,ETF,ETF
+SOL 유럽탄소배출권선물S&P(H),400580,ETF,ETF
+SOL 글로벌탄소배출권선물ICE(합성),400590,ETF,ETF
+NH올원리츠,400760,부동산,Financials
+TIGER Fn메타버스,400970,ETF,ETF
+RISE 메타버스,401170,ETF,ETF
+KODEX 메타버스액티브,401470,ETF,ETF
+HANARO 글로벌탄소배출권선물ICE(합성),401590,ETF,ETF
 코난테크놀로지,402030,소프트웨어,Information Technology
 SK스퀘어,402340,복합기업,Industrials
+HANARO Fn K-메타버스MZ,402460,ETF,ETF
 그린리소스,402490,반도체와반도체장비,Information Technology
+ACE 미국배당다우존스,402970,ETF,ETF
+우듬지팜,403490,식품,Consumer Staples
 쏘카,403550,도로와철도운송,Industrials
+마이다스 코스피액티브,403790,N/A,N/A
 더핑크퐁컴퍼니,403850,방송과엔터테인먼트,Consumer Discretionary
 HPSP,403870,반도체와반도체장비,Information Technology
+TIME K신재생에너지액티브,404120,ETF,ETF
+KODEX 기후변화솔루션,404260,ETF,ETF
+TIGER KRX기후변화솔루션,404540,ETF,ETF
+SOL KRX기후변화솔루션,404650,ETF,ETF
 신한서부티엔디리츠,404990,부동산,Financials
+플라즈맵,405000,건강관리장비와용품,Health Care
 큐알티,405100,반도체와반도체장비,Information Technology
+나라셀라,405920,음료,Consumer Staples
+뷰티스킨,406820,화장품,Consumer Discretionary
+HANARO Fn골프테마,407300,ETF,ETF
+HANARO 200 TOP10,407310,ETF,ETF
+꿈비,407400,가정용기기와용품,Consumer Discretionary
+에셋플러스 코리아플랫폼액티브,407820,N/A,N/A
+에셋플러스 글로벌플랫폼액티브,407830,N/A,N/A
 한패스,408470,IT서비스,Information Technology
+스튜디오미르,408900,방송과엔터테인먼트,Consumer Discretionary
+메쎄이상,408920,양방향미디어와서비스,Communication Services
+KODEX 미국나스닥100선물인버스(H),409810,ETF,ETF
+KODEX 미국나스닥100레버리지(합성 H),409820,ETF,ETF
+TIME K컬처액티브,410870,ETF,ETF
+ACE KRX금현물,411060,ETF,ETF
+샌즈랩,411080,소프트웨어,Information Technology
+KODEX 미국나스닥AI테크액티브,411420,ETF,ETF
+SOL 200 Top10,411540,ETF,ETF
+KIWOOM 독일DAX,411860,ETF,ETF
+레이저쎌,412350,반도체와반도체장비,Information Technology
+제일엠앤에스,412540,전기제품,Utilities
+TIGER 2차전지TOP10레버리지,412570,ETF,ETF
+TIGER 글로벌AI플랫폼액티브,412770,ETF,ETF
+SOL 차이나태양광CSI(합성),413220,ETF,ETF
+엠오티,413390,전기제품,Utilities
+씨피시스템,413630,기계,Industrials
+비아이매트릭스,413640,IT서비스,Information Technology
+WON AI ESG액티브,413930,N/A,N/A
+ACE 글로벌자율주행액티브,414270,ETF,ETF
+TIGER 차이나과창판STAR50(합성),414780,ETF,ETF
+KODEX 차이나과창판STAR50(합성),415340,ETF,ETF
+스튜디오삼익,415380,가구,Consumer Discretionary
 KB발해인프라,415640,금융,Financials
+SOL 차이나육성산업액티브(합성),415760,ETF,ETF
+PLUS 글로벌희토류&전략자원생산기업,415920,ETF,ETF
+ACE 중국과창판STAR50,416090,ETF,ETF
 신성에스티,416180,전기제품,Utilities
-,417010,전자장비와기기,Information Technology
+나노팀,417010,전자장비와기기,Information Technology
+핑거스토리,417180,양방향미디어와서비스,Communication Services
 LS머트리얼즈,417200,전기제품,Utilities
 코람코더원리츠,417310,부동산,Financials
+RISE 글로벌수소경제,417450,ETF,ETF
+제이아이테크,417500,반도체와반도체장비,Information Technology
+TIGER KEDI혁신기업ESG30,417630,ETF,ETF
+트루엔,417790,전자장비와기기,Information Technology
+저스템,417840,반도체와반도체장비,Information Technology
+오브젠,417860,소프트웨어,Information Technology
+모델솔루션,417970,기계,Industrials
+시큐레터,418250,소프트웨어,Information Technology
+라온텍,418420,반도체와반도체장비,Information Technology
+KT밀리의서재,418470,출판,Other
 제이오,418550,건설,Industrials
+E8,418620,소프트웨어,Information Technology
+TIGER 미국나스닥100레버리지(합성),418660,ETF,ETF
+TIGER 글로벌AI사이버보안,418670,ETF,ETF
+삼기에너지솔루션즈,419050,자동차부품,Consumer Discretionary
+엔젯,419080,디스플레이장비및부품,Information Technology
+산돌,419120,소프트웨어,Information Technology
+KODEX 미국클린에너지나스닥,419420,ETF,ETF
+KODEX 차이나2차전지MSCI(합성),419430,ETF,ETF
 SAMG엔터,419530,방송과엔터테인먼트,Consumer Discretionary
+비스토스,419540,건강관리장비와용품,Health Care
+PLUS 글로벌수소&차세대연료전지,419650,ETF,ETF
+KIWOOM 단기채권ESG액티브,419890,ETF,ETF
+제이투케이바이오,420570,화장품,Consumer Discretionary
 기가비스,420770,반도체와반도체장비,Information Technology
+PLUS 우주항공&UAM,421320,ETF,ETF
+VITA MZ소비액티브,422260,N/A,N/A
+RISE 2차전지액티브,422420,ETF,ETF
+KODEX KOFR금리액티브(합성),423160,ETF,ETF
+SOL 글로벌AI반도체탑픽액티브,423170,ETF,ETF
+TIGER 미국필라델피아반도체레버리지(합성),423920,ETF,ETF
+벨로크,424760,IT서비스,Information Technology
 이뮨온시아,424870,제약,Health Care
+스마트레이더시스템,424960,자동차부품,Consumer Discretionary
+마이크로투나노,424980,반도체와반도체장비,Information Technology
 티이엠씨,425040,반도체와반도체장비,Information Technology
 티에프이,425420,반도체와반도체장비,Information Technology
+TIME 미국S&P500액티브,426020,ETF,ETF
+TIME 미국나스닥100액티브,426030,ETF,ETF
+WON 대한민국국고채액티브,426150,N/A,N/A
+RISE AI플랫폼,427120,ETF,ETF
+KODEX 차이나AI테크액티브,428510,ETF,ETF
+KODEX 미국ETF산업Top10 Indxx,428560,ETF,ETF
+TIGER 미국S&P500배당귀족,429000,ETF,ETF
+TIGER 미국나스닥넥스트100,429010,ETF,ETF
+시지트로닉스,429270,반도체와반도체장비,Information Technology
+PLUS K리츠,429740,ETF,ETF
+PLUS 미국S&P500,429760,ETF,ETF
+SOL 한국형글로벌전기차&2차전지액티브,429980,ETF,ETF
+KIWOOM 물가채KIS,430500,ETF,ETF
+한싹,430690,소프트웨어,Information Technology
+케이쓰리아이,431190,IT서비스,Information Technology
 KB스타리츠,432320,부동산,Financials
+와이랩,432430,출판,Other
+케이엔에스,432470,전기제품,Utilities
+RISE 국채선물3년,432600,ETF,ETF
 퀄리타스반도체,432720,반도체와반도체장비,Information Technology
+HANARO 미국S&P500,432840,ETF,ETF
+엠에프씨,432980,제약,Health Care
+에셋플러스 글로벌대장장이액티브,433220,N/A,N/A
+UNICORN R&D 액티브,433250,N/A,N/A
+SOL 미국S&P500,433330,ETF,ETF
+ACE 원자력TOP10,433500,ETF,ETF
+PLUS TDF2060액티브 적격,433880,ETF,ETF
+KODEX TDF2030액티브 적격,433970,ETF,ETF
+KODEX TDF2040액티브 적격,433980,ETF,ETF
+KODEX TDF2050액티브 적격,434060,ETF,ETF
+모니터랩,434480,소프트웨어,Information Technology
+HANARO 원자력iSelect,434730,ETF,ETF
+DAISHIN343 K200,434960,N/A,N/A
+ACE 글로벌브랜드TOP10,435040,ETF,ETF
+TIGER 미국나스닥100채권혼합Fn,435420,ETF,ETF
+KIWOOM TDF2030액티브 적격,435530,ETF,ETF
+KIWOOM TDF2040액티브 적격,435540,ETF,ETF
+KIWOOM TDF2050액티브 적격,435550,ETF,ETF
+에르코스,435570,식품,Consumer Staples
+SOL 종합채권(AA-이상)액티브,436140,ETF,ETF
+KODEX 아시아달러채권ESG플러스액티브,437070,ETF,ETF
+KODEX 미국종합채권ESG액티브(H),437080,ETF,ETF
+RISE 미국단기투자등급회사채액티브,437350,ETF,ETF
+RISE 글로벌농업경제,437370,ETF,ETF
 삼현,437730,자동차부품,Consumer Discretionary
+ACE 미국S&P500미국채혼합50액티브,438080,ETF,ETF
+ACE 미국나스닥100미국채혼합50액티브,438100,ETF,ETF
+TIGER 차이나항셍테크레버리지(합성 H),438320,ETF,ETF
+TIGER 우량회사채액티브,438330,ETF,ETF
+SOL 국고채3년,438560,ETF,ETF
+SOL 국고채10년,438570,ETF,ETF
+버넥트,438700,소프트웨어,Information Technology
+마이다스 중소형액티브,438740,N/A,N/A
+HANARO Fn K-푸드,438900,ETF,ETF
 마녀공장,439090,화장품,Consumer Discretionary
 대한조선,439260,조선,Industrials
+블루엠텍,439580,건강관리업체및서비스,Health Care
+KODEX ESG종합채권(A-이상)액티브,439860,ETF,ETF
+KODEX 국고채30년액티브,439870,ETF,ETF
 파두,440110,반도체와반도체장비,Information Technology
+HB인베스트먼트,440290,창업투자,Financials
+오픈놀,440320,상업서비스와공급품,Industrials
+TIGER 글로벌멀티에셋TIF액티브,440340,ETF,ETF
+ACE 단기채권알파액티브,440640,ETF,ETF
+ACE 미국달러단기채권액티브,440650,ETF,ETF
+WON 미국우주항공방산,440910,N/A,N/A
 파인엠텍,441270,핸드셋,Information Technology
+HANARO Fn조선해운,441540,ETF,ETF
+KODEX 미국배당커버드콜액티브,441640,ETF,ETF
+TIGER 미국나스닥100커버드콜(합성),441680,ETF,ETF
+TIME Korea플러스배당액티브,441800,ETF,ETF
+에셋플러스 코리아대장장이액티브,442090,N/A,N/A
+마이티 다이나믹퀀트액티브,442260,N/A,N/A
+RISE 글로벌원자력,442320,ETF,ETF
+RISE TDF2030액티브 적격,442550,ETF,ETF
+RISE TDF2040액티브 적격,442560,ETF,ETF
+RISE TDF2050액티브 적격,442570,ETF,ETF
+PLUS 글로벌HBM반도체,442580,ETF,ETF
 HD현대마린솔루션,443060,조선,Industrials
+레뷰코퍼레이션,443250,양방향미디어와서비스,Communication Services
+에스피소프트,443670,IT서비스,Information Technology
+SOL 코리아메가테크액티브,444200,ETF,ETF
+WON 미국S&P500,444490,N/A,N/A
+심플랫폼,444530,IT서비스,Information Technology
 에이직랜드,445090,반도체와반도체장비,Information Technology
+KODEX 친환경조선해운액티브,445150,ETF,ETF
+퓨릿,445180,반도체와반도체장비,Information Technology
+KODEX 로봇액티브,445290,ETF,ETF
 큐리옥스바이오시스템즈,445680,생명과학도구및서비스,Health Care
+BNK 주주가치액티브,445690,ETF,ETF
+TIGER MKF배당귀족,445910,ETF,ETF
+유니드비티플러스,446070,건축자재,Industrials
+메가터치,446540,전자장비와기기,Information Technology
+KODEX 아시아AI반도체exChina액티브,446690,ETF,ETF
+RISE 배터리 리사이클링,446700,ETF,ETF
+SOL 미국배당다우존스,446720,ETF,ETF
+ACE 글로벌반도체TOP4 Plus,446770,ETF,ETF
+지슨,446840,소프트웨어,Information Technology
+ACE 주주환원가치주액티브,447430,ETF,ETF
+SOL 미국TOP5채권혼합50,447620,ETF,ETF
+PLUS 애플채권혼합,447660,ETF,ETF
+TIGER 테슬라채권혼합Fn,447770,ETF,ETF
+WON 200,448100,N/A,N/A
 에코아이,448280,상업서비스와공급품,Industrials
+TIGER 미국S&P500(H),448290,ETF,ETF
+TIGER 미국나스닥100(H),448300,ETF,ETF
+KODEX 삼성전자채권혼합,448330,ETF,ETF
+HANARO 32-10 국고채액티브,448490,ETF,ETF
+ACE 엔비디아채권혼합,448540,ETF,ETF
+FOCUS AI코리아액티브,448570,ETF,ETF
+RISE 삼성그룹Top3채권혼합,448630,ETF,ETF
+코츠테크놀로지,448710,우주항공과국방,Industrials
 삼성FN리츠,448730,부동산,Financials
 한국피아이엠,448900,자동차부품,Consumer Discretionary
+TIGER KOFR금리액티브(합성),449170,ETF,ETF
+KODEX 미국S&P500(H),449180,ETF,ETF
+KODEX 미국나스닥100(H),449190,ETF,ETF
+PLUS K방산,449450,ETF,ETF
+RISE 테슬라애플아마존채권혼합,449580,ETF,ETF
+TIGER 한중전기차(합성),449680,ETF,ETF
+TIGER 한중반도체(합성),449690,ETF,ETF
+KIWOOM 미국S&P500,449770,ETF,ETF
+KIWOOM 미국S&P500(H),449780,ETF,ETF
 에코프로머티,450080,전기제품,Utilities
 코오롱모빌리티그룹,450140,자동차,Consumer Discretionary
+KODEX 한중전기차(합성),450180,ETF,ETF
+KODEX 한중반도체(합성),450190,ETF,ETF
+하스,450330,건강관리장비와용품,Health Care
+인스웨이브,450520,소프트웨어,Information Technology
+SOL 코스닥150,450910,ETF,ETF
 아스테라시스,450950,건강관리장비와용품,Health Care
+PLUS 종합채권(AA-이상)액티브,451000,ETF,ETF
+1Q 200액티브,451060,ETF,ETF
+에셋플러스 글로벌영에이지액티브,451150,N/A,N/A
+아이엠티,451220,반도체와반도체장비,Information Technology
+삐아,451250,화장품,Consumer Discretionary
+TIGER 국고채30년스트립액티브,451530,ETF,ETF
+TIGER 종합채권(AA-이상)액티브,451540,ETF,ETF
+PLUS 국고채30년액티브,451600,ETF,ETF
+RISE 국채30년레버리지(합성),451670,ETF,ETF
+엔에이치스팩29호,451700,창업투자,Financials
 컨텍,451760,우주항공과국방,Industrials
 한화리츠,451800,부동산,Financials
+제이엔비,452160,반도체와반도체장비,Information Technology
+한빛레이저,452190,전기제품,Utilities
+민테크,452200,전기제품,Utilities
+ACE 미국30년국채선물레버리지(합성 H),452250,ETF,ETF
 한화갤러리아,452260,백화점과일반상점,Consumer Discretionary
 한선엔지니어링,452280,기계,Industrials
+캡스톤파트너스,452300,창업투자,Financials
+SOL 미국배당다우존스(H),452360,ETF,ETF
+이닉스,452400,전기제품,Utilities
 사피엔반도체,452430,반도체와반도체장비,Information Technology
-,452450,IT서비스,Information Technology
+피아이이,452450,IT서비스,Information Technology
+상상인제4호스팩,452670,창업투자,Financials
+신한제11호스팩,452980,창업투자,Financials
+PLUS KOFR금리,453010,ETF,ETF
+HANARO KOFR금리액티브(합성),453060,ETF,ETF
+KIWOOM 미국나스닥100(H),453080,ETF,ETF
+RISE 미국S&P500(H),453330,ETF,ETF
 현대그린푸드,453340,식품,Consumer Staples
+그리드위즈,453450,전기유틸리티,Utilities
+KODEX 미국S&P500필수소비재,453630,ETF,ETF
+KODEX 미국S&P500헬스케어,453640,ETF,ETF
+KODEX 미국S&P500금융,453650,ETF,ETF
+KODEX 미국S&P500경기소비재,453660,ETF,ETF
+KODEX 인도Nifty50,453810,ETF,ETF
+KODEX 인도Nifty50레버리지(합성),453820,ETF,ETF
+ACE 미국30년국채액티브(H),453850,ETF,ETF
+에이에스텍,453860,화장품,Consumer Discretionary
+TIGER 인도니프티50,453870,ETF,ETF
+TIGER TSMC파운드리밸류체인,453950,ETF,ETF
+HANARO CAPEX설비투자iSelect,454320,ETF,ETF
+KIWOOM 종합채권(AA-이상)액티브,454780,ETF,ETF
 두산로보틱스,454910,기계,Industrials
+KODEX 미국달러SOFR금리액티브(합성),455030,ETF,ETF
+케이지에이,455180,전자장비와기기,Information Technology
+ACE 미국하이일드액티브(H),455660,ETF,ETF
+SOL AI반도체소부장,455850,ETF,ETF
+SOL 2차전지소부장Fn,455860,ETF,ETF
+RISE 머니마켓액티브,455890,ETF,ETF
 엔젤로보틱스,455900,건강관리장비와용품,Health Care
+RISE 미국달러SOFR금리액티브(합성),455960,ETF,ETF
 아이씨티케이,456010,통신장비,Information Technology
 OCI,456040,화학,Materials
+이엔셀,456070,제약,Health Care
 지투지바이오,456160,제약,Health Care
+PLUS 미국달러SOFR금리액티브(합성),456200,ETF,ETF
+KODEX 유럽명품TOP10 STOXX,456250,ETF,ETF
+TIME 글로벌AI인공지능액티브,456600,ETF,ETF
+TIGER 미국달러SOFR금리액티브(합성),456610,ETF,ETF
+TIGER 차이나전기차레버리지(합성),456680,ETF,ETF
+ACE 미국달러SOFR금리(합성),456880,ETF,ETF
 이수스페셜티케미컬,457190,화학,Materials
+한켐,457370,디스플레이장비및부품,Information Technology
+ACE 테슬라밸류체인액티브,457480,ETF,ETF
 우진엔텍,457550,에너지장비및서비스,Energy
+벡트,457600,교육서비스,Industrials
+KODEX 33-06 국고채액티브,457690,ETF,ETF
+KODEX 53-09 국고채액티브,457700,ETF,ETF
+BNK 미래전략기술액티브,457930,ETF,ETF
+PLUS 태양광&ESS,457990,ETF,ETF
+WON 국공채머니마켓액티브,458030,N/A,N/A
+KIWOOM CD금리액티브(합성),458210,ETF,ETF
+TIGER 미국30년국채스트립액티브(합성 H),458250,ETF,ETF
+TIGER 미국투자등급회사채액티브(H),458260,ETF,ETF
 에스팀,458350,광고,Communication Services
-씨어스테크놀로지,458870,건강관리기술,Health Care
+성우,458650,전기제품,Utilities
+TIGER 미국배당다우존스,458730,ETF,ETF
+TIGER 미국배당다우존스타겟커버드콜1호,458750,ETF,ETF
+TIGER 미국배당다우존스타겟커버드콜2호,458760,ETF,ETF
+씨어스,458870,건강관리기술,Health Care
+위츠,459100,핸드셋,Information Technology
 나우로보틱스,459510,기계,Industrials
+알트,459550,핸드셋,Information Technology
+KODEX 테슬라밸류체인FactSet,459560,ETF,ETF
+KODEX CD금리액티브(합성),459580,ETF,ETF
+RISE 글로벌주식분산액티브,459750,ETF,ETF
+KIWOOM 미국성장기업30액티브,459790,ETF,ETF
+KIWOOM 미국달러SOFR금리액티브(합성),460270,ETF,ETF
+아이빔테크놀로지,460470,생명과학도구및서비스,Health Care
+RISE 미국S&P배당킹,460660,ETF,ETF
+동국씨엠,460850,철강,Materials
 동국제강,460860,철강,Materials
+에스엠씨지,460870,포장재,Materials
 현대힘스,460930,조선,Industrials
+피앤에스로보틱스,460940,건강관리장비와용품,Health Care
+ACE 글로벌인컴TOP10,460960,ETF,ETF
+아이엠비디엑스,461030,생명과학도구및서비스,Health Care
+ACE 26-06 회사채(AA-이상)액티브,461270,ETF,ETF
 아이스크림미디어,461300,교육서비스,Industrials
+HANARO 글로벌생성형AI액티브,461340,ETF,ETF
+KODEX 코스닥글로벌,461450,ETF,ETF
+PLUS 국고채10년액티브,461460,ETF,ETF
+RISE 글로벌자산배분액티브,461490,ETF,ETF
+HANARO 종합채권(AA-이상)액티브,461500,ETF,ETF
+TIGER 코스닥글로벌,461580,ETF,ETF
+SOL 미국30년국채액티브(H),461600,ETF,ETF
+PLUS 미국테크TOP10,461900,ETF,ETF
+PLUS 미국테크TOP10레버리지(합성),461910,ETF,ETF
+KODEX 2차전지핵심소재10,461950,ETF,ETF
+TIGER 2차전지소재Fn,462010,ETF,ETF
+에이치엠씨제6호스팩,462020,창업투자,Financials
+뉴키즈온,462310,"섬유,의류,신발,호화품",Consumer Discretionary
+KODEX 2차전지산업레버리지,462330,ETF,ETF
+에셋플러스 글로벌다이나믹시니어액티브,462340,N/A,N/A
 이노스페이스,462350,우주항공과국방,Industrials
+라메디텍,462510,건강관리장비와용품,Health Care
+조선내화,462520,비철금속,Materials
 더즌,462860,IT서비스,Information Technology
 시프트업,462870,게임엔터테인먼트,Communication Services
+KoAct 바이오헬스케어액티브,462900,ETF,ETF
+아이지넷,462980,생명보험,Financials
+뉴엔AI,463020,IT서비스,Information Technology
+TIME K바이오액티브,463050,ETF,ETF
+TIGER K방산&우주,463250,ETF,ETF
+1Q 단기금융채액티브,463290,ETF,ETF
+RISE 중국본토CSI300,463300,ETF,ETF
+모티브링크,463480,자동차부품,Consumer Discretionary
+KODEX 미국S&P500유틸리티,463640,ETF,ETF
+KODEX 미국S&P500테크놀로지,463680,ETF,ETF
+KODEX 미국S&P500커뮤니케이션,463690,ETF,ETF
 에스오에스랩,464080,전자장비와기기,Information Technology
+KIWOOM 26-09회사채(AA-이상)액티브,464240,ETF,ETF
+티디에스팜,464280,제약,Health Care
+TIGER 글로벌AI&로보틱스 INDXX,464310,ETF,ETF
+한국제13호스팩,464440,창업투자,Financials
+PLUS 미국채30년액티브,464470,ETF,ETF
+쿼드메디슨,464490,생물공학,Health Care
+아이언디바이스,464500,반도체와반도체장비,Information Technology
+닷밀,464580,방송과엔터테인먼트,Consumer Discretionary
+SOL 자동차소부장Fn,464600,ETF,ETF
+SOL 의료기기소부장Fn,464610,ETF,ETF
+KB제27호스팩,464680,창업투자,Financials
+PLUS 일본반도체소부장,464920,ETF,ETF
+TIGER 글로벌혁신블루칩TOP10,464930,ETF,ETF
+RISE 2차전지TOP10,465330,ETF,ETF
+RISE 2차전지TOP10인버스(합성),465350,ETF,ETF
+인스피언,465480,IT서비스,Information Technology
+ACE 미국빅테크TOP7 Plus,465580,ETF,ETF
+ACE 미국빅테크TOP7 Plus레버리지(합성),465610,ETF,ETF
+TIGER 일본반도체FACTSET,465660,ETF,ETF
+TIGER 미국캐시카우100,465670,ETF,ETF
+STX그린로지스,465770,해운사,Industrials
+마이티 26-09 특수채(AAA)액티브,465780,N/A,N/A
 클로봇,466100,기계,Industrials
+사이냅소프트,466410,소프트웨어,Information Technology
+키움히어로제1호스팩,466690,창업투자,Financials
+BNK 2차전지양극재,466810,ETF,ETF
+엔에이치스팩30호,466910,창업투자,Financials
+SOL 조선TOP3플러스,466920,ETF,ETF
+SOL 자동차TOP3플러스,466930,ETF,ETF
+TIGER 은행고배당플러스TOP10,466940,ETF,ETF
+TIGER 글로벌AI액티브,466950,ETF,ETF
+IBKS제23호스팩,467930,창업투자,Financials
+KODEX iShares미국인플레이션국채액티브,468370,ETF,ETF
+KODEX iShares미국하이일드액티브,468380,ETF,ETF
 프로티나,468530,생물공학,Health Care
+KODEX iShares미국투자등급회사채액티브,468630,ETF,ETF
+RISE 미국반도체NYSE(H),469050,ETF,ETF
+RISE 미국반도체NYSE,469060,ETF,ETF
+RISE AI&로봇,469070,ETF,ETF
+ACE AI반도체TOP3+,469150,ETF,ETF
+ACE 일본반도체,469160,ETF,ETF
+ACE 포스코그룹포커스,469170,ETF,ETF
+IBKS제24호스팩,469480,창업투자,Financials
+RISE 미국달러선물인버스,469530,ETF,ETF
 이노테크,469610,디스플레이장비및부품,Information Technology
+아이비젼웍스,469750,전기제품,Utilities
+KIWOOM K-테크TOP10,469790,ETF,ETF
+SOL 초단기채권액티브,469830,ETF,ETF
+하나30호스팩,469880,창업투자,Financials
+하나31호스팩,469900,창업투자,Financials
+UNICORN 생성형AI강소기업액티브,470310,N/A,N/A
+KoAct 글로벌AI&로봇액티브,471040,ETF,ETF
+대신밸런스제17호스팩,471050,창업투자,Financials
+KODEX 국고채10년액티브,471230,ETF,ETF
+KIWOOM 국고채30년액티브,471460,ETF,ETF
+TIGER AI반도체핵심공정,471760,ETF,ETF
+TIGER 코리아테크액티브,471780,ETF,ETF
+셀로맥스사이언스,471820,제약,Health Care
+KODEX AI반도체핵심장비,471990,ETF,ETF
+TIGER 배당커버드콜액티브,472150,ETF,ETF
+TIGER 미국테크TOP10 INDXX(H),472160,ETF,ETF
+TIGER 미국테크TOP10채권혼합,472170,ETF,ETF
+신영스팩10호,472220,창업투자,Financials
+TRUSTON 주주가치액티브,472720,N/A,N/A
+RISE 미국30년국채커버드콜(합성),472830,ETF,ETF
+ITF 200,472840,N/A,N/A
 폰드그룹,472850,"섬유,의류,신발,호화품",Consumer Discretionary
+RISE 미국30년국채엔화노출(합성 H),472870,ETF,ETF
 HK 종합채권(AA-이상)액티브,472920,N/A,N/A
+유안타제15호스팩,473050,창업투자,Financials
+KODEX 26-12 회사채(AA-이상)액티브,473290,ETF,ETF
+SOL 미국30년국채커버드콜(합성),473330,ETF,ETF
+ACE 11월만기자동연장회사채AA-이상액티브,473440,ETF,ETF
+KODEX 미국서학개미,473460,ETF,ETF
+KIWOOM 글로벌AI반도체,473490,ETF,ETF
+ACE 미국주식베스트셀러,473590,ETF,ETF
+HANARO 글로벌금채굴기업,473640,ETF,ETF
 노머스,473980,방송과엔터테인먼트,Consumer Discretionary
 루미르,474170,우주항공과국방,Industrials
+TIGER 미국테크TOP10타겟커버드콜,474220,ETF,ETF
+SOL 국고채30년액티브,474390,ETF,ETF
+유안타제16호스팩,474490,창업투자,Financials
+WON 반도체밸류체인액티브,474590,N/A,N/A
+RF시스템즈,474610,우주항공과국방,Industrials
 링크솔루션,474650,기계,Industrials
+신한제12호스팩,474660,창업투자,Financials
+KIWOOM 미국원유에너지기업,474800,ETF,ETF
+에셋플러스 차이나일등기업포커스10액티브,474920,N/A,N/A
+ACE KPOP포커스,475050,ETF,ETF
+KoAct 글로벌친환경전력인프라액티브,475070,ETF,ETF
+KODEX 테슬라커버드콜채권혼합액티브,475080,ETF,ETF
 SK이터닉스,475150,에너지장비및서비스,Energy
 엔알비,475230,건설,Industrials
+ACE 2월만기자동연장회사채AA-이상액티브,475260,ETF,ETF
+ACE 5월만기자동연장회사채AA-이상액티브,475270,ETF,ETF
+ACE 8월만기자동연장회사채AA-이상액티브,475280,ETF,ETF
+SOL 반도체전공정,475300,ETF,ETF
+SOL 반도체후공정,475310,ETF,ETF
+RISE 버크셔포트폴리오TOP10,475350,ETF,ETF
+RISE 글로벌리얼티인컴,475380,ETF,ETF
 씨메스,475400,기계,Industrials
+키스트론,475430,전기장비,Utilities
+미트박스,475460,인터넷과카탈로그소매,Information Technology
 더본코리아,475560,"호텔,레스토랑,레저",Consumer Discretionary
+에이럭스,475580,교육서비스,Industrials
+TIGER CD1년금리액티브(합성),475630,ETF,ETF
+에스켐,475660,디스플레이장비및부품,Information Technology
+RISE 200위클리커버드콜,475720,ETF,ETF
 오름테라퓨틱,475830,제약,Health Care
 토모큐브,475960,생명과학도구및서비스,Health Care
+UNICORN 포스트IPO액티브,476000,N/A,N/A
+SOL 미국나스닥100,476030,ETF,ETF
 오가노이드사이언스,476040,생물공학,Health Care
 온코닉테라퓨틱스,476060,제약,Health Care
+KODEX 글로벌비만치료제TOP2 Plus,476070,ETF,ETF
+M83,476080,방송과엔터테인먼트,Consumer Discretionary
+HANARO 반도체핵심공정주도주,476260,ETF,ETF
+RISE 글로벌비만산업TOP2+,476310,ETF,ETF
+KIWOOM 머니마켓액티브,476450,ETF,ETF
+TIGER 미국30년국채커버드콜액티브(H),476550,ETF,ETF
+TIGER 글로벌비만치료제TOP2Plus,476690,ETF,ETF
+ACE 미국30년국채엔화노출액티브(H),476750,ETF,ETF
+ACE 미국30년국채액티브,476760,ETF,ETF
+KODEX 한국부동산리츠인프라,476800,ETF,ETF
 알지노믹스,476830,생물공학,Health Care
+KoAct 배당성장액티브,476850,ETF,ETF
+PLUS 머니마켓액티브,477050,ETF,ETF
+RISE CD금리액티브(합성),477080,ETF,ETF
+에이치엠씨제7호스팩,477340,창업투자,Financials
+미래에셋비전스팩4호,477380,창업투자,Financials
+미래에셋비전스팩5호,477470,창업투자,Financials
+에셋플러스 글로벌일등기업포커스10액티브,477490,N/A,N/A
+KODEX 인도타타그룹,477730,ETF,ETF
+DB금융스팩12호,477760,창업투자,Financials
+이베스트스팩6호,478110,창업투자,Financials
+TIME 글로벌우주테크&방산액티브,478150,ETF,ETF
 나라스페이스테크놀로지,478340,우주항공과국방,Industrials
+KB제29호스팩,478390,창업투자,Financials
+미래에셋비전스팩6호,478440,창업투자,Financials
+블랙야크아이앤씨,478560,"섬유,의류,신발,호화품",Consumer Discretionary
+1Q 머니마켓액티브,479080,ETF,ETF
+RISE KOFR금리액티브(합성),479520,ETF,ETF
+SOL 미국AI반도체칩메이커,479620,ETF,ETF
+TIGER 인도빌리언컨슈머,479730,ETF,ETF
+HANARO K-뷰티,479850,ETF,ETF
+한국제15호스팩,479880,창업투자,Financials
+위너스,479960,전기장비,Utilities
+ACE 미국빅테크7+데일리타겟커버드콜(합성),480020,ETF,ETF
+ACE 미국500데일리타겟커버드콜(합성),480030,ETF,ETF
+ACE 미국반도체데일리타겟커버드콜(합성),480040,ETF,ETF
+TIGER 27-04회사채(A+이상)액티브,480260,ETF,ETF
+TIGER 글로벌온디바이스AI,480310,ETF,ETF
+씨케이솔루션,480370,기계,Industrials
+WON 한국부동산TOP3플러스,480460,N/A,N/A
+KODEX CD1년금리플러스액티브(합성),481050,ETF,ETF
+KODEX 미국30년국채타겟커버드콜(합성 H),481060,ETF,ETF
 에이유브랜즈,481070,"섬유,의류,신발,호화품",Consumer Discretionary
+SOL 미국AI소프트웨어,481180,ETF,ETF
+SOL 미국테크TOP10,481190,ETF,ETF
+RISE 미국30년국채액티브,481340,ETF,ETF
+RISE 국고채10년액티브,481430,ETF,ETF
+신한글로벌액티브리츠,481850,부동산,Financials
+엔에이치스팩31호,481890,창업투자,Financials
+KoAct 반도체&2차전지핵심소재액티브,482030,ETF,ETF
+교보16호스팩,482520,창업투자,Financials
 삼양엔씨켐,482630,반도체와반도체장비,Information Technology
+미래에셋비전스팩7호,482680,창업투자,Financials
+대신밸런스제19호스팩,482690,창업투자,Financials
+TIGER 미국S&P500타겟데일리커버드콜,482730,ETF,ETF
+KIWOOM 의료AI,483020,ETF,ETF
+KIWOOM 미국블록버스터바이오테크의약품+,483030,ETF,ETF
+TIGER 미국나스닥100ETF선물,483240,ETF,ETF
+KODEX 미국AI테크TOP10타겟커버드콜,483280,ETF,ETF
+KODEX 미국배당다우존스타겟커버드콜,483290,ETF,ETF
+ACE 엔비디아밸류체인액티브,483320,ETF,ETF
+ACE 마이크로소프트밸류체인액티브,483330,ETF,ETF
+ACE 구글밸류체인액티브,483340,ETF,ETF
+ACE 애플밸류체인액티브,483420,ETF,ETF
+KCGI 미국S&P500 TOP10,483570,N/A,N/A
 달바글로벌,483650,화장품,Consumer Discretionary
 도우인시스,484120,디스플레이장비및부품,Information Technology
+하나34호스팩,484130,창업투자,Financials
 삼양컴텍,484590,우주항공과국방,Industrials
+KODEX 미국30년국채액티브(H),484790,ETF,ETF
 티엑스알로보틱스,484810,기계,Industrials
 엠앤씨솔루션,484870,우주항공과국방,Industrials
+SOL 금융지주플러스고배당,484880,ETF,ETF
+SOL 머니마켓액티브,484890,ETF,ETF
+KODEX 미국AI테크TOP10,485540,ETF,ETF
+RISE 미국AI밸류체인TOP3Plus,485690,ETF,ETF
+TIME 글로벌바이오액티브,485810,ETF,ETF
+DAISHIN343 AI반도체&인프라액티브,486240,금융,Financials
+TIGER 미국나스닥100타겟데일리커버드콜,486290,ETF,ETF
+SOL 미국AI전력인프라,486450,ETF,ETF
+KB제30호스팩,486630,창업투자,Financials
+HANARO 머니마켓액티브,486830,ETF,ETF
 노타,486990,IT서비스,Information Technology
-,487570,복합기업,Industrials
+KoAct AI인프라액티브,487130,ETF,ETF
+KODEX 미국AI전력핵심인프라,487230,ETF,ETF
+KODEX AI전력핵심설비,487240,ETF,ETF
+ACE 머니마켓액티브,487340,ETF,ETF
+신한제14호스팩,487360,창업투자,Financials
+HS효성,487570,복합기업,Industrials
+BNK 온디바이스AI,487750,ETF,ETF
+ACE 인도컨슈머파워액티브,487910,ETF,ETF
+ACE 인도시장대표BIG5그룹액티브,487920,ETF,ETF
+KODEX 대만테크고배당다우존스,487950,ETF,ETF
+유진스팩11호,488060,창업투자,Financials
+TIGER 반도체TOP10레버리지,488080,ETF,ETF
+KIWOOM K-2차전지북미공급망,488200,ETF,ETF
+KIWOOM K-반도체북미공급망,488210,ETF,ETF
 에스투더블유,488280,IT서비스,Information Technology
+마이다스 일본테크액티브,488290,N/A,N/A
+RISE 일본섹터TOP4Plus,488480,ETF,ETF
+TIGER 미국S&P500동일가중,488500,ETF,ETF
+WON 종합채권(AA-이상)액티브,488720,N/A,N/A
+KODEX 머니마켓액티브,488770,ETF,ETF
 비츠로넥스텍,488900,우주항공과국방,Industrials
+SOL 26-12 회사채(AA-이상)액티브,488980,ETF,ETF
+PLUS 일본엔화초단기국채(합성),489000,ETF,ETF
+PLUS 고배당주위클리커버드콜,489030,ETF,ETF
+교보17호스팩,489210,창업투자,Financials
+KODEX 미국배당다우존스,489250,ETF,ETF
+WON 미국빌리어네어,489290,N/A,N/A
+바이오비쥬,489460,화장품,Consumer Discretionary
+키움제11호스팩,489480,창업투자,Financials
 엘케이켐,489500,반도체와반도체장비,Information Technology
+디비금융제13호스팩,489730,창업투자,Financials
 한화비전,489790,통신장비,Information Technology
+KIWOOM 글로벌전력GRID인프라,489860,ETF,ETF
+TIGER 미국AI빅테크10,490090,ETF,ETF
+KoAct 미국치매&뇌질환치료제액티브,490330,ETF,ETF
 세미파이브,490470,반도체와반도체장비,Information Technology
+SOL K방산,490480,ETF,ETF
+SOL 미국배당미국채혼합50,490490,ETF,ETF
+RISE 미국AI밸류체인데일리고정커버드콜,490590,ETF,ETF
+RISE 미국배당100데일리고정커버드콜,490600,ETF,ETF
 리브스메드,491000,건강관리장비와용품,Health Care
+TIGER 글로벌AI전력인프라액티브,491010,ETF,ETF
+KODEX 미국테크TOP3플러스,491090,ETF,ETF
+PLUS 200TR,491220,ETF,ETF
+PLUS 국공채머니마켓액티브,491230,ETF,ETF
+파워 K-주주가치액티브,491510,N/A,N/A
+1Q CD금리액티브(합성),491610,ETF,ETF
+RISE 미국테크100데일리고정커버드콜,491620,ETF,ETF
+RISE 미국반도체인버스(합성 H),491630,ETF,ETF
+HK 200,491700,N/A,N/A
+HANARO 전력설비투자,491820,ETF,ETF
+TIGER 미국AI반도체팹리스,491830,ETF,ETF
+KB제31호스팩,492220,창업투자,Financials
+1Q 현대차그룹채권(A+이상)&국고통안,492500,ETF,ETF
 아이엠바이오로직스,493280,제약,Health Care
+지에프아이,493330,전자장비와기기,Information Technology
+SOL 미국배당다우존스2호,493420,ETF,ETF
+유안타제17호스팩,493790,창업투자,Financials
+TIGER 미국AI빅테크10타겟데일리커버드콜,493810,ETF,ETF
 큐리오시스,494120,생명과학도구및서비스,Health Care
+TIME 글로벌소비트렌드액티브,494180,ETF,ETF
+SOL 미국500타겟데일리커버드콜액티브,494210,ETF,ETF
+UNICORN SK하이닉스밸류체인액티브,494220,N/A,N/A
+KODEX 미국나스닥100데일리커버드콜OTM,494300,ETF,ETF
+KODEX 반도체레버리지,494310,ETF,ETF
+ACE 라이프자산주주가치액티브,494330,ETF,ETF
+ACE 글로벌AI맞춤형반도체,494340,ETF,ETF
+PLUS 미국S&P500성장주,494410,ETF,ETF
+PLUS 미국배당증가성장주데일리커버드콜,494420,ETF,ETF
+TIGER 조선TOP10,494670,ETF,ETF
+TIGER 미국방산TOP10,494840,ETF,ETF
+KODEX 200액티브,494890,ETF,ETF
+PLUS 코리아밸류업,495040,ETF,ETF
+RISE 코리아밸류업,495050,ETF,ETF
+TIME 코리아밸류업액티브,495060,ETF,ETF
+KoAct 코리아밸류업액티브,495230,ETF,ETF
+1Q 코리아밸류업,495330,ETF,ETF
+SOL 코리아밸류업TR,495550,ETF,ETF
+BNK 26-06 특수채(AAA이상)액티브,495710,ETF,ETF
+HANARO 코리아밸류업,495750,ETF,ETF
+KODEX 코리아밸류업,495850,ETF,ETF
+RISE 미국AI테크액티브,495940,ETF,ETF
 WON 전단채플러스액티브,496020,N/A,N/A
+신한제16호스팩,496070,창업투자,Financials
+TIGER 코리아밸류업,496080,ETF,ETF
+KIWOOM 코리아밸류업,496090,ETF,ETF
+ACE 코리아밸류업,496120,ETF,ETF
+TRUSTON 코리아밸류업액티브,496130,N/A,N/A
+PLUS 글로벌방산,496770,ETF,ETF
+ACE 글로벌빅파마,497510,ETF,ETF
+ACE 일라이릴리밸류체인,497520,ETF,ETF
+TIGER 미국필라델피아AI반도체나스닥,497570,ETF,ETF
+KoAct 미국천연가스인프라액티브,497780,ETF,ETF
+SOL CD금리&머니마켓액티브,497880,ETF,ETF
+HANARO 바이오코리아액티브,498050,ETF,ETF
+파워 종합채권(AA-이상)액티브,498180,N/A,N/A
+KIWOOM 미국양자컴퓨팅,498270,ETF,ETF
+한화플러스제5호스팩,498390,창업투자,Financials
+KODEX 200타겟위클리커버드콜,498400,ETF,ETF
+KODEX 금융고배당TOP10타겟위클리커버드콜,498410,ETF,ETF
+RISE 인도디지털성장,498610,ETF,ETF
+RISE 코리아금융고배당,498860,ETF,ETF
+SOL 미국S&P500엔화노출(H),499150,ETF,ETF
+TIGER CD금리플러스액티브(합성),499660,ETF,ETF
 GS피앤엘,499790,"호텔,레스토랑,레저",Consumer Discretionary
+신한 레버리지 다우존스지수 선물 ETN(H),500020,ETF,ETF
+신한 콩 선물 ETN(H),500023,ETF,ETF
+신한 인버스 콩 선물 ETN(H),500024,ETF,ETF
+신한 인버스 2X 다우존스지수 선물 ETN(H),500028,ETF,ETF
+신한 레버리지 은 선물 ETN(H),500029,ETF,ETF
+신한 레버리지 미국달러 선물 ETN,500035,ETF,ETF
+신한 인버스 2X 미국달러 선물 ETN,500036,ETF,ETF
+신한 레버리지 금 선물 ETN,500037,ETF,ETF
+신한 레버리지 구리 선물 ETN,500040,ETF,ETF
+신한 인버스 2X 구리 선물 ETN,500041,ETF,ETF
+신한 레버리지 S&P500 선물 ETN,500050,ETF,ETF
+신한 인버스 코스피 200 선물 ETN,500061,ETF,ETF
+신한 인버스 코스닥 150 선물 ETN,500063,ETF,ETF
+신한 레버리지 10년 국채선물 ETN,500067,ETF,ETF
+신한 인버스 2X 10년 국채선물 ETN,500068,ETF,ETF
+신한 레버리지 코스피 200 선물 ETN,500069,ETF,ETF
+신한 레버리지 코스닥 150 선물 ETN,500071,ETF,ETF
+신한 인버스 2X 코스닥 150 선물 ETN,500072,ETF,ETF
+신한 S&P 유로 선물 ETN(H),500078,ETF,ETF
+신한 S&P 인버스 유로 선물 ETN(H),500079,ETF,ETF
+신한 S&P 레버리지 유로 선물 ETN(H),500080,ETF,ETF
+신한 S&P 인버스 2X 유로 선물 ETN(H),500081,ETF,ETF
+신한 블룸버그 2X 천연가스 선물 ETN,500082,ETF,ETF
+신한 코스피 200 TR ETN,500085,ETF,ETF
+신한 코스닥 150 TR ETN,500086,ETF,ETF
+신한 26-05 은행채(AAA) ETN,500087,ETF,ETF
+신한 2X 26-05 은행채(AAA) ETN,500088,ETF,ETF
+신한 26-05 공사채(AAA) ETN,500089,ETF,ETF
+신한 2X 26-05 공사채(AAA) ETN,500090,ETF,ETF
+신한 33-12 국고채 플러스 ETN,500091,ETF,ETF
+신한 블룸버그 레버리지 WTI원유선물 ETN B,500093,ETF,ETF
+신한 블룸버그 인버스2X WTI원유선물 ETN B,500094,ETF,ETF
+신한 S&P500 VIX S/T 선물 ETN E,500095,ETF,ETF
+신한 인버스2X 천연가스 선물 ETN B,500096,ETF,ETF
+신한 레버리지 Russell 2000 ETN B,500097,ETF,ETF
+신한 인버스 2X Russell 2000 ETN B,500098,ETF,ETF
+신한 WTI원유 선물 ETN,500099,ETF,ETF
+신한 금 선물 ETN,500100,ETF,ETF
+대신 천연가스 선물 ETN(H),510016,ETF,ETF
+대신 인버스 2X 코스닥 150 선물 ETN,510027,ETF,ETF
+대신 인버스 천연가스 선물 ETN(H) B,510043,ETF,ETF
+미래에셋 코스피200 선물 ETN,520037,ETF,ETF
+미래에셋 인버스 코스피200 선물 ETN,520038,ETF,ETF
+미래에셋 코스닥150 선물 ETN,520039,ETF,ETF
+미래에셋 인버스 코스닥150 선물 ETN,520040,ETF,ETF
+미래에셋 레버리지 옥수수 선물 ETN,520046,ETF,ETF
+미래에셋 인버스 2X 옥수수 선물 ETN,520047,ETF,ETF
+미래에셋 레버리지 코스피200 선물 ETN,520054,ETF,ETF
+미래에셋 인버스 2X 코스피200 선물 ETN,520055,ETF,ETF
+미래에셋 레버리지 코스닥150 선물 ETN,520056,ETF,ETF
+미래에셋 인버스 2X 코스닥150 선물 ETN,520057,ETF,ETF
+미래에셋 2X 미국채울트라30년 선물 ETN,520064,ETF,ETF
+미래에셋 -2X 미국채울트라30년 선물 ETN,520065,ETF,ETF
+미래에셋 KRX금현물 Auto-KO-C 2810-01 ETN,520066,ETF,ETF
+미래에셋 2X 홍콩H 선물 ETN,520068,ETF,ETF
+미래에셋 -2X 홍콩H 선물 ETN(H),520069,ETF,ETF
+미래에셋 미국 AI TOP3 ETN,520072,ETF,ETF
+미래에셋 레버리지 미국 AI TOP3 ETN,520073,ETF,ETF
+미래에셋 미국 방위산업 TOP3 ETN,520074,ETF,ETF
+미래에셋 레버리지 미국 방위산업 TOP3 ETN,520075,ETF,ETF
+미래에셋 1.5X 천연가스 선물 ETN,520076,ETF,ETF
+미래에셋 -1.5X 천연가스 선물 ETN,520077,ETF,ETF
+미래에셋 미국 제약 TOP3 ETN,520078,ETF,ETF
+미래에셋 레버리지 미국 제약 TOP3 ETN,520079,ETF,ETF
+미래에셋 미국 테크&반도체 TOP3 ETN,520080,ETF,ETF
+미래에셋 2X 미국 테크&반도체 TOP3 ETN,520081,ETF,ETF
+미래에셋 미국 자율주행대표기업 ETN,520082,ETF,ETF
+미래에셋 2X 미국 자율주행대표기업 ETN,520083,ETF,ETF
+미래에셋 -2X 미국 자율주행대표기업 ETN,520084,ETF,ETF
+미래에셋 -2X 미국 AI TOP3 ETN,520085,ETF,ETF
+미래에셋-0.5X S&P500 VIX S/T선물 ETN(H)B,520086,ETF,ETF
+미래에셋 레버리지 KRX 금현물 ETN,520087,ETF,ETF
+미래에셋 S&P500 VIX S/T 선물 ETN(H),520088,ETF,ETF
+미래에셋 CAPE 실러 US Core Sector ETN,520089,ETF,ETF
+미래에셋 천연가스 선물 ETN B,520090,ETF,ETF
+미래에셋 인버스 천연가스 선물 ETN B,520091,ETF,ETF
+미래에셋 레버리지 은 선물 ETN B,520092,ETF,ETF
+미래에셋 인버스 2X 은 선물 ETN B,520093,ETF,ETF
+미래에셋 CD금리 플러스 ETN,520094,ETF,ETF
+미래에셋 1.5X S&P500 VIX S/T선물 ETN,520097,ETF,ETF
+미래에셋 레버리지 반도체 ETN,520098,ETF,ETF
+미래에셋 인버스 2X 반도체 ETN,520099,ETF,ETF
+삼성 레버리지 WTI원유 선물 ETN,530031,ETF,ETF
+삼성 인버스 2X WTI원유 선물 ETN,530036,ETF,ETF
+삼성 레버리지 금 선물 ETN(H),530055,ETF,ETF
+삼성 인버스 2X 금 선물 ETN(H),530056,ETF,ETF
+삼성 코스피 양매도 5% OTM ETN,530060,ETF,ETF
+삼성 레버리지 은 선물 ETN(H),530061,ETF,ETF
+삼성 인버스 2X 은 선물 ETN(H),530062,ETF,ETF
+삼성 레버리지 구리 선물 ETN(H),530063,ETF,ETF
+삼성 인버스 2X 구리 선물 ETN(H),530064,ETF,ETF
+삼성 KRX 금현물 ETN,530067,ETF,ETF
+삼성 금 선물 ETN(H),530083,ETF,ETF
+삼성 인버스 금 선물 ETN(H),530084,ETF,ETF
+삼성 은 선물 ETN(H),530089,ETF,ETF
+삼성 인버스 은 선물 ETN(H),530090,ETF,ETF
+삼성 인버스 코스피 200 선물 ETN,530092,ETF,ETF
+삼성 인버스 코스닥 150 선물 ETN,530094,ETF,ETF
+삼성 구리 선물 ETN(H),530095,ETF,ETF
+삼성 인버스 구리 선물 ETN(H),530096,ETF,ETF
+삼성 레버리지 코스피200 선물 ETN,530104,ETF,ETF
+삼성 인버스 2X 코스피200 선물 ETN,530105,ETF,ETF
+삼성 레버리지 코스닥150 선물 ETN,530106,ETF,ETF
+삼성 인버스 2X 코스닥150 선물 ETN,530107,ETF,ETF
+삼성 S&P500 TR ETN,530112,ETF,ETF
+삼성 레버리지 S&P500 선물 ETN,530113,ETF,ETF
+삼성 인버스 2X S&P500 선물 ETN,530114,ETF,ETF
+삼성 레버리지 나스닥 100 TR ETN,530115,ETF,ETF
+삼성 인버스 2X 나스닥 100 TR ETN,530116,ETF,ETF
+삼성 코스피 200 TR ETN,530117,ETF,ETF
+삼성 코스닥 150 TR ETN,530118,ETF,ETF
+삼성 레버리지 항셍테크 TR ETN(H) B,530119,ETF,ETF
+삼성 나스닥 100 TR ETN,530120,ETF,ETF
+삼성 항셍테크 TR ETN(H) B,530121,ETF,ETF
+삼성 인버스 2X 항셍테크 TR ETN(H) B,530122,ETF,ETF
+삼성 일본니케이225선물 ETN(H),530123,ETF,ETF
+삼성 레버리지 일본니케이225선물 ETN(H),530124,ETF,ETF
+삼성 인버스 2X 일본니케이225선물 ETN(H),530125,ETF,ETF
+삼성 코리아 밸류업 TR ETN,530126,ETF,ETF
+삼성 미국다우존스 TR ETN,530127,ETF,ETF
+삼성 레버리지 미국다우존스 선물 ETN,530128,ETF,ETF
+삼성 인버스 2X 미국다우존스 선물 ETN,530129,ETF,ETF
+삼성 S&P500 VIX S/T 선물 ETN B,530130,ETF,ETF
+삼성 인버스0.5X S&P500 VIX S/T선물 ETN B,530131,ETF,ETF
+삼성 블룸버그 WTI원유 선물 ETN B,530132,ETF,ETF
+삼성 블룸버그 레버리지 WTI원유선물 ETN B,530133,ETF,ETF
+삼성 블룸버그 인버스2X WTI원유선물 ETN B,530134,ETF,ETF
+삼성 인버스 China A50 선물 ETN(H) B,530135,ETF,ETF
+삼성 인버스 2X 천연가스 선물 ETN D,530136,ETF,ETF
+삼성 KRX 2차전지 TOP10 TR ETN,530137,ETF,ETF
+삼성 KRX 레버리지 2차전지 TOP10 TR ETN,530138,ETF,ETF
+삼성 iSelect 조선 TOP10 TR ETN,530139,ETF,ETF
+삼성 iSelect 레버리지 조선 TOP10 TR ETN,530140,ETF,ETF
+삼성 중국 자동차 TOP5 TR ETN(H),530141,ETF,ETF
+삼성 중국 AI 테크 TOP5 TR ETN(H),530142,ETF,ETF
+삼성 인버스 2X 은 선물 ETN,530143,ETF,ETF
+삼성 레버리지 천연가스 선물 ETN D,530145,ETF,ETF
+N2 미국 IT TOP5 ETN(H),550041,ETF,ETF
+N2 인버스 레버리지 WTI원유 선물 ETN(H),550043,ETF,ETF
+N2 레버리지 금 선물 ETN(H),550062,ETF,ETF
+N2 레버리지 은 선물 ETN(H),550064,ETF,ETF
+N2 레버리지 구리 선물 ETN(H),550069,ETF,ETF
+N2 인버스 레버리지 구리 선물 ETN(H),550070,ETF,ETF
+N2 KIS CD금리투자 ETN,550082,ETF,ETF
+N2 코스피 200 TR ETN,550084,ETF,ETF
+N2 코스닥 150 TR ETN,550085,ETF,ETF
+N2 선진국 1등주 ETN,550087,ETF,ETF
+N2 월간 레버리지 선진국 1등주 ETN,550088,ETF,ETF
+N2 월간 레버리지 코스피 200 선물 ETN,550089,ETF,ETF
+N2 방위산업 Top5 ETN,550091,ETF,ETF
+N2 월간 레버리지 방위산업 Top5 ETN,550092,ETF,ETF
+N2 전력인프라 Top5 ETN,550093,ETF,ETF
+N2 레버리지 국채10년 ETN,550095,ETF,ETF
+N2 레버리지 국채30년 ETN,550096,ETF,ETF
+N2 레버리지 코스닥150 선물 ETN,550097,ETF,ETF
+N2 인버스 2X 코스닥150 선물 ETN,550098,ETF,ETF
+N2 레버리지 천연가스 선물 ETN,550099,ETF,ETF
+N2 인버스 2X 천연가스 선물 ETN,550100,ETF,ETF
+한투 코스피양매도5%OTM ETN,570019,ETF,ETF
+한투 레버리지S&P500선물 ETN(H),570022,ETF,ETF
+한투 인버스2XS&P500선물 ETN(H),570023,ETF,ETF
+한투 코스피양매도3%OTM ETN,570029,ETF,ETF
+한투 FTSE100 ETN,570047,ETF,ETF
+한투 S&P500선물 ETN,570050,ETF,ETF
+한투 나스닥100 ETN,570051,ETF,ETF
+한투 금선물 ETN,570055,ETF,ETF
+한투 인버스금선물 ETN,570056,ETF,ETF
+한투 은선물 ETN,570057,ETF,ETF
+한투 레버리지금선물 ETN,570059,ETF,ETF
+한투 인버스2X금선물 ETN,570060,ETF,ETF
+한투 레버리지은선물 ETN,570061,ETF,ETF
+한투 베트남VN30선물 ETN(H),570063,ETF,ETF
+한투 인버스베트남VN30선물 ETN(H),570064,ETF,ETF
+한투 레버리지베트남VN30선물 ETN(H),570065,ETF,ETF
+한투 인버스2X베트남VN30 선물 ETN(H),570066,ETF,ETF
+한투 레버리지플래티넘선물 ETN,570069,ETF,ETF
+한투 구리선물 ETN,570071,ETF,ETF
+한투 레버리지구리선물 ETN,570072,ETF,ETF
+한투 인버스2X구리선물 ETN,570073,ETF,ETF
+한투 유럽탄소배출권선물 ETN(H),570074,ETF,ETF
+한투 레버리지코스닥150선물 ETN,570081,ETF,ETF
+한투 인버스2X코스닥150선물 ETN,570082,ETF,ETF
+한투 인도네시아대표원자재 ETN,570085,ETF,ETF
+한투 KIS CD금리투자 ETN,570090,ETF,ETF
+한투 인버스유로스탁스50 ETN(H) C,570091,ETF,ETF
+한투 인버스2X유로스탁스50 ETN(H) B,570092,ETF,ETF
+한투 레버리지천연가스선물 ETN B,570093,ETF,ETF
+한투 일본엔선물 ETN C,570094,ETF,ETF
+한투 레버리지일본엔선물 ETN C,570095,ETF,ETF
+한투 인버스2X일본엔선물 ETN,570096,ETF,ETF
+한투 엔달러선물 ETN(H),570097,ETF,ETF
+한투 레버리지엔달러선물 ETN(H),570098,ETF,ETF
+한투 인버스2X엔달러 선물 ETN(H),570099,ETF,ETF
+한투 일본종합상사TOP5 ETN,570100,ETF,ETF
+한투 인버스나스닥100 ETN B,570101,ETF,ETF
+한투 레버리지나스닥100 ETN B,570102,ETF,ETF
+한투 인버스2X나스닥100 ETN B,570103,ETF,ETF
+한투 일본니케이225선물 ETN(H),570104,ETF,ETF
+한투 인버스일본니케이225선물 ETN(H),570105,ETF,ETF
+한투 레버리지일본니케이225선물 ETN(H),570106,ETF,ETF
+한투 인버스2X일본니케이225선물 ETN(H),570107,ETF,ETF
+한투 레버리지국채30년 ETN,570108,ETF,ETF
+한투 레버리지미국채30년 ETN,570109,ETF,ETF
+한투 3X레버리지국채30년 ETN,570110,ETF,ETF
+한투 3X레버리지미국채30년 ETN,570111,ETF,ETF
+한투 S&P500 VIX S/T선물 ETN(H) B,570114,ETF,ETF
+한투 인버스0.5X S&P500 VIX S/T선물 ETN B,570115,ETF,ETF
+한투 레버리지WTI원유선물 ETN B,570116,ETF,ETF
+한투 인버스2XWTI원유선물 ETN B,570117,ETF,ETF
+한투 인버스2X천연가스선물 ETN B,570118,ETF,ETF
+한투 인버스2X은선물 ETN,570119,ETF,ETF
+KB Wise 분할매매 ETN,580010,ETF,ETF
+KB 레버리지 S&P 500 선물 ETN(H),580016,ETF,ETF
+KB 인버스 2X S&P 500 선물 ETN,580017,ETF,ETF
+KB 인버스 2X 항셍테크 선물 ETN,580019,ETF,ETF
+KB 천연가스 선물 ETN(H),580020,ETF,ETF
+KB 인버스 천연가스 선물 ETN,580021,ETF,ETF
+KB 레버리지 금 선물 ETN(H),580022,ETF,ETF
+KB S&P 레버리지 은 선물 ETN(H),580026,ETF,ETF
+KB 레버리지 구리 선물 ETN(H),580032,ETF,ETF
+KB 레버리지 FANG 플러스 ETN(H),580034,ETF,ETF
+KB S&P 유럽탄소배출권 선물 ETN(H),580035,ETF,ETF
+KB 레버리지 KOSPI 200 선물 ETN,580039,ETF,ETF
+KB 인버스 2X KOSPI 200 선물 ETN,580040,ETF,ETF
+KB 레버리지 KOSDAQ 150 선물 ETN,580043,ETF,ETF
+KB 인버스 2X KOSDAQ 150 선물 ETN,580044,ETF,ETF
+KB 레버리지 항셍테크 선물 ETN(H) B,580047,ETF,ETF
+KB 차이나 대형주 CSI 300 ETN,580048,ETF,ETF
+KB 차이나 중형주 CSI 500 ETN,580049,ETF,ETF
+KB 차이나 과창판 STAR 50 ETN,580050,ETF,ETF
+KB 레버리지 밀 선물 ETN,580051,ETF,ETF
+KB 인버스 2X 밀 선물 ETN,580052,ETF,ETF
+KB 레버리지 콩 선물 ETN,580053,ETF,ETF
+KB 인버스 2X 콩 선물 ETN,580054,ETF,ETF
+KB 블룸버그 레버리지 천연가스 선물 ETN,580055,ETF,ETF
+KB 일본 로보틱스 TOP 10 ETN,580056,ETF,ETF
+KB 일본 컨슈머 TOP 10 ETN,580057,ETF,ETF
+KB KIS CD금리투자 ETN,580058,ETF,ETF
+KB 미국채 10년 ETN,580059,ETF,ETF
+KB 레버리지 미국채 10년 ETN,580060,ETF,ETF
+KB 미국채 30년 ETN,580061,ETF,ETF
+KB 레버리지 미국채 30년 ETN,580062,ETF,ETF
+KB 레버리지 미국채 10년 선물 ETN,580063,ETF,ETF
+KB 인버스 2X 미국채 10년 선물 ETN,580064,ETF,ETF
+KB 코스닥 150 TR ETN,580065,ETF,ETF
+KB 인도 대형 성장주 Select 5 ETN,580066,ETF,ETF
+KB 인도 디지털 Select 5 ETN,580067,ETF,ETF
+KB S&P 레버리지 WTI원유 선물 ETN B,580068,ETF,ETF
+KB S&P 인버스 2X WTI원유 선물 ETN B,580069,ETF,ETF
+KB 레버리지 2차전지 TOP 10 TR ETN,580070,ETF,ETF
+KB 인버스 2X 천연가스 선물 ETN B,580071,ETF,ETF
+KB 화웨이 밸류체인 ETN,580072,ETF,ETF
+KB 레버리지 화웨이 밸류체인 ETN,580073,ETF,ETF
+KB BYD 밸류체인 ETN,580074,ETF,ETF
+KB 레버리지 BYD 밸류체인 ETN,580075,ETF,ETF
+KB 레버리지 미국 나스닥 100 TR ETN B,580076,ETF,ETF
+KB 인버스 2X 미국 나스닥 100 TR ETN B,580077,ETF,ETF
+KB 은 선물 ETN,580078,ETF,ETF
+KB 레버리지 은 선물 ETN,580079,ETF,ETF
+KB 인버스 은 선물 ETN,580080,ETF,ETF
+KB 인버스 2X 은 선물 ETN,580081,ETF,ETF
+KB 레버리지 반도체 TOP10 TR ETN,580082,ETF,ETF
+KB 레버리지 미국 S&P500 선물 ETN B,580083,ETF,ETF
+KB 인버스 2X 미국 S&P500 선물 ETN B,580084,ETF,ETF
+메리츠 인플레이션 국채 ETN,610001,ETF,ETF
+메리츠 미국 인플레이션 국채 ETN(H),610003,ETF,ETF
+메리츠 국채30년 ETN,610007,ETF,ETF
+메리츠 레버리지 국채30년 ETN,610008,ETF,ETF
+메리츠 인버스 국채30년 ETN,610009,ETF,ETF
+메리츠 레버리지 금 선물 ETN(H),610012,ETF,ETF
+메리츠 국채10년 ETN,610018,ETF,ETF
+메리츠 인버스 국채10년 ETN,610020,ETF,ETF
+메리츠 미국채10년 ETN(H),610022,ETF,ETF
+메리츠 레버리지 미국채10년 ETN(H),610023,ETF,ETF
+메리츠 인버스 미국채10년 ETN(H),610024,ETF,ETF
+메리츠 인버스 2X 미국채10년 ETN(H),610025,ETF,ETF
+메리츠 레버리지 구리 선물 ETN(H),610028,ETF,ETF
+메리츠 인버스 2X 구리 선물 ETN(H),610029,ETF,ETF
+메리츠 S&P 유럽탄소배출권 선물 ETN(H),610030,ETF,ETF
+메리츠 대표 농산물 선물 ETN(H),610034,ETF,ETF
+메리츠 레버리지 대표 농산물 선물 ETN(H),610035,ETF,ETF
+메리츠 인버스 2X 대표 농산물 선물 ETN(H),610036,ETF,ETF
+메리츠 미국채30년 ETN(H),610037,ETF,ETF
+메리츠 레버리지 미국채30년 ETN(H),610038,ETF,ETF
+메리츠 인버스 미국채30년 ETN(H),610039,ETF,ETF
+메리츠 인버스 2X 미국채30년 ETN(H),610040,ETF,ETF
+메리츠 국채3년 ETN,610045,ETF,ETF
+메리츠 인버스 국채3년 ETN,610047,ETF,ETF
+메리츠 국채5년 ETN,610049,ETF,ETF
+메리츠 인버스 국채5년 ETN,610051,ETF,ETF
+메리츠 3X 레버리지 국채3년 ETN,610055,ETF,ETF
+메리츠 인버스 3X 국채3년 ETN,610056,ETF,ETF
+메리츠 3X 레버리지 국채5년 ETN,610057,ETF,ETF
+메리츠 인버스 3X 국채5년 ETN,610058,ETF,ETF
+메리츠 3X 레버리지 국채10년 ETN,610059,ETF,ETF
+메리츠 인버스 3X 국채10년 ETN,610060,ETF,ETF
+메리츠 3X 레버리지 국채30년 ETN,610061,ETF,ETF
+메리츠 인버스 3X 국채30년 ETN,610062,ETF,ETF
+메리츠 KIS CD금리투자 ETN,610063,ETF,ETF
+메리츠 KAP 통안채 6개월 ETN,610064,ETF,ETF
+메리츠 KAP 통안채 3개월 ETN,610066,ETF,ETF
+메리츠 블룸버그 2X 천연가스선물 ETN(H) B,610067,ETF,ETF
+메리츠 KAP 일본 엔화 ETN,610068,ETF,ETF
+메리츠 KAP 레버리지 일본 엔화 ETN,610069,ETF,ETF
+메리츠 KAP 인버스 2X 일본 엔화 ETN,610070,ETF,ETF
+메리츠 KAP 중국 위안화 ETN,610071,ETF,ETF
+메리츠 KAP 레버리지 중국 위안화 ETN,610072,ETF,ETF
+메리츠 KAP 인버스 2X 중국 위안화 ETN,610073,ETF,ETF
+메리츠 미국채10년 ETN,610074,ETF,ETF
+메리츠 3X 레버리지 미국채10년 ETN,610075,ETF,ETF
+메리츠 인버스 3X 미국채10년 ETN,610076,ETF,ETF
+메리츠 미국채30년 ETN,610077,ETF,ETF
+메리츠 3X 레버리지 미국채30년 ETN,610078,ETF,ETF
+메리츠 인버스 3X 미국채30년 ETN,610079,ETF,ETF
+메리츠 멕시코 페소화 ETN,610080,ETF,ETF
+메리츠 레버리지 멕시코 페소화 ETN,610081,ETF,ETF
+메리츠 인도 루피화 ETN,610082,ETF,ETF
+메리츠 레버리지 인도 루피화 ETN,610083,ETF,ETF
+메리츠 미국채30년 스트립 ETN(H),610084,ETF,ETF
+메리츠 레버리지 미국채30년 스트립 ETN(H),610085,ETF,ETF
+메리츠 인버스2X 미국채30년 스트립 ETN(H),610086,ETF,ETF
+메리츠 WTI원유 선물 ETN(H),610087,ETF,ETF
+메리츠 레버리지 WTI원유 선물 ETN(H),610088,ETF,ETF
+메리츠 인버스 2X WTI원유 선물 ETN(H),610089,ETF,ETF
+메리츠 일본 국채 10년 ETN,610090,ETF,ETF
+메리츠 3X 레버리지 일본 국채 10년 ETN,610091,ETF,ETF
+메리츠 인버스 일본 국채 10년 ETN,610092,ETF,ETF
+메리츠 인버스 3X 일본 국채 10년 ETN,610093,ETF,ETF
+메리츠 천연가스 선물 ETN(H),610094,ETF,ETF
+메리츠 레버리지 천연가스 선물 ETN(H),610095,ETF,ETF
+메리츠 인버스 2X 천연가스 선물 ETN(H),610096,ETF,ETF
+메리츠 미국채30년스트립 커버드콜 ETN(H),610097,ETF,ETF
+메리츠 미국채30년 풋라이트 ETN(H),610098,ETF,ETF
+메리츠 은 선물 ETN(H),610099,ETF,ETF
+메리츠 레버리지 은 선물 ETN(H),610100,ETF,ETF
+메리츠 인버스 2X 은 선물 ETN(H),610101,ETF,ETF
+하나 레버리지 옥수수 선물 ETN(H),700011,ETF,ETF
+하나 인버스 2X 옥수수 선물 ETN(H),700012,ETF,ETF
+하나 레버리지 콩 선물 ETN(H),700013,ETF,ETF
+하나 인버스 2X 콩 선물 ETN(H),700014,ETF,ETF
+하나 레버리지 코스닥150 선물 ETN,700017,ETF,ETF
+하나 Solactive US Tech Top 10 ETN(H),700022,ETF,ETF
+하나 Solactive 2X US Tech Top 10 ETN(H),700023,ETF,ETF
+하나 CD금리투자 ETN,700026,ETF,ETF
+하나 반도체 ETN,700027,ETF,ETF
+하나 레버리지 반도체 ETN,700028,ETF,ETF
+하나 S&P 레버리지 WTI원유 선물 ETN B,700029,ETF,ETF
+하나 S&P 인버스 2X WTI원유 선물 ETN B,700030,ETF,ETF
+하나 레버리지 천연가스 선물 ETN(H),700031,ETF,ETF
+하나 인버스 2X 천연가스 선물 ETN(H),700032,ETF,ETF
+하나 K방산TOP10 ETN,700033,ETF,ETF
+하나 레버리지 K방산TOP10 ETN,700034,ETF,ETF
+하나 인버스 2X K방산TOP10 ETN,700035,ETF,ETF
+하나 인버스 2X 반도체 ETN,700036,ETF,ETF
+키움 인버스 미국달러선물 ETN,760004,ETF,ETF
+키움 INDXX 미국테크탑10 ETN,760005,ETF,ETF
+키움 KPOP ETN,760006,ETF,ETF
+키움 코스피 200 TR ETN,760007,ETF,ETF
+키움 코스닥 150 TR ETN,760008,ETF,ETF
+키움 CD금리투자 ETN,760009,ETF,ETF
+키움 2차전지산업 ETN,760010,ETF,ETF
+키움 레버리지 2차전지산업 ETN,760011,ETF,ETF
+키움 반도체TOP10 ETN,760012,ETF,ETF
+키움 레버리지 반도체TOP10 ETN,760013,ETF,ETF
+키움 바이오TOP10 ETN,760014,ETF,ETF
+키움 레버리지 바이오TOP10 ETN,760015,ETF,ETF
+키움 레버리지 조선TOP10 ETN,760016,ETF,ETF
+키움 조선TOP10 ETN,760017,ETF,ETF
+키움 미국달러선물 ETN B,760018,ETF,ETF
+키움 리츠부동산인프라 ETN,760019,ETF,ETF
+키움 레버리지 리츠부동산인프라 ETN,760020,ETF,ETF
+키움 코스피200 선물 달러노출 ETN,760021,ETF,ETF
+키움 K방산 TOP5 ETN,760022,ETF,ETF
+키움 레버리지 K방산 TOP5 ETN,760023,ETF,ETF
+키움 전력 TOP5 ETN,760025,ETF,ETF
+키움 레버리지 전력 TOP5 ETN,760026,ETF,ETF
+키움 인버스 2X 전력 TOP5 ETN,760027,ETF,ETF
+키움 인버스 2X 반도체TOP10 ETN,760028,ETF,ETF
+글로벌에스엠,900070,자동차부품,Consumer Discretionary
+애머릿지,900100,"섬유,의류,신발,호화품",Consumer Discretionary
+이스트아시아홀딩스,900110,"섬유,의류,신발,호화품",Consumer Discretionary
+씨엑스아이,900120,제약,Health Care
 엘브이엠씨홀딩스,900140,자동차,Consumer Discretionary
+크리스탈신소재,900250,비철금속,Materials
+로스웰,900260,통신장비,Information Technology
+헝셩그룹,900270,레저용장비와제품,Consumer Discretionary
 GRT,900290,화학,Materials
+오가닉티코스메틱,900300,화장품,Consumer Discretionary
+컬러레이,900310,화장품,Consumer Discretionary
+윙입푸드,900340,식품,Consumer Staples
+엑세스바이오,950130,생명과학도구및서비스,Health Care
 잉글우드랩,950140,화장품,Consumer Discretionary
 코오롱티슈진,950160,생물공학,Health Care
 JTC,950170,백화점과일반상점,Consumer Discretionary
+고스트스튜디오,950190,게임엔터테인먼트,Communication Services
+소마젠,950200,생명과학도구및서비스,Health Care
 프레스티지바이오파마,950210,제약,Health Care
+네오이뮨텍,950220,제약,Health Care
 테라뷰,950250,반도체와반도체장비,Information Technology

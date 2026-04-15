@@ -28,13 +28,61 @@ os.makedirs(SELL_FOLDER, exist_ok=True)
 
 META_FILE = os.path.join(META_DIR, 'tickers_meta.json')
 
+# KR 계열 market 값 (기존 KR + 새 KOSPI/KOSDAQ 모두 포함)
+KR_MARKETS = {'KR', 'KOSPI', 'KOSDAQ'}
+
+
 def load_meta():
     if os.path.exists(META_FILE):
         with open(META_FILE, 'r', encoding='utf-8') as f:
             return json.load(f)
     else:
         print("메타 파일 없음 – 빈 딕트 반환")
-        return {'KR': {}}
+        return {'KOSPI': {}, 'KOSDAQ': {}}
+
+
+def get_meta_info(meta, symbol, market):
+    """
+    market 값에 따라 메타 조회
+    - KOSPI/KOSDAQ → 해당 키에서 직접 조회
+    - KR (구버전) → KOSPI 먼저, 없으면 KOSDAQ fallback
+    """
+    if market in ('KOSPI', 'KOSDAQ'):
+        return meta.get(market, {}).get(symbol, {})
+    else:
+        # 구버전 KR: KOSPI → KOSDAQ → KR 순서로 fallback
+        info = meta.get('KOSPI', {}).get(symbol, {})
+        if not info:
+            info = meta.get('KOSDAQ', {}).get(symbol, {})
+        if not info:
+            info = meta.get('KR', {}).get(symbol, {})
+        return info
+
+
+def get_daily_path(symbol, market):
+    """
+    market 값에 따라 일봉 CSV 경로 반환
+    - KOSPI → kr_daily/kospi/{symbol}.csv
+    - KOSDAQ → kr_daily/kosdaq/{symbol}.csv
+    - KR (구버전) → kr_daily/{symbol}.csv (기존 경로)
+    """
+    if market == 'KOSPI':
+        return os.path.join(DATA_DIR, 'kr_daily', 'kospi', f"{symbol}.csv")
+    elif market == 'KOSDAQ':
+        return os.path.join(DATA_DIR, 'kr_daily', 'kosdaq', f"{symbol}.csv")
+    else:
+        # 구버전 KR: 기존 루트 경로 → 없으면 kospi/kosdaq 순서로 fallback
+        root_path = os.path.join(DATA_DIR, 'kr_daily', f"{symbol}.csv")
+        if os.path.exists(root_path):
+            return root_path
+        kospi_path = os.path.join(DATA_DIR, 'kr_daily', 'kospi', f"{symbol}.csv")
+        if os.path.exists(kospi_path):
+            return kospi_path
+        kosdaq_path = os.path.join(DATA_DIR, 'kr_daily', 'kosdaq', f"{symbol}.csv")
+        if os.path.exists(kosdaq_path):
+            return kosdaq_path
+        return root_path  # 없어도 원래 경로 반환 (에러 메시지용)
+
 
 def add_close_price(df):
     if df.empty or 'symbol' not in df.columns or 'market' not in df.columns:
@@ -45,15 +93,16 @@ def add_close_price(df):
     for idx, row in df.iterrows():
         symbol = row['symbol']
         market = row['market']
-        meta_dict = meta.get(market, {}).get(symbol, {})
+        meta_dict = get_meta_info(meta, symbol, market)
         close_price = meta_dict.get('close', 0.0)
         df.at[idx, 'close'] = close_price
     return df
 
+
 def get_historical_close(symbol, market, target_date):
     """CSV 파일에서 특정 날짜의 종가 조회"""
     try:
-        daily_path = os.path.join(DATA_DIR, 'kr_daily', f"{symbol}.csv")
+        daily_path = get_daily_path(symbol, market)
 
         if not os.path.exists(daily_path):
             print(f"⚠️ 파일 없음: {symbol} ({market})")
@@ -86,6 +135,7 @@ def get_historical_close(symbol, market, target_date):
         print(f"⚠️ 종가 조회 실패: {symbol} ({market}) - {target_date.strftime('%Y-%m-%d')} - {e}")
         return None
 
+
 def get_closes_in_range(symbol, market, base_date, target_date):
     """
     기준일(base_date) 다음날부터 목표일(target_date)까지의
@@ -93,7 +143,7 @@ def get_closes_in_range(symbol, market, base_date, target_date):
     반환: DataFrame with columns ['date', 'close'] (날짜 오름차순)
     """
     try:
-        daily_path = os.path.join(DATA_DIR, 'kr_daily', f"{symbol}.csv")
+        daily_path = get_daily_path(symbol, market)
 
         if not os.path.exists(daily_path):
             return pd.DataFrame(columns=['date', 'close'])
@@ -120,7 +170,9 @@ def get_closes_in_range(symbol, market, base_date, target_date):
         print(f"⚠️ 구간 종가 조회 실패: {symbol} ({market}) - {e}")
         return pd.DataFrame(columns=['date', 'close'])
 
+
 con = None
+
 
 def ensure_db_exists():
     if not os.path.exists(DB_PATH):
@@ -157,6 +209,7 @@ def ensure_db_exists():
         con_temp.close()
         print(f"DB 생성 완료: {DB_PATH}")
 
+
 try:
     ensure_db_exists()
     con = duckdb.connect(DB_PATH)
@@ -166,6 +219,7 @@ except duckdb.IOException:
     time.sleep(5)
     ensure_db_exists()
     con = duckdb.connect(DB_PATH)
+
 
 def run_screener(top_n=50, use_kr=True):
     try:
@@ -250,8 +304,9 @@ def run_screener(top_n=50, use_kr=True):
         if 'sector_trend' not in df.columns:
             df['sector_trend'] = 'N/A'
 
-        # KR만 필터
-        df_filtered = df[df['market'] == 'KR'].copy()
+        # KR 계열 전체 필터 (KR + KOSPI + KOSDAQ)
+        df_filtered = df[df['market'].isin(KR_MARKETS)].copy()
+        print(f"KR 계열 필터 후: {len(df_filtered)}행 (KR/KOSPI/KOSDAQ 포함)")
 
         # 영업일 조정
         today = datetime.now()
@@ -372,6 +427,7 @@ def run_screener(top_n=50, use_kr=True):
         traceback.print_exc()
         return pd.DataFrame()
 
+
 def load_all_csv_from_folder(folder_path, result_type):
     all_df = pd.DataFrame()
     if not os.path.exists(folder_path):
@@ -382,9 +438,9 @@ def load_all_csv_from_folder(folder_path, result_type):
             df = pd.read_csv(file_path, dtype={'symbol': str})
             df['type'] = result_type
 
-            # ✅ KR만 필터링 (기존 US 데이터 제외)
+            # KR 계열 전체 필터 (KR + KOSPI + KOSDAQ)
             if 'market' in df.columns:
-                df = df[df['market'] == 'KR'].copy()
+                df = df[df['market'].isin(KR_MARKETS)].copy()
 
             if df.empty:
                 continue
@@ -392,6 +448,7 @@ def load_all_csv_from_folder(folder_path, result_type):
             df['symbol'] = df['symbol'].str.zfill(6)
             all_df = pd.concat([all_df, df], ignore_index=True)
     return all_df
+
 
 def create_backtest_db():
     print("\n" + "="*60)
@@ -409,7 +466,7 @@ def create_backtest_db():
 
     if not all_df.empty and 'market' in all_df.columns and 'symbol' in all_df.columns:
         all_df['symbol'] = all_df['symbol'].astype(str)
-        kr_mask = all_df['market'] == 'KR'
+        kr_mask = all_df['market'].isin(KR_MARKETS)
         all_df.loc[kr_mask, 'symbol'] = all_df.loc[kr_mask, 'symbol'].str.zfill(6)
         print(f"   ✅ 한국 종목 symbol 형식 통일 완료")
 
@@ -426,7 +483,7 @@ def create_backtest_db():
     if os.path.exists(completed_csv_path):
         try:
             existing_completed = pd.read_csv(completed_csv_path, dtype={'symbol': str})
-            kr_mask = existing_completed['market'] == 'KR'
+            kr_mask = existing_completed['market'].isin(KR_MARKETS)
             existing_completed.loc[kr_mask, 'symbol'] = existing_completed.loc[kr_mask, 'symbol'].str.zfill(6)
             for _, row in existing_completed.iterrows():
                 key = f"{str(row['symbol'])}_{str(row['market'])}_{str(row['type'])}_{str(row['base_date'])}"
@@ -497,7 +554,7 @@ def create_backtest_db():
             print(f"    완료여부: {'✅ 완료' if is_completed else '⏳ 대기 중'}")
 
         # 5. 메타 및 기준일 종가
-        meta_dict = meta.get(market, {}).get(symbol_key, {})
+        meta_dict = get_meta_info(meta, symbol_key, market)
         base_close = row.get('close', 0.0)
 
         if is_completed:
@@ -599,7 +656,7 @@ def create_backtest_db():
     if not completed_df.empty:
         if os.path.exists(completed_csv_path):
             existing_completed = pd.read_csv(completed_csv_path, dtype={'symbol': str})
-            kr_mask = existing_completed['market'] == 'KR'
+            kr_mask = existing_completed['market'].isin(KR_MARKETS)
             existing_completed.loc[kr_mask, 'symbol'] = existing_completed.loc[kr_mask, 'symbol'].str.zfill(6)
 
             combined = pd.concat([existing_completed, completed_df], ignore_index=True)
@@ -659,7 +716,7 @@ def create_backtest_test():
 
     if not all_df.empty and 'market' in all_df.columns and 'symbol' in all_df.columns:
         all_df['symbol'] = all_df['symbol'].astype(str)
-        kr_mask = all_df['market'] == 'KR'
+        kr_mask = all_df['market'].isin(KR_MARKETS)
         all_df.loc[kr_mask, 'symbol'] = all_df.loc[kr_mask, 'symbol'].str.zfill(6)
 
     if all_df.empty:
@@ -675,7 +732,7 @@ def create_backtest_test():
     if os.path.exists(BACKTEST_TEST_CSV_PATH):
         try:
             existing_test_df = pd.read_csv(BACKTEST_TEST_CSV_PATH, dtype={'symbol': str})
-            kr_mask = existing_test_df['market'] == 'KR'
+            kr_mask = existing_test_df['market'].isin(KR_MARKETS)
             existing_test_df.loc[kr_mask, 'symbol'] = existing_test_df.loc[kr_mask, 'symbol'].str.zfill(6)
             for _, row in existing_test_df.iterrows():
                 key = f"{str(row['symbol'])}_{str(row['market'])}_{str(row['type'])}_{str(row['base_date'])}"

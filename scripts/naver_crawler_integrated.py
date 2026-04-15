@@ -15,11 +15,35 @@ if today.weekday() >= 5:
     days_back = today.weekday() - 4
     today -= datetime.timedelta(days=days_back)
 
-data_dir = r"C:\Users\ws\Desktop\Python\Project_Hermes5\data"
+DATA_DIR = os.getenv('DATA_DIR', './data')
+data_dir = DATA_DIR
 os.makedirs(data_dir, exist_ok=True)
 
 SHORT_FOLDER = os.path.join(data_dir, 'short_term_results')
 MID_FOLDER = os.path.join(data_dir, 'screener_results')
+
+# ============================================
+# ETF 판별 함수
+# ============================================
+
+ETF_PREFIXES = (
+    'KODEX', 'TIGER', 'RISE', 'ACE', 'SOL', 'PLUS',
+    'KIWOOM', 'HANARO', 'TIME', 'KoAct', 'ARIRANG',
+    'FOCUS', 'SMART', 'TREX', 'BNK', 'NEXT', 'KOSEF',
+    'TIMEFOLIO', 'KTOP', '1Q', 'N2 ', 'KB KIS',
+    '삼성 레버리지', '미래에셋 레버리지', '신한 레버리지',
+    '한투 KIS', '키움 CD', '키움 레버리지', '하나 CD',
+    '하나 레버리지',
+)
+
+def is_etf(name):
+    """종목명 기준으로 ETF/ETN 여부 판별"""
+    if name.startswith(ETF_PREFIXES):
+        return True
+    if 'ETN' in name or 'ETF' in name:
+        return True
+    return False
+
 
 def crawl_naver_stock_data(code):
     """
@@ -199,10 +223,10 @@ def crawl_naver_stock_data(code):
 # 백테스트 누락 종목 추가 크롤링 함수
 # ============================================
 
-def get_backtest_missing_codes(top1000_codes_set):
+def get_backtest_missing_codes(all_codes_set):
     """
     short_term_results, screener_results 폴더에서
-    백테스트 대상 종목 추출 후 1000위 밖 누락 종목 반환
+    백테스트 대상 종목 추출 후 전체 수집 목록에서 누락된 종목 반환
     """
     symbols = set()
     for folder in [SHORT_FOLDER, MID_FOLDER]:
@@ -217,20 +241,20 @@ def get_backtest_missing_codes(top1000_codes_set):
                     dtype={'symbol': str},
                     usecols=['symbol', 'market']
                 )
-                kr_df = df[df['market'] == 'KR']
+                kr_df = df[df['market'].isin(['KR', 'KOSPI', 'KOSDAQ'])]
                 for sym in kr_df['symbol'].tolist():
                     symbols.add(str(sym).zfill(6))
             except Exception as e:
                 print(f"⚠️ {file} 읽기 실패: {e}")
 
-    # 1000위 밖 누락 종목만 반환
-    missing = [s for s in symbols if s not in top1000_codes_set]
+    missing = [s for s in symbols if s not in all_codes_set]
     return missing
 
 
-def crawl_missing_and_append(missing_codes, per_eps_results, foreign_results, sector_results):
+def crawl_missing_and_append(missing_codes, per_eps_results, foreign_results, sector_results, df_all):
     """
     누락 종목 크롤링 후 기존 결과 리스트에 추가
+    종목명은 tickers_meta.json에서 조회
     """
     if not missing_codes:
         print("✅ 누락 종목 없음 (추가 크롤링 스킵)")
@@ -239,6 +263,23 @@ def crawl_missing_and_append(missing_codes, per_eps_results, foreign_results, se
     print(f"\n" + "="*60)
     print(f"🔍 백테스트 누락 종목 추가 크롤링: {len(missing_codes)}개")
     print("="*60)
+
+    # tickers_meta.json에서 종목명 로드 (KOSPI + KOSDAQ 합쳐서)
+    meta_file = os.path.join(data_dir, 'meta', 'tickers_meta.json')
+    meta_all = {}
+    if os.path.exists(meta_file):
+        try:
+            with open(meta_file, 'r', encoding='utf-8') as f:
+                meta = json.load(f)
+            meta_all.update(meta.get('KOSPI', {}))
+            meta_all.update(meta.get('KOSDAQ', {}))
+            # 기존 KR 키도 호환
+            meta_all.update(meta.get('KR', {}))
+            print(f"📂 tickers_meta.json 로드 완료 (전체: {len(meta_all)}개)")
+        except Exception as e:
+            print(f"⚠️ tickers_meta.json 로드 실패: {e}")
+    else:
+        print("⚠️ tickers_meta.json 없음 → 종목명 N/A로 처리")
 
     def crawl_one_missing(code):
         data = crawl_naver_stock_data(code)
@@ -255,9 +296,12 @@ def crawl_missing_and_append(missing_codes, per_eps_results, foreign_results, se
                 print(f"❌ 에러: {e}")
                 continue
 
-            # 종목명은 네이버 페이지 title에서 가져오기 (이미 fetch_data에서 수집됨)
-            # 여기서는 코드만 있으므로 name은 'N/A'로 처리 (download.py에서 메타로 매핑)
-            name = 'N/A'
+            name = meta_all.get(code, {}).get('name', 'N/A')
+
+            # ETF 여부 확인 후 업종 덮어쓰기
+            sector_val = data['sector']
+            if is_etf(name):
+                sector_val = 'ETF'
 
             per_eps_results.append({
                 '티커': code,
@@ -272,7 +316,7 @@ def crawl_missing_and_append(missing_codes, per_eps_results, foreign_results, se
             sector_results.append({
                 '회사명': name,
                 '종목코드': code,
-                '업종': data['sector']
+                '업종': sector_val
             })
 
             for day_idx in range(5):
@@ -289,7 +333,7 @@ def crawl_missing_and_append(missing_codes, per_eps_results, foreign_results, se
                         '기관순매수': inst_net_buy
                     })
 
-            print(f"   ✅ {code} 크롤링 완료 (PER: {data['per']}, 업종: {data['sector']})")
+            print(f"   ✅ {code} ({name}) 크롤링 완료 (PER: {data['per']}, 업종: {sector_val})")
 
     print(f"✅ 누락 종목 추가 크롤링 완료!")
 
@@ -303,18 +347,24 @@ print("📊 네이버 증권 통합 크롤링 시작")
 print("수집 항목: PER, EPS, PBR, 업종, 외국인 순매수(5일)")
 print("="*60)
 
-# 1. 상위 1000개 종목 조회
-print("\n📋 KRX 종목 리스트 조회 중 (네이버 금융)...")
+# ============================================
+# 1. 코스피 + 코스닥 전체 종목 조회
+# ============================================
+print("\n📋 KRX 전체 종목 리스트 조회 중 (네이버 금융)...")
 
 _headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
     'Referer': 'https://finance.naver.com/'
 }
-_all_stocks = []
+
+_kospi_stocks = []
+_kosdaq_stocks = []
 
 for _sosok in [0, 1]:
     _market_name = 'KOSPI' if _sosok == 0 else 'KOSDAQ'
+    _target_list = _kospi_stocks if _sosok == 0 else _kosdaq_stocks
     _page = 1
+
     while True:
         _url = f'https://finance.naver.com/sise/sise_market_sum.naver?sosok={_sosok}&page={_page}'
         _res = requests.get(_url, headers=_headers, timeout=10)
@@ -348,44 +398,77 @@ for _sosok in [0, 1]:
                 except:
                     _cap = 0
             if _code and len(_code) == 6 and _code.isdigit():
-                _etf_prefixes = (
-                    'KODEX', 'TIGER', 'RISE', 'ACE', 'SOL', 'PLUS',
-                    'KIWOOM', 'HANARO', 'TIME', 'KoAct', 'ARIRANG',
-                    'FOCUS', 'SMART', 'TREX', 'BNK', 'NEXT', 'KOSEF',
-                    'TIMEFOLIO', 'KTOP', '1Q', 'N2 ', 'KB KIS',
-                    '삼성 레버리지', '미래에셋 레버리지', '신한 레버리지',
-                    '한투 KIS', '키움 CD', '키움 레버리지', '하나 CD',
-                    '하나 레버리지',
-                )
-                if _name.startswith(_etf_prefixes) or 'ETN' in _name or 'ETF' in _name:
-                    continue
-                _all_stocks.append({'Code': _code, 'Name': _name, 'Marcap': _cap})
+                _target_list.append({
+                    'Code': _code,
+                    'Name': _name,
+                    'Marcap': _cap,
+                    'Market': _market_name
+                })
+
+        print(f"  {_market_name} {_page}/{_last_page} 페이지 수집 중...")
 
         if _page >= _last_page:
             break
         _page += 1
         time.sleep(0.3)
 
-    print(f"  ✅ {_market_name} 수집 완료")
+    print(f"  ✅ {_market_name} 수집 완료: {len(_target_list)}개")
 
-if not _all_stocks:
+if not _kospi_stocks and not _kosdaq_stocks:
     print("🚨 KRX 데이터 조회 실패")
     exit()
 
-df_krx = pd.DataFrame(_all_stocks)
-df_krx['Marcap'] = pd.to_numeric(df_krx['Marcap'], errors='coerce').fillna(0)
-df_krx = df_krx.drop_duplicates('Code')
-df_top1000 = df_krx.sort_values('Marcap', ascending=False).head(1000).reset_index(drop=True)
-print(f"✅ 상위 1000개 종목 조회 완료")
+df_kospi = pd.DataFrame(_kospi_stocks)
+df_kospi['Marcap'] = pd.to_numeric(df_kospi['Marcap'], errors='coerce').fillna(0)
+df_kospi = df_kospi.drop_duplicates('Code').reset_index(drop=True)
 
-# 1000위 코드 set (누락 종목 비교용)
-top1000_codes_set = set(df_top1000['Code'].astype(str).str.zfill(6).tolist())
+df_kosdaq = pd.DataFrame(_kosdaq_stocks)
+df_kosdaq['Marcap'] = pd.to_numeric(df_kosdaq['Marcap'], errors='coerce').fillna(0)
+df_kosdaq = df_kosdaq.drop_duplicates('Code').reset_index(drop=True)
+
+# 코스피 + 코스닥 합친 전체 df (정렬/중복 제거용)
+df_all = pd.concat([df_kospi, df_kosdaq], ignore_index=True).drop_duplicates('Code').reset_index(drop=True)
+
+# ============================================
+# ETF 필터링 (kr_stock_sectors.csv 있으면 적용)
+# ============================================
+def load_etf_codes():
+    """
+    kr_stock_sectors.csv 가 있으면 Sector == 'ETF' 인 종목코드 set 반환
+    없으면 빈 set 반환 (전체 수집)
+    """
+    sector_path = os.path.join(data_dir, 'kr_stock_sectors.csv')
+    if not os.path.exists(sector_path):
+        print("ℹ️ kr_stock_sectors.csv 없음 → ETF 필터 없이 전체 크롤링")
+        return set()
+    try:
+        df = pd.read_csv(sector_path, encoding='utf-8-sig', dtype={'종목코드': str})
+        df['종목코드'] = df['종목코드'].str.zfill(6)
+        etf_codes = set(df[df['Sector'] == 'ETF']['종목코드'].tolist())
+        print(f"ℹ️ kr_stock_sectors.csv 로드 완료 → ETF {len(etf_codes)}개 크롤링 제외 예정")
+        return etf_codes
+    except Exception as e:
+        print(f"⚠️ kr_stock_sectors.csv 로드 실패: {e} → ETF 필터 없이 전체 크롤링")
+        return set()
+
+etf_codes = load_etf_codes()
+
+if etf_codes:
+    before = len(df_all)
+    df_all = df_all[~df_all['Code'].isin(etf_codes)].reset_index(drop=True)
+    print(f"ℹ️ ETF 제외: {before}개 → {len(df_all)}개")
+
+# 전체 코드 set (누락 종목 비교용)
+all_codes_set = set(df_all['Code'].astype(str).str.zfill(6).tolist())
+
+print(f"\n✅ 전체 종목 조회 완료")
+print(f"   KOSPI: {len(df_kospi)}개 / KOSDAQ: {len(df_kosdaq)}개 / 합계(ETF 제외): {len(df_all)}개")
 
 # ============================================
 # 2. 크롤링 실행 (멀티스레딩)
 # ============================================
-print("\n🕷️ 네이버 증권 크롤링 시작 (멀티스레딩 x5)")
-print("⏱️ 예상 시간: 약 2~3분")
+print(f"\n🕷️ 네이버 증권 크롤링 시작 (멀티스레딩 x5)")
+print(f"⏱️ 전체 {len(df_all)}개 종목 처리 예정")
 print()
 
 per_eps_results = []
@@ -402,7 +485,7 @@ def crawl_one(args):
     time.sleep(0.2)
     return idx, code, name, data
 
-rows = list(df_top1000.iterrows())
+rows = list(df_all.iterrows())
 
 with ThreadPoolExecutor(max_workers=5) as executor:
     futures = {executor.submit(crawl_one, (idx, row)): idx for idx, row in rows}
@@ -414,6 +497,11 @@ with ThreadPoolExecutor(max_workers=5) as executor:
         except Exception as e:
             print(f"❌ 에러: {e}")
             continue
+
+        # ETF 여부 확인 후 업종 기록
+        sector_val = data['sector']
+        if is_etf(name):
+            sector_val = 'ETF'
 
         per_eps_results.append({
             '티커': code,
@@ -428,7 +516,7 @@ with ThreadPoolExecutor(max_workers=5) as executor:
         sector_results.append({
             '회사명': name,
             '종목코드': code,
-            '업종': data['sector']
+            '업종': sector_val
         })
 
         for day_idx in range(5):
@@ -446,17 +534,17 @@ with ThreadPoolExecutor(max_workers=5) as executor:
                 })
 
         completed_count += 1
-        if completed_count % 100 == 0:
+        if completed_count % 200 == 0:
             per_success = sum(1 for r in per_eps_results if r['PER'] != '-')
-            sector_success = sum(1 for r in sector_results if r['업종'] != 'N/A')
-            trading_success = len([r for r in foreign_results if r['외국인순매수'] != 0 or r['기관순매수'] != 0])
-            print(f"\n📊 진행: {completed_count}/1000 | PER: {per_success}개 | 업종: {sector_success}개 | 매매: {trading_success}건")
+            sector_success = sum(1 for r in sector_results if r['업종'] not in ('N/A', 'ETF'))
+            etf_count = sum(1 for r in sector_results if r['업종'] == 'ETF')
+            print(f"\n📊 진행: {completed_count}/{len(df_all)} | PER: {per_success}개 | 업종: {sector_success}개 | ETF: {etf_count}개")
 
 # ============================================
 # ✅ 백테스트 누락 종목 추가 크롤링
 # ============================================
-missing_codes = get_backtest_missing_codes(top1000_codes_set)
-crawl_missing_and_append(missing_codes, per_eps_results, foreign_results, sector_results)
+missing_codes = get_backtest_missing_codes(all_codes_set)
+crawl_missing_and_append(missing_codes, per_eps_results, foreign_results, sector_results, df_all)
 
 # ============================================
 # 3. 결과 저장
@@ -466,20 +554,20 @@ print("\n" + "="*60)
 print("💾 파일 저장 중...")
 print("="*60)
 
-# PER/EPS 저장
+# PER/EPS 저장 (파일명 변경)
 df_per_eps = pd.DataFrame(per_eps_results)
-per_eps_path = os.path.join(data_dir, 'per_eps_top_1000.csv')
+per_eps_path = os.path.join(data_dir, 'per_eps_all.csv')
 df_per_eps.to_csv(per_eps_path, encoding='utf-8-sig', index=False)
 per_success = len(df_per_eps[df_per_eps['PER'] != '-'])
 print(f"✅ PER/EPS: {per_eps_path}")
 print(f"   성공: {per_success}/{len(df_per_eps)} ({per_success/len(df_per_eps)*100:.1f}%)")
 
-# 외국인/기관 순매수 저장
+# 외국인/기관 순매수 저장 (파일명 변경, df_all 기준 정렬)
 df_trading = pd.DataFrame(foreign_results)
-df_trading = df_trading.merge(df_top1000[['Code', 'Marcap']], left_on='티커', right_on='Code', how='left')
+df_trading = df_trading.merge(df_all[['Code', 'Marcap']], left_on='티커', right_on='Code', how='left')
 df_trading = df_trading.sort_values(by=['날짜', 'Marcap'], ascending=[False, False])
 df_trading = df_trading.drop(columns=['Code', 'Marcap'])
-trading_path = os.path.join(data_dir, 'foreign_institutional_net_buy_daily_top_1000.csv')
+trading_path = os.path.join(data_dir, 'foreign_institutional_net_buy_daily_all.csv')
 df_trading.to_csv(trading_path, encoding='utf-8-sig', index=False)
 trading_dates = sorted(df_trading['날짜'].unique(), reverse=True)
 print(f"✅ 외국인/기관 순매수: {trading_path}")
@@ -512,9 +600,11 @@ else:
     print(f"   신규 파일 생성: {len(df_sector)}개")
 
 df_sector.to_csv(sector_path, encoding='utf-8-sig', index=False)
-sector_success = len(df_sector[df_sector['업종'] != 'N/A'])
+sector_success = len(df_sector[~df_sector['업종'].isin(['N/A', 'ETF'])])
+etf_count = len(df_sector[df_sector['업종'] == 'ETF'])
 print(f"✅ 섹터: {sector_path}")
 print(f"   업종 매핑 성공: {sector_success}/{len(df_sector)} ({sector_success/len(df_sector)*100:.1f}%)")
+print(f"   ETF: {etf_count}개")
 
 # ============================================
 # 4. 섹터 ETF 트렌드 수집 (KR만)
@@ -592,8 +682,11 @@ latest_date = df_trading['날짜'].max()
 top5_trading = df_trading[df_trading['날짜'] == latest_date].head(5)
 print(top5_trading[['종목명', '외국인순매수', '기관순매수']].to_string(index=False))
 
-print("\n[섹터 샘플 5개]")
-print(df_sector[df_sector['업종'] != 'N/A'].head(5)[['회사명', '업종']].to_string(index=False))
+print("\n[섹터 샘플 5개 (ETF 제외)]")
+print(df_sector[~df_sector['업종'].isin(['N/A', 'ETF'])].head(5)[['회사명', '업종']].to_string(index=False))
+
+print("\n[ETF 샘플 3개]")
+print(df_sector[df_sector['업종'] == 'ETF'].head(3)[['회사명', '종목코드']].to_string(index=False))
 
 print("\n[섹터 ETF 트렌드 샘플]")
 print(df_sector_trends.head(6).to_string(index=False))
@@ -601,6 +694,10 @@ print(df_sector_trends.head(6).to_string(index=False))
 print("\n" + "="*60)
 print("✅ 모든 크롤링 완료!")
 print("="*60)
+print(f"\n📊 최종 결과:")
+print(f"   KOSPI: {len(df_kospi)}개 / KOSDAQ: {len(df_kosdaq)}개 / 합계: {len(df_all)}개")
+print(f"   ETF 종목: {etf_count}개")
+print(f"   업종 매핑 성공: {sector_success}개")
 print("\n⚠️ 주의사항:")
 print("1. kr_stock_sectors.csv는 '업종'만 포함 (Sector, sector_trend는 별도 추가 필요)")
 print("2. 외국인보유율은 외국인+기관 보유율을 포함합니다")

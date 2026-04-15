@@ -383,7 +383,50 @@ def load_meta():
     if os.path.exists(META_FILE):
         with open(META_FILE, 'r', encoding='utf-8') as f:
             return json.load(f)
-    return {'KR': {}}
+    return {'KOSPI': {}, 'KOSDAQ': {}}
+
+# KR 계열 market 값 (기존 KR + 새 KOSPI/KOSDAQ 모두 포함)
+KR_MARKETS = {'KR', 'KOSPI', 'KOSDAQ'}
+
+def get_meta_info(meta, symbol, market):
+    """
+    market 값에 따라 메타 조회
+    - KOSPI/KOSDAQ → 해당 키에서 직접 조회
+    - KR (구버전) → KOSPI 먼저, 없으면 KOSDAQ fallback
+    """
+    if market in ('KOSPI', 'KOSDAQ'):
+        return meta.get(market, {}).get(symbol, {})
+    else:
+        info = meta.get('KOSPI', {}).get(symbol, {})
+        if not info:
+            info = meta.get('KOSDAQ', {}).get(symbol, {})
+        if not info:
+            info = meta.get('KR', {}).get(symbol, {})
+        return info
+
+def get_daily_path(symbol, market):
+    """
+    market 값에 따라 일봉 CSV 경로 반환
+    - KOSPI → kr_daily/kospi/{symbol}.csv
+    - KOSDAQ → kr_daily/kosdaq/{symbol}.csv
+    - KR (구버전) → kr_daily/{symbol}.csv → kospi/ → kosdaq/ 순서로 fallback
+    """
+    base_dir = "data"
+    if market == 'KOSPI':
+        return os.path.join(base_dir, 'kr_daily', 'kospi', f"{symbol}.csv")
+    elif market == 'KOSDAQ':
+        return os.path.join(base_dir, 'kr_daily', 'kosdaq', f"{symbol}.csv")
+    else:
+        root_path = os.path.join(base_dir, 'kr_daily', f"{symbol}.csv")
+        if os.path.exists(root_path):
+            return root_path
+        kospi_path = os.path.join(base_dir, 'kr_daily', 'kospi', f"{symbol}.csv")
+        if os.path.exists(kospi_path):
+            return kospi_path
+        kosdaq_path = os.path.join(base_dir, 'kr_daily', 'kosdaq', f"{symbol}.csv")
+        if os.path.exists(kosdaq_path):
+            return kosdaq_path
+        return root_path
 
 @st.cache_data(ttl=3600)
 def add_foreign_net_buy(df):
@@ -392,7 +435,7 @@ def add_foreign_net_buy(df):
     meta = load_meta()
     df = df.copy()
     def get_foreign_data(row):
-        meta_dict = meta.get(row['market'], {}).get(row['symbol'], {})
+        meta_dict = get_meta_info(meta, row['symbol'], row['market'])
         fnb = meta_dict.get('foreign_net_buy', [0, 0, 0, 0, 0])
         return pd.Series({
             'foreign_net_buy_1ago': fnb[0] if len(fnb) > 0 else 0,
@@ -413,7 +456,7 @@ def add_institutional_net_buy(df):
     meta = load_meta()
     df = df.copy()
     def get_institutional_data(row):
-        meta_dict = meta.get(row['market'], {}).get(row['symbol'], {})
+        meta_dict = get_meta_info(meta, row['symbol'], row['market'])
         inb = meta_dict.get('institutional_net_buy', [0, 0, 0, 0, 0])
         return pd.Series({
             'institutional_net_buy_1ago': inb[0] if len(inb) > 0 else 0,
@@ -434,7 +477,7 @@ def add_ownership(df):
     meta = load_meta()
     df = df.copy()
     def get_ownership(row):
-        meta_dict = meta.get(row['market'], {}).get(row['symbol'], {})
+        meta_dict = get_meta_info(meta, row['symbol'], row['market'])
         return meta_dict.get('ownership_foreign_institution', 0.0)
     df['ownership_foreign_institution'] = df.apply(get_ownership, axis=1)
     return df
@@ -446,7 +489,7 @@ def add_close_price(df):
     meta = load_meta()
     df = df.copy()
     def get_close_data(row):
-        meta_dict = meta.get(row['market'], {}).get(row['symbol'], {})
+        meta_dict = get_meta_info(meta, row['symbol'], row['market'])
         return meta_dict.get('close', 0.0)
     df['close'] = df.apply(get_close_data, axis=1)
     return df
@@ -633,7 +676,7 @@ def run_screener_query(con, filter_condition="all", top_n=None, additional_filte
         con = get_db_connection()
         st.session_state.con = con
 
-    market_filter = "market = 'KR'"
+    market_filter = "market IN ('KR', 'KOSPI', 'KOSDAQ')"
 
     if filter_condition == "short_term":
         condition = """(obv_latest > signal_obv_9_latest AND obv_1ago <= signal_obv_9_1ago) 
@@ -656,7 +699,7 @@ def run_screener_query(con, filter_condition="all", top_n=None, additional_filte
     else:
         condition = "1=1"
 
-    liquidity = "AND market_cap >= 2000.0"
+    liquidity = ""  # 시가총액 필터 제거
 
     additional_condition = ""
     if additional_filters:
@@ -818,8 +861,7 @@ def format_dataframe(df, market_type):
 
 @st.cache_data(ttl=3600)
 def load_daily_data(symbol, market):
-    base_dir = "data"
-    daily_path = os.path.join(base_dir, 'kr_daily', f"{symbol}.csv")
+    daily_path = get_daily_path(symbol, market)
     if not os.path.exists(daily_path):
         return None
     df = pd.read_csv(daily_path, index_col=0, parse_dates=True)
@@ -1331,8 +1373,8 @@ if period == "전체":
                 con = get_db_connection()
                 st.session_state.con = con
 
-            market_filter = "market = 'KR'"
-            liquidity = "AND market_cap >= 2000.0"
+            market_filter = "market IN ('KR', 'KOSPI', 'KOSDAQ')"
+            liquidity = ""  # 시가총액 필터 제거
 
             additional_condition = ""
             if additional_filters:
@@ -1509,7 +1551,7 @@ if period == "전체":
 
                 df_filter = df_filter.sort_values('시가총액', ascending=False)
 
-                df_kr = df_filter[df_filter['시장'] == 'KR'].copy() if '시장' in df_filter.columns else pd.DataFrame()
+                df_kr = df_filter[df_filter['시장'].isin(KR_MARKETS)].copy() if '시장' in df_filter.columns else pd.DataFrame()
 
                 if not df_kr.empty:
                     df_kr = format_dataframe(df_kr, 'KR')
@@ -1594,7 +1636,7 @@ elif period == "단기":
 
         df_result = df_result.sort_values('시가총액', ascending=False)
 
-        df_kr = df_result[df_result['시장'] == 'KR'].copy() if '시장' in df_result.columns else pd.DataFrame()
+        df_kr = df_result[df_result['시장'].isin(KR_MARKETS)].copy() if '시장' in df_result.columns else pd.DataFrame()
 
         if not df_kr.empty:
             df_kr = format_dataframe(df_kr, 'KR')
@@ -1670,7 +1712,7 @@ elif period == "중기":
 
         df_result = df_result.sort_values('시가총액', ascending=False)
 
-        df_kr = df_result[df_result['시장'] == 'KR'].copy() if '시장' in df_result.columns else pd.DataFrame()
+        df_kr = df_result[df_result['시장'].isin(KR_MARKETS)].copy() if '시장' in df_result.columns else pd.DataFrame()
 
         if not df_kr.empty:
             df_kr = format_dataframe(df_kr, 'KR')
@@ -1755,7 +1797,7 @@ elif period == "매도":
 
         df_result = df_result.sort_values('시가총액', ascending=False)
 
-        df_kr = df_result[df_result['시장'] == 'KR'].copy() if '시장' in df_result.columns else pd.DataFrame()
+        df_kr = df_result[df_result['시장'].isin(KR_MARKETS)].copy() if '시장' in df_result.columns else pd.DataFrame()
 
         if not df_kr.empty:
             df_kr = format_dataframe(df_kr, 'KR')
@@ -1777,7 +1819,7 @@ elif period == "백데이터":
         con_back.close()
 
         if not df_back.empty:
-            df_back = df_back[df_back['market'] == 'KR']
+            df_back = df_back[df_back['market'].isin(KR_MARKETS)]
             df_back['symbol'] = df_back['symbol'].astype(str).str.zfill(6)
 
             if 'type' in df_back.columns:
@@ -1848,7 +1890,7 @@ elif period == "백데이터":
             df_completed = pd.read_csv(BACKTEST_COMPLETED_CSV, dtype={'symbol': str})
 
             if not df_completed.empty:
-                df_completed = df_completed[df_completed['market'] == 'KR']
+                df_completed = df_completed[df_completed['market'].isin(KR_MARKETS)]
                 df_completed['symbol'] = df_completed['symbol'].astype(str).str.zfill(6)
 
                 if 'type' in df_completed.columns:
@@ -1909,7 +1951,7 @@ elif period == "백데이터":
         df_test = pd.read_csv(BACKTEST_TEST_CSV, dtype={'symbol': str})
 
         if not df_test.empty:
-            df_test = df_test[df_test['market'] == 'KR']
+            df_test = df_test[df_test['market'].isin(KR_MARKETS)]
             df_test['symbol'] = df_test['symbol'].astype(str).str.zfill(6)
 
             if 'type' in df_test.columns:
@@ -2053,7 +2095,7 @@ def _display_backtest_table(df_filtered, tab_type, apply_btn, foreign_apply, ins
 
     display_cols = [col for col in display_cols if col in df_filtered.columns]
 
-    df_kr_filtered = df_filtered[df_filtered['시장'] == 'KR'] if '시장' in df_filtered.columns else pd.DataFrame()
+    df_kr_filtered = df_filtered[df_filtered['시장'].isin(KR_MARKETS)] if '시장' in df_filtered.columns else pd.DataFrame()
 
     def _calc_stats(df_sub):
         cnt = len(df_sub)
@@ -2520,7 +2562,7 @@ with col_left:
             else:
                 df_filtered = df_display
 
-            df_kr_filtered = df_filtered[df_filtered['시장'] == 'KR'] if '시장' in df_filtered.columns else pd.DataFrame()
+            df_kr_filtered = df_filtered[df_filtered['시장'].isin(KR_MARKETS)] if '시장' in df_filtered.columns else pd.DataFrame()
 
             # ========== KR 테이블 ==========
             if not df_kr_filtered.empty:
@@ -2761,13 +2803,13 @@ with col_right:
                         row = pd.concat([row, ind_data])
 
                 meta = load_meta()
-                meta_dict = meta.get(market, {}).get(symbol, {})
+                meta_dict = get_meta_info(meta, symbol, market)
                 ownership = meta_dict.get('ownership_foreign_institution', 0.0)
 
                 st.markdown(f"**종목**: {row['회사명']}")
                 st.markdown(f"**코드**: {symbol} · **시장**: {market} · **업종**: {row.get('업종', 'N/A')}")
 
-                if market == 'KR':
+                if market in KR_MARKETS:
                     if 'ownership_foreign_institution' in row and pd.notna(row['ownership_foreign_institution']):
                         ownership_val = float(row['ownership_foreign_institution'])
                         if ownership_val > 0:
@@ -2848,7 +2890,7 @@ with col_right:
                         else:
                             return f"{val:,}"
 
-                    if market == 'KR':
+                    if market in KR_MARKETS:
                         foreign_cols = ['외국인순매수_5일전 (주)', '외국인순매수_4일전 (주)', '외국인순매수_3일전 (주)',
                                         '외국인순매수_2일전 (주)', '외국인순매수_1일전 (주)', '외국인순매수_합산 (주)']
 
@@ -2871,7 +2913,7 @@ with col_right:
                             )
 
                         meta = load_meta()
-                        meta_dict = meta.get(market, {}).get(symbol, {})
+                        meta_dict = get_meta_info(meta, symbol, market)
                         institutional_data = meta_dict.get('institutional_net_buy', [0, 0, 0, 0, 0])
                         if len(institutional_data) >= 5:
                             i1 = institutional_data[0]

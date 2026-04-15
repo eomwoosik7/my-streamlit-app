@@ -21,24 +21,27 @@ def load_meta():
             return json.load(f)
     else:
         print("메타 파일 없음 – fetch_data.py 먼저 실행하세요!")
-        return {'KR': {}}
+        return {'KOSPI': {}, 'KOSDAQ': {}}
 
 def compute_indicators_wrapper(args):
     symbol, market = args
     return compute_indicators(symbol, market)
 
-def compute_indicators(symbol, market='KR'):
+def compute_indicators(symbol, market='KOSPI'):
     try:
-        base_dir = DATA_DIR
-        daily_path = os.path.join(base_dir, 'kr_daily', f"{symbol}.csv")
+        # market 기준으로 폴더 분기
+        # KOSPI → kr_daily/kospi/
+        # KOSDAQ → kr_daily/kosdaq/
+        market_folder = market.lower()
+        daily_path = os.path.join(DATA_DIR, 'kr_daily', market_folder, f"{symbol}.csv")
 
         if not os.path.exists(daily_path):
-            print(f"{symbol} 데이터 없음 – 스킵")
+            print(f"{symbol} ({market}) 데이터 없음 – 스킵")
             return None
 
         df_daily = pd.read_csv(daily_path, index_col=0)
 
-        # KR 한글 컬럼 영어로 변경
+        # 한글 컬럼 영어로 변경
         df_daily = df_daily.rename(columns={
             '시가': 'Open', '고가': 'High', '저가': 'Low',
             '종가': 'Close', '거래량': 'Volume'
@@ -87,9 +90,9 @@ def compute_indicators(symbol, market='KR'):
         else:
             break_20high = 0
 
-        # 메타에서 정보 가져오기
+        # 메타에서 정보 가져오기 (KOSPI/KOSDAQ 키 기준)
         meta = load_meta()
-        meta_dict = meta.get('KR', {})
+        meta_dict = meta.get(market, {})
         name_val = meta_dict.get(symbol, {}).get('name', 'N/A')
         market_cap = meta_dict.get(symbol, {}).get('cap', 0.0)
         cap_status = meta_dict.get(symbol, {}).get('cap_status', "기존")
@@ -102,7 +105,7 @@ def compute_indicators(symbol, market='KR'):
         avg_20d = df_daily['TradingValue'].tail(20).mean()
         today_trading = df_daily['TradingValue'].iloc[-1]
 
-        # KR 회전율: 억원 → 원 변환
+        # 회전율: 억원 → 원 변환
         turnover = today_trading / (market_cap * 1e8) if market_cap > 0 else 0
 
         # 캔들 위치 계산 (최근 5일 상단/하단 마감)
@@ -112,7 +115,7 @@ def compute_indicators(symbol, market='KR'):
         lower_closes = (df_daily['candle_pos'].tail(n) < 0.3).sum()
 
         # 25개 값 반환
-        return (symbol, 'KR', name_val,
+        return (symbol, market, name_val,
                 json.dumps(recent_d_rsi),
                 json.dumps(recent_macd), json.dumps(recent_signal),
                 json.dumps(recent_obv),
@@ -129,7 +132,7 @@ def compute_indicators(symbol, market='KR'):
                 json.dumps(recent_close))
 
     except Exception as e:
-        print(f"{symbol} 에러: {e} – 스킵")
+        print(f"{symbol} ({market}) 에러: {e} – 스킵")
         return None
 
 if __name__ == '__main__':
@@ -210,17 +213,41 @@ if __name__ == '__main__':
     """)
 
     meta = load_meta()
-    kr_tickers = list(meta.get('KR', {}).keys())
-    print(f"KR 상위 {len(kr_tickers)}개 로드 (meta)")
+
+    # KOSPI + KOSDAQ 티커 각각 로드 (sector == 'ETF' 제외)
+    kospi_tickers = [
+        code for code, info in meta.get('KOSPI', {}).items()
+        if info.get('sector', 'N/A') != 'ETF'
+    ]
+    kosdaq_tickers = [
+        code for code, info in meta.get('KOSDAQ', {}).items()
+        if info.get('sector', 'N/A') != 'ETF'
+    ]
+
+    # 구버전 KR 키 호환 처리
+    kr_tickers = [
+        code for code, info in meta.get('KR', {}).items()
+        if info.get('sector', 'N/A') != 'ETF'
+    ]
+    if kr_tickers:
+        print(f"⚠️ 구버전 KR 키 감지: {len(kr_tickers)}개 → KOSPI로 처리")
+
+    print(f"KOSPI: {len(kospi_tickers)}개 / KOSDAQ: {len(kosdaq_tickers)}개 로드 (ETF 제외)")
 
     num_processes = 4
     print(f"멀티프로세싱 시작: {num_processes} 프로세스 사용")
 
-    kr_args = [(ticker, 'KR') for ticker in kr_tickers]
-    with Pool(num_processes) as pool:
-        kr_results = pool.map(compute_indicators_wrapper, kr_args)
+    # KOSPI + KOSDAQ + 구버전 KR(KOSPI 폴더로 처리) args 생성
+    all_args = (
+        [(ticker, 'KOSPI') for ticker in kospi_tickers] +
+        [(ticker, 'KOSDAQ') for ticker in kosdaq_tickers] +
+        [(ticker, 'KOSPI') for ticker in kr_tickers]  # 구버전 호환
+    )
 
-    all_results = [r for r in kr_results if r is not None]
+    with Pool(num_processes) as pool:
+        all_results_raw = pool.map(compute_indicators_wrapper, all_args)
+
+    all_results = [r for r in all_results_raw if r is not None]
     print(f"유효 결과: {len(all_results)}개")
 
     for row in all_results:
@@ -229,7 +256,10 @@ if __name__ == '__main__':
             row
         )
 
-    print("전체 완료! DB 확인: ", con.execute("SELECT COUNT(*) FROM indicators").fetchone()[0])
+    total = con.execute("SELECT COUNT(*) FROM indicators").fetchone()[0]
+    kospi_count = con.execute("SELECT COUNT(*) FROM indicators WHERE market = 'KOSPI'").fetchone()[0]
+    kosdaq_count = con.execute("SELECT COUNT(*) FROM indicators WHERE market = 'KOSDAQ'").fetchone()[0]
+    print(f"전체 완료! KOSPI: {kospi_count}개 / KOSDAQ: {kosdaq_count}개 / 합계: {total}개")
 
     # CSV 내보내기 (확인용)
     df = con.execute("SELECT * FROM indicators").fetchdf()
