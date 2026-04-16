@@ -1407,7 +1407,7 @@ S&K폴리텍,091340,전자장비와기기,Information Technology
 상신이디피,091580,전기제품,Utilities
 남화토건,091590,건설,Industrials
 파트론,091700,핸드셋,Information Technology
-티웨이항공,091810,항공사,Industrials
+트리니티항공,091810,항공사,Industrials
 나노캠텍,091970,화학,Materials
 아미코젠,092040,생물공학,Health Care
 디엔에프,092070,반도체와반도체장비,Information Technology
@@ -1718,7 +1718,7 @@ TIGER 농산물선물Enhanced(H),137610,ETF,ETF
 오이솔루션,138080,통신장비,Information Technology
 KIWOOM 미국달러선물,138230,ETF,ETF
 앤로보틱스,138360,기계,Industrials
-코오롱ENP,138490,화학,Materials
+Npay 증권,138490,N/A,N/A
 TIGER 삼성그룹,138520,ETF,ETF
 TIGER LG그룹플러스,138530,ETF,ETF
 TIGER 현대차그룹플러스,138540,ETF,ETF
@@ -3139,6 +3139,7 @@ ACE 미국30년국채액티브(H),453850,ETF,ETF
 에이에스텍,453860,화장품,Consumer Discretionary
 TIGER 인도니프티50,453870,ETF,ETF
 TIGER TSMC파운드리밸류체인,453950,ETF,ETF
+KIWOOM 차이나내수소비TOP CSI,454180,ETF,ETF
 HANARO CAPEX설비투자iSelect,454320,ETF,ETF
 KIWOOM 종합채권(AA-이상)액티브,454780,ETF,ETF
 두산로보틱스,454910,기계,Industrials
@@ -3307,6 +3308,7 @@ KODEX 미국서학개미,473460,ETF,ETF
 KIWOOM 글로벌AI반도체,473490,ETF,ETF
 ACE 미국주식베스트셀러,473590,ETF,ETF
 HANARO 글로벌금채굴기업,473640,ETF,ETF
+에스케이증권제13호스팩,473950,창업투자,Financials
 노머스,473980,방송과엔터테인먼트,Consumer Discretionary
 루미르,474170,우주항공과국방,Industrials
 TIGER 미국테크TOP10타겟커버드콜,474220,ETF,ETF
