@@ -69,8 +69,23 @@ st.set_page_config(page_title="Trading Copilot 🚀", layout="wide", initial_sid
 
 st.markdown("""
 <style>
+    /* ── 기본 폰트 (모바일/데스크탑 공통 고정) ── */
     html, body, [class*="css"] { font-size: 13px !important; }
     .main { background: var(--background-color) !important; }
+
+    /* ── 데이터프레임: 화면 너비에 맞게 유동적으로 ── */
+    [data-testid="stDataFrame"] {
+        border-radius: 16px;
+        overflow: hidden;
+        font-size: 0.8rem !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    [data-testid="stDataFrame"] > div {
+        width: 100% !important;
+    }
+
+    /* ── 사이드바 ── */
     [data-testid="stSidebar"] {
         border-right: 1px solid rgba(128,128,128,.2) !important;
         overflow-y: auto !important;
@@ -116,19 +131,26 @@ st.markdown("""
     [data-testid="stSidebar"] .stButton button {
         display: flex !important; align-items: center !important; justify-content: center !important;
     }
+
+    /* ── expander ── */
     .streamlit-expander { margin: 0 !important; padding: 0 !important; }
     .streamlit-expanderHeader { padding: 2px 8px !important; margin: 0 !important; font-size: 0.85rem !important; }
     .streamlit-expanderContent { padding: 2px 8px !important; margin: 0 !important; }
     .streamlit-expanderContent .stCheckbox { margin-top: -5px !important; }
+
+    /* ── 헤딩 (고정 크기) ── */
     h1 { font-weight: 800; letter-spacing: 0.2px; font-size: 1.8rem !important; }
     h2 { font-weight: 800; letter-spacing: 0.2px; font-size: 1.4rem !important; }
     h3 { font-weight: 800; letter-spacing: 0.2px; font-size: 1.1rem !important; }
     h4 { font-weight: 700; letter-spacing: 0.2px; font-size: 0.95rem !important; margin-bottom: 0.4rem !important; }
     [data-testid="stMetricValue"] { font-size: 1.3rem !important; font-weight: 1000; }
     [data-testid="stMetricLabel"] { font-size: 0.8rem !important; }
+
+    /* ── 버튼 (고정 크기) ── */
     .stButton>button {
         border-radius: 12px; font-weight: 900; font-size: 0.85rem !important;
         transition: 0.15s ease; padding: 0.35rem 0.7rem;
+        min-height: 36px !important;
     }
     [data-testid="stSidebar"] .stButton button[kind="primary"] {
         background-color: rgba(239, 68, 68, 0.7) !important;
@@ -142,10 +164,11 @@ st.markdown("""
         background-color: rgba(239, 68, 68, 0.9) !important;
         border-color: rgba(239, 68, 68, 0.9) !important;
     }
+
+    /* ── 기타 컴포넌트 ── */
     .stCheckbox { padding: 5px 8px; border-radius: 12px; margin-bottom: 0.2rem; font-size: 0.85rem !important; }
     .stSelectbox>div>div { border-radius: 12px; font-size: 0.85rem !important; }
     .stRadio > div { gap: 0.2rem !important; }
-    [data-testid="stDataFrame"] { border-radius: 16px; overflow: hidden; font-size: 0.8rem !important; }
     .stTabs [data-baseweb="tab-list"] { gap: 8px; }
     .stTabs [data-baseweb="tab"] {
         border-radius: 999px; padding: 6px 10px; font-weight: 1000; font-size: 0.8rem !important;
@@ -155,6 +178,8 @@ st.markdown("""
     .stWarning { border-radius: 14px; font-size: 0.85rem !important; }
     .streamlit-expanderHeader { font-size: 0.85rem !important; }
     hr { margin: 0.5rem 0 !important; }
+
+    /* ── 비활성화 체크박스 ── */
     [data-testid="stSidebar"] .stCheckbox:has(input:disabled) {
         opacity: 0.4 !important; background: rgba(128, 128, 128, 0.1) !important;
         border: 1px dashed rgba(128, 128, 128, 0.3) !important; pointer-events: none !important;
@@ -165,6 +190,8 @@ st.markdown("""
     [data-testid="stSidebar"] .stCheckbox:has(input:disabled):hover {
         background: rgba(128, 128, 128, 0.15) !important;
     }
+
+    /* ── 필터 비활성화 안내 ── */
     .filter-disabled-notice {
         background: rgba(255, 193, 7, 0.1) !important;
         border-left: 3px solid #ffc107 !important;
@@ -172,12 +199,82 @@ st.markdown("""
         margin: 8px 0 !important; font-size: 0.75rem !important;
         color: var(--text-color) !important;
     }
-    /* ✅ [변경3] CSV 버튼 고정 크기 */
+
+    /* ── CSV 버튼 고정 ── */
     .csv-btn-fixed > div > button {
         min-width: 80px !important;
         max-width: 80px !important;
         width: 80px !important;
         white-space: nowrap !important;
+        overflow: hidden !important;
+    }
+
+    /* ── 모든 버튼 줄바꿈 방지 ── */
+    .stButton > button {
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+    .stDownloadButton > button {
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        font-size: 0.85rem !important;
+    }
+
+    /* ── 토글 크기 고정 + 줄바꿈 방지 ── */
+    .stToggle {
+        white-space: nowrap !important;
+    }
+    .stToggle label {
+        font-size: 0.85rem !important;
+        white-space: nowrap !important;
+    }
+    .stToggle > label > div {
+        white-space: nowrap !important;
+    }
+
+    /* ── number_input 크기 줄이기 ── */
+    .page-input-small input[type="number"] {
+        font-size: 0.85rem !important;
+        padding: 4px 6px !important;
+        height: 36px !important;
+    }
+    .page-input-small > div > div > div > input {
+        font-size: 0.85rem !important;
+        height: 36px !important;
+    }
+
+    /* ── selectbox 높이 맞추기 ── */
+    .stSelectbox > div > div {
+        min-height: 36px !important;
+        font-size: 0.85rem !important;
+    }
+
+    /* ── 모바일 반응형 (768px 이하) ── */
+    @media (max-width: 768px) {
+        /* 메인 패딩 줄이기 */
+        .main .block-container {
+            padding-left: 0.5rem !important;
+            padding-right: 0.5rem !important;
+            padding-top: 0.5rem !important;
+        }
+        /* 헤더 박스 패딩 줄이기 */
+        .main-header-box {
+            padding: 12px 14px !important;
+        }
+        /* 컬럼 간격 줄이기 */
+        [data-testid="column"] {
+            padding: 0 2px !important;
+        }
+        /* 탭 폰트 유지하되 패딩 줄이기 */
+        .stTabs [data-baseweb="tab"] {
+            padding: 4px 8px !important;
+        }
+        /* 데이터프레임 가로 스크롤 허용 */
+        [data-testid="stDataFrame"] {
+            overflow-x: auto !important;
+        }
     }
 </style>
 
@@ -285,25 +382,34 @@ def get_daily_path(symbol, market):
             return kosdaq_path
         return root_path
 
+# =============================================
+# ✅ 벡터화된 함수들 (apply → list comprehension)
+# =============================================
+
 @st.cache_data(ttl=3600)
 def add_foreign_net_buy(df):
     if df.empty or 'symbol' not in df.columns or 'market' not in df.columns:
         return df
     meta = load_meta()
     df = df.copy()
-    def get_foreign_data(row):
-        meta_dict = get_meta_info(meta, row['symbol'], row['market'])
-        fnb = meta_dict.get('foreign_net_buy', [0, 0, 0, 0, 0])
-        return pd.Series({
-            'foreign_net_buy_1ago': fnb[0] if len(fnb) > 0 else 0,
-            'foreign_net_buy_2ago': fnb[1] if len(fnb) > 1 else 0,
-            'foreign_net_buy_3ago': fnb[2] if len(fnb) > 2 else 0,
-            'foreign_net_buy_4ago': fnb[3] if len(fnb) > 3 else 0,
-            'foreign_net_buy_5ago': fnb[4] if len(fnb) > 4 else 0,
-            'foreign_net_buy_sum': sum(fnb)
-        })
-    foreign_cols = df.apply(get_foreign_data, axis=1)
-    return pd.concat([df, foreign_cols], axis=1)
+
+    # meta 전체를 딕셔너리로 한 번만 펼쳐놓기
+    all_meta = {}
+    for mkt in ('KOSPI', 'KOSDAQ'):
+        for sym, info in meta.get(mkt, {}).items():
+            all_meta[(sym, mkt)] = info.get('foreign_net_buy', [0, 0, 0, 0, 0])
+
+    # (symbol, market) 키로 한 번에 조회
+    keys = list(zip(df['symbol'], df['market']))
+    fnb_list = [all_meta.get(k, [0, 0, 0, 0, 0]) for k in keys]
+
+    df['foreign_net_buy_1ago'] = [fnb[0] if len(fnb) > 0 else 0 for fnb in fnb_list]
+    df['foreign_net_buy_2ago'] = [fnb[1] if len(fnb) > 1 else 0 for fnb in fnb_list]
+    df['foreign_net_buy_3ago'] = [fnb[2] if len(fnb) > 2 else 0 for fnb in fnb_list]
+    df['foreign_net_buy_4ago'] = [fnb[3] if len(fnb) > 3 else 0 for fnb in fnb_list]
+    df['foreign_net_buy_5ago'] = [fnb[4] if len(fnb) > 4 else 0 for fnb in fnb_list]
+    df['foreign_net_buy_sum']  = [sum(fnb) for fnb in fnb_list]
+    return df
 
 @st.cache_data(ttl=3600)
 def add_institutional_net_buy(df):
@@ -311,19 +417,24 @@ def add_institutional_net_buy(df):
         return df
     meta = load_meta()
     df = df.copy()
-    def get_institutional_data(row):
-        meta_dict = get_meta_info(meta, row['symbol'], row['market'])
-        inb = meta_dict.get('institutional_net_buy', [0, 0, 0, 0, 0])
-        return pd.Series({
-            'institutional_net_buy_1ago': inb[0] if len(inb) > 0 else 0,
-            'institutional_net_buy_2ago': inb[1] if len(inb) > 1 else 0,
-            'institutional_net_buy_3ago': inb[2] if len(inb) > 2 else 0,
-            'institutional_net_buy_4ago': inb[3] if len(inb) > 3 else 0,
-            'institutional_net_buy_5ago': inb[4] if len(inb) > 4 else 0,
-            'institutional_net_buy_sum': sum(inb)
-        })
-    institutional_cols = df.apply(get_institutional_data, axis=1)
-    return pd.concat([df, institutional_cols], axis=1)
+
+    # meta 전체를 딕셔너리로 한 번만 펼쳐놓기
+    all_meta = {}
+    for mkt in ('KOSPI', 'KOSDAQ'):
+        for sym, info in meta.get(mkt, {}).items():
+            all_meta[(sym, mkt)] = info.get('institutional_net_buy', [0, 0, 0, 0, 0])
+
+    # (symbol, market) 키로 한 번에 조회
+    keys = list(zip(df['symbol'], df['market']))
+    inb_list = [all_meta.get(k, [0, 0, 0, 0, 0]) for k in keys]
+
+    df['institutional_net_buy_1ago'] = [inb[0] if len(inb) > 0 else 0 for inb in inb_list]
+    df['institutional_net_buy_2ago'] = [inb[1] if len(inb) > 1 else 0 for inb in inb_list]
+    df['institutional_net_buy_3ago'] = [inb[2] if len(inb) > 2 else 0 for inb in inb_list]
+    df['institutional_net_buy_4ago'] = [inb[3] if len(inb) > 3 else 0 for inb in inb_list]
+    df['institutional_net_buy_5ago'] = [inb[4] if len(inb) > 4 else 0 for inb in inb_list]
+    df['institutional_net_buy_sum']  = [sum(inb) for inb in inb_list]
+    return df
 
 @st.cache_data(ttl=3600)
 def add_ownership(df):
@@ -331,10 +442,16 @@ def add_ownership(df):
         return df
     meta = load_meta()
     df = df.copy()
-    def get_ownership(row):
-        meta_dict = get_meta_info(meta, row['symbol'], row['market'])
-        return meta_dict.get('ownership_foreign_institution', 0.0)
-    df['ownership_foreign_institution'] = df.apply(get_ownership, axis=1)
+
+    # meta 전체를 딕셔너리로 한 번만 펼쳐놓기
+    all_meta = {}
+    for mkt in ('KOSPI', 'KOSDAQ'):
+        for sym, info in meta.get(mkt, {}).items():
+            all_meta[(sym, mkt)] = info.get('ownership_foreign_institution', 0.0)
+
+    # (symbol, market) 키로 한 번에 조회
+    keys = list(zip(df['symbol'], df['market']))
+    df['ownership_foreign_institution'] = [all_meta.get(k, 0.0) for k in keys]
     return df
 
 @st.cache_data(ttl=3600)
@@ -343,10 +460,16 @@ def add_close_price(df):
         return df
     meta = load_meta()
     df = df.copy()
-    def get_close_data(row):
-        meta_dict = get_meta_info(meta, row['symbol'], row['market'])
-        return meta_dict.get('close', 0.0)
-    df['close'] = df.apply(get_close_data, axis=1)
+
+    # meta 전체를 딕셔너리로 한 번만 펼쳐놓기
+    all_meta = {}
+    for mkt in ('KOSPI', 'KOSDAQ'):
+        for sym, info in meta.get(mkt, {}).items():
+            all_meta[(sym, mkt)] = info.get('close', 0.0)
+
+    # (symbol, market) 키로 한 번에 조회
+    keys = list(zip(df['symbol'], df['market']))
+    df['close'] = [all_meta.get(k, 0.0) for k in keys]
     return df
 
 def calculate_buy_signals(df):
@@ -746,8 +869,9 @@ def get_indicator_data(symbol, market):
         series = df.iloc[0]
         return series.rename({'rsi_d_2ago': 'RSI_3일_2ago', 'rsi_d_1ago': 'RSI_3일_1ago', 'rsi_d_latest': 'RSI_3일_latest'})
     return None
+
 # =============================================
-# 세션 상태 초기화 (페이지네이션 관련 제거됨)
+# 세션 상태 초기화
 # =============================================
 if 'selected_symbol' not in st.session_state:
     st.session_state.selected_symbol = None
@@ -779,6 +903,20 @@ if 'last_period' not in st.session_state:
     st.session_state.last_period = None
 if 'reset_filters' not in st.session_state:
     st.session_state.reset_filters = False
+
+# 페이지네이션 / 정렬 상태
+if 'kr_page' not in st.session_state:
+    st.session_state.kr_page = 1
+if 'kr_sort_col' not in st.session_state:
+    st.session_state.kr_sort_col = '시가총액 (KRW 억원)'
+if 'kr_sort_asc' not in st.session_state:
+    st.session_state.kr_sort_asc = False
+if 'back_short_page' not in st.session_state:
+    st.session_state.back_short_page = 1
+if 'back_mid_page' not in st.session_state:
+    st.session_state.back_mid_page = 1
+if 'back_completed_page' not in st.session_state:
+    st.session_state.back_completed_page = 1
 
 if st.session_state.reset_filters:
     filter_keys = [
@@ -960,8 +1098,9 @@ with st.sidebar:
 10. **EPS**: 주당순이익  
 11. **PER**: 주가수익비율
         """)
+
 # =============================================
-# 필터 적용 로직 (각 period별)
+# 필터 적용 로직
 # =============================================
 
 if period == "전체":
@@ -1404,6 +1543,7 @@ elif period == "백데이터":
             st.session_state.backtest_test = pd.DataFrame()
     else:
         st.session_state.backtest_test = pd.DataFrame()
+
 # =============================================
 # 배치 시간 로드
 # =============================================
@@ -1470,9 +1610,11 @@ st.markdown(f"""
 st.markdown("---")
 
 # =============================================
-# _display_backtest_table 함수 (백데이터 탭용)
+# _display_backtest_table 함수
 # =============================================
 def _display_backtest_table(df_filtered, tab_type, apply_btn, foreign_apply, institutional_apply, candle_apply):
+    PAGE_SIZE = 50
+
     display_cols = ['종목코드', '시장', '회사명', '업종', '업종트렌드']
     for col in ['종가 (KRW)', '시가총액 (KRW 억원)']:
         if col in df_filtered.columns:
@@ -1496,7 +1638,8 @@ def _display_backtest_table(df_filtered, tab_type, apply_btn, foreign_apply, ins
             display_cols.append('캔들')
 
     display_cols = [col for col in display_cols if col in df_filtered.columns]
-    df_kr_filtered = df_filtered[df_filtered['시장'].isin(KR_MARKETS)] if '시장' in df_filtered.columns else pd.DataFrame()
+    df_kr_filtered = df_filtered[df_filtered['시장'].isin(KR_MARKETS)].copy() if '시장' in df_filtered.columns else pd.DataFrame()
+    df_kr_filtered = df_kr_filtered.reset_index(drop=True)
 
     def _calc_stats(df_sub):
         cnt = len(df_sub)
@@ -1538,11 +1681,42 @@ def _display_backtest_table(df_filtered, tab_type, apply_btn, foreign_apply, ins
         df_kr_csv = df_kr_filtered[csv_columns_kr]
         csv_kr = df_kr_csv.to_csv(index=False).encode('utf-8-sig')
 
-        # ✅ [변경2] 정렬 UI 제거 - CSV버튼만 남김
-        col_kr_h1, col_kr_h2 = st.columns([10, 1])
+        # 페이지네이션 계산
+        total_pages = max(1, (kr_cnt - 1) // PAGE_SIZE + 1)
+        page_key = f"back_{tab_type}_page"
+        if page_key not in st.session_state:
+            st.session_state[page_key] = 1
+        cur_page = min(st.session_state[page_key], total_pages)
+        start_idx = (cur_page - 1) * PAGE_SIZE
+        end_idx = min(start_idx + PAGE_SIZE, kr_cnt)
+        df_page = df_kr_filtered.iloc[start_idx:end_idx].copy()
+
+        # 헤더: 제목 + 페이지이동 + CSV
+        col_kr_h1, col_kr_h2, col_kr_h3, col_kr_h4 = st.columns([3, 2, 4, 1])
         with col_kr_h1:
             st.markdown("#### 국내 (KR)")
         with col_kr_h2:
+            st.markdown(f"<div style='padding-top:8px; font-size:0.85rem; white-space:nowrap;'><b>총 {kr_cnt}개</b> · {cur_page}/{total_pages}p</div>", unsafe_allow_html=True)
+        with col_kr_h3:
+            pg_c1, pg_c2, pg_c3 = st.columns([2, 2, 2])
+            with pg_c1:
+                if st.button("◀ 이전", key=f"back_prev_{tab_type}", disabled=(cur_page <= 1), use_container_width=True):
+                    st.session_state[page_key] = cur_page - 1
+                    st.rerun()
+            with pg_c2:
+                input_page = st.number_input(
+                    "p", min_value=1, max_value=total_pages,
+                    value=cur_page, key=f"back_page_input_{tab_type}",
+                    label_visibility="collapsed"
+                )
+                if int(input_page) != cur_page:
+                    st.session_state[page_key] = int(input_page)
+                    st.rerun()
+            with pg_c3:
+                if st.button("다음 ▶", key=f"back_next_{tab_type}", disabled=(cur_page >= total_pages), use_container_width=True):
+                    st.session_state[page_key] = cur_page + 1
+                    st.rerun()
+        with col_kr_h4:
             st.markdown('<div class="csv-btn-fixed">', unsafe_allow_html=True)
             st.download_button(
                 label="💾CSV",
@@ -1550,27 +1724,34 @@ def _display_backtest_table(df_filtered, tab_type, apply_btn, foreign_apply, ins
                 file_name=f'kr_backtest_{tab_type}.csv',
                 mime='text/csv',
                 key=f"download_kr_back_{tab_type}",
-                width='stretch'
+                use_container_width=True
             )
             st.markdown('</div>', unsafe_allow_html=True)
 
         kr_display_cols = [col for col in display_cols if '(USD' not in col and '(N/A)' not in col]
-        kr_count = len(df_kr_filtered)
-        kr_height = min(kr_count, 15) * 35 + 38
 
-        # ✅ [변경4] 페이지네이션 제거 - 전체 데이터 표시
-        df_kr_display_full = df_kr_filtered[kr_display_cols].copy().reset_index(drop=True)
+        # 행 수 기반 높이 (최대 20행, 이후 스크롤)
+        ROW_H = 35
+        HEADER_H = 38
+        MAX_ROWS = 10
+        kr_height = min(len(df_page), MAX_ROWS) * ROW_H + HEADER_H
+
+        df_kr_display_full = df_page[kr_display_cols].copy().reset_index(drop=True)
         kr_sector_trends = df_kr_display_full['업종트렌드'].copy() if '업종트렌드' in df_kr_display_full.columns else None
         df_kr_display = df_kr_display_full.drop(columns=['업종트렌드'], errors='ignore')
 
         kr_key = f"kr_back_{tab_type}_df"
 
-        def apply_kr_row_style(row):
-            bg_color = None
-            if kr_sector_trends is not None and row.name < len(kr_sector_trends):
-                if pd.notna(kr_sector_trends.iloc[row.name]):
-                    bg_color = get_sector_trend_color(kr_sector_trends.iloc[row.name])
-            return [f'background-color: {bg_color}' if bg_color else '' for _ in row.index]
+        if kr_sector_trends is not None:
+            bg_colors = kr_sector_trends.apply(
+                lambda x: get_sector_trend_color(x) if pd.notna(x) else ''
+            ).fillna('').reset_index(drop=True)
+            styled_kr = df_kr_display.style.apply(
+                lambda col: [f'background-color: {bg}' if bg else '' for bg in bg_colors],
+                axis=0
+            )
+        else:
+            styled_kr = df_kr_display.style
 
         def apply_change_rate_color(val):
             if pd.isna(val): return ''
@@ -1581,8 +1762,6 @@ def _display_backtest_table(df_filtered, tab_type, apply_btn, foreign_apply, ins
             except:
                 pass
             return ''
-
-        styled_kr = df_kr_display.style.apply(apply_kr_row_style, axis=1)
 
         format_dict = {}
         for col in df_kr_display.columns:
@@ -1597,7 +1776,6 @@ def _display_backtest_table(df_filtered, tab_type, apply_btn, foreign_apply, ins
             styled_kr = styled_kr.map(apply_change_rate_color, subset=['변동율%'])
             styled_kr = styled_kr.format('{:.2f}', subset=['변동율%'])
 
-        # ✅ [변경5] 컬럼 너비 1.5배 적용
         event_kr = st.dataframe(
             styled_kr,
             on_select="rerun",
@@ -1626,19 +1804,22 @@ def _display_backtest_table(df_filtered, tab_type, apply_btn, foreign_apply, ins
 
         if event_kr.selection.rows:
             selected_idx = event_kr.selection.rows[0]
-            new_symbol = df_kr_filtered.iloc[selected_idx]['종목코드']
+            # 페이지 오프셋 반영
+            real_idx = start_idx + selected_idx
+            new_symbol = df_kr_filtered.iloc[real_idx]['종목코드']
             if new_symbol != st.session_state.selected_symbol or st.session_state.selected_market != 'KR':
                 st.session_state.selected_symbol = new_symbol
                 st.session_state.selected_market = 'KR'
                 st.rerun()
 
 # =============================================
-# ✅ [변경1] 결과 리스트 섹션 (전체 너비, 2컬럼 구조 제거)
+# 결과 리스트 섹션
 # =============================================
 st.markdown("### 결과 리스트")
 
 if st.session_state.last_period != period:
     st.session_state.last_period = period
+    st.session_state.kr_page = 1  # period 바뀌면 페이지 1로 리셋
 
 if not df_display.empty:
     if period == "백데이터":
@@ -1783,7 +1964,11 @@ if not df_display.empty:
                             subset=['최종수익률%'], na_rep=''
                         )
 
-                    test_height = min(len(df_test_display), 15) * 35 + 38
+                    # ✅ 행 수 기반 높이 (최대 20행, 이후 스크롤)
+                    ROW_H = 35
+                    HEADER_H = 38
+                    MAX_ROWS = 10
+                    test_height = min(len(df_test_display), MAX_ROWS) * ROW_H + HEADER_H
                     st.dataframe(
                         styled_test,
                         hide_index=True,
@@ -1813,7 +1998,7 @@ if not df_display.empty:
 
     else:
         # =============================================
-        # ✅ 단기/중기/매도/전체 결과리스트 (페이지네이션 없음)
+        # 단기/중기/매도/전체 결과리스트
         # =============================================
         if period == "단기":
             display_cols = ['종목코드', '시장', '회사명', '업종', '업종트렌드']
@@ -1846,25 +2031,114 @@ if not df_display.empty:
 
         display_cols = [col for col in display_cols if col in df_display.columns]
 
-        search_term = st.text_input("🔍 종목 검색", placeholder="코드 또는 회사명 입력", key=f"main_search_{period}")
+        # ─── 검색 + 정렬 + 페이지 UI ───
+        PAGE_SIZE = 50
+
+        # 정렬 가능한 숫자 컬럼 목록 (period별로 다름)
+        sortable_cols = ['시가총액 (KRW 억원)', '종가 (KRW)']
+        if period == "단기":
+            sortable_cols += ['단기매수신호']
+        elif period == "중기":
+            sortable_cols += ['중기매수신호']
+        elif period == "전체":
+            sortable_cols += ['단기신호', '중기신호']
+
+        # 실제 존재하는 컬럼만 필터
+        sortable_cols = [c for c in sortable_cols if c in df_display.columns]
+
+        # 검색 + 정렬 컨트롤 한 줄에 (비율 조정으로 줄바꿈 방지)
+        st.markdown("""
+        <style>
+        div[data-testid="stToggle"] > label {
+            font-size: 0.85rem !important;
+            white-space: nowrap !important;
+        }
+        div[data-testid="stNumberInput"] input {
+            font-size: 0.85rem !important;
+            height: 36px !important;
+            padding: 4px 6px !important;
+        }
+        div[data-testid="stNumberInput"] > div {
+            min-height: 36px !important;
+        }
+        </style>
+        """, unsafe_allow_html=True)
+
+        ctrl_col1, ctrl_col2, ctrl_col3 = st.columns([5, 3, 2])
+        with ctrl_col1:
+            search_term = st.text_input("🔍 종목 검색", placeholder="코드 또는 회사명 입력",
+                                        key=f"main_search_{period}", label_visibility="collapsed")
+        with ctrl_col2:
+            sort_col = st.selectbox("정렬 기준", sortable_cols,
+                                    index=sortable_cols.index(st.session_state.kr_sort_col)
+                                    if st.session_state.kr_sort_col in sortable_cols else 0,
+                                    key=f"sort_col_{period}", label_visibility="collapsed")
+        with ctrl_col3:
+            sort_asc = st.toggle("오름차순", value=st.session_state.kr_sort_asc,
+                                 key=f"sort_asc_{period}")
+
+        # 정렬 기준 변경 시 페이지 1로 리셋
+        if sort_col != st.session_state.kr_sort_col or sort_asc != st.session_state.kr_sort_asc:
+            st.session_state.kr_sort_col = sort_col
+            st.session_state.kr_sort_asc = sort_asc
+            st.session_state.kr_page = 1
+
+        # 검색 필터
         if search_term:
             mask = (df_display['종목코드'].astype(str).str.contains(search_term, case=False, na=False)) | \
                    (df_display['회사명'].astype(str).str.contains(search_term, case=False, na=False))
-            df_kr_filtered = df_display[mask & df_display['시장'].isin(KR_MARKETS)]
+            df_kr_filtered = df_display[mask & df_display['시장'].isin(KR_MARKETS)].copy()
         else:
-            df_kr_filtered = df_display[df_display['시장'].isin(KR_MARKETS)] if '시장' in df_display.columns else pd.DataFrame()
+            df_kr_filtered = df_display[df_display['시장'].isin(KR_MARKETS)].copy() \
+                if '시장' in df_display.columns else pd.DataFrame()
 
         if not df_kr_filtered.empty:
             kr_total = len(df_kr_filtered)
-            csv_kr = df_kr_filtered[display_cols].to_csv(index=False).encode('utf-8-sig')
 
-            # ✅ [변경2] 정렬 UI 제거 - 헤더+종목수+CSV만
-            col_kr_h1, col_kr_h2, col_kr_h3 = st.columns([6, 3, 1])
-            with col_kr_h1:
+            # 전체 df 정렬 (페이지네이션 전에)
+            if sort_col in df_kr_filtered.columns:
+                if '신호' in sort_col or '매수신호' in sort_col:
+                    df_kr_filtered['_sort_tmp'] = df_kr_filtered[sort_col].astype(str).str.extract(r'(\d+)').astype(float)
+                    df_kr_filtered = df_kr_filtered.sort_values('_sort_tmp', ascending=sort_asc).drop(columns=['_sort_tmp'])
+                else:
+                    df_kr_filtered = df_kr_filtered.sort_values(sort_col, ascending=sort_asc)
+            df_kr_filtered = df_kr_filtered.reset_index(drop=True)
+
+            # 페이지네이션 계산
+            total_pages = max(1, (kr_total - 1) // PAGE_SIZE + 1)
+            cur_page = min(st.session_state.kr_page, total_pages)
+            start_idx = (cur_page - 1) * PAGE_SIZE
+            end_idx = min(start_idx + PAGE_SIZE, kr_total)
+            df_page = df_kr_filtered.iloc[start_idx:end_idx].copy()
+
+            # 헤더: 제목 + 종목수 + 페이지이동 + CSV
+            col_h1, col_h2, col_h3, col_h4 = st.columns([3, 2, 4, 1])
+            with col_h1:
                 st.markdown("#### 국내 (KR)")
-            with col_kr_h2:
-                st.markdown(f"**총 종목수: {kr_total}**")
-            with col_kr_h3:
+            with col_h2:
+                st.markdown(f"<div style='padding-top:8px; font-size:0.85rem; white-space:nowrap;'><b>총 {kr_total}개</b> · {cur_page}/{total_pages}p</div>", unsafe_allow_html=True)
+            with col_h3:
+                # 이전/페이지입력/다음 한 줄로
+                pg_c1, pg_c2, pg_c3 = st.columns([2, 2, 2])
+                with pg_c1:
+                    if st.button("◀ 이전", key=f"prev_{period}", disabled=(cur_page <= 1), use_container_width=True):
+                        st.session_state.kr_page = cur_page - 1
+                        st.rerun()
+                with pg_c2:
+                    input_page = st.number_input(
+                        "p", min_value=1, max_value=total_pages,
+                        value=cur_page, key=f"page_input_{period}",
+                        label_visibility="collapsed"
+                    )
+                    if input_page != cur_page:
+                        st.session_state.kr_page = int(input_page)
+                        st.rerun()
+                with pg_c3:
+                    if st.button("다음 ▶", key=f"next_{period}", disabled=(cur_page >= total_pages), use_container_width=True):
+                        st.session_state.kr_page = cur_page + 1
+                        st.rerun()
+            with col_h4:
+                csv_kr = df_kr_filtered[display_cols].to_csv(index=False).encode('utf-8-sig')
                 st.markdown('<div class="csv-btn-fixed">', unsafe_allow_html=True)
                 st.download_button(
                     label="💾CSV",
@@ -1872,29 +2146,29 @@ if not df_display.empty:
                     file_name=f'kr_stocks_{period}.csv',
                     mime='text/csv',
                     key=f"download_kr_{period}",
-                    width='stretch'
+                    use_container_width=True
                 )
                 st.markdown('</div>', unsafe_allow_html=True)
 
+            # 현재 페이지 데이터만 표시
             kr_display_cols = [col for col in display_cols if '(USD' not in col and '(N/A)' not in col]
-            kr_count = len(df_kr_filtered)
-            kr_height = min(kr_count, 15) * 35 + 38
-
-            # ✅ [변경4] 페이지네이션 제거 - 전체 데이터 그대로 표시
-            df_kr_display_full = df_kr_filtered[kr_display_cols].copy().reset_index(drop=True)
-            kr_sector_trends = df_kr_display_full['업종트렌드'].copy() if '업종트렌드' in df_kr_display_full.columns else None
-            df_kr_display = df_kr_display_full.drop(columns=['업종트렌드'], errors='ignore')
+            df_page_full = df_page[kr_display_cols].copy().reset_index(drop=True)
+            kr_sector_trends = df_page_full['업종트렌드'].copy() if '업종트렌드' in df_page_full.columns else None
+            df_kr_display = df_page_full.drop(columns=['업종트렌드'], errors='ignore')
 
             kr_key = f"kr_dataframe_{period}"
 
-            def apply_kr_row_style(row):
-                bg_color = None
-                if kr_sector_trends is not None and row.name < len(kr_sector_trends):
-                    if pd.notna(kr_sector_trends.iloc[row.name]):
-                        bg_color = get_sector_trend_color(kr_sector_trends.iloc[row.name])
-                return [f'background-color: {bg_color}' if bg_color else '' for _ in row.index]
-
-            styled_kr = df_kr_display.style.apply(apply_kr_row_style, axis=1)
+            # 50행만 스타일링 → 빠름
+            if kr_sector_trends is not None:
+                bg_colors = kr_sector_trends.apply(
+                    lambda x: get_sector_trend_color(x) if pd.notna(x) else ''
+                ).fillna('').reset_index(drop=True)
+                styled_kr = df_kr_display.style.apply(
+                    lambda col: [f'background-color: {bg}' if bg else '' for bg in bg_colors],
+                    axis=0
+                )
+            else:
+                styled_kr = df_kr_display.style
 
             format_dict = {}
             for col in df_kr_display.columns:
@@ -1905,7 +2179,12 @@ if not df_display.empty:
             if format_dict:
                 styled_kr = styled_kr.format(format_dict, na_rep='')
 
-            # ✅ [변경5] 컬럼 너비 1.5배 (40→60, 50→75, 60→90, small→수치)
+            # ✅ 행 수 기반 높이 (최대 20행, 이후 스크롤)
+            ROW_H = 35
+            HEADER_H = 38
+            MAX_ROWS = 10
+            kr_height = min(len(df_kr_display), MAX_ROWS) * ROW_H + HEADER_H
+
             event_kr = st.dataframe(
                 styled_kr,
                 on_select="rerun",
@@ -1915,19 +2194,19 @@ if not df_display.empty:
                 height=kr_height,
                 key=kr_key,
                 column_config={
-                    "종목코드": st.column_config.Column(width=75),       # 50 → 75
-                    "시장": st.column_config.Column(width=60),            # 40 → 60
-                    "회사명": st.column_config.Column(width=150),         # small → 150
-                    "업종": st.column_config.Column(width=150),           # small → 150
-                    "종가 (KRW)": st.column_config.Column(width=90),      # small → 90
-                    "시가총액 (KRW 억원)": st.column_config.Column(width=120),  # small → 120
-                    "단기매수신호": st.column_config.Column(width=90),    # 60 → 90
-                    "중기매수신호": st.column_config.Column(width=90),    # 60 → 90
+                    "종목코드": st.column_config.Column(width=75),
+                    "시장": st.column_config.Column(width=60),
+                    "회사명": st.column_config.Column(width=150),
+                    "업종": st.column_config.Column(width=150),
+                    "종가 (KRW)": st.column_config.Column(width=90),
+                    "시가총액 (KRW 억원)": st.column_config.Column(width=120),
+                    "단기매수신호": st.column_config.Column(width=90),
+                    "중기매수신호": st.column_config.Column(width=90),
                     "단기신호": st.column_config.Column(width=90),
                     "중기신호": st.column_config.Column(width=90),
-                    "OBV 상승 크로스": st.column_config.Column(width=60),             # 40 → 60
-                    "거래대금 급증(20일평균2배)": st.column_config.Column(width=60),   # 40 → 60
-                    "돌파(20일 고가 or MA20 상향)": st.column_config.Column(width=60), # 40 → 60
+                    "OBV 상승 크로스": st.column_config.Column(width=60),
+                    "거래대금 급증(20일평균2배)": st.column_config.Column(width=60),
+                    "돌파(20일 고가 or MA20 상향)": st.column_config.Column(width=60),
                     "RSI 상승": st.column_config.Column(width=60),
                     "OBV 우상향/크로스": st.column_config.Column(width=60),
                     "50MA > 200MA": st.column_config.Column(width=60),
@@ -1949,7 +2228,9 @@ if not df_display.empty:
 
             if event_kr.selection.rows:
                 selected_idx = event_kr.selection.rows[0]
-                new_symbol = df_kr_filtered.iloc[selected_idx]['종목코드']
+                # 페이지 오프셋 반영해서 원본 df에서 찾기
+                real_idx = start_idx + selected_idx
+                new_symbol = df_kr_filtered.iloc[real_idx]['종목코드']
                 if new_symbol != st.session_state.selected_symbol or st.session_state.selected_market != 'KR':
                     st.session_state.selected_symbol = new_symbol
                     st.session_state.selected_market = 'KR'
@@ -1961,7 +2242,7 @@ else:
     st.info("조건에 맞는 종목이 없습니다.")
 
 # =============================================
-# ✅ [변경1] 자세히 보기 (결과리스트 아래로 이동)
+# 자세히 보기
 # =============================================
 st.markdown("---")
 st.markdown("### 자세히 보기")
