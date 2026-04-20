@@ -126,7 +126,7 @@ KISCO홀딩스,001940,철강,Materials
 경농,002100,화학,Materials
 고려산업,002140,식품,Consumer Staples
 도화엔지니어링,002150,건설,Industrials
-삼양통상,002170,"섬유,의류,신발,호화품",Consumer Discretionary
+SYTS,002170,"섬유,의류,신발,호화품",Consumer Discretionary
 한국수출포장,002200,포장재,Materials
 동성제약,002210,제약,Health Care
 한일철강,002220,철강,Materials
@@ -466,7 +466,7 @@ HMM,011200,해운사,Industrials
 현대위아,011210,자동차부품,Consumer Discretionary
 삼화전자,011230,전자장비와기기,Information Technology
 태림포장,011280,포장재,Materials
-성안머티리얼스,011300,"섬유,의류,신발,호화품",Consumer Discretionary
+우성머티리얼스,011300,"섬유,의류,신발,호화품",Consumer Discretionary
 유니크,011320,자동차부품,Consumer Discretionary
 유니켐,011330,"섬유,의류,신발,호화품",Consumer Discretionary
 서한,011370,건설,Industrials
@@ -853,7 +853,7 @@ LG헬로비전,037560,방송과엔터테인먼트,Consumer Discretionary
 레드캡투어,038390,도로와철도운송,Industrials
 바이오스마트,038460,전자장비와기기,Information Technology
 삼표시멘트,038500,건축자재,Industrials
-케이바이오,038530,IT서비스,Information Technology
+케이바이오랩스,038530,IT서비스,Information Technology
 상상인,038540,기타금융,Financials
 위즈코프,038620,운송인프라,Industrials
 에스넷,038680,IT서비스,Information Technology
@@ -1528,7 +1528,7 @@ KODEX 증권,102970,ETF,ETF
 에스앤더블류,103230,조선,Industrials
 일진전기,103590,전기장비,Utilities
 우양,103840,식품,Consumer Staples
-대성파인텍,104040,자동차부품,Consumer Discretionary
+디에스엠,104040,자동차부품,Consumer Discretionary
 NHN벅스,104200,방송과엔터테인먼트,Consumer Discretionary
 디와이피엔에프,104460,기계,Industrials
 티케이케미칼,104480,화학,Materials
@@ -2596,7 +2596,7 @@ PLUS 미국단기회사채(AAA~A),332610,ETF,ETF
 PLUS 미국장기우량회사채,332620,ETF,ETF
 HANARO 200TR,332930,ETF,ETF
 HANARO MSCI Korea TR,332940,ETF,ETF
-모코엠시스,333050,IT서비스,Information Technology
+이노테나,333050,IT서비스,Information Technology
 일승,333430,조선,Industrials
 엔시스,333620,전자장비와기기,Information Technology
 RISE 팔라듐선물(H),334690,ETF,ETF

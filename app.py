@@ -393,13 +393,11 @@ def add_foreign_net_buy(df):
     meta = load_meta()
     df = df.copy()
 
-    # meta 전체를 딕셔너리로 한 번만 펼쳐놓기
     all_meta = {}
     for mkt in ('KOSPI', 'KOSDAQ'):
         for sym, info in meta.get(mkt, {}).items():
             all_meta[(sym, mkt)] = info.get('foreign_net_buy', [0, 0, 0, 0, 0])
 
-    # (symbol, market) 키로 한 번에 조회
     keys = list(zip(df['symbol'], df['market']))
     fnb_list = [all_meta.get(k, [0, 0, 0, 0, 0]) for k in keys]
 
@@ -418,13 +416,11 @@ def add_institutional_net_buy(df):
     meta = load_meta()
     df = df.copy()
 
-    # meta 전체를 딕셔너리로 한 번만 펼쳐놓기
     all_meta = {}
     for mkt in ('KOSPI', 'KOSDAQ'):
         for sym, info in meta.get(mkt, {}).items():
             all_meta[(sym, mkt)] = info.get('institutional_net_buy', [0, 0, 0, 0, 0])
 
-    # (symbol, market) 키로 한 번에 조회
     keys = list(zip(df['symbol'], df['market']))
     inb_list = [all_meta.get(k, [0, 0, 0, 0, 0]) for k in keys]
 
@@ -443,13 +439,11 @@ def add_ownership(df):
     meta = load_meta()
     df = df.copy()
 
-    # meta 전체를 딕셔너리로 한 번만 펼쳐놓기
     all_meta = {}
     for mkt in ('KOSPI', 'KOSDAQ'):
         for sym, info in meta.get(mkt, {}).items():
             all_meta[(sym, mkt)] = info.get('ownership_foreign_institution', 0.0)
 
-    # (symbol, market) 키로 한 번에 조회
     keys = list(zip(df['symbol'], df['market']))
     df['ownership_foreign_institution'] = [all_meta.get(k, 0.0) for k in keys]
     return df
@@ -461,13 +455,11 @@ def add_close_price(df):
     meta = load_meta()
     df = df.copy()
 
-    # meta 전체를 딕셔너리로 한 번만 펼쳐놓기
     all_meta = {}
     for mkt in ('KOSPI', 'KOSDAQ'):
         for sym, info in meta.get(mkt, {}).items():
             all_meta[(sym, mkt)] = info.get('close', 0.0)
 
-    # (symbol, market) 키로 한 번에 조회
     keys = list(zip(df['symbol'], df['market']))
     df['close'] = [all_meta.get(k, 0.0) for k in keys]
     return df
@@ -1730,7 +1722,6 @@ def _display_backtest_table(df_filtered, tab_type, apply_btn, foreign_apply, ins
 
         kr_display_cols = [col for col in display_cols if '(USD' not in col and '(N/A)' not in col]
 
-        # 행 수 기반 높이 (최대 20행, 이후 스크롤)
         ROW_H = 35
         HEADER_H = 38
         MAX_ROWS = 10
@@ -1804,7 +1795,6 @@ def _display_backtest_table(df_filtered, tab_type, apply_btn, foreign_apply, ins
 
         if event_kr.selection.rows:
             selected_idx = event_kr.selection.rows[0]
-            # 페이지 오프셋 반영
             real_idx = start_idx + selected_idx
             new_symbol = df_kr_filtered.iloc[real_idx]['종목코드']
             if new_symbol != st.session_state.selected_symbol or st.session_state.selected_market != 'KR':
@@ -1817,9 +1807,10 @@ def _display_backtest_table(df_filtered, tab_type, apply_btn, foreign_apply, ins
 # =============================================
 st.markdown("### 결과 리스트")
 
+# ✅ period가 바뀔 때만 페이지 1로 리셋
 if st.session_state.last_period != period:
     st.session_state.last_period = period
-    st.session_state.kr_page = 1  # period 바뀌면 페이지 1로 리셋
+    st.session_state.kr_page = 1
 
 if not df_display.empty:
     if period == "백데이터":
@@ -1964,7 +1955,6 @@ if not df_display.empty:
                             subset=['최종수익률%'], na_rep=''
                         )
 
-                    # ✅ 행 수 기반 높이 (최대 20행, 이후 스크롤)
                     ROW_H = 35
                     HEADER_H = 38
                     MAX_ROWS = 10
@@ -2031,10 +2021,8 @@ if not df_display.empty:
 
         display_cols = [col for col in display_cols if col in df_display.columns]
 
-        # ─── 검색 + 정렬 + 페이지 UI ───
         PAGE_SIZE = 50
 
-        # 정렬 가능한 숫자 컬럼 목록 (period별로 다름)
         sortable_cols = ['시가총액 (KRW 억원)', '종가 (KRW)']
         if period == "단기":
             sortable_cols += ['단기매수신호']
@@ -2043,10 +2031,8 @@ if not df_display.empty:
         elif period == "전체":
             sortable_cols += ['단기신호', '중기신호']
 
-        # 실제 존재하는 컬럼만 필터
         sortable_cols = [c for c in sortable_cols if c in df_display.columns]
 
-        # 검색 + 정렬 컨트롤 한 줄에 (비율 조정으로 줄바꿈 방지)
         st.markdown("""
         <style>
         div[data-testid="stToggle"] > label {
@@ -2064,24 +2050,37 @@ if not df_display.empty:
         </style>
         """, unsafe_allow_html=True)
 
+        # ✅ 정렬 변경 시에만 페이지 1로 리셋하는 콜백 함수
+        def _on_sort_change():
+            st.session_state.kr_sort_col = st.session_state[f"sort_col_{period}"]
+            st.session_state.kr_sort_asc = st.session_state[f"sort_asc_{period}"]
+            st.session_state.kr_page = 1
+
         ctrl_col1, ctrl_col2, ctrl_col3 = st.columns([5, 3, 2])
         with ctrl_col1:
             search_term = st.text_input("🔍 종목 검색", placeholder="코드 또는 회사명 입력",
                                         key=f"main_search_{period}", label_visibility="collapsed")
         with ctrl_col2:
-            sort_col = st.selectbox("정렬 기준", sortable_cols,
-                                    index=sortable_cols.index(st.session_state.kr_sort_col)
-                                    if st.session_state.kr_sort_col in sortable_cols else 0,
-                                    key=f"sort_col_{period}", label_visibility="collapsed")
+            sort_col = st.selectbox(
+                "정렬 기준", sortable_cols,
+                index=sortable_cols.index(st.session_state.kr_sort_col)
+                      if st.session_state.kr_sort_col in sortable_cols else 0,
+                key=f"sort_col_{period}",
+                label_visibility="collapsed",
+                on_change=_on_sort_change   # ✅ 변경 시에만 페이지 리셋
+            )
         with ctrl_col3:
-            sort_asc = st.toggle("오름차순", value=st.session_state.kr_sort_asc,
-                                 key=f"sort_asc_{period}")
+            sort_asc = st.toggle(
+                "오름차순",
+                value=st.session_state.kr_sort_asc,
+                key=f"sort_asc_{period}",
+                on_change=_on_sort_change   # ✅ 변경 시에만 페이지 리셋
+            )
 
-        # 정렬 기준 변경 시 페이지 1로 리셋
-        if sort_col != st.session_state.kr_sort_col or sort_asc != st.session_state.kr_sort_asc:
-            st.session_state.kr_sort_col = sort_col
-            st.session_state.kr_sort_asc = sort_asc
-            st.session_state.kr_page = 1
+        # ✅ 기존 if 블록 완전 삭제 (on_change 콜백으로 대체됨)
+        # 현재 세션 상태에서 정렬 값을 읽어서 사용
+        sort_col = st.session_state.kr_sort_col
+        sort_asc = st.session_state.kr_sort_asc
 
         # 검색 필터
         if search_term:
@@ -2095,7 +2094,6 @@ if not df_display.empty:
         if not df_kr_filtered.empty:
             kr_total = len(df_kr_filtered)
 
-            # 전체 df 정렬 (페이지네이션 전에)
             if sort_col in df_kr_filtered.columns:
                 if '신호' in sort_col or '매수신호' in sort_col:
                     df_kr_filtered['_sort_tmp'] = df_kr_filtered[sort_col].astype(str).str.extract(r'(\d+)').astype(float)
@@ -2118,7 +2116,6 @@ if not df_display.empty:
             with col_h2:
                 st.markdown(f"<div style='padding-top:8px; font-size:0.85rem; white-space:nowrap;'><b>총 {kr_total}개</b> · {cur_page}/{total_pages}p</div>", unsafe_allow_html=True)
             with col_h3:
-                # 이전/페이지입력/다음 한 줄로
                 pg_c1, pg_c2, pg_c3 = st.columns([2, 2, 2])
                 with pg_c1:
                     if st.button("◀ 이전", key=f"prev_{period}", disabled=(cur_page <= 1), use_container_width=True):
@@ -2150,7 +2147,6 @@ if not df_display.empty:
                 )
                 st.markdown('</div>', unsafe_allow_html=True)
 
-            # 현재 페이지 데이터만 표시
             kr_display_cols = [col for col in display_cols if '(USD' not in col and '(N/A)' not in col]
             df_page_full = df_page[kr_display_cols].copy().reset_index(drop=True)
             kr_sector_trends = df_page_full['업종트렌드'].copy() if '업종트렌드' in df_page_full.columns else None
@@ -2158,7 +2154,6 @@ if not df_display.empty:
 
             kr_key = f"kr_dataframe_{period}"
 
-            # 50행만 스타일링 → 빠름
             if kr_sector_trends is not None:
                 bg_colors = kr_sector_trends.apply(
                     lambda x: get_sector_trend_color(x) if pd.notna(x) else ''
@@ -2179,7 +2174,6 @@ if not df_display.empty:
             if format_dict:
                 styled_kr = styled_kr.format(format_dict, na_rep='')
 
-            # ✅ 행 수 기반 높이 (최대 20행, 이후 스크롤)
             ROW_H = 35
             HEADER_H = 38
             MAX_ROWS = 10
@@ -2228,7 +2222,6 @@ if not df_display.empty:
 
             if event_kr.selection.rows:
                 selected_idx = event_kr.selection.rows[0]
-                # 페이지 오프셋 반영해서 원본 df에서 찾기
                 real_idx = start_idx + selected_idx
                 new_symbol = df_kr_filtered.iloc[real_idx]['종목코드']
                 if new_symbol != st.session_state.selected_symbol or st.session_state.selected_market != 'KR':

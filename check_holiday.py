@@ -1,7 +1,13 @@
 import sys
 from datetime import date
+import holidays
 
-# 임시 테스트용 - 항상 영업일로 처리
+kr_holidays = holidays.KR()
 today = date.today()
-print(f"테스트 모드: {today} → 배치 실행")
-sys.exit(0)
+
+if today.weekday() >= 5 or today in kr_holidays:
+    print(f"Today is a holiday: {today} -> Batch skipped")
+    sys.exit(1)
+else:
+    print(f"Today is a business day: {today} -> Batch running")
+    sys.exit(0)
