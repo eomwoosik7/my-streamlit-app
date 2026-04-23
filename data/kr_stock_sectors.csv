@@ -289,7 +289,7 @@ SGC에너지,005090,에너지장비및서비스,Energy
 현대지에프홀딩스,005440,복합기업,Industrials
 POSCO홀딩스,005490,철강,Materials
 삼진제약,005500,제약,Health Care
-SPC삼립,005610,식품,Consumer Staples
+삼립,005610,식품,Consumer Staples
 푸드웰,005670,식품,Consumer Staples
 삼영전자,005680,전기제품,Utilities
 파미셀,005690,화학,Materials
@@ -2880,7 +2880,7 @@ HANARO Fn K-메타버스MZ,402460,ETF,ETF
 ACE 미국배당다우존스,402970,ETF,ETF
 우듬지팜,403490,식품,Consumer Staples
 쏘카,403550,도로와철도운송,Industrials
-마이다스 코스피액티브,403790,N/A,N/A
+MIDAS 코스피액티브,403790,N/A,N/A
 더핑크퐁컴퍼니,403850,방송과엔터테인먼트,Consumer Discretionary
 HPSP,403870,반도체와반도체장비,Information Technology
 TIME K신재생에너지액티브,404120,ETF,ETF
@@ -3019,7 +3019,7 @@ TIGER 우량회사채액티브,438330,ETF,ETF
 SOL 국고채3년,438560,ETF,ETF
 SOL 국고채10년,438570,ETF,ETF
 버넥트,438700,소프트웨어,Information Technology
-마이다스 중소형액티브,438740,N/A,N/A
+MIDAS 중소형액티브,438740,N/A,N/A
 HANARO Fn K-푸드,438900,ETF,ETF
 마녀공장,439090,화장품,Consumer Discretionary
 대한조선,439260,조선,Industrials
@@ -3444,7 +3444,7 @@ TIGER 반도체TOP10레버리지,488080,ETF,ETF
 KIWOOM K-2차전지북미공급망,488200,ETF,ETF
 KIWOOM K-반도체북미공급망,488210,ETF,ETF
 에스투더블유,488280,IT서비스,Information Technology
-마이다스 일본테크액티브,488290,N/A,N/A
+MIDAS 일본테크액티브,488290,N/A,N/A
 RISE 일본섹터TOP4Plus,488480,ETF,ETF
 TIGER 미국S&P500동일가중,488500,ETF,ETF
 WON 종합채권(AA-이상)액티브,488720,N/A,N/A
