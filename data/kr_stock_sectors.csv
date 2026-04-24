@@ -1801,7 +1801,7 @@ ACE 레버리지,152500,ETF,ETF
 KODEX 단기채권,153130,ETF,ETF
 KIWOOM 코스피100,153270,ETF,ETF
 네이블,153460,소프트웨어,Information Technology
-우리이앤엘,153490,디스플레이장비및부품,Information Technology
+우리이앤엘하루틴,153490,디스플레이장비및부품,Information Technology
 옵티팜,153710,제약,Health Care
 아시아종묘,154030,생물공학,Health Care
 다산솔루에타,154040,전자제품,Information Technology
@@ -2442,7 +2442,7 @@ HB솔루션,297890,디스플레이장비및부품,Information Technology
 효성티앤씨,298020,"섬유,의류,신발,호화품",Consumer Discretionary
 효성중공업,298040,전기장비,Utilities
 HS효성첨단소재,298050,화학,Materials
-에스씨엠생명과학,298060,생물공학,Health Care
+풍전약품,298060,생물공학,Health Care
 PLUS 국채선물3년,298340,ETF,ETF
 에이비엘바이오,298380,생물공학,Health Care
 더네이쳐홀딩스,298540,"섬유,의류,신발,호화품",Consumer Discretionary
@@ -2533,7 +2533,7 @@ TS트릴리온,317240,가정용품,Consumer Discretionary
 덕산테코피아,317330,반도체와반도체장비,Information Technology
 자이에스앤디,317400,건설,Industrials
 명인제약,317450,제약,Health Care
-캐리소프트,317530,양방향미디어와서비스,Communication Services
+에피소드컴퍼니,317530,양방향미디어와서비스,Communication Services
 퀀타매트릭스,317690,생명과학도구및서비스,Health Care
 엑스페릭스,317770,전자장비와기기,Information Technology
 에스피시스템스,317830,기계,Industrials
@@ -2961,6 +2961,7 @@ RISE 2차전지액티브,422420,ETF,ETF
 KODEX KOFR금리액티브(합성),423160,ETF,ETF
 SOL 글로벌AI반도체탑픽액티브,423170,ETF,ETF
 TIGER 미국필라델피아반도체레버리지(합성),423920,ETF,ETF
+HANARO 글로벌워터MSCI(합성),424460,ETF,ETF
 벨로크,424760,IT서비스,Information Technology
 이뮨온시아,424870,제약,Health Care
 스마트레이더시스템,424960,자동차부품,Consumer Discretionary
@@ -3804,6 +3805,7 @@ KB 인버스 2X 미국 S&P500 선물 ETN B,580084,ETF,ETF
 메리츠 레버리지 국채30년 ETN,610008,ETF,ETF
 메리츠 인버스 국채30년 ETN,610009,ETF,ETF
 메리츠 레버리지 금 선물 ETN(H),610012,ETF,ETF
+메리츠 인버스 2X 금 선물 ETN(H),610013,ETF,ETF
 메리츠 국채10년 ETN,610018,ETF,ETF
 메리츠 인버스 국채10년 ETN,610020,ETF,ETF
 메리츠 미국채10년 ETN(H),610022,ETF,ETF
