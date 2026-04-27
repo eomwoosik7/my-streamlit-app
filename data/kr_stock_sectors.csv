@@ -154,6 +154,7 @@ TCC스틸,002710,철강,Materials
 국제약품,002720,제약,Health Care
 보락,002760,식품,Consumer Staples
 진흥기업,002780,건설,Industrials
+진흥기업우B,002785,건설,Industrials
 아모레퍼시픽홀딩스,002790,화장품,Consumer Discretionary
 아모레퍼시픽홀딩스우,002795,화장품,Consumer Discretionary
 신신제약,002800,제약,Health Care
@@ -1393,7 +1394,7 @@ KT나스미디어,089600,광고,Communication Services
 아모레퍼시픽,090430,화장품,Consumer Discretionary
 아모레퍼시픽우,090435,화장품,Consumer Discretionary
 비에이치,090460,전자장비와기기,Information Technology
-제이스텍,090470,전자장비와기기,Information Technology
+제이스로보틱스,090470,전자장비와기기,Information Technology
 휴림로봇,090710,기계,Industrials
 현대이지웰,090850,상업서비스와공급품,Industrials
 이엠텍,091120,핸드셋,Information Technology
@@ -2050,7 +2051,7 @@ ACE 중국본토CSI300레버리지(합성),219900,ETF,ETF
 SOL 차이나강소기업CSI500(합성 H),220130,ETF,ETF
 핸디소프트,220180,소프트웨어,Information Technology
 켐트로스,220260,화학,Materials
-유투바이오,221800,건강관리업체및서비스,Health Care
+지구홀딩스,221800,건강관리업체및서비스,Health Care
 하이즈항공,221840,우주항공과국방,Industrials
 케이디켐,221980,화학,Materials
 코스맥스엔비티,222040,건강관리업체및서비스,Health Care
@@ -2493,7 +2494,7 @@ KODEX KRX300레버리지,306950,ETF,ETF
 원바이오젠,307280,건강관리장비와용품,Health Care
 TIGER 의료기기,307510,ETF,ETF
 TIGER 지주회사,307520,ETF,ETF
-국전약품,307750,제약,Health Care
+국전,307750,제약,Health Care
 비투엔,307870,IT서비스,Information Technology
 컴퍼니케이,307930,창업투자,Financials
 현대오토에버,307950,IT서비스,Information Technology
@@ -2771,7 +2772,7 @@ TIGER 탄소효율그린뉴딜,376410,ETF,ETF
 카카오페이,377300,IT서비스,Information Technology
 이지트로닉스,377330,전기제품,Utilities
 리파인,377450,상업서비스와공급품,Industrials
-위니아에이드,377460,상업서비스와공급품,Industrials
+큐에이드,377460,상업서비스와공급품,Industrials
 마음AI,377480,IT서비스,Information Technology
 바이오노트,377740,건강관리장비와용품,Health Care
 TIGER Fn신재생에너지,377990,ETF,ETF
@@ -3437,6 +3438,7 @@ ACE 머니마켓액티브,487340,ETF,ETF
 신한제14호스팩,487360,창업투자,Financials
 HS효성,487570,복합기업,Industrials
 BNK 온디바이스AI,487750,ETF,ETF
+신한제15호스팩,487830,창업투자,Financials
 ACE 인도컨슈머파워액티브,487910,ETF,ETF
 ACE 인도시장대표BIG5그룹액티브,487920,ETF,ETF
 KODEX 대만테크고배당다우존스,487950,ETF,ETF
