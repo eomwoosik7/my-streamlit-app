@@ -27,7 +27,7 @@ DH오토넥스,000300,자동차부품,Consumer Discretionary
 노루홀딩스,000320,건축자재,Industrials
 노루홀딩스우,000325,건축자재,Industrials
 한화손해보험,000370,손해보험,Financials
-삼화페인트,000390,건축자재,Industrials
+SP삼화,000390,건축자재,Industrials
 롯데손해보험,000400,손해보험,Financials
 대원강업,000430,자동차부품,Consumer Discretionary
 중앙에너비스,000440,석유와가스,Energy
@@ -2380,7 +2380,7 @@ FOCUS ESG리더스,285690,ETF,ETF
 PLUS 미국나스닥테크,287180,ETF,ETF
 인투셀,287840,제약,Health Care
 파라택시스코리아,288330,제약,Health Care
-에스퓨얼셀,288620,전기제품,Utilities
+에스프리즘,288620,전기제품,Utilities
 모아데이타,288980,소프트웨어,Information Technology
 아이스크림에듀,289010,교육서비스,Industrials
 KODEX MSCI KOREA ESG유니버설,289040,ETF,ETF
@@ -3455,6 +3455,7 @@ KODEX 머니마켓액티브,488770,ETF,ETF
 비츠로넥스텍,488900,우주항공과국방,Industrials
 SOL 26-12 회사채(AA-이상)액티브,488980,ETF,ETF
 PLUS 일본엔화초단기국채(합성),489000,ETF,ETF
+PLUS 글로벌AI인프라,489010,ETF,ETF
 PLUS 고배당주위클리커버드콜,489030,ETF,ETF
 교보17호스팩,489210,창업투자,Financials
 KODEX 미국배당다우존스,489250,ETF,ETF
@@ -3575,9 +3576,13 @@ GS피앤엘,499790,"호텔,레스토랑,레저",Consumer Discretionary
 신한 인버스 2X Russell 2000 ETN B,500098,ETF,ETF
 신한 WTI원유 선물 ETN,500099,ETF,ETF
 신한 금 선물 ETN,500100,ETF,ETF
+신한 블룸버그 천연가스 선물 ETN,500101,ETF,ETF
+신한 블룸버그 2X 천연가스 선물 ETN B,500102,ETF,ETF
 대신 천연가스 선물 ETN(H),510016,ETF,ETF
 대신 인버스 2X 코스닥 150 선물 ETN,510027,ETF,ETF
 대신 인버스 천연가스 선물 ETN(H) B,510043,ETF,ETF
+대신 레버리지 미국달러 선물 ETN,510044,ETF,ETF
+대신 인버스 2X 미국달러 선물 ETN,510045,ETF,ETF
 미래에셋 코스피200 선물 ETN,520037,ETF,ETF
 미래에셋 인버스 코스피200 선물 ETN,520038,ETF,ETF
 미래에셋 코스닥150 선물 ETN,520039,ETF,ETF
@@ -3748,6 +3753,7 @@ N2 인버스 2X 천연가스 선물 ETN,550100,ETF,ETF
 한투 인버스2XWTI원유선물 ETN B,570117,ETF,ETF
 한투 인버스2X천연가스선물 ETN B,570118,ETF,ETF
 한투 인버스2X은선물 ETN,570119,ETF,ETF
+한투 레버리지천연가스선물 ETN C,570120,ETF,ETF
 KB Wise 분할매매 ETN,580010,ETF,ETF
 KB 레버리지 S&P 500 선물 ETN(H),580016,ETF,ETF
 KB 인버스 2X S&P 500 선물 ETN,580017,ETF,ETF
@@ -3801,6 +3807,9 @@ KB 인버스 2X 은 선물 ETN,580081,ETF,ETF
 KB 레버리지 반도체 TOP10 TR ETN,580082,ETF,ETF
 KB 레버리지 미국 S&P500 선물 ETN B,580083,ETF,ETF
 KB 인버스 2X 미국 S&P500 선물 ETN B,580084,ETF,ETF
+KB 솔랙티브 천연가스 선물 ETN,580085,ETF,ETF
+KB 솔랙티브 레버리지 천연가스 선물 ETN,580086,ETF,ETF
+KB 솔랙티브 인버스 천연가스 선물 ETN,580087,ETF,ETF
 메리츠 인플레이션 국채 ETN,610001,ETF,ETF
 메리츠 미국 인플레이션 국채 ETN(H),610003,ETF,ETF
 메리츠 국채30년 ETN,610007,ETF,ETF
