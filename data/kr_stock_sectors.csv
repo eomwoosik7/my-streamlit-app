@@ -96,6 +96,8 @@ BYC우,001465,"섬유,의류,신발,호화품",Consumer Discretionary
 SK증권,001510,증권,Financials
 SK증권우,001515,증권,Financials
 동양,001520,건축자재,Industrials
+동양우,001525,건축자재,Industrials
+동양2우B,001527,건축자재,Industrials
 DI동일,001530,"섬유,의류,신발,호화품",Consumer Discretionary
 안국약품,001540,제약,Health Care
 조비,001550,화학,Materials
@@ -155,6 +157,7 @@ TCC스틸,002710,철강,Materials
 보락,002760,식품,Consumer Staples
 진흥기업,002780,건설,Industrials
 진흥기업우B,002785,건설,Industrials
+진흥기업2우B,002787,건설,Industrials
 아모레퍼시픽홀딩스,002790,화장품,Consumer Discretionary
 아모레퍼시픽홀딩스우,002795,화장품,Consumer Discretionary
 신신제약,002800,제약,Health Care
@@ -239,6 +242,7 @@ NPC우,004255,포장재,Materials
 농심,004370,식품,Consumer Staples
 삼익THK,004380,기계,Industrials
 서울식품,004410,식품,Consumer Staples
+서울식품우,004415,식품,Consumer Staples
 송원산업,004430,화학,Materials
 삼일씨엔에스,004440,건축자재,Industrials
 삼화왕관,004450,포장재,Materials
@@ -462,6 +466,7 @@ LG이노텍,011070,전자장비와기기,Information Technology
 형지I&C,011080,"섬유,의류,신발,호화품",Consumer Discretionary
 에넥스,011090,가구,Consumer Discretionary
 CJ씨푸드,011150,식품,Consumer Staples
+CJ씨푸드1우,011155,식품,Consumer Staples
 롯데케미칼,011170,화학,Materials
 HMM,011200,해운사,Industrials
 현대위아,011210,자동차부품,Consumer Discretionary
@@ -1961,7 +1966,7 @@ KIWOOM 인도Nifty50(합성),200250,ETF,ETF
 아크솔루션스,203690,가정용품,Consumer Discretionary
 TIGER 미국나스닥바이오,203780,ETF,ETF
 그리티,204020,"섬유,의류,신발,호화품",Consumer Discretionary
-스타에스엠리츠,204210,부동산,Financials
+JK리버스톤리츠,204210,부동산,Financials
 제이앤티씨,204270,핸드셋,Information Technology
 HL만도,204320,자동차부품,Consumer Discretionary
 KODEX 차이나H레버리지(H),204450,ETF,ETF
@@ -2213,6 +2218,9 @@ KODEX 200선물인버스2X,252670,ETF,ETF
 TIGER 200선물인버스2X,252710,ETF,ETF
 샘씨엔에스,252990,반도체와반도체장비,Information Technology
 PLUS 200선물레버리지,253150,ETF,ETF
+PLUS 200선물인버스2X,253160,ETF,ETF
+KIWOOM 200선물인버스2X,253230,ETF,ETF
+KIWOOM 200선물인버스,253240,ETF,ETF
 KIWOOM 200선물레버리지,253250,ETF,ETF
 RISE 헬스케어,253280,ETF,ETF
 RISE 헬스케어채권혼합,253290,ETF,ETF
@@ -2331,6 +2339,7 @@ KODEX 모멘텀주,275280,ETF,ETF
 KODEX 가치주,275290,ETF,ETF
 KODEX 우량주,275300,ETF,ETF
 에스에스알,275630,소프트웨어,Information Technology
+RISE 코스닥150선물인버스,275750,ETF,ETF
 TIGER 글로벌4차산업혁신기술(합성 H),275980,ETF,ETF
 TIGER 글로벌자원생산기업(합성 H),276000,ETF,ETF
 RISE 글로벌테크놀로지(합성 H),276650,ETF,ETF
@@ -2360,6 +2369,7 @@ ACE 미국IT인터넷(합성 H),280320,ETF,ETF
 롯데웰푸드,280360,식품,Consumer Staples
 PLUS 주도업종,280920,ETF,ETF
 KODEX 미국러셀2000(H),280930,ETF,ETF
+KODEX 골드선물인버스(H),280940,ETF,ETF
 레이크머티리얼즈,281740,화학,Materials
 케이씨텍,281820,반도체와반도체장비,Information Technology
 RISE 중소형고배당,281990,ETF,ETF
@@ -2380,6 +2390,7 @@ FOCUS ESG리더스,285690,ETF,ETF
 롯데이노베이트,286940,IT서비스,Information Technology
 PLUS 미국나스닥테크,287180,ETF,ETF
 인투셀,287840,제약,Health Care
+케이피항공산업,288180,우주항공과국방,Industrials
 파라택시스코리아,288330,제약,Health Care
 에스프리즘,288620,전기제품,Utilities
 모아데이타,288980,소프트웨어,Information Technology
@@ -2408,6 +2419,7 @@ RISE ESG사회책임투자,290130,ETF,ETF
 액트로,290740,핸드셋,Information Technology
 ACE MSCI멕시코(합성),291130,ETF,ETF
 엔피,291230,광고,Communication Services
+KIWOOM 코스닥150선물인버스,291620,ETF,ETF
 KIWOOM 코스닥150선물레버리지,291630,ETF,ETF
 압타머사이언스,291650,생물공학,Health Care
 RISE 차이나H선물인버스(H),291680,ETF,ETF
@@ -2602,6 +2614,7 @@ HANARO MSCI Korea TR,332940,ETF,ETF
 일승,333430,조선,Industrials
 엔시스,333620,전자장비와기기,Information Technology
 RISE 팔라듐선물(H),334690,ETF,ETF
+RISE 팔라듐선물인버스(H),334700,ETF,ETF
 이지스밸류플러스리츠,334890,부동산,Financials
 프레스티지바이오로직스,334970,제약,Health Care
 프리시젼바이오,335810,생명과학도구및서비스,Health Care
@@ -2912,6 +2925,7 @@ SOL 200 Top10,411540,ETF,ETF
 KIWOOM 독일DAX,411860,ETF,ETF
 레이저쎌,412350,반도체와반도체장비,Information Technology
 제일엠앤에스,412540,전기제품,Utilities
+TIGER BBIG레버리지,412560,ETF,ETF
 TIGER 2차전지TOP10레버리지,412570,ETF,ETF
 TIGER 글로벌AI플랫폼액티브,412770,ETF,ETF
 SOL 차이나태양광CSI(합성),413220,ETF,ETF
@@ -3124,6 +3138,7 @@ ACE 미국30년국채선물레버리지(합성 H),452250,ETF,ETF
 SOL 미국배당다우존스(H),452360,ETF,ETF
 이닉스,452400,전기제품,Utilities
 사피엔반도체,452430,반도체와반도체장비,Information Technology
+VITA 밸류알파액티브,452440,N/A,N/A
 피아이이,452450,IT서비스,Information Technology
 상상인제4호스팩,452670,창업투자,Financials
 Npay 증권,452980,N/A,N/A
@@ -3214,7 +3229,7 @@ PLUS 미국테크TOP10,461900,ETF,ETF
 PLUS 미국테크TOP10레버리지(합성),461910,ETF,ETF
 KODEX 2차전지핵심소재10,461950,ETF,ETF
 TIGER 2차전지소재Fn,462010,ETF,ETF
-에이치엠씨제6호스팩,462020,창업투자,Financials
+Npay 증권,462020,N/A,N/A
 뉴키즈온,462310,"섬유,의류,신발,호화품",Consumer Discretionary
 KODEX 2차전지산업레버리지,462330,ETF,ETF
 에셋플러스 글로벌다이나믹시니어액티브,462340,N/A,N/A
@@ -3253,6 +3268,7 @@ RISE 2차전지TOP10인버스(합성),465350,ETF,ETF
 인스피언,465480,IT서비스,Information Technology
 ACE 미국빅테크TOP7 Plus,465580,ETF,ETF
 ACE 미국빅테크TOP7 Plus레버리지(합성),465610,ETF,ETF
+ACE 미국빅테크TOP7 Plus인버스(합성),465620,ETF,ETF
 TIGER 일본반도체FACTSET,465660,ETF,ETF
 TIGER 미국캐시카우100,465670,ETF,ETF
 STX그린로지스,465770,해운사,Industrials
@@ -3546,12 +3562,14 @@ GS피앤엘,499790,"호텔,레스토랑,레저",Consumer Discretionary
 신한 인버스 콩 선물 ETN(H),500024,ETF,ETF
 신한 인버스 2X 다우존스지수 선물 ETN(H),500028,ETF,ETF
 신한 레버리지 은 선물 ETN(H),500029,ETF,ETF
+신한 인버스 2X 은 선물 ETN(H),500030,ETF,ETF
 신한 레버리지 미국달러 선물 ETN,500035,ETF,ETF
 신한 인버스 2X 미국달러 선물 ETN,500036,ETF,ETF
 신한 레버리지 금 선물 ETN,500037,ETF,ETF
 신한 레버리지 구리 선물 ETN,500040,ETF,ETF
 신한 인버스 2X 구리 선물 ETN,500041,ETF,ETF
 신한 레버리지 S&P500 선물 ETN,500050,ETF,ETF
+신한 인버스 2X S&P500 선물 ETN,500051,ETF,ETF
 신한 인버스 코스피 200 선물 ETN,500061,ETF,ETF
 신한 인버스 코스닥 150 선물 ETN,500063,ETF,ETF
 신한 레버리지 10년 국채선물 ETN,500067,ETF,ETF
@@ -3685,6 +3703,7 @@ GS피앤엘,499790,"호텔,레스토랑,레저",Consumer Discretionary
 N2 미국 IT TOP5 ETN(H),550041,ETF,ETF
 N2 인버스 레버리지 WTI원유 선물 ETN(H),550043,ETF,ETF
 N2 레버리지 금 선물 ETN(H),550062,ETF,ETF
+N2 인버스 레버리지 금 선물 ETN(H),550063,ETF,ETF
 N2 레버리지 은 선물 ETN(H),550064,ETF,ETF
 N2 레버리지 구리 선물 ETN(H),550069,ETF,ETF
 N2 인버스 레버리지 구리 선물 ETN(H),550070,ETF,ETF
@@ -3713,6 +3732,7 @@ N2 인버스 2X 천연가스 선물 ETN,550100,ETF,ETF
 한투 금선물 ETN,570055,ETF,ETF
 한투 인버스금선물 ETN,570056,ETF,ETF
 한투 은선물 ETN,570057,ETF,ETF
+한투 인버스은선물 ETN,570058,ETF,ETF
 한투 레버리지금선물 ETN,570059,ETF,ETF
 한투 인버스2X금선물 ETN,570060,ETF,ETF
 한투 레버리지은선물 ETN,570061,ETF,ETF
@@ -3721,6 +3741,7 @@ N2 인버스 2X 천연가스 선물 ETN,550100,ETF,ETF
 한투 레버리지베트남VN30선물 ETN(H),570065,ETF,ETF
 한투 인버스2X베트남VN30 선물 ETN(H),570066,ETF,ETF
 한투 레버리지플래티넘선물 ETN,570069,ETF,ETF
+한투 인버스2X플래티넘선물 ETN,570070,ETF,ETF
 한투 구리선물 ETN,570071,ETF,ETF
 한투 레버리지구리선물 ETN,570072,ETF,ETF
 한투 인버스2X구리선물 ETN,570073,ETF,ETF
@@ -3764,8 +3785,10 @@ KB 인버스 2X 항셍테크 선물 ETN,580019,ETF,ETF
 KB 천연가스 선물 ETN(H),580020,ETF,ETF
 KB 인버스 천연가스 선물 ETN,580021,ETF,ETF
 KB 레버리지 금 선물 ETN(H),580022,ETF,ETF
+KB 인버스 2X 금 선물 ETN(H),580023,ETF,ETF
 KB S&P 레버리지 은 선물 ETN(H),580026,ETF,ETF
 KB 레버리지 구리 선물 ETN(H),580032,ETF,ETF
+KB 인버스 2X 구리 선물 ETN(H),580033,ETF,ETF
 KB 레버리지 FANG 플러스 ETN(H),580034,ETF,ETF
 KB S&P 유럽탄소배출권 선물 ETN(H),580035,ETF,ETF
 KB 레버리지 KOSPI 200 선물 ETN,580039,ETF,ETF
@@ -3891,6 +3914,7 @@ KB 솔랙티브 인버스 천연가스 선물 ETN,580087,ETF,ETF
 하나 레버리지 콩 선물 ETN(H),700013,ETF,ETF
 하나 인버스 2X 콩 선물 ETN(H),700014,ETF,ETF
 하나 레버리지 코스닥150 선물 ETN,700017,ETF,ETF
+하나 인버스 2X 코스닥150 선물 ETN,700018,ETF,ETF
 하나 Solactive US Tech Top 10 ETN(H),700022,ETF,ETF
 하나 Solactive 2X US Tech Top 10 ETN(H),700023,ETF,ETF
 하나 블룸버그 2X 천연가스 선물 ETN(H) B,700025,ETF,ETF
@@ -3925,6 +3949,7 @@ KB 솔랙티브 인버스 천연가스 선물 ETN,580087,ETF,ETF
 키움 코스피200 선물 달러노출 ETN,760021,ETF,ETF
 키움 K방산 TOP5 ETN,760022,ETF,ETF
 키움 레버리지 K방산 TOP5 ETN,760023,ETF,ETF
+키움 인버스 2X K방산 TOP5 ETN,760024,ETF,ETF
 키움 전력 TOP5 ETN,760025,ETF,ETF
 키움 레버리지 전력 TOP5 ETN,760026,ETF,ETF
 키움 인버스 2X 전력 TOP5 ETN,760027,ETF,ETF
