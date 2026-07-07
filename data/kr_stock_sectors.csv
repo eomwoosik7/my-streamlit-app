@@ -3793,6 +3793,9 @@ N2 인버스 2X 천연가스 선물 ETN,550100,ETF,ETF
 한투 인버스금선물 ETN,570122,ETF,ETF
 한투 은선물 ETN,570123,ETF,ETF
 한투 인버스은선물 ETN,570124,ETF,ETF
+한투 솔랙티브레버리지금선물 ETN,570125,ETF,ETF
+한투 솔랙티브인버스2X금선물 ETN,570126,ETF,ETF
+한투 인버스2X코스피200선물 ETN,570127,ETF,ETF
 KB Wise 분할매매 ETN,580010,ETF,ETF
 KB 레버리지 S&P 500 선물 ETN(H),580016,ETF,ETF
 KB 인버스 2X S&P 500 선물 ETN,580017,ETF,ETF
@@ -3852,6 +3855,8 @@ KB 솔랙티브 천연가스 선물 ETN,580085,ETF,ETF
 KB 솔랙티브 레버리지 천연가스 선물 ETN,580086,ETF,ETF
 KB 솔랙티브 인버스 천연가스 선물 ETN,580087,ETF,ETF
 KB 인버스 2X KOSPI 200 선물 ETN B,580088,ETF,ETF
+KB 솔랙티브 레버리지 금 선물 ETN,580089,ETF,ETF
+KB 솔랙티브 인버스 2X 금 선물 ETN,580090,ETF,ETF
 메리츠 인플레이션 국채 ETN,610001,ETF,ETF
 메리츠 미국 인플레이션 국채 ETN(H),610003,ETF,ETF
 메리츠 국채30년 ETN,610007,ETF,ETF
@@ -3925,6 +3930,9 @@ KB 인버스 2X KOSPI 200 선물 ETN B,580088,ETF,ETF
 메리츠 은 선물 ETN(H),610099,ETF,ETF
 메리츠 레버리지 은 선물 ETN(H),610100,ETF,ETF
 메리츠 인버스 2X 은 선물 ETN(H),610101,ETF,ETF
+메리츠 솔랙티브 금 선물 ETN(H),610102,ETF,ETF
+메리츠 솔랙티브 레버리지 금 선물 ETN(H),610103,ETF,ETF
+메리츠 솔랙티브 인버스 2X 금 선물 ETN(H),610104,ETF,ETF
 하나 레버리지 옥수수 선물 ETN(H),700011,ETF,ETF
 하나 인버스 2X 옥수수 선물 ETN(H),700012,ETF,ETF
 하나 레버리지 콩 선물 ETN(H),700013,ETF,ETF
