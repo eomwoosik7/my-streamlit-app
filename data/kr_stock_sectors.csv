@@ -500,7 +500,7 @@ DB,012030,IT서비스,Information Technology
 현대모비스,012330,자동차부품,Consumer Discretionary
 뉴인텍,012340,전기제품,Utilities
 한화에어로스페이스,012450,우주항공과국방,Industrials
-더존비즈온,012510,소프트웨어,Information Technology
+Npay 증권,012510,N/A,N/A
 경인양행,012610,화학,Materials
 원일특강,012620,철강,Materials
 HDC,012630,건설,Industrials
@@ -3934,6 +3934,8 @@ KB 솔랙티브 인버스 2X 금 선물 ETN,580090,ETF,ETF
 메리츠 솔랙티브 금 선물 ETN(H),610102,ETF,ETF
 메리츠 솔랙티브 레버리지 금 선물 ETN(H),610103,ETF,ETF
 메리츠 솔랙티브 인버스 2X 금 선물 ETN(H),610104,ETF,ETF
+메리츠 레버리지 국채30년 ETN B,610105,ETF,ETF
+메리츠 인버스 국채30년 ETN B,610106,ETF,ETF
 하나 레버리지 옥수수 선물 ETN(H),700011,ETF,ETF
 하나 인버스 2X 옥수수 선물 ETN(H),700012,ETF,ETF
 하나 레버리지 콩 선물 ETN(H),700013,ETF,ETF
